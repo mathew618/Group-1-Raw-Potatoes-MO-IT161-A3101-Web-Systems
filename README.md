@@ -1,3 +1,4 @@
+WEEK 3
 Member 1: Authentication (Log In, Create Account, Welcome Page) - Bianca
 
 Member 2: Homepage/ Discovery (Homepage, Featured Artists, Navigation) - Fidel
