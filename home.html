@@ -61,30 +61,73 @@
         .AW3,
         .AW4,
         .AW5 {
+            background-color: #000000;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .AW1,
+        .AW2,
+        .AW3,
+        .AW4,
+        .AW5 {
+            display: none;
             background-color: #ffffff;
             padding: 15px;
             text-align: center;
         }
 
-        .AW1 img,
-        .AW2 img,
-        .AW3 img,
-        .AW4 img,
-        .AW5 img {
-            width: 250px;
-            height: 250px;
-            object-fit: cover;
+        .featured {
             display: block;
         }
 
-        .AW1 p,
-        .AW2 p,
-        .AW3 p,
-        .AW4 p
-        .AW5 p {
-            margin-top: 10px;
-            font-weight: bold;
+        .featured img {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .ButtonLock {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #000000;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #832a2a;
+        }
+
+        .MoveableMagicButtonYes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .MoveableMagicButtonYes button {
+            background-color: #d16767;
             color: #000000;
+            border: 2x solid #832a2a;
+            padding: 8px 16px;
+            margin: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+
+        .MoveableMagicButtonYes button:hover {
+            background-color: #832a2a;
         }
     </style>
     <div class="BoxOfTheHomePageIg">
@@ -102,32 +145,34 @@
     <div class="IMissSHSDays">
         <div class="JoyOfMemories">
             <h1>Daily Showcase</h1>
-            <div class="MoveableMagicButtonYes">
-                <button>Previous</button>
-                <button>Next</button>
-            </div>
-            <div class="ArtsyBitsy">
-                <div class="AW1">
+            <div class="ArtsyBitsy" id="SunsetParadise">
+                <div class="AW1" data-index="0">
                     <img src="CutePaintFidel.png">
                     <p>Blubytrave890</p>
                 </div>
-                <div class="AW2">
+                <div class="AW2" data-index="1">
                     <img src="beetrix112_comm.png">
                     <p>_BELPHIE</p>
                 </div>
-                <div class="AW3">
+                <div class="AW3" data-index="2">
                     <img src="MatSparkyJm.png">
                     <p>Mathew618</p>
                 </div>
-                <div class="AW4">
+                <div class="AW4" data-index="3">
                     <img src="AzueliaArtwork.png">
                     <p>Az</p>
                 </div>
-                <div class="AW5">
+                <div class="AW5" data-index="4">
                     <img src="CamechiDiazArtwork.png">
                     <p>CamechiDiaz</p>
                 </div>
             </div>
+        </div>
+        <div class="MoveableMagicButtonYes">
+            <button onclick="changeFeatured(-1)">←</button>
+            <button onclick="changeFeatured(1)">→</button>
+        </div>
+        <div class="ButtonLock" id="buttonlock">
         </div>
     </div>
 </head>
@@ -156,5 +201,39 @@
         </p>
     </div>
 </body>
+<script>
+    let currentIndex = 2;
+    const cards = document.querySelectorAll('.ArtsyBitsy > div');
+    const dotsRow = document.getElementById('buttonlock');
+
+    cards.forEach((card, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            updateFeatured();
+        });
+        dotsRow.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.dot');
+
+    function updateFeatured() {
+        cards.forEach((card, index) => {
+            card.classList.toggle('featured', index === currentIndex);
+        });
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+    }
+
+    function changeFeatured(direction) {
+        const total = cards.length;
+        currentIndex = (currentIndex + direction + total) % total;
+        updateFeatured();
+    }
+
+    updateFeatured();
+</script>
 
 </html>
