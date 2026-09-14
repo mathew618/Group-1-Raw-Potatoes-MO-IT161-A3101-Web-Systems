@@ -4,6 +4,10 @@
 <head>
     <title> ArtifyPH </title>
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         .home {
             background-color: #500202;
             font-family: Arial, sans-serif;
@@ -18,6 +22,25 @@
 
         .TopButtonThingy {
             margin-bottom: 10px;
+        }
+
+        .TopButtonThingy a {
+            text-decoration: none;
+        }
+
+        .TopButtonThingy button {
+            background-color: #d16767;
+            color: #faf8f8;
+            border: 2x solid #832a2a;
+            padding: 8px 16px;
+            margin: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .TopButtonThingy button:hover {
+            background-color: #382727;
         }
 
         .BoxOfTheHomePageIg {
@@ -47,6 +70,7 @@
         .ArtsyBitsy {
             display: flex;
             justify-content: center;
+            align-items: center;
             gap: 60px;
         }
 
@@ -61,30 +85,53 @@
         .AW3,
         .AW4,
         .AW5 {
-            background-color: #000000;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .AW1,
-        .AW2,
-        .AW3,
-        .AW4,
-        .AW5 {
             display: none;
             background-color: #ffffff;
             padding: 15px;
             text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .featured {
+        .show-side {
             display: block;
         }
 
-        .featured img {
+        .show-side img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .show-center {
+            display: block;
+        }
+
+        .show-center img {
             width: 300px;
             height: 300px;
             object-fit: cover;
+        }
+
+        .MoveableMagicButtonYes {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .MoveableMagicButtonYes button {
+            background-color: #d16767;
+            color: #000000;
+            border: 2x solid #832a2a;
+            padding: 8px 16px;
+            margin: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .MoveableMagicButtonYes button:hover {
+            background-color: #832a2a;
         }
 
         .ButtonLock {
@@ -106,43 +153,20 @@
         .dot.active {
             background-color: #832a2a;
         }
-
-        .MoveableMagicButtonYes {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .MoveableMagicButtonYes button {
-            background-color: #d16767;
-            color: #000000;
-            border: 2x solid #832a2a;
-            padding: 8px 16px;
-            margin: 10px;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-
-        .MoveableMagicButtonYes button:hover {
-            background-color: #832a2a;
-        }
     </style>
-    <div class="BoxOfTheHomePageIg">
+    <div class="BoxOfTheHomePageIg" id="Bloxytrave890">
         <div class="LogoSomethingIdk">
             <h1>ArtifyPH</h1>
             <h2>Art By Hand</h2>
         </div>
         <div class="TopButtonThingy">
-            <button>Home</button>
+            <a href="#Imy2025"><button>Home</button></a>
+            <a href="#HomeAloneDirectedByMe"><button>Profile</button></a>
             <button>About</button>
-            <button>Profile</button>
             <button>Search</button>
         </div>
     </div>
-    <div class="IMissSHSDays">
+    <div class="IMissSHSDays" id="Imy2025">
         <div class="JoyOfMemories">
             <h1>Daily Showcase</h1>
             <div class="ArtsyBitsy" id="SunsetParadise">
@@ -169,8 +193,8 @@
             </div>
         </div>
         <div class="MoveableMagicButtonYes">
-            <button onclick="changeFeatured(-1)">←</button>
-            <button onclick="changeFeatured(1)">→</button>
+            <button class="MoveableMagicButtonYes" onclick="changeFeatured(-1)">←</button>
+            <button class="MoveableMagicButtonYes" onclick="changeFeatured(1)">→</button>
         </div>
         <div class="ButtonLock" id="buttonlock">
         </div>
@@ -178,7 +202,7 @@
 </head>
 
 <body>
-    <div class="home">
+    <div class="home" id="HomeAloneDirectedByMe">
         <h1>ArtifyPH</h1>
         <p>Hi Sir 4:37pm 09/12/2026 <br> <br>
             = DIARY OF FIDEL = <br> <br>
@@ -203,37 +227,47 @@
 </body>
 <script>
     let currentIndex = 2;
-    const cards = document.querySelectorAll('.ArtsyBitsy > div');
-    const dotsRow = document.getElementById('buttonlock');
+    const gambit = document.querySelectorAll('.ArtsyBitsy > div');
+    const endoftheworld = gambit.length;
+    const dotts4hotdogs = document.getElementById('buttonlock');
 
-    cards.forEach((card, index) => {
+    gambit.forEach((card, index) => {
         const dot = document.createElement('div');
         dot.classList.add('dot');
         dot.addEventListener('click', () => {
             currentIndex = index;
-            updateFeatured();
+            updateSlides();
         });
-        dotsRow.appendChild(dot);
+        dotts4hotdogs.appendChild(dot);
     });
 
     const dots = document.querySelectorAll('.dot');
 
-    function updateFeatured() {
-        cards.forEach((card, index) => {
-            card.classList.toggle('featured', index === currentIndex);
+    function updateSlides() {
+        const prevIndex = (currentIndex - 1 + endoftheworld) % endoftheworld;
+        const nextIndex = (currentIndex + 1) % endoftheworld;
+
+        gambit.forEach((card, index) => {
+            card.classList.remove('show-side', 'show-center');
+
+            if (index === currentIndex) {
+                card.classList.add('show-center');
+            } else if (index === prevIndex || index === nextIndex) {
+                card.classList.add('show-side');
+            }
         });
+
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentIndex);
         });
     }
 
     function changeFeatured(direction) {
-        const total = cards.length;
-        currentIndex = (currentIndex + direction + total) % total;
-        updateFeatured();
+        currentIndex = (currentIndex + direction + endoftheworld) % endoftheworld;
+        updateSlides();
     }
 
-    updateFeatured();
+    updateSlides();
 </script>
 
 </html>
