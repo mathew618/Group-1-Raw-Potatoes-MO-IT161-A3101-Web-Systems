@@ -5,60 +5,131 @@
     <title> ArtifyPH </title>
     <style>
         .home {
-            background-color: #f0f0f0;
+            background-color: #500202;
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
         }
+
         .LogoSomethingIdk {
             text-align: left;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
+
         .TopButtonThingy {
             margin-bottom: 10px;
         }
+
         .BoxOfTheHomePageIg {
-            background-color: #ffa8a8c2;
-            border: 1px solid #000000;
+            background-color: #ec876e;
+            border: 2px solid #832a2a;
             padding: 15px;
-            margin: 10px;
-            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             box-shadow: 0 50px 50px rgba(122, 2, 2, 0.1);
         }
-        .IMissSHSDays {
+
+        .JoyOfMemories {
+            text-align: center;
+            color: #eda27c;
+        }
+
+        .JoyOfMemories h1 {
+            font-weight: bold;
+            font-size: 50px;
+            text-shadow: 2px 2px 1px #9e6c53;
+        }
+
+        .ArtsyBitsy {
             display: flex;
             justify-content: center;
-            background-color: #000000;
-            padding: 5px;
-            margin: 20px 0;
-            gap: 500px;
+            gap: 60px;
         }
-        .IMissSHSDays img{
-            width: 300px;
-            height: 300px;
+
+        .IMissSHSDays {
+            background-color: #f8ebe2;
+            border: 2px solid #832a2a;
+            padding: 20px;
+        }
+
+        .AW1,
+        .AW2,
+        .AW3,
+        .AW4,
+        .AW5 {
+            background-color: #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .AW1 img,
+        .AW2 img,
+        .AW3 img,
+        .AW4 img,
+        .AW5 img {
+            width: 250px;
+            height: 250px;
             object-fit: cover;
+            display: block;
+        }
+
+        .AW1 p,
+        .AW2 p,
+        .AW3 p,
+        .AW4 p
+        .AW5 p {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #000000;
         }
     </style>
     <div class="BoxOfTheHomePageIg">
-    <div class="LogoSomethingIdk">
-        <h1>ArtifyPH</h1>
-        <h2>Art By Hand</h2>
-    </div>
-    <div class="TopButtonThingy">
-        <button>Home</button>
-        <button>About</button>
-        <button>Profile</button>
-        <button>Search</button>
-    </div>
-    </div>
-    <div class = "IMissSHSDays">
-        <div class = "JoyOfMemories">
-            <img src="CutePaintFidel.png">
-            <img src="beetrix112_comm.png">
-            <img src="MatSparkyJm.png">
+        <div class="LogoSomethingIdk">
+            <h1>ArtifyPH</h1>
+            <h2>Art By Hand</h2>
+        </div>
+        <div class="TopButtonThingy">
+            <button>Home</button>
+            <button>About</button>
+            <button>Profile</button>
+            <button>Search</button>
         </div>
     </div>
-</div>
+    <div class="IMissSHSDays">
+        <div class="JoyOfMemories">
+            <h1>Daily Showcase</h1>
+            <div class="MoveableMagicButtonYes">
+                <button>Previous</button>
+                <button>Next</button>
+            </div>
+            <div class="ArtsyBitsy">
+                <div class="AW1">
+                    <img src="CutePaintFidel.png">
+                    <p>Blubytrave890</p>
+                </div>
+                <div class="AW2">
+                    <img src="beetrix112_comm.png">
+                    <p>_BELPHIE</p>
+                </div>
+                <div class="AW3">
+                    <img src="MatSparkyJm.png">
+                    <p>Mathew618</p>
+                </div>
+                <div class="AW4">
+                    <img src="AzueliaArtwork.png">
+                    <p>Az</p>
+                </div>
+                <div class="AW5">
+                    <img src="CamechiDiazArtwork.png">
+                    <p>CamechiDiaz</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </head>
 
 <body>
