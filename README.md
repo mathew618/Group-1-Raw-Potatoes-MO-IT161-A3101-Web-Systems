@@ -1,4 +1,5 @@
-WEEK 3 TASKS:
+(Can you guys organize the images into a folder)
+WEEK 3 TASKS: 
 
 Member 1: Authentication (Log In, Create Account, Welcome Page) - Bianca
 
