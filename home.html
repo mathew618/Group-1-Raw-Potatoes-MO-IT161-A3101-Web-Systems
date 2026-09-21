@@ -162,38 +162,26 @@
         .dot.active {
             background-color: #832a2a;
         }
-
-        .doomsdaydevice {
-            background-color: #ffffff;
-            padding: 10px;
-            justify-content: left;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .doomsdaydevice input,
-        .doomsdaydevice textarea {
-            width: 50%;
-            justify-content: center;
-            padding: 8px;
-            margin-top: 5px;
-        }
-
-        .doomsdaydevice button {
-            background-color: #832a2a;
-            color: white;
-            padding: 5px 15px;
-            border: none;
-            justify-content: left;
-            cursor: pointer;
-        }
-
+        
         .Cathy {
             display: flex;
             gap: 20px;
         }
 
         .Cathy img {
+            width: 19%;
+            border-radius: 8px;
+            margin-top: 10px;
+            object-fit: cover;
+            position: center;
+        }
+
+        .Mark {
+            display: flex;
+            gap: 20px;
+        }
+
+        .Mark img {
             width: 19%;
             border-radius: 8px;
             margin-top: 10px;
@@ -246,22 +234,6 @@
         <div class="ButtonLock" id="buttonlock">
         </div>
     </div>
-    <div class="home" id="HomeAloneDirectedByMe">
-        <div class="doomscroll" id="doomscroll">
-            <div class="doomsdaydevice" id="doomsdaydevice">
-                <h1>Have you found your spark yet?</h1>
-                <form id="Rawr">
-                    <label for="Title">Art Title:</label><br>
-                    <input type="text" id="Title" name="Title" required><br><br>
-                    <label for="Desc">Art Description:</label><br>
-                    <textarea id="Desc" name="Desc" rows="4" cols="50" required></textarea><br><br>
-                    <label for="MyArt">Upload Image/Video:</label><br>
-                    <input type="file" id="MyArt" name="MyArt" accept=".gif,.png,.jpeg,.jpg,.mp4" required>
-                </form>
-                <button onclick="ArtMyLifeHelpMePls()">Post</button>
-            </div>
-        </div>
-    </div>
 </head>
 
 <body>
@@ -273,16 +245,18 @@
             <img src="Assets/HOME-EX-POST/HOME-EX-4.png">
             <img src="Assets/HOME-EX-POST/HOME-EX-5.png">
         </div>
-    </div>
+        <div class="Mark" id="Mark">
+            <img src="Assets/HOME-EX-POST/HOME-EX-6.png">
+            <img src="Assets/HOME-EX-POST/HOME-EX-7.png">
+            <img src="Assets/HOME-EX-POST/HOME-EX-8.png">
+            <img src="Assets/HOME-EX-POST/HOME-EX-9.png">
+            <img src="Assets/HOME-EX-POST/HOME-EX-10.png">
+        </div>
 
-    <div class="secretmessage" id="secretmessage">
-        <h1>ArtifyPH</h1>
-        <p>Until Then <br> <br>
-            <br>
-            Yours Truly<br>
-            Fidel David Sario X - x <br>
-        </p>
-    </div>
+        <div class="secretmessage" id="secretmessage">
+            <h1>ArtifyPH</h1>
+            <p>Until Then </p>
+        </div>
 </body>
 <script>
     let currentIndex = 2;
@@ -327,16 +301,6 @@
     }
 
     updateSlides();
-
-    document.getElementById("MyArt").addEventListener("change", function () {
-        const allowedTypes = ["image/gif", "image/png", "image/jpeg", "video/mp4"];
-        const file = this.files[0];
-
-        if (file && !allowedTypes.includes(file.type)) {
-            alert("Oopsie but that's not allowed, the file only supports GIF, PNG, JPEG, JPG, or MP4 files are allowed.");
-            this.value = "";
-        }
-    });
 </script>
 
 </html>
