@@ -16,7 +16,7 @@
         .Navigation_Buttons button {
             background-color: #d16767;
             color: #faf8f8;
-            border: 2x solid #832a2a;
+            border: 2px solid #832a2a;
             padding: 8px 16px;
             margin: 10px;
             border-radius: 6px;
@@ -64,7 +64,6 @@
             width: 120px;
             height: 120px;
             object-fit: cover;
-            position: center;
             border-radius: 50%;
             border: 5px solid #f8ebe2;
         }
@@ -91,13 +90,12 @@
         .MyProfileDesc button {
             background-color: #6d6464;
             color: #faf8f8;
-            border: 2x solid #832a2a;
+            border: 2px solid #832a2a;
             padding: 8px 16px;
             margin: 10px auto;
             border-radius: 6px;
             font-size: 14px;
             cursor: pointer;
-
         }
 
         .MyProfileDesc button:hover {
@@ -111,11 +109,10 @@
         .PorkNBeans button {
             background-color: #d16767;
             color: #faf8f8;
-            border: 2x solid #832a2a;
+            border: 2px solid #832a2a;
             padding: 8px 16px;
             margin: 10px auto;
             border-radius: 20px;
-            position: center;
             font-size: 14px;
             cursor: pointer;
         }
@@ -129,24 +126,6 @@
             color: #ffffff;
         }
 
-        .MyProfileImagesPortfolio table,
-        .MyProfileImagesCommissions table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 15px auto;
-        }
-
-        .MyProfileImagesPortfolio td,
-        .MyProfileImagesCommissions td {
-            border: 1px solid #f3f0f0;
-            padding: 10px;
-            text-align: center;
-        }
-
-        .MyProfileImagesPortfolio img,
-        .MyProfileImagesCommissions img {
-            border-radius: 6px;
-        }
     </style>
 </head>
 
@@ -161,11 +140,10 @@
         <div class="Navigation_Buttons">
             <a href="test_account_home.html"><button>Home</button></a>
             <a href="commission.html"><button>Commissions</button></a>
-            <a href="settings.html"><button>Settings</button></a>
+            <a href="test_settings.html"><button>Settings</button></a>
             <a href="test_account_login.html"><button>Logout</button></a>
         </div>
     </div>
-    <hr>
 
     <div class="MyProfile" id="MyProfile">
         <!-- Artist Banner & Cover Section -->
@@ -182,7 +160,6 @@
                     onclick="document.getElementById('profilePicInput').click()" style="cursor:pointer;">
                 <input type="file" id="profilePicInput" accept="image/*" style="display:none;"
                     onchange="previewImage(event, 'ProfilePicImg')">
-
             </div>
         </div>
 
@@ -197,75 +174,33 @@
 
     <!-- Portfolio Section -->
     <div>
-        <!-- Gallery Grid Of The User -->
-        <div class=MyProfileStuffToDoYes id="MyProfileStuffToDoYes">
+        <div class="MyProfileStuffToDoYes" id="MyProfileStuffToDoYes">
             <div class="PorkNBeans" id="PorkNBeans">
                 <button id="button4Portfolio" onclick="showSection('portfolio')">Portfolio</button>
                 <button id="button4Commission" onclick="showSection('commission')">Commission</button>
             </div>
         </div>
-        <button>+</button>
-        <button>Edit</button>
+
+        <div class="TF2Toolbar">
+            <input type="file" id="uploadInput" accept="image/*" style="display:none;"
+                onchange="addImageToGallery(event)">
+            <button onclick="document.getElementById('uploadInput').click()">+</button>
+            <button id="ButtonWobblyGoopler" onclick="toggleEditMode()">Edit</button>
+        </div>
 
         <div class="MyProfileImagesPortfolio" id="MyProfileImagesPortfolio">
-            <table border="1" cellpadding="10" cellspacing="0">
-                <tr>
-                    <td align="center">
-                        <img src="Test_Account_Assets/MyProfileExamples/Portfolio1.png" width="200" height="200"><br>
-                    </td>
-                    <td align="center">
-                        <img src="Test_Account_Assets/MyProfileExamples/Portfolio2.png" width="200" height="200"><br>
-                    </td>
-                    <td align="center">
-                        <img src="artwork3.jpg"width="200" height="200"><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <img src="artwork4.jpg" width="200" height="200"><br>
-                    </td>
-                    <td align="center">
-                        <img src="artwork5.jpg"  width="200" height="200"><br>
-                    </td>
-                    <td align="center">
-                        <img src="artwork6.jpg"  width="200" height="200"><br>
-                    </td>
-                </tr>
-            </table>
+            <div class="Picnic" id="portfoliopicnic"></div>
         </div>
 
         <div class="MyProfileImagesCommissions" id="MyProfileImagesCommissions">
-            <table border="1" cellpadding="10" cellspacing="0">
-                <tr>
-                    <td align="center">
-                        <img src="Test_Account_Assets/MyProfileExamples/Commission1.png" width="200" height="200"><br>
-                    </td>
-                    <td align="center">
-                        <img src="Test_Account_Assets/MyProfileExamples/Commission2.png" width="200" height="200"><br>
-                    </td>
-                    <td align="center">
-                        <img src="artwork3.jpg" width="200" height="200"><br>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center">
-                        <img src="artwork4.jpg" width="200" height="200"><br>
-                    </td>
-                    <td align="center">
-                        <img src="artwork5.jpg" width="200" height="200"><br>
-                    </td>
-                    <td align="center">
-                        <img src="artwork6.jpg" width="200" height="200"><br>
-                    </td>
-                </tr>
-            </table>
+            <div class="Picnic" id="commissionpicnic"></div>
         </div>
     </div>
 
 </body>
 <script>
-    /*For The Image Preview */
-    function previewImage(event, imgId) {
+    /*For The Image Preview (banner/avatar) */
+    function PreviewImageBannerNAvatar(event, imgId) {
         const file = event.target.files[0];
         if (!file) return;
         const reader = new FileReader();
@@ -287,7 +222,6 @@
             p.style.display = 'block';
             textarea.style.display = 'none';
             editbiot.textContent = 'Edit Bio';
-            console.log('Saved bio:', textarea.value);
         } else {
             textarea.value = p.textContent;
             p.style.display = 'none';
@@ -296,17 +230,7 @@
             editbiot.textContent = 'Save Bio';
         }
     }
-    /*Login In */
-    window.onload = function () {
-        const username = localStorage.getItem('loggedInUser');
-        if (username) {
-            document.getElementById('MyUsername').textContent = username;
-        } else {
-            window.location.href = "login.html";
-        }
-    };
 
-    /*For Portfolio and Commissions */
     /*For Switching Between Portfolio and Commissions*/
     function showSection(section) {
         const portfolio = document.getElementById('MyProfileImagesPortfolio');
@@ -326,7 +250,30 @@
             button4Commission.classList.add('active');
         }
     }
-    showSection('portfolio');
+
+    /*MyProfile Examples Images Test for storing and editing*/
+    const defaultPortfolioImages = [
+        "Test_Account_Assets/MyProfileExamples/Portfolio1.png",
+        "Test_Account_Assets/MyProfileExamples/Portfolio2.png"
+    ];
+
+    const defaultCommissionImages = [
+        "Test_Account_Assets/MyProfileExamples/Commission1.png",
+        "Test_Account_Assets/MyProfileExamples/Commission2.png"
+    ];
+
+    /*Login Check */
+    window.onload = function () {
+        const username = localStorage.getItem('loggedInUser');
+        if (username) {
+            document.getElementById('MyUsername').textContent = username;
+        } else {
+            window.location.href = "test_account_login.html";
+            return;
+        }
+        showSection('portfolio');
+        renderGalleries();
+    };
 </script>
 
 </html>
