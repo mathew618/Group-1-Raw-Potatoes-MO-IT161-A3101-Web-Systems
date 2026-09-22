@@ -22,17 +22,19 @@
         function checkLogin() {
             const Email = document.getElementById('email').value.trim();
             const Password = document.getElementById('UserPassword').value;
+            const DefaultUsername = "Justablub";
+            const DefaultEmail = "ilosthotdogs@gmail.com";
+            const DefaultPassword = "Beezytrave890";
+            const SavedUsername = localStorage.getItem('LoggedUser') || DefaultUsername;
+            const SavedEmail = localStorage.getItem('LoggedEmail') || DefaultEmail;
+            const SavedPassword = localStorage.getItem('LoggedPassword') || DefaultPassword;
 
-            const Vusername = "Justablub";
-            const Vemail = "ilosthotdogs@gmail.com";
-            const Vpassword = "Beezytrave890";
+            const emailMatches = (Email === SavedUsername || Email === SavedEmail);
 
-            const emailMatches = (Email === Vusername || Email === Vemail);
-
-            if (emailMatches && Password === Vpassword) {
-                localStorage.setItem('loggedInUser', Vusername);
-                localStorage.setItem('loggedInEmail', Vemail);
-                localStorage.setItem('loggedInPassword', Vpassword);
+            if (emailMatches && Password === SavedPassword) {
+                localStorage.setItem('LoggedUser', SavedUsername);
+                localStorage.setItem('LoggedEmail', SavedEmail);
+                localStorage.setItem('LoggedPassword', SavedPassword);
                 window.location.href = "test_account_home.html";
             } else {
                 document.getElementById('Invalid_Credentials').textContent = "Incorrect Credentials";
@@ -50,6 +52,8 @@
                 UserPassword.type = 'password';
             }
         });
+
+
     </script>
 </body>
 

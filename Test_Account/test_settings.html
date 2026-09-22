@@ -160,6 +160,29 @@
             font-size: 12px;
             margin-top: 4px;
         }
+
+        .LETMEOUTPLSSS {
+            margin-bottom: 10px;
+        }
+
+        .LETMEOUTPLSSS a {
+            text-decoration: none;
+            justify-content: center;
+            display: flex;
+        }
+
+        .LETMEOUTPLSSS button {
+            border: none;
+            padding: 10px 204px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #772f2f;
+        }
+
+        .LETMEOUTPLSSS button:hover {
+            background-color: #e60303;
+        }
     </style>
 </head>
 
@@ -209,8 +232,8 @@
         <label class="FieldLabel" for="username">Username</label>
         <input type="text" id="username" placeholder="Enter Username" disabled>
 
-        <label class="FieldLabel" for="bio">Bio</label>
-        <input type="text" id="bio" maxlength="50" placeholder="Tell people about yourself" disabled>
+        <label class="FieldLabel" for="biodesc">Bio</label>
+        <input type="text" id="biodesc" maxlength="50" placeholder="Tell people about yourself" disabled>
 
         <label class="FieldLabel" for="profilePhotoInput">Change Profile Photo</label>
         <input type="file" id="profilePhotoInput" accept="image/*" disabled>
@@ -224,6 +247,9 @@
         </div>
         <p id="SaveStatus"></p>
     </div>
+    <div class="LETMEOUTPLSSS">
+        <a href="Test_Main.html"><button>LOG OUT </button></a>
+    </div>
 
 </body>
 <script>
@@ -231,22 +257,22 @@
     const HiddenUntilEditGroups = ['vemail', 'vpassword', 'Showstopper'];
 
     /* They Got Caught in the Bear Trap X - x*/
-    const DisabledUntilEditFields = ['email', 'UserPassword', 'username', 'bio', 'profilePhotoInput', 'backgroundInput'];
+    const DisabledUntilEditFields = ['email', 'UserPassword', 'username', 'biodesc', 'profilePhotoInput', 'backgroundInput'];
 
     let isEditing = false;
 
     function loadSavedValues() {
-        const savedEmail = localStorage.getItem('loggedInEmail');
-        const savedPassword = localStorage.getItem('loggedInPassword');
-        const savedUsername = localStorage.getItem('loggedInUser');
-        const savedBio = localStorage.getItem('userBio');
+        const savedEmail = localStorage.getItem('LoggedEmail');
+        const savedPassword = localStorage.getItem('LoggedPassword');
+        const savedUsername = localStorage.getItem('LoggedUser');
+        const savedBio = localStorage.getItem('BioDesc');
 
         document.getElementById('email').value = savedEmail || '';
         document.getElementById('ConEmail').value = savedEmail || '';
         document.getElementById('UserPassword').value = savedPassword || '';
         document.getElementById('ConPassword').value = savedPassword || '';
         document.getElementById('username').value = savedUsername || '';
-        document.getElementById('bio').value = savedBio || '';
+        document.getElementById('biodesc').value = savedBio || '';
     }
 
     window.onload = loadSavedValues;
@@ -281,7 +307,7 @@
         const newPassword = document.getElementById('UserPassword').value;
         const confirmPassword = document.getElementById('ConPassword').value;
         const newUsername = document.getElementById('username').value.trim();
-        const newBio = document.getElementById('bio').value.trim();
+        const newBioDesc = document.getElementById('biodesc').value.trim();
 
         if (newEmail !== confirmEmail) {
             document.getElementById('EmailMismatch').textContent = "Emails don't match.";
@@ -295,10 +321,10 @@
         }
         document.getElementById('PasswordMismatch').textContent = "";
 
-        localStorage.setItem('loggedInEmail', newEmail);
-        localStorage.setItem('loggedInPassword', newPassword);
-        if (newUsername) localStorage.setItem('loggedInUser', newUsername);
-        localStorage.setItem('userBio', newBio);
+        localStorage.setItem('LoggedEmail', newEmail);
+        localStorage.setItem('LoggedPassword', newPassword);
+        if (newUsername) localStorage.setItem('LoggedUser', newUsername);
+        localStorage.setItem('BioDesc', newBioDesc);
 
         document.getElementById('SaveStatus').textContent = "Changes saved!";
 
