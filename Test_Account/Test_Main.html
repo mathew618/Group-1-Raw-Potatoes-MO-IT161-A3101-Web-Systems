@@ -5,57 +5,45 @@
     <title> ArtifyPH </title>
     <style>
         body {
-            background-color: #fffffe;
-            font-family: Arial, sans-serif;
-        }
-
-        center {
             background-color: #FEE8D3;
-            margin: 20px auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .ArtifyPHLogo h1 {
-            font-weight: bold;
-            font-size: 50px;
-            text-shadow: 2px 2px 1px #9e6c53;
-            text-align: center;
-            color: #eda27c;
-        }
-
-        .ArtifyPHLogo p {
-            font-weight: bold;
             font-family: Arial, sans-serif;
-            font-size: 50px;
-            text-shadow: 2px 2px 1px #9e6c53;
-            text-align: center;
-            color: #eda27c;
         }
 
-        .WelcomeMessage p {
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            font-size: 20px;
-            text-shadow: 2px 2px 1px #9e6c53;
-            text-align: center;
-            color: #eda27c;
-        }
-
-        .LoginButton button {
-            background-color: #eda27c;
-            color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
+        .ArtifyPHLogo {
+            width: 180px;
             cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
+
         }
-        .LoginButton button:hover {
-            background-color: #B04825;
+
+        Nav ul {
+            list-style: none;
+            width: 100%;
+            text-align: right;
+            padding-right: 60px;
         }
+        Nav ul li {
+            display: inline-block;
+            margin: 10px 20px;
+        }
+
+        .Intro h1 {
+            font-weight: bold;
+            font-family: lovelo, sans-serif;
+            font-size: 50px;
+            text-shadow: 2px 2px 1px #9e6c53;
+            text-align: center;
+            color: #eda27c;
+        }
+
+        Nav {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+
+        }
+
     </style>
 
 </head>
@@ -63,25 +51,29 @@
 <body>
     <center>
         <div class="ArtifyPHLogo">
-            <img src="Assets/ArtifyPH_Logo_1.png" width="200">
+            <img src="Test_Account_Assets/ArtifyPH_Logo.png" class="ArtifyPHLogo">
+
+        </div>
+
+        <div class="Nav">
+            <nav>
+                <ul>
+                    <li><a href="Aboutus.html">About Us</a></li>
+                    <li><a href="test_account_create.html">Sign in</a></li>
+                    <li><a href="test_account_create.html">Sign up</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="Intro">
 
             <h1>Welcome To ArtifyPH</h1>
             <h3>Art By Hand</h3>
 
         </div>
-
-        <nav>
-            <ul>
-                <li><a href="Aboutus.html">About Us</a></li>
-                <li><a href="test_account_create.html">Sign in</a></li>
-                <li><a href="test_account_create.html">Sign up</a></li>
-            </ul>
-        </nav>
-
         <div class="WelcomeMessage">
 
             <P><b>About Us!</b></P>
-
 
 
             <p> A platform created designed artist in mind. <br>
