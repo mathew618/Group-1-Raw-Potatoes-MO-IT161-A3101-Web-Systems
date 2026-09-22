@@ -5,17 +5,194 @@
     <title>ArtifyPH Log In</title>
 </head>
 
+<!-- CSS FOR LOGIN STRUCTURE-->
+
+<style>
+    body {
+        background-color: #FEE8D3;
+        font-family: Arial, sans-serif;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background-color: #FA987F;
+        color: #ece6e6;
+        min-height: 100px;
+        position: fixed;
+        padding: 0 40px;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .ArtifyPHLogo {
+        width: 180px;
+        cursor: pointer;
+    }
+
+    /* THIS IS THE SQUARE BACKGROUND */
+    section.SignIn {
+        background-color: #ffffff;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        text-align: left;
+
+    }
+
+    /* THIS IS THE TEXT INSIDE */
+    section.SignIn input[type="text"],
+    section.SignIn input[type="password"] {
+        width: 70%;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #c9c9c9;
+        border-radius: 6px;
+        font-size: 14px;
+        background-color: #faf8f8;
+        color:#000000
+
+
+    }
+
+    section.SignIn input:focus {
+        border-color: #FA987F;
+        outline: none;
+    }
+
+    /* THIS IS THE SIGN IN BUTTON*/
+    section.SignIn button {
+        background-color: #FA987F;
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 6px;
+        width: 50%;
+
+    }
+
+    section.SignIn button:hover {
+        background-color: #B04825;
+
+    }
+
+    /* THIS ARE THE LABELS*/
+    .InputEmail label,
+    .InputPassword label {
+        font-weight: 400;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-align: left;
+        color: #474444;
+        margin-right: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+
+    }
+
+    /* SIGN IN BUTTON*/
+    .SignInButton {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    /* CREATE ACCOUNT TEXT */
+    .CreateAccountText {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    input[type="checkbox"] {
+        margin-right: 5px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .InputPassword label[for="ShowPassword"] {
+        font-weight: 400;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-align: center;
+        color: #474444;
+    }
+</style>
+
+
+
+
+
+
+
+<!-- HTML FOR LOGIN STRUCTURE-->
+
 <body>
-    <center>
-        <h1>Log In</h1> <br>
-        <p>Email/ Username</p>
-        <input type="text" id="email" placeholder="Enter Email/ Username"> <br> <br>
-        <p>Password</p>
-        <input type="password" id="UserPassword" placeholder="Enter Password"> <br>
-        <input type="checkbox" id="ShowPassword"> Show Password <br> <br>
-        <button onclick="checkLogin()">Log In</button>
+
+    <header class="header">
+        <div class="ArtifyPHLogo">
+            <img src="Test_Account_Assets/ArtifyPH_Logo.png" class="ArtifyPHLogo">
+        </div>
+    </header>
+    <br><br><br><br><br><br><br><br>
+
+    <section class="SignIn">
+
+        <div class="InputEmail">
+
+            <label for="email">Email</label> <br>
+            <input type="text" id="email" placeholder="Enter Email"> <br> <br>
+
+        </div>
+
+        <div class="InputPassword">
+
+            <label for="Password">Password</label> <br>
+            <input type="password" id="UserPassword" placeholder="Enter Password"> <br>
+
+            <input type="checkbox" id="ShowPassword"><label for="ShowPassword">Show Password</label> <br>
+        </div>
+
+        <div class="SignInButton">
+
+            <button onclick="checkLogin()">Sign In</button>
+
+        </div>
         <p id="Invalid_Credentials" style="color:red;"></p>
-    </center>
+
+
+        <p class="CreateAccountText">
+            Don’t have an account?<br> <a href="CreateAcc.html">Create Account</a>
+        </p>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- JAVA SCRIPT FOR LOGIN FUNCTIONALITY -->
 
     <script>
         /*A test account dummy -Fidel */
