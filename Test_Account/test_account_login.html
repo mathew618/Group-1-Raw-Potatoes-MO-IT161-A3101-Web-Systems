@@ -31,11 +31,13 @@
 
             if (emailMatches && Password === Vpassword) {
                 localStorage.setItem('loggedInUser', Vusername);
+                localStorage.setItem('loggedInEmail', Vemail);
+                localStorage.setItem('loggedInPassword', Vpassword);
                 window.location.href = "test_account_home.html";
             } else {
                 document.getElementById('Invalid_Credentials').textContent = "Incorrect Credentials";
             }
-        } 
+        }
 
         /* Show Password because I keep having invalid credentials which pisses me off */
         const UserPassword = document.getElementById('UserPassword');
@@ -48,7 +50,6 @@
                 UserPassword.type = 'password';
             }
         });
-    </script>
     </script>
 </body>
 
