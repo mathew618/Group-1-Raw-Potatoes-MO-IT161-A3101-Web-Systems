@@ -527,7 +527,12 @@
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeFlasher();
     });
-    window.location.href = "test_account_login.html";
+    window.onload = function () {
+        const username = localStorage.getItem('loggedInUser');
+        if (!username) {
+            window.location.href = "test_account_login.html";
+        }
+    };
 </script>
 </script>
 
