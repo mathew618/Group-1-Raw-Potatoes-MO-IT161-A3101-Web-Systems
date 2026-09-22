@@ -42,7 +42,7 @@
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         max-width: 500px;
-        text-align: left;
+        text-align: center;
 
     }
 
@@ -51,14 +51,11 @@
     section.SignIn input[type="password"] {
         width: 70%;
         padding: 12px;
-        margin: 10px 0;
         border: 1px solid #c9c9c9;
         border-radius: 6px;
         font-size: 14px;
         background-color: #faf8f8;
-        color:#000000
-
-
+        color: #000000
     }
 
     section.SignIn input:focus {
@@ -71,11 +68,12 @@
         background-color: #FA987F;
         color: #ffffff;
         border: none;
-        padding: 10px 20px;
+        padding: 12px;
+        margin: 10px 0;
         font-size: 16px;
         cursor: pointer;
         border-radius: 6px;
-        width: 50%;
+        width: 75%;
 
     }
 
@@ -87,15 +85,14 @@
     /* THIS ARE THE LABELS*/
     .InputEmail label,
     .InputPassword label {
+        display: block;
         font-weight: 400;
         font-family: Arial, sans-serif;
         font-size: 14px;
-        text-align: left;
         color: #474444;
-        margin-right: 10px;
-        margin-left: 10px;
-        margin-bottom: 10px;
-        margin-top: 10px;
+        text-align: left;
+        
+
 
     }
 
@@ -108,17 +105,41 @@
     /* CREATE ACCOUNT TEXT */
     .CreateAccountText {
         text-align: center;
+        font-weight: 400;
+        font-family: Arial, sans-serif;
         margin-top: 20px;
     }
 
     input[type="checkbox"] {
-        margin-right: 5px;
         margin-left: 10px;
-        margin-bottom: 10px;
-        margin-top: 10px;
+        margin-right: 5px;
+        vertical-align: middle;
+        vertical-align: middle;
     }
 
     .InputPassword label[for="ShowPassword"] {
+        font-weight: 400;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        text-align: center;
+        margin: 10px;
+        color: #474444;
+    }
+
+    .CreateAccountText a {
+        color: #FA987F;
+        text-decoration: none;
+        font-weight: 400;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    }
+
+    .CreateAccountText a:hover {
+        text-decoration: underline;
+
+    }
+
+    .CreateAccountText {
         font-weight: 400;
         font-family: Arial, sans-serif;
         font-size: 14px;
@@ -170,7 +191,8 @@
 
 
         <p class="CreateAccountText">
-            Don’t have an account?<br> <a href="CreateAcc.html">Create Account</a>
+            Don’t have an account?<br>
+            <a href="CreateAcc.html">Create Account</a>
         </p>
     </section>
 
