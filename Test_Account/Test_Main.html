@@ -9,21 +9,47 @@
             font-family: Arial, sans-serif;
         }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+
+            background-color: #FA987F;
+            color: #ece6e6;
+            min-height: 100px;
+            position: fixed;
+            padding: 0 40px;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
         .ArtifyPHLogo {
             width: 180px;
             cursor: pointer;
 
         }
 
-        Nav ul {
+        nav ul {
             list-style: none;
             width: 100%;
             text-align: right;
             padding-right: 60px;
         }
-        Nav ul li {
+
+        nav ul li {
             display: inline-block;
             margin: 10px 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fffefe;
+            font-weight: 400;
+            font-size: 17px;
+
         }
 
         .Intro h1 {
@@ -33,9 +59,19 @@
             text-shadow: 2px 2px 1px #9e6c53;
             text-align: center;
             color: #eda27c;
+            margin-bottom: 10px;
         }
 
-        Nav {
+        .Intro h3 {
+            font-weight: bold;
+            font-family: lovelo, sans-serif;
+            font-size: 24px;
+            text-align: center;
+            color: #9e6c53;
+            margin-top: 5px;
+        }
+
+        nav {
             width: 100%;
             display: flex;
             align-items: center;
@@ -44,18 +80,89 @@
 
         }
 
+        .WelcomeMessage p {
+            font-weight: 400;
+            font-family: Inter, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            color: #141313;
+
+        }
+
+        .CreateAccButton button {
+            background-color: #eda27c;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: 400;
+            font-family: Inter, sans-serif;
+        }
+
+        .CreateAccButton button:hover {
+            background-color: #B04825;
+        }
+
+        .LoginButton button {
+            color: #eda27c;
+            background-color: #FEE8D3;
+            border: none;
+            padding: 10px 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            font-weight: 400;
+            font-family: Inter, sans-serif;
+
+        }
+
+        .LoginButton p {
+            font-weight: 400;
+            font-family: Inter, sans-serif;
+            font-size: 15px;
+            text-align: center;
+            color: #614f4f;
+            margin-top: 50px;
+        }
+        section.AboutUs {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        section.AboutUs h2 {
+            font-weight: bold;
+            font-family: Inter, sans-serif;
+            font-size: 24px;
+            text-align: center;
+            color: #eda27c;
+            margin-bottom: 10px;
+        }
+        section.AboutUs p {
+            font-weight: 400;
+            font-family: Inter, sans-serif;
+            font-size: 16px;
+            text-align: center;
+            color: #141313;
+        }
     </style>
 
 </head>
 
 <body>
     <center>
-        <div class="ArtifyPHLogo">
-            <img src="Test_Account_Assets/ArtifyPH_Logo.png" class="ArtifyPHLogo">
+        <header class="header">
+            <div class="ArtifyPHLogo">
+                <img src="Test_Account_Assets/ArtifyPH_Logo.png" class="ArtifyPHLogo">
 
-        </div>
+            </div>
 
-        <div class="Nav">
+
             <nav>
                 <ul>
                     <li><a href="Aboutus.html">About Us</a></li>
@@ -63,7 +170,7 @@
                     <li><a href="test_account_create.html">Sign up</a></li>
                 </ul>
             </nav>
-        </div>
+        </header> <br><br><br><br><br><br>
 
         <div class="Intro">
 
@@ -73,24 +180,32 @@
         </div>
         <div class="WelcomeMessage">
 
-            <P><b>About Us!</b></P>
+
+            <p> ArtifyPH is a platform created with artists in mind. <br>
+                It welcomes artists and crafters to showcase their portfolio and commissions.</p><br>
 
 
-            <p> A platform created designed artist in mind. <br>
-                ArtifyPH welcomes artists and crafters to build their portfolio
-                and engage in simple commission transactions.<br> With the goal of to building a community
-                that is safe for all things human. </p> <br>
+
+        </div>
+
+        <div class="CreateAccButton">
+            <a href="CreateAcc.html"><button>Create Account</button> </a> <br>
 
         </div>
 
         <div class="LoginButton">
-            <a href="CreateAcc.html"><button>Create Account</button> </a> <br>
-
-
             <p>Already have an account?</p>
-            <a href="test_account_login.html"><button>Log In</button></a> <br>
+            <a href="test_account_login.html"><button>Log in</button></a>
 
+        </div>
 
+        <div>
+            <section class="AboutUs">
+                <h2>About Us</h2>
+                <p>Our Goal is to build a community
+                    that is safe for all things human. </p> <br>
+            </section>
+        </div>
     </center>
 </body>
 
