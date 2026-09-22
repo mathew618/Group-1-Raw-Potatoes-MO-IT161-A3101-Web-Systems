@@ -43,19 +43,28 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         max-width: 500px;
         text-align: center;
+        margin-bottom: 50px;
 
     }
 
     /* THIS IS THE TEXT INSIDE */
     section.SignIn input[type="text"],
     section.SignIn input[type="password"] {
-        width: 70%;
-        padding: 12px;
-        border: 1px solid #c9c9c9;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: #e2e2e2;
+        border: none;
         border-radius: 6px;
         font-size: 14px;
-        background-color: #faf8f8;
-        color: #000000
+
+    }
+
+    section.SignIn input[type="checkbox"] {
+        width: auto;
+        margin-right: 1px;
+        margin-top: 0;
+        vertical-align: middle;
     }
 
     section.SignIn input:focus {
@@ -69,7 +78,7 @@
         color: #ffffff;
         border: none;
         padding: 12px;
-        margin: 10px 0;
+        margin: 5px 0;
         font-size: 16px;
         cursor: pointer;
         border-radius: 6px;
@@ -91,15 +100,13 @@
         font-size: 14px;
         color: #474444;
         text-align: left;
-        
-
-
     }
 
     /* SIGN IN BUTTON*/
     .SignInButton {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 10px;
+
     }
 
     /* CREATE ACCOUNT TEXT */
@@ -108,13 +115,7 @@
         font-weight: 400;
         font-family: Arial, sans-serif;
         margin-top: 20px;
-    }
 
-    input[type="checkbox"] {
-        margin-left: 10px;
-        margin-right: 5px;
-        vertical-align: middle;
-        vertical-align: middle;
     }
 
     .InputPassword label[for="ShowPassword"] {
@@ -124,6 +125,13 @@
         text-align: center;
         margin: 10px;
         color: #474444;
+        cursor: pointer;
+
+    }
+
+    input[type="checkbox"] {
+        vertical-align: middle;
+        margin-top: 30px;
     }
 
     .CreateAccountText a {
@@ -145,6 +153,25 @@
         font-size: 14px;
         text-align: center;
         color: #474444;
+    }
+
+    .ShowPasswordContainer {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+
+    }
+
+    .ShowPasswordContainer input[type="checkbox"] {
+        margin-right: 8px;
+
+    }
+
+    .ShowPasswordContainer label {
+        font-size: 14px;
+        color: #474444;
+        cursor: pointer;
+
     }
 </style>
 
@@ -175,11 +202,13 @@
         </div>
 
         <div class="InputPassword">
+            <label for="Password">Password</label><br>
+            <input type="password" id="UserPassword" placeholder="Enter Password"><br>
 
-            <label for="Password">Password</label> <br>
-            <input type="password" id="UserPassword" placeholder="Enter Password"> <br>
-
-            <input type="checkbox" id="ShowPassword"><label for="ShowPassword">Show Password</label> <br>
+            <div class="ShowPasswordContainer">
+                <input type="checkbox" id="ShowPassword">
+                <label for="ShowPassword">Show Password</label>
+            </div>
         </div>
 
         <div class="SignInButton">
