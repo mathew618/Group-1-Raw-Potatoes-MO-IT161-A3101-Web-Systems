@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            background-color: #f8d9c4;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+
+        .Logo {
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+        .TopButtonThingy {
+            margin-bottom: 10px;
+        }
+
+        .TopButtonThingy a {
+            text-decoration: none;
+        }
+
+        .TopButtonThingy button {
+            background-color: #d16767;
+            color: #faf8f8;
+            border: 2px solid #832a2a;
+            padding: 8px 16px;
+            margin: 10px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .TopButtonThingy button:hover {
+            background-color: #382727;
+        }
+
+        .SettingToolBox {
+            background-color: #ec876e;
+            border: 2px solid #832a2a;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 50px 50px rgba(122, 2, 2, 0.1);
+        }
+
+        /* The settings card itself */
+        .SettingTools {
+            background-color: #ffffff;
+            max-width: 450px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .SettingTools h2 {
+            margin: 0 0 15px 0;
+            font-size: 18px;
+        }
+
+        .FieldLabel {
+            display: block;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+
+        .SettingTools input[type="text"],
+        .SettingTools input[type="password"],
+        .SettingTools input[type="file"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            background-color: #e2e2e2;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .SettingTools input:disabled {
+            background-color: #ececec;
+            color: #999;
+            cursor: not-allowed;
+        }
+
+        .FieldDisplay {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            background-color: #ececec;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .HideUntilEdit {
+            display: none;
+        }
+
+        .SectionDivider {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 25px 0;
+        }
+
+        .SaveRow {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .SaveRow button {
+            border: none;
+            padding: 10px 28px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #ffffff;
+        }
+
+        #EditButton {
+            background-color: #d16767;
+        }
+
+        #EditButton:hover {
+            background-color: #832a2a;
+        }
+
+        #SaveButton {
+            background-color: #ec9e7e;
+        }
+
+        #SaveButton:hover {
+            background-color: #d16767;
+        }
+
+        #SaveButton:disabled {
+            background-color: #f3c9b6;
+            cursor: not-allowed;
+        }
+
+        #SaveStatus {
+            text-align: right;
+            color: green;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        #PasswordMismatch,
+        #EmailMismatch {
+            color: #b83b3b;
+            font-size: 12px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="SettingToolBox" id="SetMyThinggy">
+        <div class="Logo">
+            <h1>ArtifyPH</h1>
+            <h2>Art By Hand</h2>
+        </div>
+        <div class="TopButtonThingy">
+            <a href="test_account_home.html"><button>Home</button></a>
+            <a href="test_account_myprofile.html"><button>Profile</button></a>
+            <button>About</button>
+            <a href="test_settings.html"><button>Settings</button></a>
+        </div>
+    </div>
+
+    <div class="SettingTools">
+        <h2>Account</h2>
+
+        <label class="FieldLabel" for="email">Email</label>
+        <input type="text" id="email" placeholder="Enter Email" disabled>
+
+        <div class="SunsetCity HideUntilEdit" id="vemail">
+            <label class="FieldLabel" for="ConEmail">Confirm Email</label>
+            <input type="text" id="ConEmail" placeholder="Confirm Email">
+        </div>
+        <p id="EmailMismatch"></p>
+
+        <label class="FieldLabel" for="UserPassword">Password</label>
+        <input type="password" id="UserPassword" placeholder="Enter Password" disabled>
+
+        <div class="NightCity HideUntilEdit" id="vpassword">
+            <label class="FieldLabel" for="ConPassword">Confirm Password</label>
+            <input type="password" id="ConPassword" placeholder="Confirm Password">
+        </div>
+        <p id="PasswordMismatch"></p>
+
+        <div class="SunriseCity HideUntilEdit" id="Showstopper">
+            <input type="checkbox" id="ShowPassword"> <span>Show Password</span>
+        </div>
+
+        <hr class="SectionDivider">
+
+        <h2>Profile</h2>
+
+        <label class="FieldLabel" for="username">Username</label>
+        <input type="text" id="username" placeholder="Enter Username" disabled>
+
+        <label class="FieldLabel" for="bio">Bio</label>
+        <input type="text" id="bio" maxlength="50" placeholder="Tell people about yourself" disabled>
+
+        <label class="FieldLabel" for="profilePhotoInput">Change Profile Photo</label>
+        <input type="file" id="profilePhotoInput" accept="image/*" disabled>
+
+        <label class="FieldLabel" for="backgroundInput">Change Background</label>
+        <input type="file" id="backgroundInput" accept="image/*" disabled>
+
+        <div class="SaveRow">
+            <button id="EditButton" onclick="toggleEdit()">Edit</button>
+            <button id="SaveButton" onclick="saveSettings()" disabled>Save</button>
+        </div>
+        <p id="SaveStatus"></p>
+    </div>
+
+</body>
+<script>
+    /* Sneaky Booty Traps */
+    const HiddenUntilEditGroups = ['vemail', 'vpassword', 'Showstopper'];
+
+    /* They Got Caught in the Bear Trap X - x*/
+    const DisabledUntilEditFields = ['email', 'UserPassword', 'username', 'bio', 'profilePhotoInput', 'backgroundInput'];
+
+    let isEditing = false;
+
+    function loadSavedValues() {
+        const savedEmail = localStorage.getItem('loggedInEmail');
+        const savedPassword = localStorage.getItem('loggedInPassword');
+        const savedUsername = localStorage.getItem('loggedInUser');
+        const savedBio = localStorage.getItem('userBio');
+
+        document.getElementById('email').value = savedEmail || '';
+        document.getElementById('ConEmail').value = savedEmail || '';
+        document.getElementById('UserPassword').value = savedPassword || '';
+        document.getElementById('ConPassword').value = savedPassword || '';
+        document.getElementById('username').value = savedUsername || '';
+        document.getElementById('bio').value = savedBio || '';
+    }
+
+    window.onload = loadSavedValues;
+
+    /*Ediing Stuff In Settings*/
+    function toggleEdit() {
+        isEditing = !isEditing;
+
+        if (!isEditing) {
+            loadSavedValues();
+        }
+
+        HiddenUntilEditGroups.forEach(function (id) {
+            document.getElementById(id).style.display = isEditing ? 'block' : 'none';
+        });
+
+        DisabledUntilEditFields.forEach(function (id) {
+            document.getElementById(id).disabled = !isEditing;
+        });
+
+        document.getElementById('SaveButton').disabled = !isEditing;
+        document.getElementById('EditButton').textContent = isEditing ? 'Cancel' : 'Edit';
+        document.getElementById('SaveStatus').textContent = '';
+        document.getElementById('PasswordMismatch').textContent = '';
+        document.getElementById('EmailMismatch').textContent = '';
+    }
+
+    /*Saving Stuff In Settings */
+    function saveSettings() {
+        const newEmail = document.getElementById('email').value.trim();
+        const confirmEmail = document.getElementById('ConEmail').value.trim();
+        const newPassword = document.getElementById('UserPassword').value;
+        const confirmPassword = document.getElementById('ConPassword').value;
+        const newUsername = document.getElementById('username').value.trim();
+        const newBio = document.getElementById('bio').value.trim();
+
+        if (newEmail !== confirmEmail) {
+            document.getElementById('EmailMismatch').textContent = "Emails don't match.";
+            return;
+        }
+        document.getElementById('EmailMismatch').textContent = "";
+
+        if (newPassword !== confirmPassword) {
+            document.getElementById('PasswordMismatch').textContent = "Passwords don't match.";
+            return;
+        }
+        document.getElementById('PasswordMismatch').textContent = "";
+
+        localStorage.setItem('loggedInEmail', newEmail);
+        localStorage.setItem('loggedInPassword', newPassword);
+        if (newUsername) localStorage.setItem('loggedInUser', newUsername);
+        localStorage.setItem('userBio', newBio);
+
+        document.getElementById('SaveStatus').textContent = "Changes saved!";
+
+        /*You Shall Not Passed After You Finish Editing*/
+        isEditing = false;
+        loadSavedValues();
+
+        HiddenUntilEditGroups.forEach(function (id) {
+            document.getElementById(id).style.display = 'none';
+        });
+
+        DisabledUntilEditFields.forEach(function (id) {
+            document.getElementById(id).disabled = true;
+        });
+        document.getElementById('SaveButton').disabled = true;
+        document.getElementById('EditButton').textContent = 'Edit';
+    }
+
+    /*Show Password toggle*/
+    const UserPassword = document.getElementById('UserPassword');
+    const ShowPassword = document.getElementById('ShowPassword');
+
+    ShowPassword.addEventListener('click', function () {
+        const type = this.checked ? 'text' : 'password';
+        UserPassword.type = type;
+        document.getElementById('ConPassword').type = type;
+    });
+</script>
+
+</html>
