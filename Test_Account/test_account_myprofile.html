@@ -87,21 +87,6 @@
             margin: 0 auto;
         }
 
-        .MyProfileDesc button {
-            background-color: #6d6464;
-            color: #faf8f8;
-            border: 2px solid #832a2a;
-            padding: 8px 16px;
-            margin: 10px auto;
-            border-radius: 6px;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        .MyProfileDesc button:hover {
-            background-color: #ffd0d0;
-        }
-
         .PorkNBeans {
             text-align: center;
         }
@@ -140,8 +125,8 @@
         <div class="Navigation_Buttons">
             <a href="test_account_home.html"><button>Home</button></a>
             <a href="commission.html"><button>Commissions</button></a>
+            <a href="Test_Main.html"><button>About</button></a>
             <a href="test_settings.html"><button>Settings</button></a>
-            <a href="test_account_login.html"><button>Logout</button></a>
         </div>
     </div>
 
@@ -166,8 +151,6 @@
         <div class="MyProfileDesc">
             <h2 id="MyUsername">Justablub</h2>
             <p id="MyDesc">Hello!</p>
-            <textarea id="MyDescEdit" maxlength="50" style="display:none;"></textarea>
-            <button id="EditBio" onclick="toggleEditBio()">✎</button>
         </div>
     </div>
     <hr>
@@ -200,7 +183,7 @@
 </body>
 <script>
     /*For The Image Preview (banner/avatar) */
-    function PreviewImageBannerNAvatar(event, imgId) {
+    function previewImage(event, imgId) {
         const file = event.target.files[0];
         if (!file) return;
         const reader = new FileReader();
@@ -208,27 +191,6 @@
             document.getElementById(imgId).src = e.target.result;
         };
         reader.readAsDataURL(file);
-    }
-
-    /*For The Bio Editing Thingy */
-    function toggleEditBio() {
-        const p = document.getElementById('MyDesc');
-        const textarea = document.getElementById('MyDescEdit');
-        const editbiot = document.getElementById('EditBio');
-        const ediingbiochecker = textarea.style.display !== 'none';
-
-        if (ediingbiochecker) {
-            p.textContent = textarea.value;
-            p.style.display = 'block';
-            textarea.style.display = 'none';
-            editbiot.textContent = 'Edit Bio';
-        } else {
-            textarea.value = p.textContent;
-            p.style.display = 'none';
-            textarea.style.display = 'block';
-            textarea.focus();
-            editbiot.textContent = 'Save Bio';
-        }
     }
 
     /*For Switching Between Portfolio and Commissions*/
@@ -262,18 +224,26 @@
         "Test_Account_Assets/MyProfileExamples/Commission2.png"
     ];
 
-    /*Login Check */
-    window.onload = function () {
-        const username = localStorage.getItem('loggedInUser');
+    function ProfileSettingsSync() {
+        const username = localStorage.getItem('LoggedUser');
         if (username) {
             document.getElementById('MyUsername').textContent = username;
         } else {
             window.location.href = "test_account_login.html";
             return;
         }
+
+        const bio = localStorage.getItem('BioDesc');
+        document.getElementById('MyDesc').textContent = bio || 'Hello!';
+
         showSection('portfolio');
-        renderGalleries();
-    };
+        if (typeof renderGalleries === 'function') {
+            renderGalleries();
+        }
+    }
+
+    window.onload = ProfileSettingsSync;
+    window.addEventListener('pageshow', ProfileSettingsSync);
 </script>
 
 </html>
