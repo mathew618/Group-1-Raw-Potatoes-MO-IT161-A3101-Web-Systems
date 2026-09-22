@@ -30,11 +30,12 @@
             const emailMatches = (Email === Vusername || Email === Vemail);
 
             if (emailMatches && Password === Vpassword) {
-                window.location.href = "home.html";
+                localStorage.setItem('loggedInUser', Vusername);
+                window.location.href = "test_account_home.html";
             } else {
                 document.getElementById('Invalid_Credentials').textContent = "Incorrect Credentials";
             }
-        }
+        } 
 
         /* Show Password because I keep having invalid credentials which pisses me off */
         const UserPassword = document.getElementById('UserPassword');
@@ -47,6 +48,7 @@
                 UserPassword.type = 'password';
             }
         });
+    </script>
     </script>
 </body>
 
