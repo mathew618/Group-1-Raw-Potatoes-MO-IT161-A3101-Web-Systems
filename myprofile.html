@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArtifyPH - Artist Profile</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/pages/myprofile.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <a href="home.html" class="ArtifyPHLogo">
+            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myprofile.html">Profile</a></li>
+                <li><a href="aboutUs.html">About</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="MyProfile" id="MyProfile">
+            <!-- Artist Banner & Cover Section -->
+            <div class="MyUserBannerBG">
+                <img id="UserBannerImg" src="assets/images/MyProfile_BG_Template.png"
+                    onclick="document.getElementById('bannerInput').click()" style="cursor:pointer;">
+                <input type="file" id="bannerInput" accept="image/*" style="display:none;"
+                    onchange="previewImage(event, 'UserBannerImg')">
+                <br><br>
+
+                <!-- Profile Picture & Bio -->
+                <div class="MyAvatarProfilePic">
+                    <img id="ProfilePicImg" src="assets/images/MyAvatar_Pic_Template.png"
+                        onclick="document.getElementById('profilePicInput').click()" style="cursor:pointer;">
+                    <input type="file" id="profilePicInput" accept="image/*" style="display:none;"
+                        onchange="previewImage(event, 'ProfilePicImg')">
+                </div>
+            </div>
+
+            <div class="MyProfileDesc">
+                <h2 id="MyUsername">Justablub</h2>
+                <p id="MyDesc">Hello!</p>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Portfolio Section -->
+        <div>
+            <div class="MyProfileStuffToDoYes" id="MyProfileStuffToDoYes">
+                <div class="PorkNBeans" id="PorkNBeans">
+                    <button id="button4Portfolio" onclick="showSection('portfolio')">Portfolio</button>
+                    <button id="button4Commission" onclick="showSection('commission')">Commission</button>
+                </div>
+            </div>
+
+            <div class="TF2Toolbar">
+                <input type="file" id="uploadInput" accept="image/*" style="display:none;"
+                    onchange="addImageToGallery(event)">
+                <button onclick="document.getElementById('uploadInput').click()">+</button>
+                <button id="ButtonWobblyGoopler" onclick="toggleEditMode()">Edit</button>
+            </div>
+
+            <div class="MyProfileImagesPortfolio" id="MyProfileImagesPortfolio">
+                <div class="Picnic" id="portfoliopicnic"></div>
+            </div>
+
+            <div class="MyProfileImagesCommissions" id="MyProfileImagesCommissions">
+                <div class="Picnic" id="commissionpicnic"></div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/myprofile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArtifyPH - Home</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/pages/home.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <a href="home.html" class="ArtifyPHLogo">
+            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myprofile.html">Profile</a></li>
+                <li><a href="aboutUs.html">About</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="IMissSHSDays" id="Imy2025">
+            <div class="JoyOfMemories">
+                <h1>Daily Showcase</h1>
+                <div class="ArtsyBitsy" id="SunsetParadise">
+                    <div class="AW1" data-index="0">
+                        <img src="assets/images/Home_SlideShow/Home_SlideShow_1.png">
+                        <p>_BELPHIE</p>
+                    </div>
+                    <div class="AW2" data-index="1">
+                        <img src="assets/images/Home_SlideShow/Home_SlideShow_2.png">
+                        <p>Blubytrave890</p>
+                    </div>
+                    <div class="AW3" data-index="2">
+                        <img src="assets/images/Home_SlideShow/Home_SlideShow_3.png">
+                        <p>Mathew618</p>
+                    </div>
+                    <div class="AW4" data-index="3">
+                        <img src="assets/images/Home_SlideShow/Home_SlideShow_4.png">
+                        <p>CamechiDiaz</p>
+                    </div>
+                    <div class="AW5" data-index="4">
+                        <img src="assets/images/Home_SlideShow/Home_SlideShow_5.png">
+                        <p>Az</p>
+                    </div>
+                </div>
+            </div>
+            <div class="MoveableMagicButtonYes">
+                <button class="MoveableMagicButtonYes" onclick="changeFeatured(-1)">←</button>
+                <button class="MoveableMagicButtonYes" onclick="changeFeatured(1)">→</button>
+            </div>
+            <div class="ButtonLock" id="buttonlock">
+            </div>
+        </div>
+
+
+        <div class="NicoleLasagna" id="NicoleLasagna">
+            <br>
+            <div class="BaldisBasic" id="BaldisBasic">
+                <h1>EXPLORE</h1>
+            </div>
+            <div class="OriginalCathy" id="OriginalCathy">
+                <div class="Cathy" id="Cathy1">
+                    <img src="assets/images/Home_Explore/Home_Explore_1.png" data-id="Camryngamesyt">
+                </div>
+                <div class="Cathy" id="Cathy2">
+                    <img src="assets/images/Home_Explore/Home_Explore_2.png" data-id="Maboroshiiiro">
+                </div>
+                <div class="Cathy" id="Cathy3">
+                    <img src="assets/images/Home_Explore/Home_Explore_3.png" data-id="Superbunny64">
+                </div>
+                <div class="Cathy" id="Cathy4">
+                    <img src="assets/images/Home_Explore/Home_Explore_4.png" data-id="FanFive">
+                </div>
+                <div class="Cathy" id="Cathy5">
+                    <img src="assets/images/Home_Explore/Home_Explore_5.png" data-id="Piggy">
+                </div>
+            </div>
+
+            <div class="OriginalMark" id="OriginalMark">
+                <div class="Mark" id="Mark1">
+                    <img src="assets/images/Home_Explore/Home_Explore_6.png" data-id="Demonized_Louie">
+                </div>
+                <div class="Mark" id="Mark2">
+                    <img src="assets/images/Home_Explore/Home_Explore_7.png" data-id="Crocheana">
+                </div>
+                <div class="Mark" id="Mark3">
+                    <img src="assets/images/Home_Explore/Home_Explore_8.png" data-id="Wist">
+                </div>
+                <div class="Mark" id="Mark4">
+                    <img src="assets/images/Home_Explore/Home_Explore_9.png" data-id="FuzzyDreams">
+                </div>
+                <div class="Mark" id="Mark5">
+                    <img src="assets/images/Home_Explore/Home_Explore_10.png" data-id="HeartFeltCraftsByAngie">
+                </div>
+            </div>
+
+            <div class="TheFlasher" id="TheFlasher">
+                <div class="WatchOut">
+                    <button id="GotSnapped">×</button>
+                    <img id="Stalker" src="assets/images/Home_Explore/Home_Explore_1.png">
+                    <div class="OwnerInfo">
+                        <h1 id="CheckView"></h1>
+                        <p id="Owner"></p>
+                        <p id="ATitle"></p>
+                        <p id="ADesc"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="secretmessage" id="secretmessage">
+                <h1>ArtifyPH</h1>
+                <p>Until Then</p>
+            </div>
+
+        </div>
+    </main>
+    
+    <script src="scripts/home.js"></script>
+</body>
+
+</html>

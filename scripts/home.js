@@ -1,0 +1,142 @@
+/*This is Dots4Hotdogs*/
+let currentIndex = 2;
+const gambit = document.querySelectorAll('.ArtsyBitsy > div');
+const endoftheworld = gambit.length;
+const dotts4hotdogs = document.getElementById('buttonlock');
+
+gambit.forEach((card, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('dot');
+    dot.addEventListener('click', () => {
+        currentIndex = index;
+        updateSlides();
+    });
+    dotts4hotdogs.appendChild(dot);
+});
+
+const dots = document.querySelectorAll('.dot');
+
+function updateSlides() {
+    const prevIndex = (currentIndex - 1 + endoftheworld) % endoftheworld;
+    const nextIndex = (currentIndex + 1) % endoftheworld;
+
+    gambit.forEach((card, index) => {
+        card.classList.remove('show-side', 'show-center');
+
+        if (index === currentIndex) {
+            card.classList.add('show-center');
+            card.style.order = 1;
+        } else if (index === prevIndex) {
+            card.classList.add('show-side');
+            card.style.order = 0;
+        } else if (index === nextIndex) {
+            card.classList.add('show-side');
+            card.style.order = 2;
+        }
+    });
+
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+    });
+}
+function changeFeatured(direction) {
+    currentIndex = (currentIndex + direction + endoftheworld) % endoftheworld;
+    updateSlides();
+}
+
+updateSlides();
+/*This is Previewing the Arts*/
+const artworks = {
+    Camryngamesyt: {
+        author: "Camryngamesyt",
+        title: "Candle Flame",
+        desc: "Test"
+    },
+    Maboroshiiiro: {
+        author: "Maboroshiiiro",
+        title: "Untitled",
+        desc: "Test"
+    },
+    Superbunny64: {
+        author: "Superbunny64",
+        title: "Untitled",
+        desc: "Test"
+    },
+    FanFive: {
+        author: "FanFive",
+        title: "Pixel Hamburger",
+        desc: "Test"
+    },
+    Piggy: {
+        author: "Piggy",
+        title: "Untitled",
+        desc: "Test"
+    },
+    Demonized_Louie: {
+        author: "Demonized_Louie",
+        title: "Untitled",
+        desc: "Test"
+    },
+    Crocheana: {
+        author: "Crocheana",
+        title: "Crochet Naruto",
+        desc: "Test"
+    },
+    Wist: {
+        author: "Wist",
+        title: "Zarah",
+        desc: "Test"
+    },
+    FuzzyDreams: {
+        author: "FuzzyDreams",
+        title: "Butterfly Lamp",
+        desc: "Test"
+    },
+    HeartFeltCraftsByAngie: {
+        author: "HeartFeltCraftsByAngie",
+        title: "Keychain",
+        desc: "Test"
+    }
+};
+
+const Flasher = document.getElementById('TheFlasher');
+const Stalker = document.getElementById('Stalker');
+const CheckView = document.getElementById('CheckView');
+const ATitle = document.getElementById('ATitle');
+const ADesc = document.getElementById('ADesc');
+
+document.querySelectorAll('.Cathy img, .Mark img').forEach(img => {
+    img.addEventListener('click', () => {
+        const info = artworks[img.dataset.id];
+        if (!info) return;
+
+        Stalker.src = img.src;
+        CheckView.textContent = info.author;
+        ATitle.textContent = info.title;
+        ADesc.textContent = info.desc;
+
+        Flasher.classList.add('open');
+    });
+});
+
+function closeFlasher() {
+    Flasher.classList.remove('open');
+}
+
+document.getElementById('GotSnapped').addEventListener('click', closeFlasher);
+
+Flasher.addEventListener('click', (e) => {
+    if (e.target === Flasher) closeFlasher();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeFlasher();
+});
+
+/*
+window.onload = function () {
+    const username = localStorage.getItem('loggedInUser');
+    if (!username) {
+        window.location.href = "login.html";
+    }
+};*/

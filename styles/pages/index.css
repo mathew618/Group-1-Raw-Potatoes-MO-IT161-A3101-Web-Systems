@@ -1,0 +1,92 @@
+.Intro h1 {
+    font-weight: bold;
+    font-family: lovelo, sans-serif;
+    font-size: 50px;
+    text-shadow: 2px 2px 1px #9e6c53;
+    text-align: center;
+    color: #eda27c;
+    margin-bottom: 10px;
+}
+
+.Intro h3 {
+    font-weight: bold;
+    font-family: lovelo, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #9e6c53;
+    margin-top: 5px;
+}
+
+.WelcomeMessage p {
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #141313;
+
+}
+
+.CreateAccButton button {
+    background-color: #eda27c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+}
+
+.CreateAccButton button:hover {
+    background-color: #B04825;
+}
+
+.LoginButton button {
+    color: #eda27c;
+    background-color: #FEE8D3;
+    border: none;
+    padding: 10px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+
+}
+
+.LoginButton p {
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    color: #614f4f;
+    margin-top: 50px;
+}
+
+section.AboutUs {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+section.AboutUs h2 {
+    font-weight: bold;
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #eda27c;
+    margin-bottom: 10px;
+}
+
+section.AboutUs p {
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: #141313;
+}

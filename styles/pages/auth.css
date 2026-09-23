@@ -1,0 +1,141 @@
+/* THIS IS THE SQUARE BACKGROUND */
+.AuthCard {
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* THIS IS THE TITLE INSIDE */
+.AuthCard h1 {
+    font-weight: bold;
+    font-family: Inter, sans-serif;
+    font-size: 30px;
+    color: #eda27c;
+    margin: 0 0 25px;
+}
+
+/* THIS ARE THE FIELD GROUPS (label + input) */
+.AuthField {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+/* THIS ARE THE LABELS */
+.AuthField label {
+    display: block;
+    font-weight: 400;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #474444;
+    margin-bottom: 5px;
+}
+
+/* THIS IS THE TEXT INSIDE THE INPUTS */
+.AuthField input[type="text"],
+.AuthField input[type="email"],
+.AuthField input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #e2e2e2;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #2e2c2c;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.AuthField input[type="text"]:focus,
+.AuthField input[type="email"]:focus,
+.AuthField input[type="password"]:focus {
+    border-color: #FA987F;
+    background-color: #ffffff;
+    outline: none;
+}
+
+/* SHOW PASSWORD CHECKBOX */
+.ShowPasswordContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.ShowPasswordContainer input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: #FA987F;
+    cursor: pointer;
+}
+
+.ShowPasswordContainer label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+/* THESE ARE THE BUTTONS */
+.AuthButton {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.AuthButton a {
+    text-decoration: none;
+}
+
+.AuthButton button,
+.AuthCard input[type="submit"] {
+    width: 75%;
+    background-color: #FA987F;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.AuthButton button:hover,
+.AuthCard input[type="submit"]:hover {
+    background-color: #B04825;
+}
+
+/* ERROR MESSAGE (auth.js #Invalid_Credentials) */
+.AuthError {
+    color: #d10000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 15px 0 0;
+}
+
+.AuthError:empty {
+    display: none;
+}
+
+/* FOOTER HINT */
+.AuthHint {
+    font-weight: 400;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #474444;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.AuthHint a {
+    color: #FA987F;
+    text-decoration: none;
+}
+
+.AuthHint a:hover {
+    text-decoration: underline;
+}

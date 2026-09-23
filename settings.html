@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArtifyPH - Sign Up</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/pages/settings.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <a href="home.html" class="ArtifyPHLogo">
+            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myprofile.html">Profile</a></li>
+                <li><a href="aboutUs.html">About</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="SettingTools">
+            <h2>Account</h2>
+
+            <label class="FieldLabel" for="email">Email</label>
+            <input type="text" id="email" placeholder="Enter Email" disabled>
+
+            <div class="HiddenMountains" id="vemail">
+                <label class="FieldLabel" for="ConEmail">Confirm Email</label>
+                <input type="text" id="ConEmail" placeholder="Confirm Email">
+            </div>
+            <p id="EmailMismatch"></p>
+
+            <label class="FieldLabel" for="UserPassword">Password</label>
+            <input type="password" id="UserPassword" placeholder="Enter Password" disabled>
+
+            <div class="HiddenMountains" id="vpassword">
+                <label class="FieldLabel" for="ConPassword">Confirm Password</label>
+                <input type="password" id="ConPassword" placeholder="Confirm Password">
+            </div>
+            <p id="PasswordMismatch"></p>
+
+            <div class="HiddenMountains" id="Showstopper">
+                <input type="checkbox" id="ShowPassword"> <span>Show Password</span>
+            </div>
+
+            <hr class="SectionDivider">
+
+            <h2>Profile</h2>
+
+            <label class="FieldLabel" for="username">Username</label>
+            <input type="text" id="username" placeholder="Enter Username" disabled>
+
+            <label class="FieldLabel" for="biodesc">Bio</label>
+            <input type="text" id="biodesc" maxlength="50" placeholder="Tell people about yourself" disabled>
+
+            <label class="FieldLabel" for="profilePhotoInput">Change Profile Photo</label>
+            <input type="file" id="profilePhotoInput" accept="image/*" disabled>
+
+            <label class="FieldLabel" for="backgroundInput">Change Background</label>
+            <input type="file" id="backgroundInput" accept="image/*" disabled>
+
+            <div class="SaveRow">
+                <button id="EditButton" onclick="toggleEdit()">Edit</button>
+                <button id="SaveButton" onclick="saveSettings()" disabled>Save</button>
+            </div>
+            <p id="SaveStatus"></p>
+        </div>
+        <div class="LETMEOUTPLSSS">
+            <a href="index.html"><button>LOG OUT </button></a>
+        </div>
+    </main>
+
+    <script src="scripts/settings.js"></script>
+</body>
+
+</html>
