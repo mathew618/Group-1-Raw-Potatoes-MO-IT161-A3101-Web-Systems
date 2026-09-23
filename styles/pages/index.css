@@ -1,3 +1,9 @@
+.Main {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .Intro h1 {
     font-weight: bold;
     font-family: lovelo, sans-serif;
