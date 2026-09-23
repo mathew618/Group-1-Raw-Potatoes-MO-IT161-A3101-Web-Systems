@@ -1,7 +1,17 @@
-WEEK 5
-Test Account Folder
-NOTE: Use This since it's our Test Account hehe
+Project Name: ArtifyPH
+____________________________________________
 
-Username : Justablub
-Email : ilosthotdogs@gmail.com
-Password : Beezytrave890
+Members:
+Bianca Colleen Herrero
+Fidel David Sario
+Kim Charlotte Anicete
+Mathew Wilson Vercida 
+
+
+Test Account Folder
+
+NOTE: Use this since it's our Test Account 
+
+Username: Justablub
+Email: ilosthotdogs@gmail.com
+Password: Beezytrave890
