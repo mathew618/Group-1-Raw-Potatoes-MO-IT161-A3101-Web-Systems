@@ -2,19 +2,18 @@
 <html>
 
 <head>
-    <title>ArtifyPH - Sign Up</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/header.css">
+    <title>ArtifyPH - Settings</title>
+    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/pages/settings.css">
 </head>
 
 <body>
-    <!-- Navigation Bar -->
     <header>
-        <a href="home.html" class="ArtifyPHLogo">
+        <!-- Logo -->
+        <a href="index.html" class="ArtifyPHLogo">
             <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
         </a>
-
+        <!-- Navigation Bar -->
         <nav>
             <ul>
                 <li><a href="home.html">Home</a></li>
@@ -74,10 +73,11 @@
             <p id="SaveStatus"></p>
         </div>
         <div class="LETMEOUTPLSSS">
-            <a href="index.html"><button>LOG OUT </button></a>
+            <button onclick="logout()">LOG OUT </button>
         </div>
     </main>
 
+    <script src="scripts/account.js"></script>
     <script src="scripts/settings.js"></script>
 </body>
 

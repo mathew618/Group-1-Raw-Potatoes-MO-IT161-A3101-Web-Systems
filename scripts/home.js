@@ -1,3 +1,5 @@
+Account.protectPage();
+
 /*This is Dots4Hotdogs*/
 let currentIndex = 2;
 const gambit = document.querySelectorAll('.ArtsyBitsy > div');
@@ -133,10 +135,3 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeFlasher();
 });
 
-/*
-window.onload = function () {
-    const username = localStorage.getItem('loggedInUser');
-    if (!username) {
-        window.location.href = "login.html";
-    }
-};*/

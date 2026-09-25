@@ -5,22 +5,21 @@ const HiddenUntilEditGroups = ['vemail', 'vpassword', 'Showstopper'];
 const DisabledUntilEditFields = ['email', 'UserPassword', 'username', 'biodesc', 'profilePhotoInput', 'backgroundInput'];
 
 let isEditing = false;
+let currentAccount = null;
 
-function loadSavedValues() {
-    const savedEmail = localStorage.getItem('LoggedEmail');
-    const savedPassword = localStorage.getItem('LoggedPassword');
-    const savedUsername = localStorage.getItem('LoggedUser');
-    const savedBio = localStorage.getItem('BioDesc');
+function loadSavedValues(account = null) {
+    currentAccount = account || currentAccount;
+    if (!currentAccount) return;
 
-    document.getElementById('email').value = savedEmail || '';
-    document.getElementById('ConEmail').value = savedEmail || '';
-    document.getElementById('UserPassword').value = savedPassword || '';
-    document.getElementById('ConPassword').value = savedPassword || '';
-    document.getElementById('username').value = savedUsername || '';
-    document.getElementById('biodesc').value = savedBio || '';
+    document.getElementById('email').value = currentAccount.email;
+    document.getElementById('ConEmail').value = currentAccount.email;
+    document.getElementById('UserPassword').value = currentAccount.password;
+    document.getElementById('ConPassword').value = currentAccount.password;
+    document.getElementById('username').value = currentAccount.username;
+    document.getElementById('biodesc').value = currentAccount.bio || '';
 }
 
-window.onload = loadSavedValues;
+Account.protectPage(loadSavedValues);
 
 /*Ediing Stuff In Settings*/
 function toggleEdit() {
@@ -46,7 +45,7 @@ function toggleEdit() {
 }
 
 /*Saving Stuff In Settings */
-function saveSettings() {
+async function saveSettings() {
     const newEmail = document.getElementById('email').value.trim();
     const confirmEmail = document.getElementById('ConEmail').value.trim();
     const newPassword = document.getElementById('UserPassword').value;
@@ -66,10 +65,13 @@ function saveSettings() {
     }
     document.getElementById('PasswordMismatch').textContent = "";
 
-    localStorage.setItem('LoggedEmail', newEmail);
-    localStorage.setItem('LoggedPassword', newPassword);
-    if (newUsername) localStorage.setItem('LoggedUser', newUsername);
-    localStorage.setItem('BioDesc', newBioDesc);
+    if (currentAccount) {
+        currentAccount.email = newEmail;
+        currentAccount.password = newPassword;
+        if (newUsername) currentAccount.username = newUsername;
+        if (currentAccount instanceof Artist) currentAccount.bio = newBioDesc;
+        await currentAccount.save();
+    }
 
     document.getElementById('SaveStatus').textContent = "Changes saved!";
 
@@ -97,3 +99,9 @@ ShowPassword.addEventListener('click', function () {
     UserPassword.type = type;
     document.getElementById('ConPassword').type = type;
 });
+
+/* Log out */
+function logout() {
+    Account.logout();
+    window.location.href = 'index.html';
+}

@@ -3,25 +3,16 @@
 
 <head>
     <title>ArtifyPH - Sign Up</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/pages/auth.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/auth.css">
 </head>
 
 <body>
-    <!-- Navigation Bar -->
     <header>
-        <a href="home.html" class="ArtifyPHLogo">
+        <!-- Logo -->
+        <a href="index.html" class="ArtifyPHLogo">
             <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
         </a>
-
-        <nav>
-            <ul>
-                <li><a href="aboutUs.html">About Us</a></li>
-                <li><a href="login.html">Sign in</a></li>
-                <li><a href="signup.html">Sign up</a></li>
-            </ul>
-        </nav>
     </header>
     
     <main>
@@ -47,13 +38,18 @@
             <div class="AuthField">
                 <label for="confirm_password">Confirm Password</label>
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm Password">
+
+                <div class="ShowPasswordContainer">
+                    <input type="checkbox" id="ShowPassword">
+                    <label for="ShowPassword">Show Password</label>
+                </div>
             </div>
 
             <div class="AuthButton">
-                <a href="home.html">
-                    <input type="submit" value="Create Account">
-                </a>
+                <button onclick="createAccount()">Create Account</button>
             </div>
+
+            <p id="SignupError" class="AuthError"></p>
 
             <p class="AuthHint">
                 Already have an account?<br>
@@ -62,6 +58,7 @@
         </section>
     </main>
 
+    <script src="scripts/account.js"></script>
     <script src="scripts/auth.js"></script>
 </body>
 

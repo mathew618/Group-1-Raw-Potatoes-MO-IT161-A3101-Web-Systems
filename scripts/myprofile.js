@@ -40,17 +40,9 @@ const defaultCommissionImages = [
     "assets/images/MyProfileExamples/Commission2.png"
 ];
 
-function ProfileSettingsSync() {
-    const username = localStorage.getItem('LoggedUser');
-    if (username) {
-        document.getElementById('MyUsername').textContent = username;
-    } else {
-        window.location.href = "login.html";
-        return;
-    }
-
-    const bio = localStorage.getItem('BioDesc');
-    document.getElementById('MyDesc').textContent = bio || 'Hello!';
+function ProfileSettingsSync(account) {
+    document.getElementById('MyUsername').textContent = account.username;
+    document.getElementById('MyDesc').textContent = account.bio || 'Hello!';
 
     showSection('portfolio');
     if (typeof renderGalleries === 'function') {
@@ -58,5 +50,4 @@ function ProfileSettingsSync() {
     }
 }
 
-window.onload = ProfileSettingsSync;
-window.addEventListener('pageshow', ProfileSettingsSync);
+Account.protectPage(ProfileSettingsSync);
