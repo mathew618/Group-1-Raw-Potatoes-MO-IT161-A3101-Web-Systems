@@ -1,6 +1,4 @@
 .Main {
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
@@ -32,35 +30,32 @@
 
 }
 
-.CreateAccButton button {
-    background-color: #eda27c;
-    color: #ffffff;
+.CreateAccButton button,
+.LoginButton button {
     border: none;
-    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    margin-top: 10px;
     font-weight: 400;
     font-family: Inter, sans-serif;
 }
 
-.CreateAccButton button:hover {
-    background-color: #B04825;
+.CreateAccButton button {
+    background-color: #eda27c;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-top: 10px;
 }
 
 .LoginButton button {
     color: #eda27c;
     background-color: #ffffff;
-    border: none;
     padding: 10px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
     margin-bottom: 8px;
-    font-weight: 400;
-    font-family: Inter, sans-serif;
+}
 
+.CreateAccButton button:hover {
+    background-color: #B04825;
 }
 
 .LoginButton p {
@@ -100,7 +95,7 @@ section.AboutUs p {
     font-size: 16px;
     text-align: center;
     color: #141313;
-    margin-bottom: 20px; ;
+    margin-bottom: 20px;
 }
 
 section.Introduction {

@@ -56,7 +56,6 @@
 .AuthField input[type="password"]:focus {
     border-color: #FA987F;
     background-color: #ffffff;
-    outline: none;
 }
 
 /* SHOW PASSWORD CHECKBOX */
@@ -85,12 +84,7 @@
     text-align: center;
 }
 
-.AuthButton a {
-    text-decoration: none;
-}
-
-.AuthButton button,
-.AuthCard input[type="submit"] {
+.AuthButton button {
     width: 75%;
     background-color: #FA987F;
     color: #ffffff;
@@ -103,8 +97,7 @@
     transition: background-color 0.2s ease;
 }
 
-.AuthButton button:hover,
-.AuthCard input[type="submit"]:hover {
+.AuthButton button:hover {
     background-color: #B04825;
 }
 

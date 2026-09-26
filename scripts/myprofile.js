@@ -42,7 +42,7 @@ const defaultCommissionImages = [
 
 function ProfileSettingsSync(account) {
     document.getElementById('MyUsername').textContent = account.username;
-    document.getElementById('MyDesc').textContent = account.bio || 'Hello!';
+    document.getElementById('MyDesc').textContent = account.bio || Account.DEFAULT_BIO;
 
     showSection('portfolio');
     if (typeof renderGalleries === 'function') {

@@ -4,7 +4,10 @@ class Account {
     static STORE = 'ArtifyPH_Accounts';
     static SESSION = 'ArtifyPH_Current';
     static LOGIN = 'login.html';
+    static HOME = 'home.html';
+    static INDEX = 'index.html';
     static ROLE = 'account';
+    static DEFAULT_BIO = 'Hello!';
 
     /* local storage account fallback (we might remove this soon) */
     static DEFAULTS = [
@@ -14,7 +17,7 @@ class Account {
             username: 'Justablub',
             email: 'ilosthotdogs@gmail.com',
             password: 'Beezytrave890',
-            bio: 'Hello!',
+            bio: Account.DEFAULT_BIO,
             portfolio: [],
             commissions: []
         }
@@ -128,23 +131,41 @@ class Account {
 
     /* Check account */
     static async requireLogin() {
-        if (document.body) document.body.style.visibility = 'hidden';
+        return Account.#gate(account => !account, Account.LOGIN);
+    }
 
-        const account = await Account.current();
-
-        if (!account) {
-            window.location.replace(Account.LOGIN);
-            return null;
-        }
-
-        document.body.style.visibility = '';
-        return account;
+    /* Check guest */
+    static async requireGuest() {
+        return Account.#gate(account => Boolean(account), Account.HOME);
     }
 
     /* This function adds login gate to page */
     static protectPage(onAllowed = null) {
+        return Account.#protect(Account.requireLogin, onAllowed);
+    }
+
+    /* This function keeps logged in users away from login and sign up */
+    static protectGuestPage() {
+        return Account.#protect(Account.requireGuest);
+    }
+
+    static async #gate(blocked, destination) {
+        if (document.body) document.body.style.visibility = 'hidden';
+
+        const account = await Account.current();
+
+        if (blocked(account)) {
+            window.location.replace(destination);
+            return null;
+        }
+
+        if (document.body) document.body.style.visibility = '';
+        return account;
+    }
+
+    static #protect(gate, onAllowed = null) {
         const run = async () => {
-            const account = await Account.requireLogin();
+            const account = await gate();
             if (account && onAllowed) onAllowed(account);
         };
 
@@ -202,3 +223,18 @@ class Artist extends Account {
         );
     }
 }
+
+/* Show or hide password fields (data-targets="fieldId fieldId") */
+function setupShowPassword() {
+    document.querySelectorAll('input[type="checkbox"][data-targets]').forEach(checkbox => {
+        const inputs = checkbox.dataset.targets.split(' ')
+            .map(id => document.getElementById(id))
+            .filter(Boolean);
+
+        checkbox.addEventListener('change', function () {
+            const type = this.checked ? 'text' : 'password';
+            inputs.forEach(input => input.type = type);
+        });
+    });
+}
+

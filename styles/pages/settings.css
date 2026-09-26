@@ -38,16 +38,6 @@
     cursor: not-allowed;
 }
 
-.FieldDisplay {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: #ececec;
-    border-radius: 6px;
-    font-size: 14px;
-    color: #999;
-}
-
 .HiddenMountains {
     display: none;
 }

@@ -4,104 +4,106 @@ const HiddenUntilEditGroups = ['vemail', 'vpassword', 'Showstopper'];
 /* They Got Caught in the Bear Trap X - x*/
 const DisabledUntilEditFields = ['email', 'UserPassword', 'username', 'biodesc', 'profilePhotoInput', 'backgroundInput'];
 
+/* Settings fields and the account values they mirror */
+const AccountFields = [
+    { input: 'email', property: 'email' },
+    { input: 'username', property: 'username' },
+    { input: 'biodesc', property: 'bio' },
+    { input: 'UserPassword', property: 'password' }
+];
+
+/* Fields that must match their confirm input before saving */
+const ConfirmFields = [
+    { input: 'email', confirm: 'ConEmail', error: 'EmailMismatch', message: "Emails don't match.", trim: true },
+    { input: 'UserPassword', confirm: 'ConPassword', error: 'PasswordMismatch', message: "Passwords don't match." }
+];
+
 let isEditing = false;
 let currentAccount = null;
+
+function field(id) {
+    return document.getElementById(id);
+}
+
+function fieldValue(id, trim = false) {
+    const value = field(id).value;
+    return trim ? value.trim() : value;
+}
 
 function loadSavedValues(account = null) {
     currentAccount = account || currentAccount;
     if (!currentAccount) return;
 
-    document.getElementById('email').value = currentAccount.email;
-    document.getElementById('ConEmail').value = currentAccount.email;
-    document.getElementById('UserPassword').value = currentAccount.password;
-    document.getElementById('ConPassword').value = currentAccount.password;
-    document.getElementById('username').value = currentAccount.username;
-    document.getElementById('biodesc').value = currentAccount.bio || '';
+    AccountFields.forEach(({ input, property }) => {
+        field(input).value = currentAccount[property] || '';
+    });
+
+    ConfirmFields.forEach(({ input, confirm }) => {
+        field(confirm).value = field(input).value;
+    });
 }
 
 Account.protectPage(loadSavedValues);
 
 /*Ediing Stuff In Settings*/
-function toggleEdit() {
-    isEditing = !isEditing;
+function setEditing(editing) {
+    isEditing = editing;
 
     if (!isEditing) {
         loadSavedValues();
     }
 
     HiddenUntilEditGroups.forEach(function (id) {
-        document.getElementById(id).style.display = isEditing ? 'block' : 'none';
+        field(id).style.display = isEditing ? 'block' : 'none';
     });
 
     DisabledUntilEditFields.forEach(function (id) {
-        document.getElementById(id).disabled = !isEditing;
+        field(id).disabled = !isEditing;
     });
 
-    document.getElementById('SaveButton').disabled = !isEditing;
-    document.getElementById('EditButton').textContent = isEditing ? 'Cancel' : 'Edit';
-    document.getElementById('SaveStatus').textContent = '';
-    document.getElementById('PasswordMismatch').textContent = '';
-    document.getElementById('EmailMismatch').textContent = '';
+    field('SaveButton').disabled = !isEditing;
+    field('EditButton').textContent = isEditing ? 'Cancel' : 'Edit';
+    field('SaveStatus').textContent = '';
+    ConfirmFields.forEach(({ error }) => field(error).textContent = '');
+}
+
+function toggleEdit() {
+    setEditing(!isEditing);
 }
 
 /*Saving Stuff In Settings */
 async function saveSettings() {
-    const newEmail = document.getElementById('email').value.trim();
-    const confirmEmail = document.getElementById('ConEmail').value.trim();
-    const newPassword = document.getElementById('UserPassword').value;
-    const confirmPassword = document.getElementById('ConPassword').value;
-    const newUsername = document.getElementById('username').value.trim();
-    const newBioDesc = document.getElementById('biodesc').value.trim();
+    const mismatch = ConfirmFields.find(({ input, confirm, trim }) =>
+        fieldValue(input, trim) !== fieldValue(confirm, trim));
 
-    if (newEmail !== confirmEmail) {
-        document.getElementById('EmailMismatch').textContent = "Emails don't match.";
+    if (mismatch) {
+        field(mismatch.error).textContent = mismatch.message;
         return;
     }
-    document.getElementById('EmailMismatch').textContent = "";
-
-    if (newPassword !== confirmPassword) {
-        document.getElementById('PasswordMismatch').textContent = "Passwords don't match.";
-        return;
-    }
-    document.getElementById('PasswordMismatch').textContent = "";
+    ConfirmFields.forEach(({ error }) => field(error).textContent = '');
 
     if (currentAccount) {
-        currentAccount.email = newEmail;
-        currentAccount.password = newPassword;
+        currentAccount.email = fieldValue('email', true);
+        currentAccount.password = fieldValue('UserPassword');
+
+        const newUsername = fieldValue('username', true);
         if (newUsername) currentAccount.username = newUsername;
-        if (currentAccount instanceof Artist) currentAccount.bio = newBioDesc;
+
+        if (currentAccount instanceof Artist) currentAccount.bio = fieldValue('biodesc', true);
+
         await currentAccount.save();
     }
 
-    document.getElementById('SaveStatus').textContent = "Changes saved!";
-
     /*You Shall Not Passed After You Finish Editing*/
-    isEditing = false;
-    loadSavedValues();
-
-    HiddenUntilEditGroups.forEach(function (id) {
-        document.getElementById(id).style.display = 'none';
-    });
-
-    DisabledUntilEditFields.forEach(function (id) {
-        document.getElementById(id).disabled = true;
-    });
-    document.getElementById('SaveButton').disabled = true;
-    document.getElementById('EditButton').textContent = 'Edit';
+    setEditing(false);
+    field('SaveStatus').textContent = "Changes saved!";
 }
 
 /*Show Password toggle*/
-const UserPassword = document.getElementById('UserPassword');
-const ShowPassword = document.getElementById('ShowPassword');
-
-ShowPassword.addEventListener('click', function () {
-    const type = this.checked ? 'text' : 'password';
-    UserPassword.type = type;
-    document.getElementById('ConPassword').type = type;
-});
+setupShowPassword();
 
 /* Log out */
 function logout() {
     Account.logout();
-    window.location.href = 'index.html';
+    window.location.href = Account.INDEX;
 }

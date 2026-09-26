@@ -26,39 +26,41 @@
 
     <main>
         <!-- Daily Showcase -->
-        <div class="IMissSHSDays" id="Imy2025">
-            <div class="JoyOfMemories">
-                <h1>Daily Showcase</h1>
-                <div class="ArtsyBitsy" id="SunsetParadise">
-                    <div class="AW1" data-index="0">
-                        <img src="assets/images/Home_SlideShow/Home_SlideShow_1.png">
-                        <p>_BELPHIE</p>
-                    </div>
-                    <div class="AW2" data-index="1">
-                        <img src="assets/images/Home_SlideShow/Home_SlideShow_2.png">
-                        <p>Blubytrave890</p>
-                    </div>
-                    <div class="AW3" data-index="2">
-                        <img src="assets/images/Home_SlideShow/Home_SlideShow_3.png">
-                        <p>Mathew618</p>
-                    </div>
-                    <div class="AW4" data-index="3">
-                        <img src="assets/images/Home_SlideShow/Home_SlideShow_4.png">
-                        <p>CamechiDiaz</p>
-                    </div>
-                    <div class="AW5" data-index="4">
-                        <img src="assets/images/Home_SlideShow/Home_SlideShow_5.png">
-                        <p>Az</p>
+        <section>
+            <div class="IMissSHSDays" id="Imy2025">
+                <div class="JoyOfMemories">
+                    <h1>Daily Showcase</h1>
+                    <div class="ArtsyBitsy" id="SunsetParadise">
+                        <div class="AW1" data-index="0">
+                            <img src="assets/images/Home_SlideShow/Home_SlideShow_1.png">
+                            <p>_BELPHIE</p>
+                        </div>
+                        <div class="AW2" data-index="1">
+                            <img src="assets/images/Home_SlideShow/Home_SlideShow_2.png">
+                            <p>Blubytrave890</p>
+                        </div>
+                        <div class="AW3" data-index="2">
+                            <img src="assets/images/Home_SlideShow/Home_SlideShow_3.png">
+                            <p>Mathew618</p>
+                        </div>
+                        <div class="AW4" data-index="3">
+                            <img src="assets/images/Home_SlideShow/Home_SlideShow_4.png">
+                            <p>CamechiDiaz</p>
+                        </div>
+                        <div class="AW5" data-index="4">
+                            <img src="assets/images/Home_SlideShow/Home_SlideShow_5.png">
+                            <p>Az</p>
+                        </div>
                     </div>
                 </div>
+                <div class="MoveableMagicButtonYes">
+                    <button class="MoveableMagicButtonYes" onclick="changeFeatured(-1)">←</button>
+                    <button class="MoveableMagicButtonYes" onclick="changeFeatured(1)">→</button>
+                </div>
+                <div class="ButtonLock" id="buttonlock"></div>
             </div>
-            <div class="MoveableMagicButtonYes">
-                <button class="MoveableMagicButtonYes" onclick="changeFeatured(-1)">←</button>
-                <button class="MoveableMagicButtonYes" onclick="changeFeatured(1)">→</button>
-            </div>
-            <div class="ButtonLock" id="buttonlock">
-            </div>
-        </div>
+        </section>
+
 
         <!-- Explore Area -->
         <div class="NicoleLasagna" id="NicoleLasagna">
@@ -116,9 +118,9 @@
                 </div>
             </div>
         </div>
-        
+
     </main>
-    
+
     <script src="scripts/account.js"></script>
     <script src="scripts/home.js"></script>
 </body>
