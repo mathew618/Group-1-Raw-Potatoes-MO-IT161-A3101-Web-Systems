@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArtifyPH - Commission Form</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/pages/commissionform.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <a href="index.html" class="ArtifyPHLogo">
+            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myprofile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="commissionform">
+            <p>Required Fields</p>
+            <!-- Name/ Username -->
+            <label for="name">Full Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <!-- Email -->
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <!-- Commission Type (Dropdown) This is awesome :D -->
+            <label for="type">Commission Type:</label><br>
+            <select id="type" name="type" required>
+                <option value="">-- Select Type --</option>
+                <option value="Sketch">Digital Art</option>
+                <option value="Colored">Traditional Art</option>
+                <option value="Fully Rendered">Crafts</option>
+            </select><br><br>
+
+            <!-- Additional Details / User can write what they want to add -->
+            <label for="details">Additional Details:</label><br>
+            <textarea id="details" name="details" rows="4" cols="40"></textarea><br><br>
+
+            <!-- Upload Reference -->
+            <label for="reference">Upload Reference Image:</label><br>
+            <input type="file" id="reference" name="reference"><br><br>
+
+            <!-- Deadline/ DD/MM/YYYY -->
+            <label for="deadline">Deadline:</label><br>
+            <input type="date" id="deadline" name="deadline" required><br><br>
+
+            <!-- Budget -->
+            <label for="budget">Budget (in PHP):</label><br>
+            <input type="number" id="budget" name="budget" min="0" step="100" required><br><br>
+
+            <!-- Preferred Communication Platform -->
+            <label for="platform">Preferred Communication Platform:</label><br>
+            <input type="text" id="platform" name="platform" placeholder="e.g., Email, Discord, Messenger"><br><br>
+
+            <!-- Terms of Service Checkbox -->
+            <label>
+                <input type="checkbox" name="agreement" required>
+                I understand that submitting this request does not guarantee the commission will be accepted.
+            </label><br><br>
+
+            <!-- Next Button - Will proceed payment-->
+            <a href="payment.html" class="next">Next</a>
+            </form>
+
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArtifyPH - Commission Form</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/pages/commissionform.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <a href="index.html" class="ArtifyPHLogo">
+            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myprofile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hi Mat! This part is a bit hard -->
+        <section class="paymentmethod">
+            <h2>Select Payment Method </h2>
+
+            <!-- Payment Options -->
+            <!-- Basically, you have to click one of these payment methods in 
+                order for the "Next" button to work. 
+                Then, let's say user clicks Credit Card, they'll link into Credit card payment page, 
+                different from gcash or paymaya -->
+
+            <label>
+                <input type="radio" name="payment" value="credit" required>
+                Credit Card
+            </label><br>
+            <label>
+                <input type="radio" name="payment" value="gcash">
+                GCash
+            </label><br>
+            <label>
+                <input type="radio" name="payment" value="paymaya">
+                PayMaya
+            </label><br><br>
+
+            <!-- Cost Summary | Example -->
+            <h3>Order Summary</h3>
+            <p>Cost: ₱500.00</p><br>
+            <p>Shipping: ₱0.00</p><br>
+            <p><strong>Total: ₱500.00</strong></p><br>
+
+            <!-- Info -->
+            <p>Payment will only be processed once the artist accepts the commission request.<br>
+                    Rejected requests are automatically refunded.</p>
+
+
+            <button type="button" onclick="goToPayment()">Next</button>
+        </section>
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>

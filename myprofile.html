@@ -74,6 +74,49 @@
                 <div class="Picnic" id="commissionpicnic"></div>
             </div>
         </div>
+
+        <!-- Add Thing For Portfolio -->
+        <div class="Subnautica" id="Subnautica">
+            <div class="Crashzone">
+                <button id="Reaper" onclick="Repear('Subnautica', false)">×</button>
+                <div class="AuroraSpaceship">
+                    <div class="UploadSpecimen" onclick="document.getElementById('PPhotoInput').click()">
+                        <img id="PPreviewPhoto">
+                        <span id="ImNotSureYetPhoto"> Upload Photo </span>
+                        <input type="file" id="PhotoInput" accept="image/*" style="display:none;"
+                            onchange="previewImage(event, 'ImNotSureYetPhoto')">
+                    </div>
+                    <div class="PortfolioInfo">
+                        <label>Title: </label>
+                        <input type="text" id="PTitle">
+                        <label>Description: </label>
+                        <textarea id="PDesc"></textarea>
+                        <button id="PButton" onclick="SaveP()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Thing For Commission -->
+        <div class="Minecraft" id="Minecraft">
+            <div class="TheEnd">
+                <button id="Gameover" onclick="Gameover('Minecraft', false)">×</button>
+                <div class="Chest">
+                    <div class="Inventory" onclick="document.getElementById('CPhotoInput').click()">
+                        <img id="CPreviewPhoto">
+                        <span id="NeitherThisOne"> Upload Photo </span>
+                        <input type="file" id="CPhotoInput" accept="image/*" style="display:none;"
+                            onchange="previewImage(event, 'NeitherThisOne')">
+                    </div>
+                    <div class="PortfolioInfo">
+                        <label>Title: </label>
+                        <input type="text" id="PTitle">
+                        <label>Description: </label>
+                        <textarea id="PDesc"></textarea>
+                        <button id="PButton" onclick="SaveC()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <script src="scripts/account.js"></script>

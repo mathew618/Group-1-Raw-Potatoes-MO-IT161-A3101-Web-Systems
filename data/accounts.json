@@ -8,5 +8,15 @@
         "bio": "Hello!",
         "portfolio": [],
         "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Camryngamesyt",
+        "username": "Camryngamesyt",
+        "email": "Camryngamesyt@gmail.com",
+        "password": "Camryngamesyt",
+        "bio": "Follow Me For More!",
+        "portfolio": [],
+        "commissions": []
     }
 ]
