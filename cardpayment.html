@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArtifyPH - Commission Form</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/pages/commissionform.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <a href="index.html" class="ArtifyPHLogo">
+            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myprofile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Someone help please -->
+        <section class="card">
+            <h2>Payment Details</h2>
+            <img src="assets/images/Payment_GcashLogo_1.png" alt="card">
+            <h3>Credit/ Debit Card</h3><br>
+
+            <!-- Is this correct way to do it? -->
+            <label for="GcashNumber">Gcash number:</label><br>
+            <input type="tel" id="paymentNumber" name="paymentNumber" placeholder="e.g., 0912 345 6789"
+                required><br><br>
+
+            <p>Cost: ₱500.00</p>
+            <p>Shipping: ₱0.00</p>
+            <p><strong>Total: ₱500.00</strong></p> <br><br>
+
+            <!-- Button -->
+            <button type="button" onclick="processPayment()">Pay Now</button>
+
+            <!-- To Mat - Can you make it that when button is clicked, it says "Payment Successful" too? Thanks! -->
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>

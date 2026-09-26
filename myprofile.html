@@ -55,6 +55,7 @@
                 <div class="PorkNBeans" id="PorkNBeans">
                     <button id="button4Portfolio" onclick="showSection('portfolio')">Portfolio</button>
                     <button id="button4Commission" onclick="showSection('commission')">Commission</button>
+                    <button id="button4Dashboard" onclick="showSection('dashboard')">Dashboard</button> 
                 </div>
             </div>
 
@@ -65,14 +66,41 @@
                 <button id="ButtonWobblyGoopler" onclick="toggleEditMode()">Edit</button>
             </div>
 
+            <!-- Portfolio Gallery View -->
             <div class="MyProfileImagesPortfolio" id="MyProfileImagesPortfolio">
                 <div class="Picnic" id="portfoliopicnic"></div>
             </div>
 
+            <!-- Commission Packages View -->
             <div class="MyProfileImagesCommissions" id="MyProfileImagesCommissions">
                 <div class="Picnic" id="commissionpicnic"></div>
             </div>
         </div>
+
+            <!-- DASHBOARD SECTION -->>
+            <div class="MyProfileDashboard" id="MyProfileDashboard" style="display:none;">
+                
+                <!-- Client Commissions Table -->
+                <div class="DashboardSection">
+                    <h2 class="DashboardTitle">Client Commissions</h2>
+                    <div class="DashTableCard">
+                        <table class="DashTable">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Email</th>
+                                    <th>Preview Request</th>
+                                    <th>Paid</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{Username}</td>
+                                    <td>{Email}</td>
+                                    
+                            </tbody>
+
 
         <!-- Add Thing For Portfolio -->
         <div class="Subnautica" id="Subnautica">

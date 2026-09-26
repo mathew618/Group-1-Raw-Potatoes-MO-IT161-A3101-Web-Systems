@@ -24,12 +24,25 @@
     </header>
 
     <main>
+        <!-- Someone help please -->
         <section class="gcash">
             <h2>Payment Details</h2>
-            <img src="aassets/images/Payment_GcashLogo_1.png" alt="Gcashlogo">
-            <h3>Gcash</h3>
+            <img src="assets/images/Payment_GcashLogo_1.png" alt="Gcashlogo">
+            <h3>Gcash</h3><br>
 
+            <!-- Is this correct way to do it? -->
+            <label for="GcashNumber">Gcash number:</label><br>
+            <input type="tel" id="paymentNumber" name="paymentNumber" placeholder="e.g., 0912 345 6789"
+                required><br><br>
 
+            <p>Cost: ₱500.00</p>
+            <p>Shipping: ₱0.00</p>
+            <p><strong>Total: ₱500.00</strong></p> <br><br>
+
+            <!-- Button -->
+            <button type="button" onclick="processPayment()">Pay Now</button>
+
+            <!-- To Mat - Can you make it that when button is clicked, it says "Payment Successful"? Thanks! -->
 
         </section>
 
