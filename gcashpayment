@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArtifyPH - Commission Form</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/pages/commissionform.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <a href="index.html" class="ArtifyPHLogo">
+            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="myprofile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gcash">
+            <h2>Payment Details</h2>
+            <img src="aassets/images/Payment_GcashLogo_1.png" alt="Gcashlogo">
+            <h3>Gcash</h3>
+
+
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>
