@@ -11,6 +11,12 @@ Kim Charlotte Anicete
 Mathew Wilson Vercida 
 ___________________________________________
 
+Application Development Workflow Worksheet
+https://docs.google.com/spreadsheets/d/1TMPzV3w1UjTdo7ceChNE9hV_tMTYKaQW4RyTaG7UGaQ/edit?usp=sharing
+
+AI Use Statement
+https://docs.google.com/document/d/1rhELFqXuPoCjVr9Iuv3WaVZyD85F4_JWx_tu3KgARI4/edit?usp=sharing
+
 Test Account Folder
 
 NOTE: Use this since it's our Test Account 
