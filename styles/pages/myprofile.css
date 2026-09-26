@@ -288,3 +288,77 @@
     align-self: flex-start;
     margin-bottom: 16px;
 }
+
+.MyProfileStats {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.MyProfileStats span b {
+    color: #222;
+    font-size: 14px;
+}
+
+.MyProfileDashboard {
+    padding: 20px 40px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.DashboardSection {
+    margin-bottom: 35px;
+}
+
+.DashTableTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.DashTableCard {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.DashTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 13px;
+}
+
+.DashTable th {
+    font-weight: bold;
+    color: #555;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.DashTable td {
+    padding: 16px 10px;
+    color: #333;
+}
+
+.status-accepted {
+    color: #388e3c;
+    font-weight: bold;
+}
+
+.status-in-progress {
+    color: #64b5f6;
+    font-weight: bold;
+}
+
+.status-received {
+    color: #64b5f6;
+    font-weight: bold;
+}
