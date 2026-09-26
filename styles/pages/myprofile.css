@@ -67,7 +67,40 @@
     background-color: #832a2a;
     color: #ffffff;
 }
+.TF2Toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+}
 
+.TF2Toolbar button {
+    background: #9c3d3d;
+    border: 1.5px solid #333;
+    cursor: pointer;
+    font-size: 16px;
+    color: #f7f3f3;
+}
+
+.TF2Toolbar > button:first-of-type {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+}
+#ButtonWobblyGoopler {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+.TF2Toolbar button:hover {
+    background: #641111;
+}
 .Subnautica {
     display: none;
     position: fixed;
@@ -87,10 +120,171 @@
 
 .Crashzone {
     background: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 8px;
     display: flex;
-    gap: 20px;
+    flex-direction: row;
+    gap: 30px;
     position: relative;
+    width: 700px;
+    max-width: 90%;
+    box-sizing: border-box;
 }
 
+.Minecraft {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.Minecraft.show {
+    display: flex;
+}
+
+.TheEnd {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: relative;
+    width: 700px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+#Reaper,
+#Gameover {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+}
+
+.UploadSpecimen,
+.Inventory {
+    flex: 0 0 280px;
+    width: 280px;
+    height: 340px;
+    background: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.UploadSpecimen img,
+.Inventory img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.UploadSpecimen img.has-image,
+.Inventory img.has-image {
+    display: block;
+}
+
+.PortfolioInfo,
+.CommissionInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-top: 30px;
+}
+
+.PortfolioInfo label,
+.CommissionInfo label {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.PortfolioInfo input[type="text"],
+.CommissionInfo input[type="text"] {
+    background: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.PortfolioInfo textarea,
+.CommissionInfo textarea {
+    background: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    height: 120px;
+    resize: none;
+    font-size: 14px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.AuroraSpaceship,
+.Chest {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+}
+
+#PButton,
+#CButton {
+    align-self: flex-end;
+    margin-top: auto;
+    background-color: #f2a488;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#PButton:hover,
+#CButton:hover {
+    background-color: #e08c6c;
+}
+
+#CStatusButton {
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #333;
+    background-color: #e0e0e0;
+    align-self: flex-start;
+    margin-bottom: 16px;
+}

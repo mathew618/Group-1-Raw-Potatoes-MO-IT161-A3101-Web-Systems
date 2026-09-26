@@ -4,7 +4,14 @@ function previewImage(event, imgId) {
     if (!file) return;
     const reader = new FileReader();
     reader.onload = function (e) {
-        document.getElementById(imgId).src = e.target.result;
+        const img = document.getElementById(imgId);
+        img.src = e.target.result;
+        img.classList.add('has-image');
+
+        const span = img.nextElementSibling;
+        if (span && span.tagName === 'SPAN') {
+            span.style.display = 'none';
+        }
     };
     reader.readAsDataURL(file);
 }
@@ -48,6 +55,49 @@ function ProfileSettingsSync(account) {
     if (typeof renderGalleries === 'function') {
         renderGalleries();
     }
+}
+function AddPortfolioForm() {
+    const isPortfolio = document.getElementById('button4Portfolio').classList.contains('active');
+    if (isPortfolio) {
+        toggleForm('Subnautica', true);
+    } else {
+        toggleForm('Minecraft', true);
+    }
+}
+
+function toggleForm(id, show) {
+    document.getElementById(id).classList.toggle('show', show);
+}
+
+function SaveP() {
+    const pfileInput = document.getElementById('PhotoInput');
+    const ptitle = document.getElementById('PTitle').value;
+    const pdesc = document.getElementById('PDesc').value;
+    toggleForm('Subnautica', false);
+}
+
+function toggleCommissionStatus() {
+    const btn = document.getElementById('CStatusButton');
+    const isOpen = btn.classList.contains('statusOpen');
+
+    if (isOpen) {
+        btn.textContent = 'CLOSED';
+        btn.classList.remove('statusOpen');
+        btn.classList.add('statusClosed');
+    } else {
+        btn.textContent = 'OPEN';
+        btn.classList.remove('statusClosed');
+        btn.classList.add('statusOpen');
+    }
+}
+
+function SaveC() {
+    const cfileInput = document.getElementById('CPhotoInput');
+    const ctitle = document.getElementById('CTitle').value;
+    const cdesc = document.getElementById('CDesc').value;
+    const cstatus = document.getElementById('CStatusButton').classList.contains('statusOpen') ? 'OPEN' : 'CLOSED';
+
+    toggleForm('Minecraft', false);
 }
 
 Account.protectPage(ProfileSettingsSync);
