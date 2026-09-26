@@ -24,26 +24,37 @@
     </header>
 
     <main>
-        <!-- Someone help please -->
         <section class="card">
             <h2>Payment Details</h2>
-            <img src="assets/images/Payment_GcashLogo_1.png" alt="card">
+            <img src="assets/images/Card_Icon.png" alt="card">
             <h3>Credit/ Debit Card</h3><br>
 
-            <!-- Is this correct way to do it? -->
-            <label for="GcashNumber">Gcash number:</label><br>
-            <input type="tel" id="paymentNumber" name="paymentNumber" placeholder="e.g., 0912 345 6789"
+            <!-- Card Numer | Must only be in numbers -->
+            <label for="Card">Credit/ Debit Card</label><br>
+            <input type="text" id="cardNumber" name="cardNumber" placeholder="e.g., 1234 5678 9012 3456" maxlength="19"
                 required><br><br>
+
+            <!-- Expiry Date | Follow this Format MM/YY (month/year) -->
+            <label for="expiry">Expiry Date (MM/YY):</label><br>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required><br><br>
+
+            <!-- CVV -->
+            <label for="cvv">Security Code (CVV):</label><br>
+            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required><br><br>
 
             <p>Cost: ₱500.00</p>
             <p>Shipping: ₱0.00</p>
             <p><strong>Total: ₱500.00</strong></p> <br><br>
 
+            <p>For now, ArtifyPH supports payments through local banks.</p>
+
             <!-- Button -->
+            <!-- To Mat - Can you make it that when button is clicked, it says "Payment Successful" too? Thanks! -->
             <button type="button" onclick="processPayment()">Pay Now</button>
 
-            <!-- To Mat - Can you make it that when button is clicked, it says "Payment Successful" too? Thanks! -->
 
+
+            <a href="myprofile.html" class="next-button">Done</a>
         </section>
 
 
