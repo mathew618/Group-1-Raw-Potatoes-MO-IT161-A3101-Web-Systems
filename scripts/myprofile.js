@@ -75,8 +75,6 @@ function toggleEditMode() {
     renderGalleries();
 }
 
-let viewingItem = null;
-let viewingItemType = null;
 let selectedCommissionId = null;
 
 function AddPortfolioForm() {
@@ -126,11 +124,6 @@ function openEditForm(type, id) {
 
         toggleForm('Minecraft', true);
     }
-}
-
-function openEditFromView() {
-    viewer.close();
-    openEditForm(viewingItemType, viewingItem.id);
 }
 
 function SaveP() {
@@ -260,14 +253,8 @@ function renderOneGallery(storageKey, containerId, type) {
         if (editMode) return;
 
         if (type === 'commission') selectCommission(item.id);
-        else openViewer(item, type);
+        else viewer.open(item);
     }, editOptions);
-}
-
-function openViewer(item, type) {
-    viewingItem = item;
-    viewingItemType = type;
-    viewer.open(item);
 }
 
 function selectCommission(id) {

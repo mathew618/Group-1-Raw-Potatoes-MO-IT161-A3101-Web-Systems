@@ -51,8 +51,8 @@ updateSlides();
 const artworks = {
     Camryngamesyt: {
         author: "Camryngamesyt",
-        title: "Candle Flame",
-        desc: "Test"
+        title: "Candle Painting",
+        desc: "A candle loses nothing by lighting another candle. - James Keller."
     },
     Maboroshiiiro: {
         author: "Maboroshiiiro",
