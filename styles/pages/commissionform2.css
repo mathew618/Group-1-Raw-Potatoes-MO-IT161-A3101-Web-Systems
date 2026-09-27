@@ -20,22 +20,43 @@ header {
 /* Required Fields */
 .commissionform2 p {
     color: #969696;
-    text-align: center;
+    text-align: left;
     font-family: Inter, sans-serif;
-
+    margin-left: 65px;
+    margin-bottom: 10px;
 }
 
 /* Labels */
 .commissionform2 label {
     font-size: 14px;
     font-weight: 400;
-    display: block;               
+    display: block;
     font-family: Inter, sans-serif;
-    
+    margin-left: 70px;
+
+}
+
+/* Input / Interactive Fields */
+.commissionform2 input[type="text"],
+.commissionform2 input[type="email"],
+.commissionform2 input[type="date"],
+.commissionform2 input[type="number"],
+.commissionform2 input[type="file"],
+.commissionform2 select,
+.commissionform2 textarea {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto;
+
 }
 
 /* NEXT button*/
-.nextbutton {
+.next {
     display: inline-block;
     padding: 10px 20px;
     background-color: #eda27c;
@@ -48,7 +69,7 @@ header {
 
 }
 
-.nextbutton:hover {
+.next:hover {
     background-color: #d97a50;
 }
 
