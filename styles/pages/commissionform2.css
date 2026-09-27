@@ -1,6 +1,6 @@
 header {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     background-color: #FA987F;
     color: #333;
 
@@ -75,6 +75,6 @@ header {
 
 .buttonBox {
     text-align: right;
-    margin-right: 35px;
+    margin-right: 65px;
     margin-bottom: 30px;
 }

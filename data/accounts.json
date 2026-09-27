@@ -5,22 +5,12 @@
         "username": "Justablub",
         "email": "ilosthotdogs@gmail.com",
         "password": "Beezytrave890",
+        "profilepicture": "",
+        "backgroundpicture": "",
         "bio": "Hello!",
         "portfolio": [],
         "commissions": []
     },
-    {
-        "role": "artist",
-        "id": "acc_Camryngamesyt",
-        "username": "Camryngamesyt",
-        "email": "Camryngamesyt@gmail.com",
-        "password": "Camryngamesyt",
-        "bio": "Follow Me For More!",
-        "portfolio": [],
-        "commissions": []
-    },
-
-
     {
         "role": "artist",
         "id": "acc_Camryngamesyt",
@@ -33,7 +23,7 @@
         "portfolio": [
             {
                 "partist": "Camryngamesyt",
-                "pptitle": "Koi Fish Oil Pastels",
+                "ptitle": "Koi Fish Oil Pastels",
                 "pdesc": "I Love Fish",
                 "image": "A1Portfolio.png"
             },
@@ -81,8 +71,105 @@
             }
         ]
     },
-
     {
-        
+        "role": "artist",
+        "id": "acc_Maboroshiiiro",
+        "username": "Maboroshiiiro",
+        "email": "Maboroshiiiro@gmail.com",
+        "password": "Maboroshiiiro",
+        "profilepicture": "Artist2MyProfilePic.png",
+        "backgroundpicture": "A2BG.png",
+        "bio": "Hi! I like to draw ✨️🌙 nice to meet you! ♡ 26 / Digital & watercolour + gouache!",
+        "portfolio": [
+            {
+                "partist": "Maboroshiiiro",
+                "ptitle": "Matchlight 🖌🌙",
+                "pdesc": "an old fave of mine hope you like it ♡ #digitalpainting",
+                "image": "A2A1Portfolio.png"
+            },
+            {
+                "partist": "Maboroshiiiro",
+                "ptitle": "Happy birthday shion~",
+                "pdesc": "Finished this just in time ✨️",
+                "image": "A2A2Portfolio.png"
+            },
+            {
+                "partist": "Maboroshiiiro",
+                "ptitle": "WIP :D",
+                "pdesc": "I'll send some updates soon",
+                "image": "A2A3Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Superbunny64",
+        "username": "Superbunny64",
+        "email": "Superbunny64@gmail.com",
+        "password": "Superbunny64",
+        "profilepicture": "Artist3MyProfilePic.png",
+        "backgroundpicture": "A3BG.png",
+        "bio": "Bunny, 28, they/them",
+        "portfolio": [
+            {
+                "partist": "Superbunny64",
+                "ptitle": "Goobert's painting",
+                "pdesc": "#inscryption",
+                "image": "A3A1Portfolio.png"
+            },
+            {
+                "partist": "Superbunny64",
+                "ptitle": "Happy birthday shion~",
+                "pdesc": "Finished this just in time ✨️",
+                "image": "A3A2Portfolio.png"
+            },
+            {
+                "partist": "Superbunny64",
+                "ptitle": "WIP :D",
+                "pdesc": "I'll send some updates soon",
+                "image": "A3A3Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Fanfive",
+        "username": "Fanfive",
+        "email": "Fanfive@gmail.com",
+        "password": "Fanfive",
+        "profilepicture": "Artist4MyProfilePic.png",
+        "backgroundpicture": "A4BG.png",
+        "bio": "Official BT890 Fanfive Commission",
+        "portfolio": [],
+        "commissions": [
+            {
+                "cartist": "Fanfive",
+                "ctitle": "Pixel Hamburger",
+                "cdesc": "Is this a sandwich? Commission Us Now!",
+                "status": "closed",
+                "image": "A4A1Commission.png"
+            }
+        ]
+    },
+    {
+        "role": "artist",
+        "id": "acc_Piggy",
+        "username": "Piggy",
+        "email": "Piggy@gmail.com",
+        "password": "Piggy",
+        "profilepicture": "Artist5MyProfilePic.png",
+        "backgroundpicture": "A5BG.png",
+        "bio": "Living the life",
+        "portfolio": [
+            {
+                "partist": "Piggy",
+                "ptitle": "Bakugo MHA",
+                "pdesc": "Bakugo is the very embodiment of pride and self-cneteredness",
+                "image": "A5A1Portfolio.png"
+            }
+        ],
+        "commissions": []
     }
 ]

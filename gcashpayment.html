@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <title>ArtifyPH - Commission Form</title>
+    <title>ArtifyPH - Gcash Payment</title>
     <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/pages/commissionform.css">
+    <link rel="stylesheet" href="styles/pages/gcashpayment.css">
 </head>
 
 <body>
@@ -23,28 +23,38 @@
         </nav>
     </header>
 
+
     <main>
         <!-- Someone help please -->
         <section class="gcash">
+
             <h2>Payment Details</h2>
-            <img src="assets/images/Payment_GcashLogo_1.png" alt="Gcashlogo">
-            <h3>Gcash</h3><br>
+
+            <div class="logoBox">
+                <img src="assets/images/Payment_GcashLogo_1.png" alt="GCash Logo" class="gcashLogo">
+                <h3>GCash</h3>
+            </div>
 
             <!-- Is this correct way to do it? -->
-            <label for="GcashNumber">Gcash number:</label><br>
-            <input type="tel" id="paymentNumber" name="paymentNumber" placeholder="e.g., 0912 345 6789"
-                required><br><br>
 
-            <p>Cost: ₱500.00</p>
-            <p>Shipping: ₱0.00</p>
-            <p><strong>Total: ₱500.00</strong></p> <br><br>
+            <label for="gcashNumber">Gcash number:</label><br>
+            <input type="tel" id="gcashNumber" name="gcashNumber" placeholder="e.g., 0912 345 6789" required><br><br>
+
+            <div class="summary">
+                <!-- Cost Summary | I made this Example -->
+                <h3>Order Summary</h3>
+                <p>Cost: ₱500.00</p>
+                <p>Shipping: ₱0.00</p>
+                <p><strong>Total: ₱500.00</strong></p><br>
+            </div>
 
             <!-- Button -->
             <!-- To Mat - Can you make it that when button is clicked, it says "Payment Successful"? Thanks! -->
             <button type="button" onclick="processPayment()">Pay Now</button>
 
-
-            <a href="myprofile.html" class="next-button">Done</a>
+            <div class="buttonBox">
+                <a href="myprofile.html" class="done-button">Done</a>
+            </div>
         </section>
 
 

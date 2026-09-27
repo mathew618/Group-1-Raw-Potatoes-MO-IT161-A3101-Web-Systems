@@ -4,7 +4,7 @@
 <head>
     <title>ArtifyPH - Select Payment Method</title>
     <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/pages/commissionform.css">
+    <link rel="stylesheet" href="styles/pages/paymentmethod.css">
 </head>
 
 <body>
@@ -21,11 +21,13 @@
                 <li><a href="settings.html">Settings</a></li>
             </ul>
         </nav>
+
     </header>
 
     <main>
         <!-- Hi Mat! This part is a bit hard -->
         <section class="paymentmethod">
+
             <h2>Select Payment Method </h2>
 
             <!-- Payment Options -->
@@ -34,31 +36,40 @@
                 Then, let's say user clicks Credit Card, they'll link into Credit card payment page, 
                 different from gcash or paymaya -->
 
-            <label>
-                <input type="radio" name="payment" value="credit" required>
-                Credit Card
-            </label><br>
-            <label>
-                <input type="radio" name="payment" value="gcash">
-                GCash
-            </label><br>
+            <div class="card">
+                <label>
+                    <input type="radio" name="payment" value="credit" required>
+                    <img src="assets/images/Card_Icon.png" alt="GCash Logo" class="card-logo">
+                    Credit/ Debit Card
+                </label><br>
+            </div>
 
-            <!-- Cost Summary | Example -->
-            <h3>Order Summary</h3>
-            <p>Cost: ₱500.00</p><br>
-            <p>Shipping: ₱0.00</p><br>
-            <p><strong>Total: ₱500.00</strong></p><br>
+            <div class="gcash">
+                <label>
+                    <input type="radio" name="payment" value="gcash">
+                    <img src="assets/images/Payment_GcashLogo_1.png" alt="GCash Logo" class="gcash-logo">
+                    GCash
+                </label><br>
+            </div>
+
+            <div class="summary">
+                <!-- Cost Summary | I made this Example -->
+                <h3>Order Summary</h3>
+                <p>Cost: ₱500.00</p>
+                <p>Shipping: ₱0.00</p>
+                <p><strong>Total: ₱500.00</strong></p><br>
+            </div>
 
             <!-- Info -->
-            <p>Payment will only be processed once the artist accepts the commission request.<br>
-                    Rejected requests are automatically refunded.</p>
+    
+            <p>*Payment will only be processed once the artist accepts the commission request.<br>
+                Rejected requests are automatically refunded.</p>
+    
 
-
-            <button type="button" onclick="goToPayment()">Next</button>
+            <div class="buttonBox">
+            <button type="button" class="button" onclick="goToPayment()">Next</button>
+            </div>
         </section>
-
-        </section>
-
 
     </main>
 

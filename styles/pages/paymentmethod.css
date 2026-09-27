@@ -1,0 +1,110 @@
+/* Section */
+.paymentmethod {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.paymentmethod h2 {
+    margin-bottom: 15px;
+    color: #7c7b7b;
+    font-family: Inter, sans-serif;
+    margin-left: 10px;
+
+}
+
+.paymentmethod p {
+    margin-bottom: 12px;
+    color: #7c7b7b;
+    font-family: Inter, sans-serif;
+    margin-left: 10px;
+    font-size: 13px;
+
+
+}
+
+.card {
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.gcash {
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Logo - fixing */
+.card-logo {
+    width: 60px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.gcash-logo {
+    width: 60px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* labels */
+.paymentmethod label {
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+
+}
+
+/* Order cost summary */
+.summary {
+    margin-top: 20px;
+    color: #444;
+    font-family: Inter, sans-serif;
+    max-width: 800px;                    
+    padding: 15px;
+    background-color: #fdfdfd;     
+    border-radius: 8px;           
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+
+}
+.summary p {
+    font-size: 16px;
+}
+
+/* NEXT button*/
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eda27c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    border-width: 0;
+}
+
+.button:hover {
+    background-color: #d97a50;
+}
+
+.buttonBox {
+    text-align: right;
+    margin-right: 35px;
+    margin-bottom: 30px;
+}
+
