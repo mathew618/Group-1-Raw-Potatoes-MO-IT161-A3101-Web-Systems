@@ -45,6 +45,10 @@
             <div class="MyProfileDesc">
                 <h2 id="MyUsername"></h2>
                 <p id="MyDesc"></p>
+                <div class="MyProfileStats">
+                    <span><b>Followers:</b> <span id="MyFollowers"></span></span>
+                    <span><b>Likes:</b> <span id="MyLikes"></span></span>
+                </div>
             </div>
         </div>
         <hr>
@@ -55,7 +59,7 @@
                 <div class="PorkNBeans" id="PorkNBeans">
                     <button id="button4Portfolio" onclick="showSection('portfolio')">Portfolio</button>
                     <button id="button4Commission" onclick="showSection('commission')">Commission</button>
-                    <button id="button4Dashboard" onclick="showSection('dashboard')">Dashboard</button> 
+                    <button id="button4Dashboard" onclick="showSection('dashboard')">Dashboard</button>
                 </div>
             </div>
 
@@ -75,29 +79,28 @@
             <div class="MyProfileImagesCommissions" id="MyProfileImagesCommissions">
                 <div class="Picnic" id="commissionpicnic"></div>
             </div>
-        </div>
 
-            <!-- DASHBOARD SECTION -->>
+            <!-- DASHBOARD TAB VIEW -->
             <div class="MyProfileDashboard" id="MyProfileDashboard" style="display:none;">
                 
                 <!-- Client Commissions Table -->
                 <div class="DashboardSection">
-                    <h2 class="DashboardTitle">Client Commissions</h2>
+                    <h2 class="DashTableTitle">Client Commissions</h2>
                     <div class="DashTableCard">
                         <table class="DashTable">
                             <thead>
                                 <tr>
                                     <th>Client Name</th>
                                     <th>Email</th>
-                                    <th>Preview Request</th>
+                                    <th>Review Request</th>
                                     <th>Paid</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{Username}</td>
-                                    <td>{Email}</td>
+                                    <td>{userName}</td>
+                                    <td>{userEmail}</td>
                                     <td><span class="status-accepted">Accepted</span></td>
                                     <td>Paid</td>
                                     <td><span class="status-in-progress">In Progress</span></td>
@@ -107,9 +110,9 @@
                     </div>
                 </div>
 
-                <!-- My Commissions Table -->>
+                <!-- My Commissions Table -->
                 <div class="DashboardSection">
-                    <h2 class="DashboardTitle">My Commissions</h2>
+                    <h2 class="DashTableTitle">My Commissions</h2>
                     <div class="DashTableCard">
                         <table class="DashTable">
                             <thead>
@@ -123,8 +126,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{ArtistName}</td>
-                                    <td>{ArtistEmail}</td>
+                                    <td>{artistName}</td>
+                                    <td>{artistEmail}</td>
                                     <td><span class="status-accepted">Accepted</span></td>
                                     <td>Paid</td>
                                     <td><span class="status-received">Artwork Received</span></td>
@@ -133,6 +136,8 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
 
         <!-- Add Thing For Portfolio -->
         <div class="Subnautica" id="Subnautica">
