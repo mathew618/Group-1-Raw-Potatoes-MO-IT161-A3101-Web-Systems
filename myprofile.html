@@ -80,69 +80,69 @@
                 <div class="Picnic" id="commissionpicnic"></div>
             </div>
 
-            <!-- DASHBOARD TAB VIEW -->
-            <div class="MyProfileDashboard" id="MyProfileDashboard" style="display:none;">
-                
-                <!-- Client Commissions Table -->
-                <div class="DashboardSection">
-                    <h2 class="DashTableTitle">Client Commissions</h2>
-                    <div class="DashTableCard">
-                        <table class="DashTable">
-                            <thead>
-                                <tr>
-                                    <th>Client Name</th>
-                                    <th>Email</th>
-                                    <th>Review Request</th>
-                                    <th>Paid</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{userName}</td>
-                                    <td>{userEmail}</td>
-                                    <td><span class="status-accepted">Accepted</span></td>
-                                    <td>Paid</td>
-                                    <td><span class="status-in-progress">In Progress</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <!-- DASHBOARD TAB VIEW -->
+        <div class="MyProfileDashboard" id="MyProfileDashboard" style="display:none;">
 
-                <!-- My Commissions Table -->
-                <div class="DashboardSection">
-                    <h2 class="DashTableTitle">My Commissions</h2>
-                    <div class="DashTableCard">
-                        <table class="DashTable">
-                            <thead>
-                                <tr>
-                                    <th>Artist Name</th>
-                                    <th>Email</th>
-                                    <th>Commission Request</th>
-                                    <th>Paid</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{artistName}</td>
-                                    <td>{artistEmail}</td>
-                                    <td><span class="status-accepted">Accepted</span></td>
-                                    <td>Paid</td>
-                                    <td><span class="status-received">Artwork Received</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <!-- Client Commissions Table -->
+            <div class="DashboardSection">
+                <h2 class="DashTableTitle">Client Commissions</h2>
+                <div class="DashTableCard">
+                    <table class="DashTable">
+                        <thead>
+                            <tr>
+                                <th>Client Name</th>
+                                <th>Email</th>
+                                <th>Review Request</th>
+                                <th>Paid</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{userName}</td>
+                                <td>{userEmail}</td>
+                                <td><span class="status-accepted">Accepted</span></td>
+                                <td>Paid</td>
+                                <td><span class="status-in-progress">In Progress</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+
+            <!-- My Commissions Table -->
+            <div class="DashboardSection">
+                <h2 class="DashTableTitle">My Commissions</h2>
+                <div class="DashTableCard">
+                    <table class="DashTable">
+                        <thead>
+                            <tr>
+                                <th>Artist Name</th>
+                                <th>Email</th>
+                                <th>Commission Request</th>
+                                <th>Paid</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{artistName}</td>
+                                <td>{artistEmail}</td>
+                                <td><span class="status-accepted">Accepted</span></td>
+                                <td>Paid</td>
+                                <td><span class="status-received">Artwork Received</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
         </div>
 
         <!-- Add Thing For Portfolio -->
         <div class="Subnautica" id="Subnautica">
             <div class="Crashzone">
-                <button id="Reaper" onclick="toggleForm('Subnautica', false)">×</button>
+                <button id="Reaper" onclick="cancelPortfolioForm()">×</button>
                 <div class="AuroraSpaceship">
                     <div class="UploadSpecimen" onclick="document.getElementById('PhotoInput').click()">
                         <img id="PPreviewPhoto">
@@ -164,7 +164,7 @@
         <!-- Add Thing For Commission -->
         <div class="Minecraft" id="Minecraft">
             <div class="TheEnd">
-                <button id="Gameover" onclick="toggleForm('Minecraft', false)">×</button>
+                <button id="Gameover" onclick="cancelCommissionForm()">×</button>
                 <div class="Chest">
                     <div class="Inventory" onclick="document.getElementById('CPhotoInput').click()">
                         <img id="CPreviewPhoto">
@@ -185,7 +185,48 @@
             </div>
         </div>
     </main>
+    <div class="Blackzone" id="CommissionTermsModal">
+        <div class="TermsCard">
+            <button id="TermsClose" onclick="toggleForm('CommissionTermsModal', false)">×</button>
+            <h3>Edit Commission Terms</h3>
 
+            <label>Edit Commission Terms:</label>
+            <textarea id="TermsTextarea" placeholder="*This area is filled out by the artist*"></textarea>
+
+            <label>Commission Type:</label>
+            <select id="TermsTypeSelect">
+                <option value="">Select type</option>
+                <option value="Illustration">Illustration</option>
+                <option value="Character Design">Character Design</option>
+                <option value="Icon">Icon</option>
+                <option value="Full Body">Full Body</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <div class="TermsButtons">
+                <button id="TermsCancelBtn" onclick="toggleForm('CommissionTermsModal', false)">Cancel</button>
+                <button id="TermsSaveBtn" onclick="saveCommissionTerms()">Save</button>
+            </div>
+        </div>
+    </div>
+    <div class="MyProfileImagesCommissions" id="MyProfileImagesCommissions">
+        <div class="Picnic" id="commissionpicnic"></div>
+
+        <div class="CommissionPreviewCard" id="CommissionPreviewCard" style="display:none;">
+            <div class="UploadSpecimen">
+                <img id="CPreviewImage" class="has-image">
+            </div>
+            <div class="StuffToDo">
+                <h2 id="CPreviewTitle"></h2>
+                <p id="CPreviewDesc"></p>
+                <div class="CPreviewStatusRow">
+                    <label>Status: </label>
+                    <span id="CPreviewStatus"></span>
+                </div>
+                <button id="CPreviewEditBtn" onclick="openCommissionTermsModal(selectedCommissionId)">Edit Form</button>
+            </div>
+        </div>
+    </div>
     <script src="scripts/account.js"></script>
     <script src="scripts/myprofile.js"></script>
 </body>

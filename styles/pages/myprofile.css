@@ -1,3 +1,48 @@
+.Picnic {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.GalleryCard {
+    position: relative;
+    width: 220px;
+    height: 320px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.GalleryThumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: #d9d9d9;
+}
+
+.EditOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.GalleryCard:hover .EditOverlay {
+    opacity: 1;
+}
+
 .MyUserBannerBG {
     position: relative;
     margin-bottom: 70px;
@@ -67,6 +112,7 @@
     background-color: #832a2a;
     color: #ffffff;
 }
+
 .TF2Toolbar {
     display: flex;
     align-items: center;
@@ -82,7 +128,7 @@
     color: #f7f3f3;
 }
 
-.TF2Toolbar > button:first-of-type {
+.TF2Toolbar>button:first-of-type {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -93,6 +139,7 @@
     font-size: 18px;
     line-height: 1;
 }
+
 #ButtonWobblyGoopler {
     border-radius: 20px;
     padding: 8px 20px;
@@ -101,6 +148,7 @@
 .TF2Toolbar button:hover {
     background: #641111;
 }
+
 .Subnautica {
     display: none;
     position: fixed;
@@ -361,4 +409,255 @@
 .status-received {
     color: #64b5f6;
     font-weight: bold;
+}
+
+.Blackzone {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.Blackzone.show {
+    display: flex;
+}
+
+.BT890 {
+    background: #fff;
+    padding: 24px 30px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: relative;
+    width: 700px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+.StuffToDo {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-top: 10px;
+}
+
+#ViewTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+    margin: 0 0 12px 0;
+}
+
+#ViewDesc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+    margin: 0 0 16px 0;
+}
+
+#ViewStatusRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+#ViewStatusRow label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+#ViewStatus {
+    background: #e0e0e0;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #333;
+}
+
+#ViewEditBtn {
+    align-self: flex-end;
+    margin-top: auto;
+    background: #f2a488;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#ViewEditBtn:hover {
+    background: #e08c6c;
+}
+
+.TermsCard {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    width: 500px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+.TermsCard h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.TermsCard label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+#TermsTextarea {
+    width: 100%;
+    height: 150px;
+    background: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#TermsTypeSelect {
+    width: 100%;
+    background: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+}
+
+.TermsButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+#TermsCancelBtn {
+    background: #fff;
+    color: #832a2a;
+    border: 1px solid #832a2a;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#TermsSaveBtn {
+    background: #f2a488;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#TermsSaveBtn:hover {
+    background: #e08c6c;
+}
+
+#TermsClose {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+}
+
+.CommissionPreviewCard {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: #fff;
+    padding: 24px 30px;
+    margin: 20px;
+    box-sizing: border-box;
+}
+
+.CommissionPreviewCard .UploadSpecimen {
+    flex: 0 0 220px;
+    width: 220px;
+    height: 260px;
+}
+
+#CPreviewTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+    margin: 0 0 12px 0;
+}
+
+#CPreviewDesc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+    margin: 0 0 16px 0;
+    white-space: pre-line;
+}
+
+.CPreviewStatusRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.CPreviewStatusRow label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+#CPreviewStatus {
+    background: #e0e0e0;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #333;
+}
+
+#CPreviewEditBtn {
+    align-self: flex-end;
+    margin-top: auto;
+    background: #f2a488;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#CPreviewEditBtn:hover {
+    background: #e08c6c;
 }
