@@ -7,6 +7,7 @@
         "password": "Beezytrave890",
         "profilepicture": "",
         "backgroundpicture": "",
+        "folder": "",
         "bio": "Hello!",
         "portfolio": [],
         "commissions": []
@@ -19,6 +20,7 @@
         "password": "Camryngamesyt",
         "profilepicture": "Artist1MyProfilePic.png",
         "backgroundpicture": "A1BG.png",
+        "folder": "ARTIST1",
         "bio": "⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹",
         "portfolio": [
             {
@@ -79,6 +81,7 @@
         "password": "Maboroshiiiro",
         "profilepicture": "Artist2MyProfilePic.png",
         "backgroundpicture": "A2BG.png",
+        "folder": "ARTIST2",
         "bio": "Hi! I like to draw ✨️🌙 nice to meet you! ♡ 26 / Digital & watercolour + gouache!",
         "portfolio": [
             {
@@ -110,6 +113,7 @@
         "password": "Superbunny64",
         "profilepicture": "Artist3MyProfilePic.png",
         "backgroundpicture": "A3BG.png",
+        "folder": "ARTIST3",
         "bio": "Bunny, 28, they/them",
         "portfolio": [
             {
@@ -141,6 +145,7 @@
         "password": "Fanfive",
         "profilepicture": "Artist4MyProfilePic.png",
         "backgroundpicture": "A4BG.png",
+        "folder": "ARTIST4",
         "bio": "Official BT890 Fanfive Commission",
         "portfolio": [],
         "commissions": [
@@ -161,6 +166,7 @@
         "password": "Piggy",
         "profilepicture": "Artist5MyProfilePic.png",
         "backgroundpicture": "A5BG.png",
+        "folder": "ARTIST5",
         "bio": "Living the life",
         "portfolio": [
             {

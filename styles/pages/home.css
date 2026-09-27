@@ -190,8 +190,27 @@
 }
 
 #CheckView {
+    display: block;
+    margin: 0.67em 0;
     font-family: Georgia, serif;
+    font-size: 2em;
+    font-weight: bold;
     color: #1d1c1c;
+    text-decoration: none;
+}
+
+#CheckView.clickable {
+    cursor: pointer;
+}
+
+#CheckView.clickable:hover {
+    text-decoration: underline;
+}
+
+#Owner {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
 }
 
 #ATitle {

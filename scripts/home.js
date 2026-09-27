@@ -106,6 +106,28 @@ const Stalker = document.getElementById('Stalker');
 const CheckView = document.getElementById('CheckView');
 const ATitle = document.getElementById('ATitle');
 const ADesc = document.getElementById('ADesc');
+const Owner = document.getElementById('Owner');
+const PROFILE_PAGE = 'artistprofile.html';
+
+/* Usernames load once so the popup link never waits on a fetch */
+const profileNames = new Map();
+
+Account.all().then(accounts => {
+    accounts.forEach(account => profileNames.set(account.username.toLowerCase(), account.username));
+});
+
+function linkProfile(identifier) {
+    const username = profileNames.get(identifier.toLowerCase());
+
+    CheckView.classList.toggle('clickable', Boolean(username));
+    Owner.textContent = username ? '' : 'No profile yet.';
+
+    if (username) {
+        CheckView.href = `${PROFILE_PAGE}?user=${encodeURIComponent(username)}`;
+    } else {
+        CheckView.removeAttribute('href');
+    }
+}
 
 document.querySelectorAll('.Cathy img, .Mark img').forEach(img => {
     img.addEventListener('click', () => {
@@ -116,6 +138,7 @@ document.querySelectorAll('.Cathy img, .Mark img').forEach(img => {
         CheckView.textContent = info.author;
         ATitle.textContent = info.title;
         ADesc.textContent = info.desc;
+        linkProfile(img.dataset.id);
 
         Flasher.classList.add('open');
     });

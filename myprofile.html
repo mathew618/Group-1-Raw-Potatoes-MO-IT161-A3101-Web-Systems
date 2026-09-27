@@ -4,7 +4,7 @@
 <head>
     <title>ArtifyPH - Artist Profile</title>
     <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/pages/myprofile.css">
+    <link rel="stylesheet" href="styles/pages/profile.css">
 </head>
 
 <body>
@@ -78,6 +78,22 @@
             <!-- Commission Packages View -->
             <div class="MyProfileImagesCommissions" id="MyProfileImagesCommissions">
                 <div class="Picnic" id="commissionpicnic"></div>
+
+                <div class="CommissionPreviewCard" id="CommissionPreviewCard" style="display:none;">
+                    <div class="UploadSpecimen">
+                        <img id="CPreviewImage" class="has-image">
+                    </div>
+                    <div class="StuffToDo">
+                        <h2 id="CPreviewTitle"></h2>
+                        <p id="CPreviewDesc"></p>
+                        <div class="CPreviewStatusRow">
+                            <label>Status: </label>
+                            <span id="CPreviewStatus"></span>
+                        </div>
+                        <button id="CPreviewEditBtn"
+                            onclick="openCommissionTermsModal(selectedCommissionId)">Edit Form</button>
+                    </div>
+                </div>
             </div>
 
         <!-- DASHBOARD TAB VIEW -->
@@ -185,6 +201,26 @@
             </div>
         </div>
     </main>
+
+    <!-- View Artwork -->
+    <div class="Blackzone" id="ArtworkViewer">
+        <div class="BT890">
+            <button class="ModalClose" id="ArtworkClose">×</button>
+            <div class="UploadSpecimen">
+                <img id="ArtworkImage" class="has-image">
+            </div>
+            <div class="StuffToDo">
+                <h2 id="ViewTitle"></h2>
+                <p id="ViewDesc"></p>
+                <div id="ViewStatusRow" style="display:none;">
+                    <label>Status: </label>
+                    <span id="ViewStatus"></span>
+                </div>
+                <button id="ArtworkEditBtn" onclick="openEditFromView()">Edit Form</button>
+            </div>
+        </div>
+    </div>
+
     <div class="Blackzone" id="CommissionTermsModal">
         <div class="TermsCard">
             <button id="TermsClose" onclick="toggleForm('CommissionTermsModal', false)">×</button>
@@ -209,25 +245,8 @@
             </div>
         </div>
     </div>
-    <div class="MyProfileImagesCommissions" id="MyProfileImagesCommissions">
-        <div class="Picnic" id="commissionpicnic"></div>
-
-        <div class="CommissionPreviewCard" id="CommissionPreviewCard" style="display:none;">
-            <div class="UploadSpecimen">
-                <img id="CPreviewImage" class="has-image">
-            </div>
-            <div class="StuffToDo">
-                <h2 id="CPreviewTitle"></h2>
-                <p id="CPreviewDesc"></p>
-                <div class="CPreviewStatusRow">
-                    <label>Status: </label>
-                    <span id="CPreviewStatus"></span>
-                </div>
-                <button id="CPreviewEditBtn" onclick="openCommissionTermsModal(selectedCommissionId)">Edit Form</button>
-            </div>
-        </div>
-    </div>
     <script src="scripts/account.js"></script>
+    <script src="scripts/gallery.js"></script>
     <script src="scripts/myprofile.js"></script>
 </body>
 

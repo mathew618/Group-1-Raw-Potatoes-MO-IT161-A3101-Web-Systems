@@ -1,3 +1,5 @@
+const viewer = new GalleryViewer();
+
 function previewImage(event, imgId) {
     const file = event.target.files[0];
     if (!file) return;
@@ -73,7 +75,7 @@ function toggleEditMode() {
     renderGalleries();
 }
 
-let viewingItemId = null;
+let viewingItem = null;
 let viewingItemType = null;
 let selectedCommissionId = null;
 
@@ -127,8 +129,8 @@ function openEditForm(type, id) {
 }
 
 function openEditFromView() {
-    toggleForm('AlbionOnline', false);
-    openEditForm(viewingItemType, viewingItemId);
+    viewer.close();
+    openEditForm(viewingItemType, viewingItem.id);
 }
 
 function SaveP() {
@@ -251,33 +253,21 @@ function renderGalleries() {
 }
 
 function renderOneGallery(storageKey, containerId, type) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
     const items = JSON.parse(localStorage.getItem(storageKey)) || [];
+    const editOptions = editMode ? { overlay: 'Edit', onEdit: item => openEditForm(type, item.id) } : {};
 
-    items.forEach(item => {
-        const card = document.createElement('div');
-        card.className = 'GalleryCard';
+    renderGalleryCards(document.getElementById(containerId), items, item => {
+        if (editMode) return;
 
-        const img = document.createElement('img');
-        img.src = item.image;
-        img.className = 'GalleryThumb';
-        card.appendChild(img);
+        if (type === 'commission') selectCommission(item.id);
+        else openViewer(item, type);
+    }, editOptions);
+}
 
-        if (editMode) {
-            const overlay = document.createElement('div');
-            overlay.className = 'EditOverlay';
-            overlay.textContent = 'Edit';
-            overlay.onclick = () => openEditForm(type, item.id);
-            card.appendChild(overlay);
-        } else if (type === 'commission') {
-            card.onclick = () => selectCommission(item.id);
-        } else {
-            card.onclick = () => PreviewImgYYes(type, item.id);
-        }
-
-        container.appendChild(card);
-    });
+function openViewer(item, type) {
+    viewingItem = item;
+    viewingItemType = type;
+    viewer.open(item);
 }
 
 function selectCommission(id) {
@@ -293,30 +283,6 @@ function selectCommission(id) {
     document.getElementById('CPreviewStatus').textContent = item.status;
 
     document.getElementById('CommissionPreviewCard').style.display = 'flex';
-}
-
-function PreviewImgYYes(type, id) {
-    viewingItemId = id;
-    viewingItemType = type;
-
-    const key = type === 'portfolio' ? 'artifyph_portfolio' : 'artifyph_commission';
-    const items = JSON.parse(localStorage.getItem(key)) || [];
-    const item = items.find(i => i.id === id);
-    if (!item) return;
-
-    document.getElementById('ViewImage').src = item.image;
-    document.getElementById('ViewTitle').textContent = item.title || 'Untitled';
-    document.getElementById('ViewDesc').textContent = item.desc;
-
-    const statusRow = document.getElementById('ViewStatusRow');
-    if (type === 'commission') {
-        statusRow.style.display = 'flex';
-        document.getElementById('ViewStatus').textContent = item.status;
-    } else {
-        statusRow.style.display = 'none';
-    }
-
-    toggleForm('AlbionOnline', true);
 }
 
 const defaultPortfolioImages = [

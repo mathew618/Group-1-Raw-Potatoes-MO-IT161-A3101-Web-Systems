@@ -113,12 +113,23 @@ class Account {
         return '';
     }
 
-    static async current() {
-        const id = localStorage.getItem(Account.SESSION);
+    static async byId(id) {
         if (!id) return null;
 
         const accounts = await Account.all();
         return accounts.find(account => account.id === id) || null;
+    }
+
+    static async byUsername(username) {
+        if (!username) return null;
+
+        const key = String(username).toLowerCase();
+        const accounts = await Account.all();
+        return accounts.find(account => account.username.toLowerCase() === key) || null;
+    }
+
+    static async current() {
+        return Account.byId(localStorage.getItem(Account.SESSION));
     }
 
     static setCurrent(account) {
@@ -186,12 +197,18 @@ class Account {
 
 class Artist extends Account {
     static ROLE = 'artist';
+    static ASSETS = 'assets/images/';
+    static AVATAR = 'MyAvatar_Pic_Template.png';
+    static BANNER = 'MyProfile_BG_Template.png';
 
-    constructor(username, email, password, bio = '', portfolio = [], commissions = [], id = null) {
+    constructor(username, email, password, bio = '', portfolio = [], commissions = [], id = null, folder = '', profilepicture = '', backgroundpicture = '') {
         super(username, email, password, id);
         this.bio = bio;
         this.portfolio = portfolio;
         this.commissions = commissions;
+        this.folder = folder;
+        this.profilepicture = profilepicture;
+        this.backgroundpicture = backgroundpicture;
     }
 
     get role() {
@@ -202,9 +219,42 @@ class Artist extends Account {
         return true;
     }
 
+    /* Every asset path is built here so pages never guess the folder */
+    static assetPath(folder, file) {
+        return folder && file ? `${Artist.ASSETS}${folder}/${file}` : '';
+    }
+
+    get avatar() {
+        return Artist.assetPath(this.folder, this.profilepicture) || Artist.ASSETS + Artist.AVATAR;
+    }
+
+    get banner() {
+        return Artist.assetPath(this.folder, this.backgroundpicture) || Artist.ASSETS + Artist.BANNER;
+    }
+
+    get artworks() {
+        return this.portfolio.map(item => ({
+            image: Artist.assetPath(this.folder, item.image),
+            title: item.ptitle || 'Untitled',
+            desc: item.pdesc || ''
+        }));
+    }
+
+    get packages() {
+        return this.commissions.map(item => ({
+            image: Artist.assetPath(this.folder, item.image),
+            title: item.ctitle || 'Untitled',
+            desc: item.cdesc || '',
+            status: (item.status || 'closed').toLowerCase()
+        }));
+    }
+
     toJSON() {
         return {
             ...super.toJSON(),
+            folder: this.folder,
+            profilepicture: this.profilepicture,
+            backgroundpicture: this.backgroundpicture,
             bio: this.bio,
             portfolio: this.portfolio,
             commissions: this.commissions
@@ -219,7 +269,10 @@ class Artist extends Account {
             data.bio || '',
             data.portfolio || [],
             data.commissions || [],
-            data.id
+            data.id,
+            data.folder || '',
+            data.profilepicture || '',
+            data.backgroundpicture || ''
         );
     }
 }
