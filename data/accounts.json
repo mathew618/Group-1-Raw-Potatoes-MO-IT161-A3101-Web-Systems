@@ -18,5 +18,71 @@
         "bio": "Follow Me For More!",
         "portfolio": [],
         "commissions": []
+    },
+
+
+    {
+        "role": "artist",
+        "id": "acc_Camryngamesyt",
+        "username": "Camryngamesyt",
+        "email": "Camryngamesyt@gmail.com",
+        "password": "Camryngamesyt",
+        "profilepicture": "Artist1MyProfilePic.png",
+        "backgroundpicture": "A1BG.png",
+        "bio": "⊹₊˚‧︵‿₊୨ᰔ୧₊‿︵‧˚₊⊹",
+        "portfolio": [
+            {
+                "partist": "Camryngamesyt",
+                "pptitle": "Koi Fish Oil Pastels",
+                "pdesc": "I Love Fish",
+                "image": "A1Portfolio.png"
+            },
+            {
+                "partist": "Camryngamesyt",
+                "ptitle": "Silly Little Doodles",
+                "pdesc": "Random Symbols hehe",
+                "image": "A2Portfolio.png"
+            },
+            {
+                "partist": "Camryngamesyt",
+                "ptitle": "Silly Little Doodles Part 2",
+                "pdesc": "Random Symbols again mwhehehehe",
+                "image": "A3Portfolio.png"
+            }
+        ],
+        "commissions": [
+            {
+                "cartist": "Camryngamesyt",
+                "ctitle": "Candle Painting",
+                "cdesc": "A candle loses nothing by lighting another candle. - James Keller.",
+                "status": "open",
+                "image": "A1Commission.png"
+            },
+            {
+                "cartist": "Camryngamesyt",
+                "ctitle": "Starry Night w/ Cats",
+                "cdesc": "An inspired painting from Vincent Van Gogh with cats",
+                "status": "closed",
+                "image": "A2Commission.png"
+            },
+            {
+                "cartist": "Camryngamesyt",
+                "ctitle": "Sunset Swan",
+                "cdesc": "Swan in a sunset river",
+                "status": "closed",
+                "image": "A3Commission.png"
+            },
+            {
+                "cartist": "Camryngamesyt",
+                "ctitle": "Custom Character Avatar Painting",
+                "cdesc": "Art Painting Based Profile",
+                "status": "closed",
+                "image": "A4Commission.png"
+            }
+        ]
+    },
+
+    {
+        
     }
 ]
