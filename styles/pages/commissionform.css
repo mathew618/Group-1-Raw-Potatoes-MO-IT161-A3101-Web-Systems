@@ -1,0 +1,89 @@
+header {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FA987F;
+    color: #333;
+}
+
+/* Section - Commissionform */
+.commissionform {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.commissionform h1 {
+    color: #33322f;
+    text-align: center;
+    font-family: Inter, sans-serif;
+
+}
+
+.commissionform h2 {
+    margin-top: 20px;
+    color: #444;
+    font-family: Inter, sans-serif;
+    margin-left: 30px;
+}
+
+/* Checkboxes */
+.commissionform label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+    font-family: Inter, sans-serif;
+
+    margin-left: 30px;
+}
+
+/* NEXT button*/
+.nextbutton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eda27c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    transition: background-color 0.3s;
+
+}
+
+.nextbutton:hover {
+    background-color: #d97a50;
+}
+
+.buttonBox {
+    text-align: right;
+    margin-right: 35px;
+    margin-bottom: 30px;
+}
+
+/* Term Section*/
+.termBox {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+/* Terms and Services Example */
+.exampleTerms p {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin-bottom: 10px;
+    font-family: Inter, sans-serif;
+    line-height: 1.5;
+    margin: 0;
+
+}
