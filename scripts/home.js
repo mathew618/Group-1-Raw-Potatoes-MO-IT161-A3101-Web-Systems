@@ -56,48 +56,48 @@ const artworks = {
     },
     Maboroshiiiro: {
         author: "Maboroshiiiro",
-        title: "Untitled",
-        desc: "Test"
+        title: "Matchlight 🖌🌙",
+        desc: "an old fave of mine hope you like it ♡ #digitalpainting"
     },
     Superbunny64: {
         author: "Superbunny64",
-        title: "Untitled",
-        desc: "Test"
+        title: "Goobert's painting",
+        desc: "#inscryption"
     },
     FanFive: {
         author: "FanFive",
         title: "Pixel Hamburger",
-        desc: "Test"
+        desc: "Is this a sandwich? Commission Us Now!",
     },
     Piggy: {
         author: "Piggy",
-        title: "Untitled",
-        desc: "Test"
+        title: "Bakugo MHA",
+        desc: "Bakugo is the very embodiment of pride and self-cneteredness"
     },
     Demonized_Louie: {
         author: "Demonized_Louie",
-        title: "Untitled",
-        desc: "Test"
+        title: "Simple Sketch",
+        desc: "I Love Drawing"
     },
     Crocheana: {
         author: "Crocheana",
         title: "Crochet Naruto",
-        desc: "Test"
+        desc: "narutoo will go home naa🥹🧡 Mas mahirap i-wrap kesa icrochet HAHAHAHAHAHA"
     },
     Wist: {
         author: "Wist",
         title: "Zarah",
-        desc: "Test"
+        desc: "Thank you to our dear customers and supporters for trusting our product!"
     },
     FuzzyDreams: {
         author: "FuzzyDreams",
         title: "Butterfly Lamp",
-        desc: "Test"
+        desc: "I love my lamp"
     },
     HeartFeltCraftsByAngie: {
         author: "HeartFeltCraftsByAngie",
         title: "Keychain",
-        desc: "Test"
+        desc: "Hooray I am so excited making a business soon"
     }
 };
 

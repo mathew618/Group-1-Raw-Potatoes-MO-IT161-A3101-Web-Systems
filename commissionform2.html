@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <title>ArtifyPH - Commission Form</title>
+    <title>ArtifyPH - Commission Form2</title>
     <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/pages/commissionform.css">
+    <link rel="stylesheet" href="styles/pages/commissionform2.css">
 </head>
 
 <body>
@@ -24,18 +24,18 @@
     </header>
 
     <main>
-        <section class="commissionform">
+        <section class="commissionform2">
             <p>Required Fields</p>
             <!-- Name/ Username -->
-            <label for="name">Full Name:</label><br>
+            <label for="name">Name / Username</label><br>
             <input type="text" id="name" name="name" required><br><br>
 
             <!-- Email -->
-            <label for="email">Email:</label><br>
+            <label for="email">Email</label><br>
             <input type="email" id="email" name="email" required><br><br>
 
             <!-- Commission Type (Dropdown) This is awesome :D -->
-            <label for="type">Commission Type:</label><br>
+            <label for="type">Commission Type</label><br>
             <select id="type" name="type" required>
                 <option value="">-- Select Type --</option>
                 <option value="Sketch">Digital Art</option>
@@ -44,33 +44,35 @@
             </select><br><br>
 
             <!-- Additional Details / User can write what they want to add -->
-            <label for="details">Additional Details:</label><br>
+            <label for="details">Additional Details</label><br>
             <textarea id="details" name="details" rows="4" cols="40"></textarea><br><br>
 
             <!-- Upload Reference -->
-            <label for="reference">Upload Reference Image:</label><br>
+            <label for="reference">Upload Reference Image</label><br>
             <input type="file" id="reference" name="reference"><br><br>
 
             <!-- Deadline | DD/MM/YYYY -->
-            <label for="deadline">Deadline:</label><br>
+            <label for="deadline">Deadline</label><br>
             <input type="date" id="deadline" name="deadline" required><br><br>
 
             <!-- Budget | Must only be number-->
-            <label for="budget">Budget (in PHP):</label><br>
+            <label for="budget">Budget (in PHP)</label><br>
             <input type="number" id="budget" name="budget" min="0" step="100" required><br><br>
 
             <!-- Preferred Communication Platform -->
-            <label for="platform">Preferred Communication Platform:</label><br>
+            <label for="platform">Preferred Communication Platform</label><br>
             <input type="text" id="platform" name="platform" placeholder="e.g., Email, Discord, Messenger"><br><br>
 
             <!-- Terms of Service Checkbox -->
             <label>
                 <input type="checkbox" name="agreement" required>
-                I understand that submitting this request does not guarantee the commission will be accepted. 
+                I understand that submitting this request does not guarantee the commission will be accepted.
             </label><br><br>
 
             <!-- Next Button - Will proceed payment-->
-            <a href="paymentmethod.html" class="next">Next</a>
+            <div class="buttonBox">
+                <a href="paymentmethod.html" class="next">Next</a>
+            </div>
             </form>
 
 
