@@ -33,3 +33,5 @@ Email: ilosthotdogs@gmail.com
 Password: Beezytrave890
 
 NOTE: When you have already created an account and try to create another one, you will be redirected to the login page. This is because you already have an existing account, so you would need to clear your data in order to create a new one.
+
+NOTE: To view another profile, click the candle painting in the Homepage Explore section, then select the username “Camryngamesyt.” This is one example.
