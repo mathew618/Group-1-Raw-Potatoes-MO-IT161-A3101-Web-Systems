@@ -107,7 +107,7 @@ const CheckView = document.getElementById('CheckView');
 const ATitle = document.getElementById('ATitle');
 const ADesc = document.getElementById('ADesc');
 const Owner = document.getElementById('Owner');
-const PROFILE_PAGE = 'artistprofile.html';
+const PROFILE_PAGE = 'profile.html';
 
 /* Usernames load once so the popup link never waits on a fetch */
 const profileNames = new Map();

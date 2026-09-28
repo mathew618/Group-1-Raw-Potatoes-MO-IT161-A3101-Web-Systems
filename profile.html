@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ArtifyPH - Profile</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/pages/profile.css">
+</head>
+
+<body>
+    <header>
+        <!-- Logo -->
+        <a href="index.html" class="ArtifyPHLogo">
+            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+        <!-- Navigation Bar -->
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Artist's profile -->
+        <div class="ProfilePage" id="ProfilePage">
+            <div class="MyUserBannerBG">
+                <img id="ProfileBanner" alt="Profile background">
+                <input type="file" id="bannerInput" accept="image/*" style="display:none;">
+                <div class="MyAvatarProfilePic">
+                    <img id="ProfileAvatar" alt="Profile picture">
+                    <input type="file" id="avatarInput" accept="image/*" style="display:none;">
+                </div>
+            </div>
+
+            <div class="MyProfileDesc">
+                <h2 id="ProfileUsername"></h2>
+                <p id="ProfileBio"></p>
+                <textarea id="MyDescEdit" style="display:none;" maxlength="150"></textarea>
+                <div class="ProfileBioActions" id="ProfileBioActions" style="display:none;">
+                    <button onclick="cancelBioEdit()">Cancel</button>
+                    <button onclick="saveBioEdit()">Save</button>
+                </div>
+                <div class="MyProfileStats">
+                    <span><b>Artworks:</b> <span id="ProfileArtworkCount">0</span></span>
+                    <span><b>Commissions:</b> <span id="ProfileCommissionCount">0</span></span>
+                </div>
+            </div>
+            <hr>
+
+            <div class="PorkNBeans" id="ProfileTabs">
+                <button id="button4Portfolio" class="active" onclick="showSection('portfolio')">Portfolio</button>
+                <button id="button4Commission" onclick="showSection('commission')">Commission</button>
+                <button id="button4Dashboard" onclick="showSection('dashboard')" style="display:none;">Dashboard</button>
+            </div>
+
+            <!-- Add or Edit button (owner only) -->
+            <div class="TF2Toolbar" id="ProfileToolbar" style="display:none;">
+                <button id="ProfileAddButton" onclick="openAddForm()">+</button>
+                <button id="ButtonWobblyGoopler" onclick="toggleEditMode()">Edit</button>
+            </div>
+
+            <div class="ProfileImages" id="ProfilePortfolio">
+                <div class="Picnic" id="ProfilePortfolioPicnic"></div>
+                <p class="ProfileEmpty" id="ProfilePortfolioEmpty" style="display:none;">No portfolio yet.</p>
+            </div>
+
+            <div class="ProfileImages" id="ProfileCommissions" style="display:none;">
+                <div class="CommissionList" id="ProfileCommissionPicnic"></div>
+                <p class="ProfileEmpty" id="ProfileCommissionEmpty" style="display:none;">No commissions yet.</p>
+            </div>
+
+            <!-- Dashboard (owner only) -->
+            <div class="MyProfileDashboard" id="ProfileDashboard" style="display:none;">
+                <!-- Client Commissions Table -->
+                <div class="DashboardSection">
+                    <h2 class="DashTableTitle">Client Commissions</h2>
+                    <div class="DashTableCard">
+                        <table class="DashTable">
+                            <thead>
+                                <tr>
+                                    <th>Client Name</th>
+                                    <th>Email</th>
+                                    <th>Review Request</th>
+                                    <th>Paid</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="DashClientName"></td>
+                                    <td id="DashClientEmail"></td>
+                                    <td><span class="status-accepted">Accepted</span></td>
+                                    <td>Paid</td>
+                                    <td><span class="status-in-progress">In Progress</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- My Commissions Table -->
+                <div class="DashboardSection">
+                    <h2 class="DashTableTitle">My Commissions</h2>
+                    <div class="DashTableCard">
+                        <table class="DashTable">
+                            <thead>
+                                <tr>
+                                    <th>Artist Name</th>
+                                    <th>Email</th>
+                                    <th>Commission Request</th>
+                                    <th>Paid</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="DashArtistName"></td>
+                                    <td id="DashArtistEmail"></td>
+                                    <td><span class="status-accepted">Accepted</span></td>
+                                    <td>Paid</td>
+                                    <td><span class="status-received">Artwork Received</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shown when the link points to an account without an artist profile -->
+        <section class="ProfileMissing" id="ProfileMissing" style="display:none;">
+            <h2>No Profile Here Yet</h2>
+            <p id="ProfileMissingText"></p>
+            <a href="home.html"><button>Back to Home</button></a>
+        </section>
+        <!-- View Artwork -->
+        <div class="Blackzone" id="ArtworkViewer">
+            <div class="BT890">
+                <button class="ModalClose" id="ArtworkClose">×</button>
+                <div class="UploadSpecimen">
+                    <img id="ArtworkImage" alt="Artwork">
+                </div>
+                <div class="StuffToDo">
+                    <h2 id="ViewTitle"></h2>
+                    <p id="ViewDesc"></p>
+                    <div id="ViewStatusRow" style="display:none;">
+                        <label>Status: </label>
+                        <span id="ViewStatus"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add / Edit Portfolio (owner only) -->
+        <div class="Subnautica" id="Subnautica">
+            <div class="Crashzone">
+                <button id="Reaper" onclick="cancelPortfolioForm()">×</button>
+                <div class="AuroraSpaceship">
+                    <div class="UploadSpecimen" onclick="document.getElementById('PPhotoInput').click()">
+                        <img id="PPreviewPhoto">
+                        <span id="ImNotSureYetPhoto"> Upload Photo </span>
+                        <input type="file" id="PPhotoInput" accept="image/*" style="display:none;"
+                            onchange="previewPortfolioPhoto(event)">
+                    </div>
+                    <div class="PortfolioInfo">
+                        <label>Title: </label>
+                        <input type="text" id="PTitle">
+                        <label>Description: </label>
+                        <textarea id="PDesc"></textarea>
+                        <button id="PButton" onclick="savePortfolioItem()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add / Edit Commission (owner only) -->
+        <div class="Minecraft" id="Minecraft">
+            <div class="TheEnd">
+                <button id="Gameover" onclick="cancelCommissionForm()">×</button>
+                <div class="Chest">
+                    <div class="Inventory" onclick="document.getElementById('CPhotoInput').click()">
+                        <img id="CPreviewPhoto">
+                        <span id="NeitherThisOne"> Upload Photo </span>
+                        <input type="file" id="CPhotoInput" accept="image/*" style="display:none;"
+                            onchange="previewCommissionPhoto(event)">
+                    </div>
+                    <div class="CommissionInfo">
+                        <label>Title: </label>
+                        <input type="text" id="CTitle">
+                        <label>Description: </label>
+                        <textarea id="CDesc"></textarea>
+                        <label>Status: </label>
+                        <button id="CStatusButton" class="statusOpen" onclick="toggleCommissionStatus()">OPEN</button>
+                        <button id="CButton" onclick="saveCommissionItem()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Commission Terms (owner only) -->
+        <div class="Blackzone" id="CommissionTermsModal">
+            <div class="TermsCard">
+                <button id="TermsClose" onclick="toggleForm('CommissionTermsModal', false)">×</button>
+                <h3>Edit Commission Terms</h3>
+
+                <label>Edit Commission Terms:</label>
+                <textarea id="TermsTextarea" placeholder="*This area is filled out by the artist*"></textarea>
+
+                <label>Commission Type:</label>
+                <select id="TermsTypeSelect">
+                    <option value="">Select type</option>
+                    <option value="Illustration">Illustration</option>
+                    <option value="Character Design">Character Design</option>
+                    <option value="Icon">Icon</option>
+                    <option value="Full Body">Full Body</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <div class="TermsButtons">
+                    <button id="TermsCancelBtn" onclick="toggleForm('CommissionTermsModal', false)">Cancel</button>
+                    <button id="TermsSaveBtn" onclick="saveCommissionTerms()">Save</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="scripts/account.js"></script>
+    <script src="scripts/gallery.js"></script>
+    <script src="scripts/profile.js"></script>
+</body>
+
+</html>

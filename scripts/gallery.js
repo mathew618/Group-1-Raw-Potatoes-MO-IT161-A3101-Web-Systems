@@ -84,3 +84,76 @@ function renderGalleryCards(container, items, onCardClick, options = {}) {
         container.appendChild(card);
     });
 }
+
+function renderCommissionCards(container, items, onCardClick, options = {}) {
+    container.innerHTML = '';
+
+    if (options.empty) {
+        document.getElementById(options.empty).style.display = items.length ? 'none' : 'block';
+    }
+
+    items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'CommissionCard';
+
+        const media = document.createElement('div');
+        media.className = 'UploadSpecimen';
+
+        const img = document.createElement('img');
+        img.className = 'has-image';
+        img.alt = item.title || '';
+        showImage(img, item.image);
+        media.appendChild(img);
+
+        const details = document.createElement('div');
+        details.className = 'StuffToDo';
+
+        const title = document.createElement('h2');
+        title.className = 'CommissionTitle';
+        title.textContent = item.title || 'Untitled';
+
+        const desc = document.createElement('p');
+        desc.className = 'CommissionDesc';
+        desc.textContent = item.desc;
+
+        const statusRow = document.createElement('div');
+        statusRow.className = 'CommissionStatusRow';
+
+        const statusLabel = document.createElement('label');
+        statusLabel.textContent = 'Status: ';
+
+        const isOpen = String(item.status).toLowerCase() === 'open';
+        const status = document.createElement('span');
+        status.className = 'CommissionStatus ' + (isOpen ? 'statusOpen' : 'statusClosed');
+        status.textContent = String(item.status || 'closed').toUpperCase();
+
+        statusRow.append(statusLabel, status);
+        details.append(title, desc, statusRow);
+
+        const actions = document.createElement('div');
+        actions.className = 'CommissionActions';
+
+        if (options.onEdit) {
+            actions.appendChild(commissionAction('Edit', 'CommissionEditBtn', options.onEdit, item));
+        }
+        if (options.onTerms) {
+            actions.appendChild(commissionAction('Edit Form', 'CommissionTermsBtn', options.onTerms, item));
+        }
+        if (actions.childElementCount) details.appendChild(actions);
+
+        card.append(media, details);
+        card.addEventListener('click', () => onCardClick(item));
+        container.appendChild(card);
+    });
+}
+
+function commissionAction(label, className, handler, item) {
+    const button = document.createElement('button');
+    button.className = className;
+    button.textContent = label;
+    button.addEventListener('click', event => {
+        event.stopPropagation();
+        handler(item);
+    });
+    return button;
+}

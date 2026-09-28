@@ -89,6 +89,27 @@
     margin: 0 auto;
 }
 
+.ProfileBioActions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.ProfileBioActions button {
+    background-color: #d16767;
+    color: #faf8f8;
+    border: 2px solid #832a2a;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.ProfileBioActions button:hover {
+    background-color: #832a2a;
+}
+
 .PorkNBeans {
     text-align: center;
 }
@@ -337,6 +358,16 @@
     margin-bottom: 16px;
 }
 
+#CStatusButton.statusOpen {
+    background: #cdeccd;
+    color: #2e6b2e;
+}
+
+#CStatusButton.statusClosed {
+    background: #f2c2c2;
+    color: #832a2a;
+}
+
 .MyProfileStats {
     display: flex;
     justify-content: center;
@@ -576,32 +607,43 @@
     line-height: 1;
 }
 
-.CommissionPreviewCard {
+.CommissionList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 950px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.CommissionCard {
     display: flex;
     flex-direction: row;
     gap: 30px;
+    width: 100%;
     border: 1px solid #e0e0e0;
     border-radius: 10px;
     background: #fff;
     padding: 24px 30px;
-    margin: 20px;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
-.CommissionPreviewCard .UploadSpecimen {
+.CommissionCard .UploadSpecimen {
     flex: 0 0 220px;
     width: 220px;
     height: 260px;
 }
 
-#CPreviewTitle {
+.CommissionTitle {
     font-size: 22px;
     font-weight: bold;
     color: #222;
     margin: 0 0 12px 0;
 }
 
-#CPreviewDesc {
+.CommissionDesc {
     font-size: 14px;
     line-height: 1.5;
     color: #444;
@@ -609,20 +651,20 @@
     white-space: pre-line;
 }
 
-.CPreviewStatusRow {
+.CommissionStatusRow {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 20px;
 }
 
-.CPreviewStatusRow label {
+.CommissionStatusRow label {
     font-size: 14px;
     font-weight: bold;
     color: #333;
 }
 
-#CPreviewStatus {
+.CommissionStatus {
     background: #e0e0e0;
     padding: 6px 16px;
     border-radius: 20px;
@@ -630,9 +672,24 @@
     color: #333;
 }
 
-#CPreviewEditBtn {
-    align-self: flex-end;
+.CommissionStatus.statusOpen {
+    background: #cdeccd;
+    color: #2e6b2e;
+}
+
+.CommissionStatus.statusClosed {
+    background: #f2c2c2;
+    color: #832a2a;
+}
+
+.CommissionActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
     margin-top: auto;
+}
+
+.CommissionActions button {
     background: #f2a488;
     color: #fff;
     border: none;
@@ -642,30 +699,40 @@
     cursor: pointer;
 }
 
-#CPreviewEditBtn:hover {
+.CommissionActions button:hover {
     background: #e08c6c;
 }
 
-.ArtistProfile {
+.CommissionActions .CommissionEditBtn {
+    background: #fff;
+    color: #832a2a;
+    border: 1px solid #832a2a;
+}
+
+.CommissionActions .CommissionEditBtn:hover {
+    background: #f5e7e7;
+}
+
+.ProfilePage {
     display: none;
 }
 
-.ArtistImages {
+.ProfileImages {
     padding: 10px 0 30px;
 }
 
-.ArtistEmpty {
+.ProfileEmpty {
     text-align: center;
     font-size: 14px;
     color: #666;
     padding: 20px;
 }
 
-.ArtistImages .GalleryCard .GalleryThumb {
+.ProfileImages .GalleryCard .GalleryThumb {
     transition: opacity 0.2s ease;
 }
 
-.ArtistImages .GalleryCard:hover .GalleryThumb {
+.ProfileImages .GalleryCard:hover .GalleryThumb {
     opacity: 0.85;
 }
 
@@ -691,25 +758,25 @@
     color: #832a2a;
 }
 
-.ArtistMissing {
+.ProfileMissing {
     text-align: center;
     padding: 70px 20px;
 }
 
-.ArtistMissing h2 {
+.ProfileMissing h2 {
     font-weight: bold;
     font-size: 40px;
     color: #eda27c;
     text-shadow: 2px 2px 1px #9e6c53;
 }
 
-.ArtistMissing p {
+.ProfileMissing p {
     font-size: 15px;
     color: #555;
     margin-bottom: 25px;
 }
 
-.ArtistMissing button {
+.ProfileMissing button {
     background-color: #d16767;
     color: #000000;
     border: 2px solid #832a2a;
@@ -719,6 +786,6 @@
     cursor: pointer;
 }
 
-.ArtistMissing button:hover {
+.ProfileMissing button:hover {
     background-color: #832a2a;
 }

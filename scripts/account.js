@@ -219,9 +219,15 @@ class Artist extends Account {
         return true;
     }
 
+    /* Uploads and already resolved paths are stored as they are */
+    static RESOLVED = /^(data:|blob:|https?:|\/|assets\/)/;
+
     /* Every asset path is built here so pages never guess the folder */
     static assetPath(folder, file) {
-        return folder && file ? `${Artist.ASSETS}${folder}/${file}` : '';
+        if (!file) return '';
+        if (Artist.RESOLVED.test(file)) return file;
+
+        return folder ? `${Artist.ASSETS}${folder}/${file}` : '';
     }
 
     get avatar() {
