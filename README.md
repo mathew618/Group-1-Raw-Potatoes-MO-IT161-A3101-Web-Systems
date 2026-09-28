@@ -2,13 +2,14 @@ Project Name: ArtifyPH
 ____________________________________________
 
 Members:
-Bianca Colleen Herrero
 
-Fidel David Sario
+Bianca Colleen E. Herrero
 
-Kim Charlotte Anicete
+Fidel David T. Sario
 
-Mathew Wilson Vercida 
+Kim Charlotte V. Anicete
+
+Mathew Wilson B. Vercida 
 ___________________________________________
 
 Deployment
