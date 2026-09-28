@@ -3,8 +3,7 @@
 
 <head>
     <title>ArtifyPH - Profile</title>
-    <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/pages/profile.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
@@ -62,6 +61,11 @@
                 <button id="ButtonWobblyGoopler" onclick="toggleEditMode()">Edit</button>
             </div>
 
+            <!-- Request button (visitors only) -->
+            <div class="TF2Toolbar" id="ProfileRequestBar" style="display:none;">
+                <button id="ProfileRequestBtn" onclick="requestCommission()">Request Commission</button>
+            </div>
+
             <div class="ProfileImages" id="ProfilePortfolio">
                 <div class="Picnic" id="ProfilePortfolioPicnic"></div>
                 <p class="ProfileEmpty" id="ProfilePortfolioEmpty" style="display:none;">No portfolio yet.</p>
@@ -88,15 +92,7 @@
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td id="DashClientName"></td>
-                                    <td id="DashClientEmail"></td>
-                                    <td><span class="status-accepted">Accepted</span></td>
-                                    <td>Paid</td>
-                                    <td><span class="status-in-progress">In Progress</span></td>
-                                </tr>
-                            </tbody>
+                            <tbody id="DashClientRows"></tbody>
                         </table>
                     </div>
                 </div>
@@ -115,15 +111,7 @@
                                     <th>Status</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td id="DashArtistName"></td>
-                                    <td id="DashArtistEmail"></td>
-                                    <td><span class="status-accepted">Accepted</span></td>
-                                    <td>Paid</td>
-                                    <td><span class="status-received">Artwork Received</span></td>
-                                </tr>
-                            </tbody>
+                            <tbody id="DashArtistRows"></tbody>
                         </table>
                     </div>
                 </div>
@@ -227,6 +215,7 @@
     </main>
 
     <script src="scripts/account.js"></script>
+    <script src="scripts/commission.js"></script>
     <script src="scripts/gallery.js"></script>
     <script src="scripts/profile.js"></script>
 </body>

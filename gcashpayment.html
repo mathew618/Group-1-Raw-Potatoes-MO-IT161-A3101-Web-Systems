@@ -3,11 +3,10 @@
 
 <head>
     <title>ArtifyPH - Gcash Payment</title>
-    <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/pages/gcashpayment.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body data-method="gcash" data-name="GCash">
     <header>
         <!-- Logo -->
         <a href="index.html" class="ArtifyPHLogo">
@@ -26,40 +25,60 @@
 
     <main>
         <!-- Someone help please -->
-        <section class="gcash">
+        <section class="PageCard">
 
-            <h2>Payment Details</h2>
+            <h2 class="PaymentTitle">Payment Details</h2>
 
-            <div class="logoBox">
-                <img src="assets/images/Payment_GcashLogo_1.png" alt="GCash Logo" class="gcashLogo">
+            <div class="PaymentLogoBox">
+                <img src="assets/images/Payment_GcashLogo_1.png" alt="GCash Logo" class="PaymentLogo">
                 <h3>GCash</h3>
             </div>
 
             <!-- Is this correct way to do it? -->
 
-            <label for="gcashNumber">Gcash number:</label><br>
-            <input type="tel" id="gcashNumber" name="gcashNumber" placeholder="e.g., 0912 345 6789" required><br><br>
+            <label class="PaymentLabel" for="gcashNumber">Gcash number:</label><br>
+            <input class="PaymentInput" type="tel" id="gcashNumber" name="gcashNumber" data-mask="gcash" inputmode="numeric" placeholder="e.g., 0912 345 6789" maxlength="13" required><br><br>
 
             <div class="summary">
                 <!-- Cost Summary | I made this Example -->
                 <h3>Order Summary</h3>
-                <p>Cost: ₱500.00</p>
+                <p>Cost: <span id="CostAmount">₱500.00</span></p>
                 <p>Shipping: ₱0.00</p>
-                <p><strong>Total: ₱500.00</strong></p><br>
+                <p><strong>Total: <span id="TotalAmount">₱500.00</span></strong></p><br>
             </div>
 
+            <p class="PaymentError" id="PaymentError"></p>
             <!-- Button -->
-            <!-- To Mat - Can you make it that when button is clicked, it says "Payment Successful"? Thanks! -->
-            <button type="button" onclick="processPayment()">Pay Now</button>
+            <button class="PaymentButton" type="button" onclick="processPayment()">Pay Now</button>
 
-            <div class="buttonBox">
-                <a href="profile.html" class="done-button">Done</a>
+            <div class="buttonBox" id="DoneButton" style="display:none;">
+                <a href="profile.html" class="ActionButton">Done</a>
             </div>
         </section>
 
 
+        <!-- Receipt (Shows after Pay Now finishes) -->
+        <div class="Blackzone" id="PaymentSuccess">
+            <div class="ReceiptCard">
+                <div class="PaymentSuccessIcon">✓</div>
+                <h3>Payment Successful</h3>
+                <p class="ReceiptNote">This is an example transaction - no real payment was made.</p>
+
+                <div class="ReceiptRow"><span>Amount</span><span id="ReceiptAmount"></span></div>
+                <div class="ReceiptRow"><span>Payment Method</span><span id="ReceiptMethod"></span></div>
+                <div class="ReceiptRow"><span>Reference No.</span><span id="ReceiptReference"></span></div>
+                <div class="ReceiptRow"><span>Date</span><span id="ReceiptDate"></span></div>
+
+                <div class="ReceiptButtons">
+                    <a href="profile.html" class="ActionButton">Done</a>
+                </div>
+            </div>
+        </div>
     </main>
 
+    <script src="scripts/account.js"></script>
+    <script src="scripts/commission.js"></script>
+    <script src="scripts/payment.js"></script>
 </body>
 
 </html>

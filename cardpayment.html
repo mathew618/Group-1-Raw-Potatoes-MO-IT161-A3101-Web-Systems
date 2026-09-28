@@ -3,11 +3,10 @@
 
 <head>
     <title>ArtifyPH - Card Payment</title>
-    <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/pages/cardpayment.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body data-method="card" data-name="Credit/ Debit Card">
     <header>
         <!-- Logo -->
         <a href="index.html" class="ArtifyPHLogo">
@@ -24,49 +23,69 @@
     </header>
 
     <main>
-        <section class="card">
-            <h2>Payment Details</h2>
+        <section class="PageCard">
+            <h2 class="PaymentTitle">Payment Details</h2>
 
-            <div class="iconBox">
-                <img src="assets/images/Card_Icon.png" alt="cardIcon" class="cardIcon">
+            <div class="PaymentLogoBox">
+                <img src="assets/images/Card_Icon.png" alt="cardIcon" class="PaymentLogo">
                 <h3>Credit/ Debit Card</h3><br>
             </div>
 
             <!-- Card Numer | Must only be in numbers -->
-            <label for="Card">Credit/ Debit Card</label><br>
-            <input type="text" id="cardNumber" name="cardNumber" placeholder="e.g., 1234 5678 9012 3456" maxlength="19"
+            <label class="PaymentLabel" for="cardNumber">Credit/ Debit Card</label><br>
+            <input class="PaymentInput" type="text" id="cardNumber" name="cardNumber" data-mask="card" inputmode="numeric" placeholder="e.g., 1234 5678 9012 3456" maxlength="19"
                 required><br><br>
 
             <!-- Expiry Date | Follow this Format MM/YY (month/year) -->
-            <label for="expiry">Expiry Date (MM/YY):</label><br>
-            <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required><br><br>
+            <label class="PaymentLabel" for="expiry">Expiry Date (MM/YY):</label><br>
+            <input class="PaymentInput" type="text" id="expiry" name="expiry" data-mask="expiry" inputmode="numeric" placeholder="MM/YY" maxlength="5" required><br><br>
 
             <!-- CVV -->
-            <label for="cvv">Security Code (CVV):</label><br>
-            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" required><br><br>
+            <label class="PaymentLabel" for="cvv">Security Code (CVV):</label><br>
+            <input class="PaymentInput" type="text" id="cvv" name="cvv" data-mask="digits" inputmode="numeric" placeholder="123" maxlength="4" required><br><br>
 
             <div class="summary">
                 <!-- Cost Summary | I made this Example -->
                 <h3>Order Summary</h3>
-                <p>Cost: ₱500.00</p>
+                <p>Cost: <span id="CostAmount">₱500.00</span></p>
                 <p>Shipping: ₱0.00</p>
-                <p><strong>Total: ₱500.00</strong></p><br>
+                <p><strong>Total: <span id="TotalAmount">₱500.00</span></strong></p><br>
             </div>
 
-            <div class="text">
-            <p>For now, ArtifyPH supports payments through local banks.</p>
-            </div>
+            <p class="PaymentNote">For now, ArtifyPH supports payments through local banks.</p>
+            <p class="PaymentError" id="PaymentError"></p>
             <!-- Button -->
-            <!-- To Mat - Can you make it that when button is clicked, it says "Payment Successful" too? Thanks! -->
-            <button type="button" onclick="processPayment()">Pay Now</button>
+            <button class="PaymentButton" type="button" onclick="processPayment()">Pay Now</button>
 
 
-            <div class="buttonBox">
-                <a href="profile.html" class="done-button">Done</a>
+            <div class="buttonBox" id="DoneButton" style="display:none;">
+                <a href="profile.html" class="ActionButton">Done</a>
             </div>
 
+        </section>
+
+        <!-- Receipt (Shows after Pay Now finishes) -->
+        <div class="Blackzone" id="PaymentSuccess">
+            <div class="ReceiptCard">
+                <div class="PaymentSuccessIcon">✓</div>
+                <h3>Payment Successful</h3>
+                <p class="ReceiptNote">This is an example transaction - no real payment was made.</p>
+
+                <div class="ReceiptRow"><span>Amount</span><span id="ReceiptAmount"></span></div>
+                <div class="ReceiptRow"><span>Payment Method</span><span id="ReceiptMethod"></span></div>
+                <div class="ReceiptRow"><span>Reference No.</span><span id="ReceiptReference"></span></div>
+                <div class="ReceiptRow"><span>Date</span><span id="ReceiptDate"></span></div>
+
+                <div class="ReceiptButtons">
+                    <a href="profile.html" class="ActionButton">Done</a>
+                </div>
+            </div>
+        </div>
     </main>
 
+    <script src="scripts/account.js"></script>
+    <script src="scripts/commission.js"></script>
+    <script src="scripts/payment.js"></script>
 </body>
 
 </html>

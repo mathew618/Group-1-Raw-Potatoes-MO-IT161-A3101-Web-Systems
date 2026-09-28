@@ -1,0 +1,1923 @@
+/* ===================================================================
+   ALL PAGES: BASE, HEADER, NAV
+   =================================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: #FEE8D3;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #FA987F;
+    color: #333333;
+    margin: 0;
+    min-height: 100px;
+    position: sticky;
+    padding: 0 40px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    width: 100%;
+    text-align: right;
+    padding-right: 60px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fffefe;
+    font-weight: 400;
+    font-size: 17px;
+}
+
+.ArtifyPHLogo img {
+    width: 180px;
+}
+
+/* ===================================================================
+   ALL PAGES: SHARED COMPONENTS
+   =================================================================== */
+
+/* White content card of the payment and commission pages */
+.PageCard {
+    max-width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Next / Done button */
+.ActionButton {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #eda27c;
+    color: #ffffff;
+    text-decoration: none;
+    border-width: 0;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.ActionButton:hover {
+    background-color: #d97a50;
+}
+
+/* Row that keeps an action button on the right edge */
+.buttonBox {
+    text-align: right;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+/* ===================================================================
+   PAYMENT PAGES: SHARED
+   cardpayment.html, gcashpayment.html, paymentmethod.html
+   =================================================================== */
+
+.PaymentTitle {
+    margin-bottom: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: #7c7b7b;
+    font-family: Inter, sans-serif;
+}
+
+.PaymentLabel {
+    font-size: 16px;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-family: Inter, sans-serif;
+}
+
+.PaymentInput {
+    width: 570px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+/* "Pay Now" button */
+.PaymentButton {
+    width: 600px;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    background-color: #fdfdfd;
+    border-width: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    color: #444;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.PaymentButton:hover {
+    background-color: #d97a50;
+}
+
+/* Small note under the payment details */
+.PaymentNote {
+    margin-bottom: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+    color: #7c7b7b;
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+}
+
+/* Box that shows the payment logo next to its name */
+.PaymentLogoBox {
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: Inter, sans-serif;
+}
+
+.PaymentLogoBox h3 {
+    margin: 0;
+    color: #444;
+}
+
+.PaymentLogo {
+    width: 60px;
+    height: auto;
+    margin-right: 12px;
+}
+
+/* Order cost summary */
+.summary {
+    max-width: 800px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 15px;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    color: #444;
+    font-family: Inter, sans-serif;
+}
+
+/* ===================================================================
+   paymentmethod.html
+   =================================================================== */
+
+/* One payment method row: the shared card design, tighter spacing */
+.PageCard.PaymentOption {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.PaymentOption label {
+    font-size: 16px;
+    font-family: Inter, sans-serif;
+}
+
+.PaymentOptionLogo {
+    width: 60px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+/* ===================================================================
+   PAYMENT PAGES: ERRORS + PRETEND RECEIPT
+   =================================================================== */
+
+.PaymentError {
+    margin: 0 50px 10px;
+    color: #d10000;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+}
+
+.PaymentError:empty {
+    display: none;
+}
+
+/* "Pay Now" while it is processing and once it is done */
+.PaymentButton:disabled {
+    background-color: #f4f4f4;
+    color: #999;
+    cursor: default;
+}
+
+.PaymentButton.PaymentPaid {
+    background-color: #cdeccd;
+    color: #2e6b2e;
+}
+
+/* Receipt shown after a successful pretend payment */
+.ReceiptCard {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    width: 420px;
+    max-width: 90%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.PaymentSuccessIcon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #cdeccd;
+    color: #2e6b2e;
+    font-size: 28px;
+    line-height: 56px;
+}
+
+.ReceiptCard h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #222;
+    font-family: Inter, sans-serif;
+}
+
+.ReceiptNote {
+    margin: 0 0 20px;
+    color: #7c7b7b;
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+}
+
+.ReceiptRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eeeeee;
+    color: #444;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+}
+
+.ReceiptRow span:first-child {
+    color: #7c7b7b;
+}
+
+.ReceiptButtons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+/* ===================================================================
+   login.html + signup.html
+   =================================================================== */
+
+.AuthCard {
+    background-color: #ffffff;
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.AuthCard h1 {
+    font-weight: bold;
+    font-family: Inter, sans-serif;
+    font-size: 30px;
+    color: #eda27c;
+    margin: 0 0 25px;
+}
+
+.AuthField {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.AuthField label {
+    display: block;
+    font-weight: 400;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #474444;
+    margin-bottom: 5px;
+}
+
+.AuthField input[type="text"],
+.AuthField input[type="email"],
+.AuthField input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #e2e2e2;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #2e2c2c;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.AuthField input[type="text"]:focus,
+.AuthField input[type="email"]:focus,
+.AuthField input[type="password"]:focus {
+    border-color: #FA987F;
+    background-color: #ffffff;
+}
+
+.ShowPasswordContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.ShowPasswordContainer input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: #FA987F;
+    cursor: pointer;
+}
+
+.ShowPasswordContainer label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.AuthButton {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.AuthButton button {
+    width: 75%;
+    background-color: #FA987F;
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.AuthButton button:hover {
+    background-color: #B04825;
+}
+
+/* Error message filled by scripts/auth.js */
+.AuthError {
+    color: #d10000;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    margin: 15px 0 0;
+}
+
+.AuthError:empty {
+    display: none;
+}
+
+/* Footer hint under the card */
+.AuthHint {
+    font-weight: 400;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #474444;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.AuthHint a {
+    color: #FA987F;
+    text-decoration: none;
+}
+
+.AuthHint a:hover {
+    text-decoration: underline;
+}
+/* ===================================================================
+   index.html
+   =================================================================== */
+
+.Main {
+    text-align: center;
+}
+
+.Intro h1 {
+    font-weight: bold;
+    font-family: lovelo, sans-serif;
+    font-size: 50px;
+    text-shadow: 2px 2px 1px #9e6c53;
+    text-align: center;
+    color: #eda27c;
+    margin-bottom: 10px;
+}
+
+.Intro h3 {
+    font-weight: bold;
+    font-family: lovelo, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #9e6c53;
+    margin-top: 5px;
+}
+
+.WelcomeMessage p {
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #141313;
+}
+
+.CreateAccButton button,
+.LoginButton button {
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+}
+
+.CreateAccButton button {
+    background-color: #eda27c;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+
+.LoginButton button {
+    color: #eda27c;
+    background-color: #ffffff;
+    padding: 1px 1px;
+    margin-bottom: 8px;
+}
+
+.CreateAccButton button:hover {
+    background-color: #B04825;
+}
+
+.LoginButton p {
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+    font-size: 15px;
+    text-align: center;
+    color: #614f4f;
+    margin-top: 50px;
+}
+
+.Introduction {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+}
+
+.AboutUs {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AboutUs h2 {
+    font-weight: bold;
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #eda27c;
+    margin-bottom: 10px;
+}
+
+.goal {
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    text-align: center;
+    color: #141313;
+    margin-bottom: 20px;
+}
+
+.example {
+    width: 500px;
+    height: auto;
+    display: inline-block;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.credits {
+    margin: 5px 0;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-style: italic;
+    color: #727070;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #faf7f6;
+    color: #727070;
+    padding: 10px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footercontent {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.artlogo {
+    width: 100px;
+    height: auto;
+    display: inline-block;
+    margin-bottom: 3px;
+    margin-top: 20px;
+}
+
+.footer p {
+    margin: 5px 0;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+.slogan {
+    margin: 5px 0;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+/* ===================================================================
+   home.html
+   =================================================================== */
+
+.JoyOfMemories {
+    text-align: center;
+    color: #eda27c;
+}
+
+.JoyOfMemories h1 {
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: 2px 2px 1px #9e6c53;
+}
+
+.ArtsyBitsy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+}
+
+.IMissSHSDays {
+    background-color: #f8ebe2;
+    padding: 20px;
+}
+
+.AW1,
+.AW2,
+.AW3,
+.AW4,
+.AW5 {
+    display: none;
+    background-color: #ffffff;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.show-side {
+    display: block;
+}
+
+.show-side img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+}
+
+.show-center {
+    display: block;
+}
+
+.show-center img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.MoveableMagicButtonYes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.MoveableMagicButtonYes button {
+    background-color: #d16767;
+    color: #000000;
+    border: 2px solid #832a2a;
+    padding: 8px 16px;
+    margin: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.MoveableMagicButtonYes button:hover {
+    background-color: #832a2a;
+}
+
+.BaldisBasic {
+    text-align: center;
+    color: #eda27c;
+    font-weight: bold;
+    font-size: 30px;
+    text-shadow: 2px 2px 1px #9e6c53;
+}
+
+.ButtonLock {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #000000;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #832a2a;
+}
+
+.OriginalCathy,
+.OriginalMark {
+    display: flex;
+    gap: 20px;
+}
+
+.Cathy,
+.Mark {
+    flex: 1;
+    min-width: 0;
+    transition: transform 0.3s ease;
+}
+
+.Cathy:hover {
+    transform: scale(1.05);
+}
+
+.Cathy img,
+.Mark img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.Mark img {
+    transition: transform 0.3s ease;
+}
+
+.Mark img:hover {
+    transform: scale(1.05);
+}
+
+.OriginalCathy {
+    margin-bottom: 20px;
+}
+.TheFlasher {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+}
+
+.TheFlasher.open {
+    display: flex;
+}
+
+.WatchOut {
+    display: flex;
+    gap: 30px;
+    background: #f7b4b4;
+    border: 3px solid #0c0c0b;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 90%;
+    position: relative;
+}
+
+.WatchOut img {
+    max-width: 60vw;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.OwnerInfo {
+    min-width: 180px;
+    align-self: center;
+}
+
+#GotSnapped {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ff0404;
+}
+
+#CheckView {
+    display: block;
+    margin: 0.67em 0;
+    font-family: Georgia, serif;
+    font-size: 2em;
+    font-weight: bold;
+    color: #1d1c1c;
+    text-decoration: none;
+}
+
+#CheckView.clickable {
+    cursor: pointer;
+}
+
+#CheckView.clickable:hover {
+    text-decoration: underline;
+}
+
+#Owner {
+    font-size: 13px;
+    font-style: italic;
+    color: #555;
+}
+
+#ATitle {
+    font-family: Georgia, serif;
+    color: #000000;
+}
+
+#ADesc {
+    font-family: Arial, sans-serif;
+    color: #000000;
+}
+/* ===================================================================
+   profile.html
+   =================================================================== */
+
+.Picnic {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.GalleryCard {
+    position: relative;
+    width: 220px;
+    height: 320px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.GalleryThumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    background: #d9d9d9;
+}
+
+.EditOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.GalleryCard:hover .EditOverlay {
+    opacity: 1;
+}
+
+.MyUserBannerBG {
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.MyUserBannerBG img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+}
+
+.MyAvatarProfilePic {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -60px;
+}
+
+.MyAvatarProfilePic img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #f8ebe2;
+}
+
+.MyProfileDesc {
+    padding: 0 40px;
+    text-align: center;
+}
+
+#MyDescEdit {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    height: 80px;
+    box-sizing: border-box;
+    resize: none;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #832a2a;
+    border-radius: 4px;
+    margin: 0 auto;
+}
+
+.ProfileBioActions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.ProfileBioActions button {
+    background-color: #d16767;
+    color: #faf8f8;
+    border: 2px solid #832a2a;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.ProfileBioActions button:hover {
+    background-color: #832a2a;
+}
+
+.PorkNBeans {
+    text-align: center;
+}
+
+.PorkNBeans button {
+    background-color: #d16767;
+    color: #faf8f8;
+    border: 2px solid #832a2a;
+    padding: 8px 16px;
+    margin: 10px auto;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.PorkNBeans button:hover {
+    background-color: #832a2a;
+}
+
+.PorkNBeans button.active {
+    background-color: #832a2a;
+    color: #ffffff;
+}
+
+.TF2Toolbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px;
+}
+
+.TF2Toolbar button {
+    background: #9c3d3d;
+    border: 1.5px solid #333;
+    cursor: pointer;
+    font-size: 16px;
+    color: #f7f3f3;
+}
+
+#ProfileAddButton {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1;
+}
+
+#ButtonWobblyGoopler,
+#ProfileRequestBtn {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+
+.TF2Toolbar button:hover {
+    background: #641111;
+}
+.Subnautica {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.Subnautica.show {
+    display: flex;
+}
+
+.Crashzone {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: relative;
+    width: 700px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+.Minecraft {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.Minecraft.show {
+    display: flex;
+}
+
+.TheEnd {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: relative;
+    width: 700px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+#Reaper,
+#Gameover {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+}
+
+.UploadSpecimen,
+.Inventory {
+    flex: 0 0 280px;
+    width: 280px;
+    height: 340px;
+    background: #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.UploadSpecimen img,
+.Inventory img {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.UploadSpecimen img.has-image,
+.Inventory img.has-image {
+    display: block;
+}
+
+.PortfolioInfo,
+.CommissionInfo {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-top: 30px;
+}
+
+.PortfolioInfo label,
+.CommissionInfo label {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.PortfolioInfo input[type="text"],
+.CommissionInfo input[type="text"] {
+    background: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 16px;
+    font-size: 14px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.PortfolioInfo textarea,
+.CommissionInfo textarea {
+    background: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    height: 120px;
+    resize: none;
+    font-size: 14px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.AuroraSpaceship,
+.Chest {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+}
+
+#PButton,
+#CButton {
+    align-self: flex-end;
+    margin-top: auto;
+    background-color: #f2a488;
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#PButton:hover,
+#CButton:hover {
+    background-color: #e08c6c;
+}
+#CStatusButton {
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    color: #333;
+    background-color: #e0e0e0;
+    align-self: flex-start;
+    margin-bottom: 16px;
+}
+
+#CStatusButton.statusOpen {
+    background: #cdeccd;
+    color: #2e6b2e;
+}
+
+#CStatusButton.statusClosed {
+    background: #f2c2c2;
+    color: #832a2a;
+}
+
+.MyProfileStats {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    font-size: 13px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.MyProfileStats span b {
+    color: #222;
+    font-size: 14px;
+}
+
+.MyProfileDashboard {
+    padding: 20px 40px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.DashboardSection {
+    margin-bottom: 35px;
+}
+
+.DashTableTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 12px;
+    text-align: left;
+}
+
+.DashTableCard {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+}
+
+.DashTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    font-size: 13px;
+}
+
+.DashTable th {
+    font-weight: bold;
+    color: #555;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.DashTable td {
+    padding: 16px 10px;
+    color: #333;
+}
+
+.status-accepted {
+    color: #388e3c;
+    font-weight: bold;
+}
+
+.status-in-progress {
+    color: #64b5f6;
+    font-weight: bold;
+}
+
+.status-received {
+    color: #64b5f6;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #b26a00;
+    font-weight: bold;
+}
+
+.status-rejected {
+    color: #d10000;
+    font-weight: bold;
+}
+
+/* Dashboard: accept / reject a client's request */
+.DashActionBtn {
+    background: #fff;
+    border: 1px solid #832a2a;
+    border-radius: 6px;
+    padding: 6px 14px;
+    margin-right: 8px;
+    font-size: 13px;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+}
+
+.DashAcceptBtn {
+    color: #2e6b2e;
+    border-color: #2e6b2e;
+}
+
+.DashAcceptBtn:hover {
+    background: #cdeccd;
+}
+
+.DashRejectBtn {
+    color: #832a2a;
+}
+
+.DashRejectBtn:hover {
+    background: #f5e7e7;
+}
+
+.DashEmpty {
+    color: #969696;
+    text-align: center;
+}
+
+.Blackzone {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.Blackzone.show {
+    display: flex;
+}
+
+.BT890 {
+    background: #fff;
+    padding: 24px 30px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: relative;
+    width: 700px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+.StuffToDo {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-top: 10px;
+}
+
+#ViewTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+    margin: 0 0 12px 0;
+}
+
+#ViewDesc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+    margin: 0 0 16px 0;
+}
+
+#ViewStatusRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+#ViewStatusRow label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+#ViewStatus {
+    background: #e0e0e0;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #333;
+}
+.TermsCard {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    position: relative;
+    width: 500px;
+    max-width: 90%;
+    box-sizing: border-box;
+}
+
+.TermsCard h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    color: #222;
+}
+
+.TermsCard label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+#TermsTextarea {
+    width: 100%;
+    height: 150px;
+    background: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+    overflow-y: auto;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#TermsTypeSelect {
+    width: 100%;
+    background: #d9d9d9;
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 24px;
+}
+
+.TermsButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+#TermsCancelBtn {
+    background: #fff;
+    color: #832a2a;
+    border: 1px solid #832a2a;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#TermsSaveBtn {
+    background: #f2a488;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#TermsSaveBtn:hover {
+    background: #e08c6c;
+}
+
+#TermsClose {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+}
+
+.CommissionList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    max-width: 950px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.CommissionCard {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background: #fff;
+    padding: 24px 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.CommissionCard .UploadSpecimen {
+    flex: 0 0 220px;
+    width: 220px;
+    height: 260px;
+}
+
+.CommissionTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+    margin: 0 0 12px 0;
+}
+
+.CommissionDesc {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+    margin: 0 0 16px 0;
+    white-space: pre-line;
+}
+
+.CommissionStatusRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.CommissionStatusRow label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.CommissionStatus {
+    background: #e0e0e0;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #333;
+}
+
+.CommissionStatus.statusOpen {
+    background: #cdeccd;
+    color: #2e6b2e;
+}
+
+.CommissionStatus.statusClosed {
+    background: #f2c2c2;
+    color: #832a2a;
+}
+
+.CommissionActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.CommissionActions button {
+    background: #f2a488;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.CommissionActions button:hover {
+    background: #e08c6c;
+}
+
+.CommissionActions .CommissionEditBtn {
+    background: #fff;
+    color: #832a2a;
+    border: 1px solid #832a2a;
+}
+
+.CommissionActions .CommissionEditBtn:hover {
+    background: #f5e7e7;
+}
+
+.ProfilePage {
+    display: none;
+}
+
+.ProfileImages {
+    padding: 10px 0 30px;
+}
+
+.ProfileEmpty {
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    padding: 20px;
+}
+
+.ProfileImages .GalleryCard .GalleryThumb {
+    transition: opacity 0.2s ease;
+}
+
+.ProfileImages .GalleryCard:hover .GalleryThumb {
+    opacity: 0.85;
+}
+
+.ModalClose {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    line-height: 1;
+}
+
+#ViewStatus.statusOpen {
+    background: #cdeccd;
+    color: #2e6b2e;
+}
+
+#ViewStatus.statusClosed {
+    background: #f2c2c2;
+    color: #832a2a;
+}
+
+.ProfileMissing {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.ProfileMissing h2 {
+    font-weight: bold;
+    font-size: 40px;
+    color: #eda27c;
+    text-shadow: 2px 2px 1px #9e6c53;
+}
+
+.ProfileMissing p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.ProfileMissing button {
+    background-color: #d16767;
+    color: #000000;
+    border: 2px solid #832a2a;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ProfileMissing button:hover {
+    background-color: #832a2a;
+}
+/* ===================================================================
+   settings.html
+   =================================================================== */
+
+.SettingTools {
+    background-color: #ffffff;
+    max-width: 450px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.SettingTools h2 {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+}
+
+.FieldLabel {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.SettingTools input[type="text"],
+.SettingTools input[type="password"],
+.SettingTools input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: #e2e2e2;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.SettingTools input:disabled {
+    background-color: #ececec;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.HiddenMountains {
+    display: none;
+}
+
+.SectionDivider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 25px 0;
+}
+
+.SaveRow {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.SaveRow button {
+    border: none;
+    padding: 10px 28px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+#EditButton {
+    background-color: #d16767;
+}
+
+#EditButton:hover {
+    background-color: #832a2a;
+}
+
+#SaveButton {
+    background-color: #ec9e7e;
+}
+
+#SaveButton:hover {
+    background-color: #d16767;
+}
+
+#SaveButton:disabled {
+    background-color: #f3c9b6;
+    cursor: not-allowed;
+}
+
+#SaveStatus {
+    text-align: right;
+    color: green;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+#PasswordMismatch,
+#EmailMismatch {
+    color: #b83b3b;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.LETMEOUTPLSSS {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.LETMEOUTPLSSS button {
+    border: none;
+    padding: 10px 204px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #772f2f;
+}
+
+.LETMEOUTPLSSS button:hover {
+    background-color: #e60303;
+}
+/* ===================================================================
+   commissionform.html
+   =================================================================== */
+
+.CommissionForm h1 {
+    color: #33322f;
+    text-align: center;
+    font-family: Inter, sans-serif;
+}
+
+.CommissionForm h2 {
+    margin-top: 20px;
+    margin-left: 30px;
+    color: #444;
+    font-family: Inter, sans-serif;
+}
+
+.CommissionForm label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 10px;
+    margin-left: 30px;
+    font-family: Inter, sans-serif;
+}
+
+.CommissionForm p.CommissionTarget,
+.CommissionForm2 p.CommissionTarget {
+    margin: 0 30px 10px;
+    color: #444;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+}
+
+.CommissionForm2 p.CommissionTarget {
+    margin-left: 70px;
+}
+
+.CommissionForm p.CommissionError,
+.CommissionForm2 p.CommissionError {
+    margin: 0 30px 10px;
+    color: #d10000;
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+}
+
+.CommissionTarget:empty,
+.CommissionError:empty {
+    display: none;
+}
+
+/* Terms of service box */
+.termBox {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.exampleTerms p {
+    font-size: 14px;
+    color: #333;
+    display: block;
+    margin: 0;
+    font-family: Inter, sans-serif;
+    line-height: 1.5;
+}
+
+/* ===================================================================
+   commissionform2.html
+   =================================================================== */
+
+.CommissionForm2 p {
+    color: #969696;
+    text-align: left;
+    margin-left: 65px;
+    margin-bottom: 10px;
+    font-family: Inter, sans-serif;
+}
+
+.CommissionForm2 label {
+    font-size: 14px;
+    font-weight: 400;
+    display: block;
+    margin-left: 70px;
+    font-family: Inter, sans-serif;
+}
+
+.CommissionForm2 input[type="text"],
+.CommissionForm2 input[type="email"],
+.CommissionForm2 input[type="date"],
+.CommissionForm2 input[type="number"],
+.CommissionForm2 input[type="file"],
+.CommissionForm2 select,
+.CommissionForm2 textarea {
+    width: 80%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto;
+}
+
+.CommissionForm2 input[readonly] {
+    background-color: #f2f2f2;
+    color: #666;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+.CommissionForm2 .RequiredStar {
+    color: #d10000;
+    font-weight: 700;
+    margin-left: 2px;
+}
+
+.CommissionForm2 .CommissionRequiredNote {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 5px;
+}

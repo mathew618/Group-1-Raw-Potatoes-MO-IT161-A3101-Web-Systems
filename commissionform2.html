@@ -3,11 +3,10 @@
 
 <head>
     <title>ArtifyPH - Commission Form2</title>
-    <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/pages/commissionform2.css">
+    <link rel="stylesheet" href="styles/style.css">
 </head>
 
-<body>
+<body data-commission="details">
     <header>
         <!-- Logo -->
         <a href="index.html" class="ArtifyPHLogo">
@@ -24,63 +23,68 @@
     </header>
 
     <main>
-        <section class="commissionform2">
-            <p>*Required Fields</p>
+        <section class="PageCard CommissionForm2">
+            <p class="CommissionRequiredNote"><span class="RequiredStar">*</span> Required Fields</p>
+            <p class="CommissionTarget" id="TargetArtist"></p><br>
             <!-- Name/ Username -->
-            <label for="name">Name / Username</label><br>
-            <input type="text" id="name" name="name" required><br><br>
+            <label for="name">Name / Username <span class="RequiredStar" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" readonly required><br>
 
             <!-- Email -->
-            <label for="email">Email</label><br>
-            <input type="email" id="email" name="email" required><br><br>
+            <label for="email">Email <span class="RequiredStar" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" readonly required><br>
 
             <!-- Commission Type (Dropdown) This is awesome :D -->
-            <label for="type">Commission Type</label><br>
+            <label for="type">Commission Type <span class="RequiredStar" aria-hidden="true">*</span></label>
             <select id="type" name="type" required>
                 <option value="">-- Select Type --</option>
                 <option value="Sketch">Digital Art</option>
                 <option value="Colored">Traditional Art</option>
                 <option value="Fully Rendered">Crafts</option>
-            </select><br><br>
+            </select><br>
 
             <!-- Additional Details / User can write what they want to add -->
-            <label for="details">Additional Details</label><br>
-            <textarea id="details" name="details" rows="4" cols="40"></textarea><br><br>
+            <label for="details">Additional Details</label>
+            <textarea id="details" name="details" rows="4" cols="40"></textarea><br>
 
             <!-- Upload Reference -->
-            <label for="reference">Upload Reference Image</label><br>
-            <input type="file" id="reference" name="reference"><br><br>
+            <label for="reference">Upload Reference Image</label>
+            <input type="file" id="reference" name="reference"><br>
 
             <!-- Deadline | DD/MM/YYYY -->
-            <label for="deadline">Deadline</label><br>
-            <input type="date" id="deadline" name="deadline" required><br><br>
+            <label for="deadline">Deadline <span class="RequiredStar" aria-hidden="true">*</span></label>
+            <input type="date" id="deadline" name="deadline" required><br>
 
             <!-- Budget | Must only be number-->
-            <label for="budget">Budget (in PHP)</label><br>
-            <input type="number" id="budget" name="budget" min="0" step="100" required><br><br>
+            <label for="budget">Budget (in PHP) <span class="RequiredStar" aria-hidden="true">*</span></label>
+            <input type="number" id="budget" name="budget" min="0" step="100" required><br>
 
             <!-- Preferred Communication Platform -->
-            <label for="platform">Preferred Communication Platform</label><br>
-            <input type="text" id="platform" name="platform" placeholder="e.g., Email, Discord, Messenger"><br><br>
+            <label for="platform">Preferred Communication Platform</label>
+            <input type="text" id="platform" name="platform" placeholder="e.g., Email, Discord, Messenger"><br>
 
             <!-- Terms of Service Checkbox -->
             <label>
-                <input type="checkbox" name="agreement" required>
-                I understand that submitting this request does not guarantee the commission will be accepted.<br>
+                <input type="checkbox" id="agreement" name="agreement" required>
+                I understand that submitting this request does not guarantee the commission will be accepted. <span class="RequiredStar" aria-hidden="true">*</span><br>
                 
             </label><br><br>
 
+            <p class="CommissionError" id="CommissionError"></p>
+
             <!-- Next Button - Will proceed payment-->
             <div class="buttonBox">
-                <a href="paymentmethod.html" class="next">Next</a>
+                <a href="paymentmethod.html" class="ActionButton" onclick="createCommission(event)">Next</a>
             </div>
-            </form>
 
 
         </section>
 
 
     </main>
+
+    <script src="scripts/account.js"></script>
+    <script src="scripts/commission.js"></script>
 
 </body>
 

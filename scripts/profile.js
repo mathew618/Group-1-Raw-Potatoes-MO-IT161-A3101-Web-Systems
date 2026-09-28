@@ -286,6 +286,10 @@ function withIndex(items) {
     return items.map((item, index) => ({ ...item, index }));
 }
 
+function requestCommission() {
+    window.location.href = `commissionform.html?${new URLSearchParams({ artist: profile.id })}`;
+}
+
 /* Visitors get no edit callbacks, so no edit buttons are built for them */
 function editOptions(type) {
     if (!isOwner) return {};
@@ -302,6 +306,108 @@ function editOptions(type) {
         : {};
 }
 
+/* Dashboard (owner only) */
+function renderDashboard() {
+    renderClientRequests(Commission.byArtist(profile.id));
+    renderOwnRequests(Commission.byClient(profile.id));
+}
+
+function renderClientRequests(requests) {
+    const body = document.getElementById('DashClientRows');
+    body.textContent = '';
+
+    if (!requests.length) {
+        body.appendChild(dashEmpty(5, 'No commission requests yet.'));
+        return;
+    }
+
+    requests.forEach(request => {
+        const row = document.createElement('tr');
+
+        row.appendChild(dashCell(request.clientName));
+        row.appendChild(dashCell(request.clientEmail));
+        row.appendChild(reviewCell(request));
+        row.appendChild(dashCell(request.paid ? 'Paid' : 'Unpaid'));
+        row.appendChild(dashStatus(request.status));
+
+        body.appendChild(row);
+    });
+}
+
+function renderOwnRequests(requests) {
+    const body = document.getElementById('DashArtistRows');
+    body.textContent = '';
+
+    if (!requests.length) {
+        body.appendChild(dashEmpty(5, 'You have not sent a commission request yet.'));
+        return;
+    }
+
+    requests.forEach(request => {
+        const row = document.createElement('tr');
+
+        row.appendChild(dashCell(request.artistName));
+        row.appendChild(dashCell(request.artistEmail));
+        row.appendChild(dashCell(request.package || request.type));
+        row.appendChild(dashCell(request.paid ? 'Paid' : 'Unpaid'));
+        row.appendChild(dashStatus(request.status));
+
+        body.appendChild(row);
+    });
+}
+
+function dashCell(text) {
+    const cell = document.createElement('td');
+    cell.textContent = text || '-';
+    return cell;
+}
+
+function dashEmpty(columns, message) {
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+
+    cell.colSpan = columns;
+    cell.className = 'DashEmpty';
+    cell.textContent = message;
+    row.appendChild(cell);
+    return row;
+}
+
+function dashStatus(status) {
+    const cell = document.createElement('td');
+    const chip = document.createElement('span');
+
+    chip.className = 'status-' + status;
+    chip.textContent = Commission.statusLabel(status);
+    cell.appendChild(chip);
+    return cell;
+}
+
+function reviewCell(request) {
+    const cell = document.createElement('td');
+
+    if (request.status !== 'pending') {
+        cell.textContent = 'Reviewed';
+        return cell;
+    }
+
+    cell.appendChild(dashButton('Accept', 'DashAcceptBtn', () => Commission.setStatus(request.id, 'accepted')));
+    cell.appendChild(dashButton('Reject', 'DashRejectBtn', () => Commission.setStatus(request.id, 'rejected')));
+    return cell;
+}
+
+function dashButton(label, className, action) {
+    const button = document.createElement('button');
+    button.className = 'DashActionBtn ' + className;
+    button.textContent = label;
+
+    button.addEventListener('click', () => {
+        action();
+        renderDashboard();
+    });
+    return button;
+}
+
 /* Everything below only runs on your own profile */
 function setupOwner() {
     document.getElementById('ProfileToolbar').style.display = 'flex';
@@ -309,10 +415,7 @@ function setupOwner() {
     document.getElementById('ProfileBio').style.cursor = 'pointer';
     document.getElementById('ProfileBio').addEventListener('click', startBioEdit);
 
-    document.getElementById('DashClientName').textContent = profile.username;
-    document.getElementById('DashClientEmail').textContent = profile.email;
-    document.getElementById('DashArtistName').textContent = profile.username;
-    document.getElementById('DashArtistEmail').textContent = profile.email;
+    renderDashboard();
 
     setupImagePicker('ProfileBanner', 'bannerInput', 'backgroundpicture', BANNER_FALLBACK);
     setupImagePicker('ProfileAvatar', 'avatarInput', 'profilepicture');
@@ -382,6 +485,7 @@ function renderProfile() {
     showImage(document.getElementById('ProfileAvatar'), profile.avatar);
 
     if (isOwner) setupOwner();
+    else document.getElementById('ProfileRequestBar').style.display = 'flex';
 
     renderGalleries();
     showSection('portfolio');
