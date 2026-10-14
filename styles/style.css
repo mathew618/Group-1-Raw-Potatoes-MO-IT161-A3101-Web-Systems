@@ -727,7 +727,8 @@ nav ul li a {
 }
 
 .OriginalCathy,
-.OriginalMark {
+.OriginalMark,
+.OriginalRidel {
     display: flex;
     gap: 20px;
     box-sizing: border-box;
@@ -735,18 +736,21 @@ nav ul li a {
 }
 
 .Cathy,
-.Mark {
+.Mark,
+.Ridel {
     flex: 1;
     min-width: 0;
     transition: transform 0.3s ease;
 }
 
-.Cathy:hover {
+.Cathy:hover,
+.Ridel:hover {
     transform: scale(1.05);
 }
 
 .Cathy img,
-.Mark img {
+.Mark img,
+.Ridel img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -755,15 +759,8 @@ nav ul li a {
     cursor: pointer;
 }
 
-.Mark img {
-    transition: transform 0.3s ease;
-}
-
-.Mark img:hover {
-    transform: scale(1.05);
-}
-
-.OriginalCathy {
+.OriginalCathy,
+.OriginalMark {
     margin-bottom: 20px;
 }
 

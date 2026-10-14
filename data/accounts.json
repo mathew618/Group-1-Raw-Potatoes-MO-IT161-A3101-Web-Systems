@@ -177,5 +177,354 @@
             }
         ],
         "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_DemonizedLouie",
+        "username": "DemonizedLouie",
+        "email": "DemonizedLouie@gmail.com",
+        "password": "DemonizedLouie",
+        "profilepicture": "Artist6MyProfilePic.png",
+        "backgroundpicture": "A6BG.png",
+        "folder": "ARTIST6",
+        "bio": "I just wanna tell you how I'm feeling...Gotta make you understand...Never gonna give you up",
+        "portfolio": [
+            {
+                "partist": "DemonizedLouie",
+                "ptitle": "Simple Sketch",
+                "pdesc": "I Love Drawing",
+                "image": "A6A1Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Crocheana",
+        "username": "Crocheana",
+        "email": "Crocheana@gmail.com",
+        "password": "Crocheana",
+        "profilepicture": "Artist7MyProfilePic.png",
+        "backgroundpicture": "A7BG.png",
+        "folder": "ARTIST7",
+        "bio": "Open for commission༊·˚Custom made orders are accepted for oct♡ྀི Quezon City, PH📍",
+        "portfolio": [],
+        "commissions": [
+            {
+                "cartist": "Crocheana",
+                "ctitle": "Crochet Naruto",
+                "cdesc": "narutoo will go home naa🥹🧡 Mas mahirap i-wrap kesa icrochet HAHAHAHAHAH",
+                "status": "open",
+                "image": "A7A1Commission.png"
+            },
+            {
+                "cartist": "Crocheana",
+                "ctitle": "SpongeBob will go homee naa🥹🧽🫧✨",
+                "cdesc": "I almost didnt accept this customized order because it was a rush order. But when she told me that her girlfriend just had heart surgery and that she wanted to give her a SpongeBob crochet plushie, I couldnt say no. 🥹💛 I truly hope this little handmade SpongeBob can bring her some happiness and comfort while she recovers. Wishing her a fast and smooth recovery! 🫶 Thank you so much for trusting and supporting Crocheana, Ms. Joy! Thank you for letting me be part of something so meaningful. 💜🧶 See less.",
+                "status": "open",
+                "image": "A7A2Commission.png"
+            },
+            {
+                "cartist": "Crocheana",
+                "ctitle": "Psyduck with chopper hat crochet •᷄ɞ•♡",
+                "cdesc": "Thank youu for support and trust po🫶✨ #psyduck #psyduckpokemon #plushiecrochet #pokemonplushies #pokemon #crochethat #customizedhats #hat",
+                "status": "open",
+                "image": "A7A3Commission.png"
+            },
+            {
+                "cartist": "Crocheana",
+                "ctitle": "Apple plushie pillow (˶>⩊<˶)",
+                "cdesc": "#apple #appleplushie #crochetapple #fruit #apple #pillow #applepillow #plushieapple",
+                "status": "open",
+                "image": "A7A4Commission.png"
+            },
+            {
+                "cartist": "Crocheana",
+                "ctitle": "Mini crochet tulip pots🌷✨ ",
+                "cdesc": "#tulip #tulippotcrochet #potcrochet #crochettulip #flowercrochet #tulips #tulippot #tulipflowers #flowers ",
+                "status": "open",
+                "image": "A7A5Commission.png"
+            }
+        ]
+    },
+    {
+        "role": "artist",
+        "id": "acc_Moon_Bow_Coser",
+        "username": "Moon_Bow_Coser",
+        "email": "Moon_Bow_Coser@gmail.com",
+        "password": "Moon_Bow_Coser",
+        "profilepicture": "Artist8MyProfilePic.png",
+        "backgroundpicture": "A8BG.png",
+        "folder": "ARTIST8",
+        "bio": "Hello! My name is Ave but you can call me Moon. ",
+        "portfolio": [],
+        "commissions": [
+            {
+                "cartist": "Moon_Bow_Coser",
+                "ctitle": "Drawing for my BBG Sun Raye mwamwa",
+                "cdesc": "Haii guys I draw <333 Ill probably post an artist intro once I actually have a decent amount of drawings ><<<",
+                "status": "closed",
+                "image": "A8A1Commission.png"
+            },
+            {
+                "cartist": "Moon_Bow_Coser",
+                "ctitle": "Sunshine Lollipops",
+                "cdesc": "Art Request by Client",
+                "status": "closed",
+                "image": "A8A2Commission.png"
+            }
+        ]
+    },
+    {
+        "role": "artist",
+        "id": "acc_Fuzzy",
+        "username": "FuzzyDreams",
+        "email": "FuzzyDreams@gmail.com",
+        "password": "FuzzyDreams",
+        "profilepicture": "Artist9MyProfilePic.png",
+        "backgroundpicture": "A9BG.png",
+        "folder": "ARTIST9",
+        "bio": "💜",
+        "portfolio": [
+            {
+                "cartist": "FuzzyDreams",
+                "ctitle": "Butterfly Lamp",
+                "cdesc": "I love my lamp",
+                "status": "open",
+                "image": "A9A1Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_HeartFeltCraftsByAngie",
+        "username": "HeartFeltCraftsByAngie",
+        "email": "HeartFeltCraftsByAngie@gmail.com",
+        "password": "HeartFeltCraftsByAngie",
+        "profilepicture": "Artist10MyProfilePic.png",
+        "backgroundpicture": "A10BG.png",
+        "folder": "ARTIST10",
+        "bio": " Created with Heart, Crafted with Care  ",
+        "portfolio": [],
+        "commissions": [
+            {
+                "cartist": "HeartFeltCraftsByAngie",
+                "ctitle": "KeyChains for Sale",
+                "cdesc": "Hooray I am so excited making a business soon",
+                "status": "open",
+                "image": "A10A1Commission.png"
+            }
+        ]
+    },
+    {
+        "role": "artist",
+        "id": "acc_notgracelive",
+        "username": "notgracelive",
+        "email": "notgracelive@gmail.com",
+        "password": "notgracelive",
+        "profilepicture": "Artist11MyProfilePic.png",
+        "backgroundpicture": "A11BG.png",
+        "folder": "ARTIST11",
+        "bio": "Artist, video creator, photographer, skydiver",
+        "portfolio": [
+            {
+                "cartist": "notgracelive",
+                "ctitle": "Baroque Painting",
+                "cdesc": "Part 1 of making every Minecraft painting in real life!!",
+                "image": "A11A1Portfolio.png"
+            },
+            {
+                "cartist": "notgracelive",
+                "ctitle": "Cavebird Painting",
+                "cdesc": "Part 2 of making every Minecraft painting in real life!!",
+                "image": "A11A2Portfolio.png"
+            },
+            {
+                "cartist": "notgracelive",
+                "ctitle": "New Minecraft Rose Painting",
+                "cdesc": "Part 3 of making every Minecraft painting in real life!!",
+                "image": "A11A3Portfolio.png"
+            },
+            {
+                "cartist": "notgracelive",
+                "ctitle": "Painting My Cat in Pixels",
+                "cdesc": "I painted my cat in 5,184 pixels ",
+                "image": "A11A4Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_TylorHepnerArt",
+        "username": "TylorHepnerArt",
+        "email": "TylorHepnerArt@gmail.com",
+        "password": "TylorHepnerArt",
+        "profilepicture": "Artist12MyProfilePic.png",
+        "backgroundpicture": "A12BG.png",
+        "folder": "ARTIST12",
+        "bio": "Artist, video creator, photographer, skydiver",
+        "portfolio": [
+            {
+                "cartist": "TylorHepnerArt",
+                "ctitle": "Leon Resident Evil 4 Remake",
+                "cdesc": "My New Leon Painting to celebrate RE4 Remakes release!",
+                "image": "A12A1Portfolio.png"
+            },
+            {
+                "cartist": "TylorHepnerArt",
+                "ctitle": "It’s time to go home✨",
+                "cdesc": "To celebrate Ocarina of Time Remake, I wanted to share an older pastel drawing I did a LONG time ago now probably around 2015✨freshened it up slightly. Zelda means so much to me just like Final Fantasy, so look forward to some special art for release!✨",
+                "image": "A12A2Portfolio.png"
+            },
+            {
+                "cartist": "TylorHepnerArt",
+                "ctitle": "No Promises Await at Journey’s End✨",
+                "cdesc": "Missing Aerith…✨so curious about her role in Revelation✨  I’m cooking up multiple new artworks simultaneously, so it’s taking me a bit✨ looking forward to my best tho, it’s gonna be awesome!✨",
+                "image": "A12A3Portfolio.png"
+            },
+            {
+                "cartist": "TylorHepnerArt",
+                "ctitle": "Painting My Cat in Pixels",
+                "cdesc": "I painted my cat in 5,184 pixels ",
+                "image": "A12A4Portfolio.png"
+            }
+        ],
+        "commissions": [
+            {
+                "cartist": "TylorHepnerArt",
+                "ctitle": "The Highwind✨",
+                "cdesc": "Today is my Birthday!🎉✨ Special sale all week! ✨Buy 3 get 25% off✨ Prints Available Here!✨",
+                "status": "open",
+                "image": "A12A1Commission.png"
+            }
+        ]
+    },
+    {
+        "role": "artist",
+        "id": "acc_tatianarodrigues24",
+        "username": "tatianarodrigues24",
+        "email": "tatianarodrigues24@gmail.com",
+        "password": "tatianarodrigues24",
+        "profilepicture": "Artist13MyProfilePic.png",
+        "backgroundpicture": "A13BG.png",
+        "folder": "ARTIST13",
+        "bio": "Artist, video creator, photographer, skydiver",
+        "portfolio": [
+            {
+                "cartist": "tatianarodrigues24",
+                "ctitle": "Clove (valorant) painting 🦋",
+                "cdesc": "Hand painted with matte acrylic paint.",
+                "image": "A13A1Portfolio.png"
+            },
+            {
+                "cartist": "tatianarodrigues24",
+                "ctitle": "One Piece painting 🏴‍☠️",
+                "cdesc": "Handpainted with matte acrylic paint",
+                "image": "A13A2Portfolio.png"
+            },
+            {
+                "cartist": "tatianarodrigues24",
+                "ctitle": "Killjoy painting Valorant",
+                "cdesc": "Painted with acrylic paint",
+                "image": "A13A3Portfolio.png"
+            },
+            {
+                "cartist": "tatianarodrigues24",
+                "ctitle": "Satoru Gojo painting 🖤",
+                "cdesc": "Handpainted with matte acrylic paint",
+                "image": "A13A4Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "Piethatrot",
+        "username": "Piethatrot",
+        "email": "Piethatrot@gmail.com",
+        "password": "Piethatrot",
+        "profilepicture": "Artist14MyProfilePic.png",
+        "backgroundpicture": "A14BG.png",
+        "folder": "ARTIST14",
+        "bio": "Being Inactive is Good",
+        "portfolio": [
+            {
+                "cartist": "Piethatrot",
+                "ctitle": "BRUH",
+                "cdesc": "BRUHHHHHHH",
+                "image": "A14A1Portfolio.png"
+            },
+            {
+                "cartist": "Piethatrot",
+                "ctitle": "Tea🍵",
+                "cdesc": "🫖",
+                "image": "A14A2Portfolio.png"
+            },
+            {
+                "cartist": "Piethatrot",
+                "ctitle": "Practice Art",
+                "cdesc": "nagpractice dahil hindi ko alam paano magkulay",
+                "image": "A14A3Portfolio.png"
+            },
+            {
+                "cartist": "Piethatrot",
+                "ctitle": "Chickens",
+                "cdesc": "I like chickens and you can't change that",
+                "image": "A14A4Portfolio.png"
+            },
+            {
+                "cartist": "Piethatrot",
+                "ctitle": "Random Drawing",
+                "cdesc": "i draw this and am proud of it UwU",
+                "image": "A14A5Portfolio.png"
+            },
+            {
+                "cartist": "Piethatrot",
+                "ctitle": "Lock N' Loaded",
+                "cdesc": "Ready na po ako",
+                "image": "A14A6Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "Liciou",
+        "username": "Liciou",
+        "email": "Liciou@gmail.com",
+        "password": "Liciou",
+        "profilepicture": "Artist15MyProfilePic.png",
+        "backgroundpicture": "A15BG.png",
+        "folder": "ARTIST15",
+        "bio": "Artist, video creator, photographer, skydiver",
+        "portfolio": [
+            {
+                "cartist": "Liciou",
+                "ctitle": "Sunset with your Partner",
+                "cdesc": "My darling someday we will watch the sunset together, and I will hold your hand and never let go.",
+                "image": "A15A1Portfolio.png"
+            },
+            {
+                "cartist": "Liciou",
+                "ctitle": "Tea🍵",
+                "cdesc": "🫖",
+                "image": "A15A2Portfolio.png"
+            },
+            {
+                "cartist": "Liciou",
+                "ctitle": "Practice Art",
+                "cdesc": "nagpractice dahil hindi ko alam paano magkulay",
+                "image": "A15A3Portfolio.png"
+            },
+            {
+                "cartist": "Liciou",
+                "ctitle": "Chickens",
+                "cdesc": "I like chickens and you can't change that",
+                "image": "A15A4Portfolio.png"
+            }
+        ],
+        "commissions": []
     }
 ]

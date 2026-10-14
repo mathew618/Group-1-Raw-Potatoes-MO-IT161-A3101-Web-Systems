@@ -84,10 +84,10 @@ const artworks = {
         title: "Crochet Naruto",
         desc: "narutoo will go home naa🥹🧡 Mas mahirap i-wrap kesa icrochet HAHAHAHAHAHA"
     },
-    Wist: {
-        author: "Wist",
-        title: "Zarah",
-        desc: "Thank you to our dear customers and supporters for trusting our product!"
+    Moon_Bow_Coser: {
+        author: "Moon Bow Coser",
+        title: "Drawing for my BBG Sun Raye mwamwa",
+        desc: "Haii guys I draw <333 Ill probably post an artist intro once I actually have a decent amount of drawings ><<<"
     },
     FuzzyDreams: {
         author: "FuzzyDreams",
@@ -96,8 +96,28 @@ const artworks = {
     },
     HeartFeltCraftsByAngie: {
         author: "HeartFeltCraftsByAngie",
-        title: "Keychain",
+        title: "KeyChains for Sale",
         desc: "Hooray I am so excited making a business soon"
+    },
+    notgracelive: {
+        author: "notgracelive",
+        title: "Baroque Painting",
+        desc: "Part 1 of making every Minecraft painting in real life!!"
+    },
+    TylorHepnerArt: {
+        author: "TylorHepnerArt",
+        title: "Leon Resident Evil 4 Remake",
+        desc: "My New Leon Painting to celebrate RE4 Remakes release!"
+    },
+    tatianarodrigues24: {
+        author: "tatianarodrigues24",
+        title: "Clove (valorant) painting 🦋",
+        desc: "Hand painted with matte acrylic paint."
+    },
+    Liciou: {
+        author: "Liciou",
+        title: "Sunset with your Partner",
+        desc: "My darling someday we will watch the sunset together, and I will hold your hand and never let go."
     }
 };
 
