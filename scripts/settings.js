@@ -2,7 +2,7 @@
 const HiddenUntilEditGroups = ['vemail', 'vpassword', 'Showstopper'];
 
 /* They Got Caught in the Bear Trap X - x*/
-const DisabledUntilEditFields = ['email', 'UserPassword', 'username', 'biodesc', 'profilePhotoInput', 'backgroundInput'];
+const DisabledUntilEditFields = ['email', 'UserPassword', 'username', 'biodesc'];
 
 /* Settings fields and the account values they mirror */
 const AccountFields = [
