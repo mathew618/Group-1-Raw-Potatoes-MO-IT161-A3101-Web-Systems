@@ -180,17 +180,17 @@
     },
     {
         "role": "artist",
-        "id": "acc_DemonizedLouie",
-        "username": "DemonizedLouie",
-        "email": "DemonizedLouie@gmail.com",
-        "password": "DemonizedLouie",
+        "id": "acc_Demonized_Louie",
+        "username": "Demonized_Louie",
+        "email": "Demonized_Louie@gmail.com",
+        "password": "Demonized_Louie",
         "profilepicture": "Artist6MyProfilePic.png",
         "backgroundpicture": "A6BG.png",
         "folder": "ARTIST6",
         "bio": "I just wanna tell you how I'm feeling...Gotta make you understand...Never gonna give you up",
         "portfolio": [
             {
-                "partist": "DemonizedLouie",
+                "partist": "Demonized_Louie",
                 "ptitle": "Simple Sketch",
                 "pdesc": "I Love Drawing",
                 "image": "A6A1Portfolio.png"
@@ -329,27 +329,27 @@
         "bio": "Artist, video creator, photographer, skydiver",
         "portfolio": [
             {
-                "cartist": "notgracelive",
-                "ctitle": "Baroque Painting",
-                "cdesc": "Part 1 of making every Minecraft painting in real life!!",
+                "partist": "notgracelive",
+                "ptitle": "Baroque Painting",
+                "pdesc": "Part 1 of making every Minecraft painting in real life!!",
                 "image": "A11A1Portfolio.png"
             },
             {
-                "cartist": "notgracelive",
-                "ctitle": "Cavebird Painting",
-                "cdesc": "Part 2 of making every Minecraft painting in real life!!",
+                "partist": "notgracelive",
+                "ptitle": "Cavebird Painting",
+                "pdesc": "Part 2 of making every Minecraft painting in real life!!",
                 "image": "A11A2Portfolio.png"
             },
             {
-                "cartist": "notgracelive",
-                "ctitle": "New Minecraft Rose Painting",
-                "cdesc": "Part 3 of making every Minecraft painting in real life!!",
+                "partist": "notgracelive",
+                "ptitle": "New Minecraft Rose Painting",
+                "pdesc": "Part 3 of making every Minecraft painting in real life!!",
                 "image": "A11A3Portfolio.png"
             },
             {
-                "cartist": "notgracelive",
-                "ctitle": "Painting My Cat in Pixels",
-                "cdesc": "I painted my cat in 5,184 pixels ",
+                "partist": "notgracelive",
+                "ptitle": "Painting My Cat in Pixels",
+                "pdesc": "I painted my cat in 5,184 pixels ",
                 "image": "A11A4Portfolio.png"
             }
         ],
@@ -367,28 +367,22 @@
         "bio": "Artist, video creator, photographer, skydiver",
         "portfolio": [
             {
-                "cartist": "TylorHepnerArt",
-                "ctitle": "Leon Resident Evil 4 Remake",
-                "cdesc": "My New Leon Painting to celebrate RE4 Remakes release!",
+                "partist": "TylorHepnerArt",
+                "ptitle": "Leon Resident Evil 4 Remake",
+                "pdesc": "My New Leon Painting to celebrate RE4 Remakes release!",
                 "image": "A12A1Portfolio.png"
             },
             {
-                "cartist": "TylorHepnerArt",
-                "ctitle": "It’s time to go home✨",
-                "cdesc": "To celebrate Ocarina of Time Remake, I wanted to share an older pastel drawing I did a LONG time ago now probably around 2015✨freshened it up slightly. Zelda means so much to me just like Final Fantasy, so look forward to some special art for release!✨",
+                "partist": "TylorHepnerArt",
+                "ptitle": "It’s time to go home✨",
+                "pdesc": "To celebrate Ocarina of Time Remake, I wanted to share an older pastel drawing I did a LONG time ago now probably around 2015✨freshened it up slightly. Zelda means so much to me just like Final Fantasy, so look forward to some special art for release!✨",
                 "image": "A12A2Portfolio.png"
             },
             {
-                "cartist": "TylorHepnerArt",
-                "ctitle": "No Promises Await at Journey’s End✨",
-                "cdesc": "Missing Aerith…✨so curious about her role in Revelation✨  I’m cooking up multiple new artworks simultaneously, so it’s taking me a bit✨ looking forward to my best tho, it’s gonna be awesome!✨",
+                "partist": "TylorHepnerArt",
+                "ptitle": "No Promises Await at Journey’s End✨",
+                "pdesc": "Missing Aerith…✨so curious about her role in Revelation✨  I’m cooking up multiple new artworks simultaneously, so it’s taking me a bit✨ looking forward to my best tho, it’s gonna be awesome!✨",
                 "image": "A12A3Portfolio.png"
-            },
-            {
-                "cartist": "TylorHepnerArt",
-                "ctitle": "Painting My Cat in Pixels",
-                "cdesc": "I painted my cat in 5,184 pixels ",
-                "image": "A12A4Portfolio.png"
             }
         ],
         "commissions": [
@@ -413,27 +407,27 @@
         "bio": "Artist, video creator, photographer, skydiver",
         "portfolio": [
             {
-                "cartist": "tatianarodrigues24",
-                "ctitle": "Clove (valorant) painting 🦋",
-                "cdesc": "Hand painted with matte acrylic paint.",
+                "partist": "tatianarodrigues24",
+                "ptitle": "Clove (valorant) painting 🦋",
+                "pdesc": "Hand painted with matte acrylic paint.",
                 "image": "A13A1Portfolio.png"
             },
             {
-                "cartist": "tatianarodrigues24",
-                "ctitle": "One Piece painting 🏴‍☠️",
-                "cdesc": "Handpainted with matte acrylic paint",
+                "partist": "tatianarodrigues24",
+                "ptitle": "One Piece painting 🏴‍☠️",
+                "pdesc": "Handpainted with matte acrylic paint",
                 "image": "A13A2Portfolio.png"
             },
             {
-                "cartist": "tatianarodrigues24",
-                "ctitle": "Killjoy painting Valorant",
-                "cdesc": "Painted with acrylic paint",
+                "partist": "tatianarodrigues24",
+                "ptitle": "Killjoy painting Valorant",
+                "pdesc": "Painted with acrylic paint",
                 "image": "A13A3Portfolio.png"
             },
             {
-                "cartist": "tatianarodrigues24",
-                "ctitle": "Satoru Gojo painting 🖤",
-                "cdesc": "Handpainted with matte acrylic paint",
+                "partist": "tatianarodrigues24",
+                "ptitle": "Satoru Gojo painting 🖤",
+                "pdesc": "Handpainted with matte acrylic paint",
                 "image": "A13A4Portfolio.png"
             }
         ],
@@ -441,7 +435,7 @@
     },
     {
         "role": "artist",
-        "id": "Piethatrot",
+        "id": "acc_Piethatrot",
         "username": "Piethatrot",
         "email": "Piethatrot@gmail.com",
         "password": "Piethatrot",
@@ -451,39 +445,39 @@
         "bio": "Being Inactive is Good",
         "portfolio": [
             {
-                "cartist": "Piethatrot",
-                "ctitle": "BRUH",
-                "cdesc": "BRUHHHHHHH",
+                "partist": "Piethatrot",
+                "ptitle": "BRUH",
+                "pdesc": "BRUHHHHHHH",
                 "image": "A14A1Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Tea🍵",
-                "cdesc": "🫖",
+                "partist": "Piethatrot",
+                "ptitle": "Tea🍵",
+                "pdesc": "🫖",
                 "image": "A14A2Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Practice Art",
-                "cdesc": "nagpractice dahil hindi ko alam paano magkulay",
+                "partist": "Piethatrot",
+                "ptitle": "Practice Art",
+                "pdesc": "nagpractice dahil hindi ko alam paano magkulay",
                 "image": "A14A3Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Chickens",
-                "cdesc": "I like chickens and you can't change that",
+                "partist": "Piethatrot",
+                "ptitle": "Chickens",
+                "pdesc": "I like chickens and you can't change that",
                 "image": "A14A4Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Random Drawing",
-                "cdesc": "i draw this and am proud of it UwU",
+                "partist": "Piethatrot",
+                "ptitle": "Random Drawing",
+                "pdesc": "i draw this and am proud of it UwU",
                 "image": "A14A5Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Lock N' Loaded",
-                "cdesc": "Ready na po ako",
+                "partist": "Piethatrot",
+                "ptitle": "Lock N' Loaded",
+                "pdesc": "Ready na po ako",
                 "image": "A14A6Portfolio.png"
             }
         ],
@@ -498,30 +492,30 @@
         "profilepicture": "Artist15MyProfilePic.png",
         "backgroundpicture": "A15BG.png",
         "folder": "ARTIST15",
-        "bio": "Artist, video creator, photographer, skydiver",
+        "bio": "I Love you",
         "portfolio": [
             {
-                "cartist": "Liciou",
-                "ctitle": "Sunset with your Partner",
-                "cdesc": "My darling someday we will watch the sunset together, and I will hold your hand and never let go.",
+                "partist": "Liciou",
+                "ptitle": "Sunset with your Partner",
+                "pdesc": "My darling someday we will watch the sunset together, and I will hold your hand and never let go.",
                 "image": "A15A1Portfolio.png"
             },
             {
-                "cartist": "Liciou",
-                "ctitle": "Tea🍵",
-                "cdesc": "🫖",
+                "partist": "Liciou",
+                "ptitle": "Rainy Day",
+                "pdesc": "Raindrops & love",
                 "image": "A15A2Portfolio.png"
             },
             {
-                "cartist": "Liciou",
-                "ctitle": "Practice Art",
-                "cdesc": "nagpractice dahil hindi ko alam paano magkulay",
+                "partist": "Liciou",
+                "ptitle": "Forest of Love",
+                "pdesc": "nRaindrops & love",
                 "image": "A15A3Portfolio.png"
             },
             {
-                "cartist": "Liciou",
-                "ctitle": "Chickens",
-                "cdesc": "I like chickens and you can't change that",
+                "partist": "Liciou",
+                "ptitle": "Library Time",
+                "pdesc": "The minute I heard my first love story, I started looking for you.” — Rumi",
                 "image": "A15A4Portfolio.png"
             }
         ],

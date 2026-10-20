@@ -114,6 +114,11 @@ const artworks = {
         title: "Clove (valorant) painting 🦋",
         desc: "Hand painted with matte acrylic paint."
     },
+    Piethatrot: {
+        author: "Piethatrot",
+        title: "BRUH",
+        desc: "BRUHHHHHHH"
+    },
     Liciou: {
         author: "Liciou",
         title: "Sunset with your Partner",
