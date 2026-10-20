@@ -86,6 +86,14 @@ const Commission = {
 
         requests.push(record);
         Commission.write(requests);
+
+        fetch('/api/commissions', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(record)
+        }).catch(() => {
+        });
+        
         return record;
     },
 
