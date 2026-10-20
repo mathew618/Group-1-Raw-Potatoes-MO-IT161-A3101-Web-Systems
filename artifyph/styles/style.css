@@ -698,6 +698,14 @@ nav ul li a {
     background-color: #D9D9D9;
 }
 
+.ClickyPicky {
+    cursor: pointer;
+}
+
+.ClickyPicky:hover {
+    text-decoration: underline;
+}
+
 .BaldisBasic {
     text-align: center;
     color: #eda27c;
@@ -744,6 +752,7 @@ nav ul li a {
 }
 
 .Cathy:hover,
+.Mark:hover,
 .Ridel:hover {
     transform: scale(1.05);
 }

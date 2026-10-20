@@ -141,6 +141,19 @@ Account.all().then(accounts => {
     accounts.forEach(account => profileNames.set(account.username.toLowerCase(), account.username));
 });
 
+document.querySelectorAll('.ArtsyBitsy p').forEach(name => {
+    name.classList.add('ClickyPicky');
+
+    name.addEventListener('click', () => {
+        const username = profileNames.get(name.textContent.trim().toLowerCase());
+
+        if (!username) {
+            alert('No profile yet.');
+            return;
+        }
+        window.location.href = `${PROFILE_PAGE}?user=${encodeURIComponent(username)}`;
+    });
+});
 function linkProfile(identifier) {
     const username = profileNames.get(identifier.toLowerCase());
 

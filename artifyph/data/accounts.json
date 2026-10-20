@@ -14,6 +14,106 @@
     },
     {
         "role": "artist",
+        "id": "acc__BELPHIE",
+        "username": "_BELPHIE",
+        "email": "_BELPHIE@gmail.com",
+        "password": "_BELPHIE",
+        "profilepicture": "ASS1MyProfilePic.png",
+        "backgroundpicture": "A1SSBG.png",
+        "folder": "ARTISTSS1",
+        "bio": "Ya Like Jazz?",
+        "portfolio": [
+            {
+                "partist": "_BELPHIE",
+                "ptitle": "Happiest Birthday Beetrix112",
+                "pdesc": "Happiest Birthday to my dearest friend Beetrix112, Thank you for everything!",
+                "image": "A1A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Blubytrave890",
+        "username": "Blubytrave890",
+        "email": "Blubytrave890@gmail.com",
+        "password": "Blubytrave890",
+        "profilepicture": "ASS2MyProfilePic.png",
+        "backgroundpicture": "A2SSBG.png",
+        "folder": "ARTISTSS2",
+        "bio": "Note: If this user did not went active for 5 days, it means the user went off to the sunsets.",
+        "portfolio": [
+            {
+                "partist": "Blubytrave890",
+                "ptitle": "Cheap Motivation Drawing",
+                "pdesc": "Flowers for you!",
+                "image": "A2A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Mathew618",
+        "username": "Mathew618",
+        "email": "Mathew618@gmail.com",
+        "password": "Mathew618",
+        "profilepicture": "ASS3MyProfilePic.png",
+        "backgroundpicture": "A3SSBG.png",
+        "folder": "ARTISTSS3",
+        "bio": "I found that spark :)",
+        "portfolio": [
+            {
+                "partist": "Mathew618",
+                "ptitle": "JM05V Sparky",
+                "pdesc": "yeah, He got this",
+                "image": "A3A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+      {
+        "role": "artist",
+        "id": "acc_CamechiDiaz",
+        "username": "CamechiDiaz",
+        "email": "CamechiDiaz@gmail.com",
+        "password": "CamechiDiaz",
+        "profilepicture": "ASS4MyProfilePic.png",
+        "backgroundpicture": "A4SSBG.png",
+        "folder": "ARTISTSS4",
+        "bio": "Until Then",
+        "portfolio": [
+            {
+                "partist": "CamechiDiaz",
+                "ptitle": "Nicole X Mark",
+                "pdesc": "Bus Scene",
+                "image": "A4A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+         {
+        "role": "artist",
+        "id": "acc_Az",
+        "username": "Az",
+        "email": "Az@gmail.com",
+        "password": "Az",
+        "profilepicture": "ASS5MyProfilePic.png",
+        "backgroundpicture": "A5SSBG.png",
+        "folder": "ARTISTSS5",
+        "bio": "Enslaved by Uni ʚ❤︎ɞ ♡ 𝜗ৎ ᯓ★ is madly in love with somebody? :>",
+        "portfolio": [
+            {
+                "partist": "Az",
+                "ptitle": "Premium Diamond Hoe",
+                "pdesc": "Lmao",
+                "image": "A5A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
         "id": "acc_Camryngamesyt",
         "username": "Camryngamesyt",
         "email": "Camryngamesyt@gmail.com",
