@@ -65,6 +65,16 @@ function setEditing(editing) {
     field('EditButton').textContent = isEditing ? 'Cancel' : 'Edit';
     field('SaveStatus').textContent = '';
     ConfirmFields.forEach(({ error }) => field(error).textContent = '');
+
+    // MENTOR FIX: Re-mask password inputs and uncheck Show Password
+    if (!isEditing) {
+        const showBox = field('ShowPassword');
+        if (showBox) showBox.checked = false;
+        ['UserPassword', 'ConPassword'].forEach(id => {
+            const el = field(id);
+            if (el) el.type = 'password';
+        });
+    }
 }
 
 function toggleEdit() {
