@@ -72,7 +72,7 @@
         ],
         "commissions": []
     },
-      {
+    {
         "role": "artist",
         "id": "acc_CamechiDiaz",
         "username": "CamechiDiaz",
@@ -92,7 +92,7 @@
         ],
         "commissions": []
     },
-         {
+    {
         "role": "artist",
         "id": "acc_Az",
         "username": "Az",
@@ -585,7 +585,7 @@
     },
     {
         "role": "artist",
-        "id": "Liciou",
+        "id": "acc_Liciou",
         "username": "Liciou",
         "email": "Liciou@gmail.com",
         "password": "Liciou",
@@ -617,6 +617,142 @@
                 "ptitle": "Library Time",
                 "pdesc": "The minute I heard my first love story, I started looking for you.” — Rumi",
                 "image": "A15A4Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Bee_Bianca",
+        "username": "Bee_Bianca",
+        "email": "Bee_Bianca@gmail.com",
+        "password": "Bee_Bianca",
+        "profilepicture": "Artist16MyProfilePic.png",
+        "backgroundpicture": "A16BG.png",
+        "folder": "ARTIST16",
+        "bio": "Manifesting a digi-cam. 2nd hand or not",
+        "portfolio": [
+            {
+                "partist": "Bee_Bianca",
+                "ptitle": "Ponyo",
+                "pdesc": "Ponyo Ponyo Ponyo",
+                "image": "A16A1Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Synesthria",
+        "username": "Synesthria",
+        "email": "Synesthria@gmail.com",
+        "password": "Synesthria",
+        "profilepicture": "Artist17MyProfilePic.png",
+        "backgroundpicture": "A17BG.png",
+        "folder": "ARTIST17",
+        "bio": "",
+        "portfolio": [
+            {
+                "partist": "Synesthria",
+                "ptitle": "Lucky To Be Here",
+                "pdesc": "SHS 1",
+                "image": "A17A1Portfolio.png"
+            },
+            {
+                "partist": "Synesthria",
+                "ptitle": "Some Themselves are Art",
+                "pdesc": "SHS 2",
+                "image": "A17A2Portfolio.png"
+            },
+            {
+                "partist": "Synesthria",
+                "ptitle": "Proceed to be Bold",
+                "pdesc": "SHS 3",
+                "image": "A17A3Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Lazenko",
+        "username": "Lazenko",
+        "email": "Lazenko@gmail.com",
+        "password": "Lazenko",
+        "profilepicture": "Artist18MyProfilePic.png",
+        "backgroundpicture": "A18BG.png",
+        "folder": "ARTIST18",
+        "bio": "‼ I DO NOT TAKE MAIL‼ ",
+        "portfolio": [
+            {
+                "partist": "Lazenko",
+                "ptitle": "Candy Corn Earrings",
+                "pdesc": "Random Stuff",
+                "image": "A18A1Portfolio.png"
+            },
+            {
+                "partist": "Lazenko",
+                "ptitle": "FlowerBob",
+                "pdesc": "Spongebob Art",
+                "image": "A18A2Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_edgichel",
+        "username": "edgichel",
+        "email": "edgichel@gmail.com",
+        "password": "edgichel",
+        "profilepicture": "Artist19MyProfilePic.png",
+        "backgroundpicture": "A19BG.png",
+        "folder": "ARTIST19",
+        "bio": "I draw what I want ! - ARTWORK IS MINE -",
+        "portfolio": [
+            {
+                "partist": "edgichel",
+                "ptitle": "BABYYY IM BORRED",
+                "pdesc": "#art #digitalart #procreate #artistsoninstagram #fanart #laufey #junia #artoninstagram #drawing #illustration #design",
+                "image": "A19A1Portfolio.png"
+            },
+            {
+                "partist": "edgichel",
+                "ptitle": "V1 Art",
+                "pdesc": "i dont want to look at this anymore also here’s first version - - - - - #art #artistoninstagram #fanart #hsr #honkaistarrailfanart #honkaistarrail #terravox #danheng #stelle #amphoreus #digitalart #myart",
+                "image": "A19A2Portfolio.png"
+            },
+            {
+                "partist": "edgichel",
+                "ptitle": "SUSIE GOT YOUR NUMBER",
+                "pdesc": "Can u tell i like purple - #artistoninstagram #deltarune #susiedeltarune #deltarunefanart #art",
+                "image": "A19A3Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Alina",
+        "username": "Alina",
+        "email": "Alina@gmail.com",
+        "password": "Alina",
+        "profilepicture": "Artist20MyProfilePic.png",
+        "backgroundpicture": "A20BG.png",
+        "folder": "ARTIST20",
+        "bio": "Romanian illustrator with a passion for whimsical fantasy and anime 🍄💫",
+        "portfolio": [
+            {
+                "partist": "Alina",
+                "ptitle": "⋆. 𐙚 ̊🍋‍🟩♪⋆.✮ ",
+                "pdesc": " I remember being afraid to colour this piece because I didn’t want to mess up the sketch 😭 Btw you can use code: ALINAAZAC for 10% off on the Ohuhu website ✨ #ohuhumarkers #markerart #sketchbook #sketching #alcoholmarkers",
+                "image": "A20A1Portfolio.png"
+            },
+            {
+                "partist": "Alina",
+                "ptitle": "Paște fericit! (Happy Easter!)",
+                "pdesc": " In Romania, today we celebrate Orthodox Easter. In my family we don’t paint those very intricate patterns that you might see people from other regions or orthodox countries do, but we make these traditional eggs with leaf patterns! (you can see on the last slide how they’re made) They represent Easter for me, so I made this illustration with that in mind. ❤️ I hope everyone is enjoying their day (or evening). 🌱 Iar pentru românii mei: Hristos a Înviat! ...",
+                "image": "A20A2Portfolio.png"
             }
         ],
         "commissions": []

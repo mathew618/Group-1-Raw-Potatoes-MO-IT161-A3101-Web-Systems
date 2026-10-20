@@ -123,6 +123,31 @@ const artworks = {
         author: "Liciou",
         title: "Sunset with your Partner",
         desc: "My darling someday we will watch the sunset together, and I will hold your hand and never let go."
+    },
+    Bee_Bianca: {
+        author: "Bee_Bianca",
+        title: "Ponyo",
+        desc: "Ponyo Ponyo Ponyo"
+    },
+    Synesthria: {
+        author: "Synesthria",
+        title: "Lucky To Be Here",
+        desc: "SHS 1"
+    },
+    Lakenzo: {
+        author: "Lakenzo",
+        title: "Candy Corn Earrings",
+        desc: "Random Stuff"
+    },
+    edgichel: {
+        author: "edgichel",
+        title: "BABYYY IM BORRED",
+        desc: "#art #digitalart #procreate #artistsoninstagram #fanart #laufey #junia #artoninstagram #drawing #illustration #design"
+    },
+    Alina: {
+        author: "Alina",
+        title: "⋆. 𐙚 ̊🍋‍🟩♪⋆.✮ ",
+        desc: "I remember being afraid to colour this piece because I didn’t want to mess up the sketch 😭 Btw you can use code: ALINAAZAC for 10% off on the Ohuhu website ✨ #ohuhumarkers #markerart #sketchbook #sketching #alcoholmarkers"
     }
 };
 
@@ -167,7 +192,7 @@ function linkProfile(identifier) {
     }
 }
 
-document.querySelectorAll('.Cathy img, .Mark img').forEach(img => {
+document.querySelectorAll('.Cathy img, .Mark img, .Ridel img, .Rubio img').forEach(img => {
     img.addEventListener('click', () => {
         const info = artworks[img.dataset.id];
         if (!info) return;
