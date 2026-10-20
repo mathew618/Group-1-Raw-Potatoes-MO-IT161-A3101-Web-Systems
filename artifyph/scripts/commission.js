@@ -93,7 +93,6 @@ const Commission = {
             body: JSON.stringify(record)
         }).catch(() => {
         });
-        
         return record;
     },
 
