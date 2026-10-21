@@ -698,6 +698,14 @@ nav ul li a {
     background-color: #D9D9D9;
 }
 
+.ClickyPicky {
+    cursor: pointer;
+}
+
+.ClickyPicky:hover {
+    text-decoration: underline;
+}
+
 .BaldisBasic {
     text-align: center;
     color: #eda27c;
@@ -728,7 +736,8 @@ nav ul li a {
 
 .OriginalCathy,
 .OriginalMark,
-.OriginalRidel {
+.OriginalRidel,
+.OriginalRubio {
     display: flex;
     gap: 20px;
     box-sizing: border-box;
@@ -737,20 +746,24 @@ nav ul li a {
 
 .Cathy,
 .Mark,
-.Ridel {
+.Ridel,
+.Rubio {
     flex: 1;
     min-width: 0;
     transition: transform 0.3s ease;
 }
 
 .Cathy:hover,
-.Ridel:hover {
+.Mark:hover,
+.Ridel:hover,
+.Rubio:hover {
     transform: scale(1.05);
 }
 
 .Cathy img,
 .Mark img,
-.Ridel img {
+.Ridel img,
+.Rubio img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -760,7 +773,8 @@ nav ul li a {
 }
 
 .OriginalCathy,
-.OriginalMark {
+.OriginalMark,
+.OriginalRidel {
     margin-bottom: 20px;
 }
 
@@ -1089,8 +1103,8 @@ nav ul li a {
 #Reaper,
 #Gameover {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 8px;
+    left: 8px;
     background: none;
     border: none;
     font-size: 20px;
@@ -1497,8 +1511,8 @@ nav ul li a {
 
 #TermsClose {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 8px;
+    left: 8px;
     background: none;
     border: none;
     font-size: 20px;
@@ -1638,8 +1652,8 @@ nav ul li a {
 
 .ModalClose {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 8px;
+    left: 8px;
     background: none;
     border: none;
     font-size: 20px;

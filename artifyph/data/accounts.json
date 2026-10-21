@@ -14,6 +14,106 @@
     },
     {
         "role": "artist",
+        "id": "acc__BELPHIE",
+        "username": "_BELPHIE",
+        "email": "_BELPHIE@gmail.com",
+        "password": "_BELPHIE",
+        "profilepicture": "ASS1MyProfilePic.png",
+        "backgroundpicture": "A1SSBG.png",
+        "folder": "ARTISTSS1",
+        "bio": "Ya Like Jazz?",
+        "portfolio": [
+            {
+                "partist": "_BELPHIE",
+                "ptitle": "Happiest Birthday Beetrix112",
+                "pdesc": "Happiest Birthday to my dearest friend Beetrix112, Thank you for everything!",
+                "image": "A1A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Blubytrave890",
+        "username": "Blubytrave890",
+        "email": "Blubytrave890@gmail.com",
+        "password": "Blubytrave890",
+        "profilepicture": "ASS2MyProfilePic.png",
+        "backgroundpicture": "A2SSBG.png",
+        "folder": "ARTISTSS2",
+        "bio": "Note: If this user did not went active for 5 days, it means the user went off to the sunsets.",
+        "portfolio": [
+            {
+                "partist": "Blubytrave890",
+                "ptitle": "Cheap Motivation Drawing",
+                "pdesc": "Flowers for you!",
+                "image": "A2A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Mathew618",
+        "username": "Mathew618",
+        "email": "Mathew618@gmail.com",
+        "password": "Mathew618",
+        "profilepicture": "ASS3MyProfilePic.png",
+        "backgroundpicture": "A3SSBG.png",
+        "folder": "ARTISTSS3",
+        "bio": "I found that spark :)",
+        "portfolio": [
+            {
+                "partist": "Mathew618",
+                "ptitle": "JM05V Sparky",
+                "pdesc": "yeah, He got this",
+                "image": "A3A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_CamechiDiaz",
+        "username": "CamechiDiaz",
+        "email": "CamechiDiaz@gmail.com",
+        "password": "CamechiDiaz",
+        "profilepicture": "ASS4MyProfilePic.png",
+        "backgroundpicture": "A4SSBG.png",
+        "folder": "ARTISTSS4",
+        "bio": "Until Then",
+        "portfolio": [
+            {
+                "partist": "CamechiDiaz",
+                "ptitle": "Nicole X Mark",
+                "pdesc": "Bus Scene",
+                "image": "A4A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Az",
+        "username": "Az",
+        "email": "Az@gmail.com",
+        "password": "Az",
+        "profilepicture": "ASS5MyProfilePic.png",
+        "backgroundpicture": "A5SSBG.png",
+        "folder": "ARTISTSS5",
+        "bio": "Enslaved by Uni ʚ❤︎ɞ ♡ 𝜗ৎ ᯓ★ is madly in love with somebody? :>",
+        "portfolio": [
+            {
+                "partist": "Az",
+                "ptitle": "Premium Diamond Hoe",
+                "pdesc": "Lmao",
+                "image": "A5A1SSPortfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
         "id": "acc_Camryngamesyt",
         "username": "Camryngamesyt",
         "email": "Camryngamesyt@gmail.com",
@@ -180,17 +280,17 @@
     },
     {
         "role": "artist",
-        "id": "acc_DemonizedLouie",
-        "username": "DemonizedLouie",
-        "email": "DemonizedLouie@gmail.com",
-        "password": "DemonizedLouie",
+        "id": "acc_Demonized_Louie",
+        "username": "Demonized_Louie",
+        "email": "Demonized_Louie@gmail.com",
+        "password": "Demonized_Louie",
         "profilepicture": "Artist6MyProfilePic.png",
         "backgroundpicture": "A6BG.png",
         "folder": "ARTIST6",
         "bio": "I just wanna tell you how I'm feeling...Gotta make you understand...Never gonna give you up",
         "portfolio": [
             {
-                "partist": "DemonizedLouie",
+                "partist": "Demonized_Louie",
                 "ptitle": "Simple Sketch",
                 "pdesc": "I Love Drawing",
                 "image": "A6A1Portfolio.png"
@@ -329,27 +429,27 @@
         "bio": "Artist, video creator, photographer, skydiver",
         "portfolio": [
             {
-                "cartist": "notgracelive",
-                "ctitle": "Baroque Painting",
-                "cdesc": "Part 1 of making every Minecraft painting in real life!!",
+                "partist": "notgracelive",
+                "ptitle": "Baroque Painting",
+                "pdesc": "Part 1 of making every Minecraft painting in real life!!",
                 "image": "A11A1Portfolio.png"
             },
             {
-                "cartist": "notgracelive",
-                "ctitle": "Cavebird Painting",
-                "cdesc": "Part 2 of making every Minecraft painting in real life!!",
+                "partist": "notgracelive",
+                "ptitle": "Cavebird Painting",
+                "pdesc": "Part 2 of making every Minecraft painting in real life!!",
                 "image": "A11A2Portfolio.png"
             },
             {
-                "cartist": "notgracelive",
-                "ctitle": "New Minecraft Rose Painting",
-                "cdesc": "Part 3 of making every Minecraft painting in real life!!",
+                "partist": "notgracelive",
+                "ptitle": "New Minecraft Rose Painting",
+                "pdesc": "Part 3 of making every Minecraft painting in real life!!",
                 "image": "A11A3Portfolio.png"
             },
             {
-                "cartist": "notgracelive",
-                "ctitle": "Painting My Cat in Pixels",
-                "cdesc": "I painted my cat in 5,184 pixels ",
+                "partist": "notgracelive",
+                "ptitle": "Painting My Cat in Pixels",
+                "pdesc": "I painted my cat in 5,184 pixels ",
                 "image": "A11A4Portfolio.png"
             }
         ],
@@ -367,28 +467,22 @@
         "bio": "Artist, video creator, photographer, skydiver",
         "portfolio": [
             {
-                "cartist": "TylorHepnerArt",
-                "ctitle": "Leon Resident Evil 4 Remake",
-                "cdesc": "My New Leon Painting to celebrate RE4 Remakes release!",
+                "partist": "TylorHepnerArt",
+                "ptitle": "Leon Resident Evil 4 Remake",
+                "pdesc": "My New Leon Painting to celebrate RE4 Remakes release!",
                 "image": "A12A1Portfolio.png"
             },
             {
-                "cartist": "TylorHepnerArt",
-                "ctitle": "It’s time to go home✨",
-                "cdesc": "To celebrate Ocarina of Time Remake, I wanted to share an older pastel drawing I did a LONG time ago now probably around 2015✨freshened it up slightly. Zelda means so much to me just like Final Fantasy, so look forward to some special art for release!✨",
+                "partist": "TylorHepnerArt",
+                "ptitle": "It’s time to go home✨",
+                "pdesc": "To celebrate Ocarina of Time Remake, I wanted to share an older pastel drawing I did a LONG time ago now probably around 2015✨freshened it up slightly. Zelda means so much to me just like Final Fantasy, so look forward to some special art for release!✨",
                 "image": "A12A2Portfolio.png"
             },
             {
-                "cartist": "TylorHepnerArt",
-                "ctitle": "No Promises Await at Journey’s End✨",
-                "cdesc": "Missing Aerith…✨so curious about her role in Revelation✨  I’m cooking up multiple new artworks simultaneously, so it’s taking me a bit✨ looking forward to my best tho, it’s gonna be awesome!✨",
+                "partist": "TylorHepnerArt",
+                "ptitle": "No Promises Await at Journey’s End✨",
+                "pdesc": "Missing Aerith…✨so curious about her role in Revelation✨  I’m cooking up multiple new artworks simultaneously, so it’s taking me a bit✨ looking forward to my best tho, it’s gonna be awesome!✨",
                 "image": "A12A3Portfolio.png"
-            },
-            {
-                "cartist": "TylorHepnerArt",
-                "ctitle": "Painting My Cat in Pixels",
-                "cdesc": "I painted my cat in 5,184 pixels ",
-                "image": "A12A4Portfolio.png"
             }
         ],
         "commissions": [
@@ -413,27 +507,27 @@
         "bio": "Artist, video creator, photographer, skydiver",
         "portfolio": [
             {
-                "cartist": "tatianarodrigues24",
-                "ctitle": "Clove (valorant) painting 🦋",
-                "cdesc": "Hand painted with matte acrylic paint.",
+                "partist": "tatianarodrigues24",
+                "ptitle": "Clove (valorant) painting 🦋",
+                "pdesc": "Hand painted with matte acrylic paint.",
                 "image": "A13A1Portfolio.png"
             },
             {
-                "cartist": "tatianarodrigues24",
-                "ctitle": "One Piece painting 🏴‍☠️",
-                "cdesc": "Handpainted with matte acrylic paint",
+                "partist": "tatianarodrigues24",
+                "ptitle": "One Piece painting 🏴‍☠️",
+                "pdesc": "Handpainted with matte acrylic paint",
                 "image": "A13A2Portfolio.png"
             },
             {
-                "cartist": "tatianarodrigues24",
-                "ctitle": "Killjoy painting Valorant",
-                "cdesc": "Painted with acrylic paint",
+                "partist": "tatianarodrigues24",
+                "ptitle": "Killjoy painting Valorant",
+                "pdesc": "Painted with acrylic paint",
                 "image": "A13A3Portfolio.png"
             },
             {
-                "cartist": "tatianarodrigues24",
-                "ctitle": "Satoru Gojo painting 🖤",
-                "cdesc": "Handpainted with matte acrylic paint",
+                "partist": "tatianarodrigues24",
+                "ptitle": "Satoru Gojo painting 🖤",
+                "pdesc": "Handpainted with matte acrylic paint",
                 "image": "A13A4Portfolio.png"
             }
         ],
@@ -441,7 +535,7 @@
     },
     {
         "role": "artist",
-        "id": "Piethatrot",
+        "id": "acc_Piethatrot",
         "username": "Piethatrot",
         "email": "Piethatrot@gmail.com",
         "password": "Piethatrot",
@@ -451,39 +545,39 @@
         "bio": "Being Inactive is Good",
         "portfolio": [
             {
-                "cartist": "Piethatrot",
-                "ctitle": "BRUH",
-                "cdesc": "BRUHHHHHHH",
+                "partist": "Piethatrot",
+                "ptitle": "BRUH",
+                "pdesc": "BRUHHHHHHH",
                 "image": "A14A1Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Tea🍵",
-                "cdesc": "🫖",
+                "partist": "Piethatrot",
+                "ptitle": "Tea🍵",
+                "pdesc": "🫖",
                 "image": "A14A2Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Practice Art",
-                "cdesc": "nagpractice dahil hindi ko alam paano magkulay",
+                "partist": "Piethatrot",
+                "ptitle": "Practice Art",
+                "pdesc": "nagpractice dahil hindi ko alam paano magkulay",
                 "image": "A14A3Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Chickens",
-                "cdesc": "I like chickens and you can't change that",
+                "partist": "Piethatrot",
+                "ptitle": "Chickens",
+                "pdesc": "I like chickens and you can't change that",
                 "image": "A14A4Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Random Drawing",
-                "cdesc": "i draw this and am proud of it UwU",
+                "partist": "Piethatrot",
+                "ptitle": "Random Drawing",
+                "pdesc": "i draw this and am proud of it UwU",
                 "image": "A14A5Portfolio.png"
             },
             {
-                "cartist": "Piethatrot",
-                "ctitle": "Lock N' Loaded",
-                "cdesc": "Ready na po ako",
+                "partist": "Piethatrot",
+                "ptitle": "Lock N' Loaded",
+                "pdesc": "Ready na po ako",
                 "image": "A14A6Portfolio.png"
             }
         ],
@@ -491,38 +585,174 @@
     },
     {
         "role": "artist",
-        "id": "Liciou",
+        "id": "acc_Liciou",
         "username": "Liciou",
         "email": "Liciou@gmail.com",
         "password": "Liciou",
         "profilepicture": "Artist15MyProfilePic.png",
         "backgroundpicture": "A15BG.png",
         "folder": "ARTIST15",
-        "bio": "Artist, video creator, photographer, skydiver",
+        "bio": "I Love you",
         "portfolio": [
             {
-                "cartist": "Liciou",
-                "ctitle": "Sunset with your Partner",
-                "cdesc": "My darling someday we will watch the sunset together, and I will hold your hand and never let go.",
+                "partist": "Liciou",
+                "ptitle": "Sunset with your Partner",
+                "pdesc": "My darling someday we will watch the sunset together, and I will hold your hand and never let go.",
                 "image": "A15A1Portfolio.png"
             },
             {
-                "cartist": "Liciou",
-                "ctitle": "Tea🍵",
-                "cdesc": "🫖",
+                "partist": "Liciou",
+                "ptitle": "Rainy Day",
+                "pdesc": "Raindrops & love",
                 "image": "A15A2Portfolio.png"
             },
             {
-                "cartist": "Liciou",
-                "ctitle": "Practice Art",
-                "cdesc": "nagpractice dahil hindi ko alam paano magkulay",
+                "partist": "Liciou",
+                "ptitle": "Forest of Love",
+                "pdesc": "nRaindrops & love",
                 "image": "A15A3Portfolio.png"
             },
             {
-                "cartist": "Liciou",
-                "ctitle": "Chickens",
-                "cdesc": "I like chickens and you can't change that",
+                "partist": "Liciou",
+                "ptitle": "Library Time",
+                "pdesc": "The minute I heard my first love story, I started looking for you.” — Rumi",
                 "image": "A15A4Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Bee_Bianca",
+        "username": "Bee_Bianca",
+        "email": "Bee_Bianca@gmail.com",
+        "password": "Bee_Bianca",
+        "profilepicture": "Artist16MyProfilePic.png",
+        "backgroundpicture": "A16BG.png",
+        "folder": "ARTIST16",
+        "bio": "Manifesting a digi-cam. 2nd hand or not",
+        "portfolio": [
+            {
+                "partist": "Bee_Bianca",
+                "ptitle": "Ponyo",
+                "pdesc": "Ponyo Ponyo Ponyo",
+                "image": "A16A1Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Synesthria",
+        "username": "Synesthria",
+        "email": "Synesthria@gmail.com",
+        "password": "Synesthria",
+        "profilepicture": "Artist17MyProfilePic.png",
+        "backgroundpicture": "A17BG.png",
+        "folder": "ARTIST17",
+        "bio": "",
+        "portfolio": [
+            {
+                "partist": "Synesthria",
+                "ptitle": "Lucky To Be Here",
+                "pdesc": "SHS 1",
+                "image": "A17A1Portfolio.png"
+            },
+            {
+                "partist": "Synesthria",
+                "ptitle": "Some Themselves are Art",
+                "pdesc": "SHS 2",
+                "image": "A17A2Portfolio.png"
+            },
+            {
+                "partist": "Synesthria",
+                "ptitle": "Proceed to be Bold",
+                "pdesc": "SHS 3",
+                "image": "A17A3Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Lazenko",
+        "username": "Lazenko",
+        "email": "Lazenko@gmail.com",
+        "password": "Lazenko",
+        "profilepicture": "Artist18MyProfilePic.png",
+        "backgroundpicture": "A18BG.png",
+        "folder": "ARTIST18",
+        "bio": "‼ I DO NOT TAKE MAIL‼ ",
+        "portfolio": [
+            {
+                "partist": "Lazenko",
+                "ptitle": "Candy Corn Earrings",
+                "pdesc": "Random Stuff",
+                "image": "A18A1Portfolio.png"
+            },
+            {
+                "partist": "Lazenko",
+                "ptitle": "FlowerBob",
+                "pdesc": "Spongebob Art",
+                "image": "A18A2Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_edgichel",
+        "username": "edgichel",
+        "email": "edgichel@gmail.com",
+        "password": "edgichel",
+        "profilepicture": "Artist19MyProfilePic.png",
+        "backgroundpicture": "A19BG.png",
+        "folder": "ARTIST19",
+        "bio": "I draw what I want ! - ARTWORK IS MINE -",
+        "portfolio": [
+            {
+                "partist": "edgichel",
+                "ptitle": "BABYYY IM BORRED",
+                "pdesc": "#art #digitalart #procreate #artistsoninstagram #fanart #laufey #junia #artoninstagram #drawing #illustration #design",
+                "image": "A19A1Portfolio.png"
+            },
+            {
+                "partist": "edgichel",
+                "ptitle": "V1 Art",
+                "pdesc": "i dont want to look at this anymore also here’s first version - - - - - #art #artistoninstagram #fanart #hsr #honkaistarrailfanart #honkaistarrail #terravox #danheng #stelle #amphoreus #digitalart #myart",
+                "image": "A19A2Portfolio.png"
+            },
+            {
+                "partist": "edgichel",
+                "ptitle": "SUSIE GOT YOUR NUMBER",
+                "pdesc": "Can u tell i like purple - #artistoninstagram #deltarune #susiedeltarune #deltarunefanart #art",
+                "image": "A19A3Portfolio.png"
+            }
+        ],
+        "commissions": []
+    },
+    {
+        "role": "artist",
+        "id": "acc_Alina",
+        "username": "Alina",
+        "email": "Alina@gmail.com",
+        "password": "Alina",
+        "profilepicture": "Artist20MyProfilePic.png",
+        "backgroundpicture": "A20BG.png",
+        "folder": "ARTIST20",
+        "bio": "Romanian illustrator with a passion for whimsical fantasy and anime 🍄💫",
+        "portfolio": [
+            {
+                "partist": "Alina",
+                "ptitle": "⋆. 𐙚 ̊🍋‍🟩♪⋆.✮ ",
+                "pdesc": " I remember being afraid to colour this piece because I didn’t want to mess up the sketch 😭 Btw you can use code: ALINAAZAC for 10% off on the Ohuhu website ✨ #ohuhumarkers #markerart #sketchbook #sketching #alcoholmarkers",
+                "image": "A20A1Portfolio.png"
+            },
+            {
+                "partist": "Alina",
+                "ptitle": "Paște fericit! (Happy Easter!)",
+                "pdesc": " In Romania, today we celebrate Orthodox Easter. In my family we don’t paint those very intricate patterns that you might see people from other regions or orthodox countries do, but we make these traditional eggs with leaf patterns! (you can see on the last slide how they’re made) They represent Easter for me, so I made this illustration with that in mind. ❤️ I hope everyone is enjoying their day (or evening). 🌱 Iar pentru românii mei: Hristos a Înviat! ...",
+                "image": "A20A2Portfolio.png"
             }
         ],
         "commissions": []
