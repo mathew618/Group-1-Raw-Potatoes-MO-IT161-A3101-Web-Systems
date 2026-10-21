@@ -52,7 +52,8 @@
             <div class="PorkNBeans" id="ProfileTabs">
                 <button id="button4Portfolio" class="active" onclick="showSection('portfolio')">Portfolio</button>
                 <button id="button4Commission" onclick="showSection('commission')">Commission</button>
-                <button id="button4Dashboard" onclick="showSection('dashboard')" style="display:none;">Dashboard</button>
+                <button id="button4Dashboard" onclick="showSection('dashboard')"
+                    style="display:none;">Dashboard</button>
             </div>
 
             <!-- Add or Edit button (owner only) -->
@@ -138,6 +139,20 @@
                         <label>Status: </label>
                         <span id="ViewStatus"></span>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirm uploaded image -->
+        <div class="Blackzone" id="ImageLauncher">
+            <div class="ConfirmPicture">
+                <h3>Use this image?</h3>
+                <div class="PickyBoxImage">
+                    <img id="PreviewingComfyPic" alt="Selected image preview">
+                </div>
+                <div class="Ickeykey">
+                    <button id="INo">Choose Picture</button>
+                    <button id="IYes">Yes</button>
                 </div>
             </div>
         </div>

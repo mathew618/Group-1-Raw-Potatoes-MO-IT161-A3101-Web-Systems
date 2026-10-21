@@ -9,6 +9,8 @@ const PANELS = {
 
 const BANNER_FALLBACK = Artist.ASSETS + Artist.BANNER;
 const MAX_UPLOAD_BYTES = 1024 * 1024;
+const MAX_PROFILE_IMAGE_BYTES = 100 * 1024 * 1024;
+const MAX_PROFILE_IMAGE_STORAGE_BYTES = 1.5 * 1024 * 1024;
 
 /* Global keys from the old profile page */
 const LEGACY_GALLERY_KEYS = ['artifyph_portfolio', 'artifyph_commission'];
@@ -150,6 +152,7 @@ async function persistProfile() {
         return false;
     }
 }
+
 /* Forms, commission status and uploaded images */
 function toggleForm(id, show) {
     document.getElementById(id).classList.toggle('show', show);
@@ -219,31 +222,124 @@ function previewCommissionPhoto(event) {
     readImageFile(event, 'CPreviewPhoto', dataUrl => pendingCommissionImage = dataUrl);
 }
 
-function readImageFile(event, imgId, onReady) {
+/* Shows the picked image and resolves true (use it) or false (cancel) */
+function PickyVickyPic(dataUrl) {
+    return new Promise(resolve => {
+        const img = document.getElementById('PreviewingComfyPic');
+        const yes = document.getElementById('IYes');
+        const no = document.getElementById('INo');
+
+        const finish = result => {
+            toggleForm('ImageLauncher', false);
+            img.removeAttribute('src');
+            yes.onclick = null;
+            no.onclick = null;
+            resolve(result);
+        };
+
+        img.src = dataUrl;
+        yes.onclick = () => finish(true);
+        no.onclick = () => finish(false);
+        toggleForm('ImageLauncher', true);
+    });
+}
+
+async function readImageFile(event, imgId, onReady, maxBytes = MAX_UPLOAD_BYTES, maxDimension = 0) {
     const file = event.target.files[0];
     if (!file) return;
 
-    if (file.size > MAX_UPLOAD_BYTES) {
-        alert('Please pick an image smaller than 1 MB.');
+    if (file.size > maxBytes) {
+        alert(maxBytes === MAX_PROFILE_IMAGE_BYTES
+            ? 'Please pick an image up to 100 MB.'
+            : 'Please pick an image smaller than 1 MB.');
         event.target.value = '';
         return;
     }
 
+    if (maxDimension) {
+        try {
+            const dataUrl = await compressProfileImage(file, maxDimension);
+
+            if (!(await PickyVickyPic(dataUrl))) {
+                event.target.value = '';
+                return;
+            }
+
+            showPreviewImage(imgId, dataUrl);
+            if (onReady) onReady(dataUrl);
+        } catch {
+            alert('This image could not be processed. Please try another image.');
+            event.target.value = '';
+        }
+        return;
+    }
+
     const reader = new FileReader();
-    reader.onload = loaded => {
-        const img = document.getElementById(imgId);
-        img.classList.add('has-image');
-        showImage(img, loaded.target.result);
+    reader.onload = async loaded => {
+        const dataUrl = loaded.target.result;
 
-        const span = img.nextElementSibling;
-        if (span && span.tagName === 'SPAN') span.style.display = 'none';
+        if (!(await PickyVickyPic(dataUrl))) {
+            event.target.value = '';
+            return;
+        }
 
-        if (onReady) onReady(loaded.target.result);
+        showPreviewImage(imgId, dataUrl);
+        if (onReady) onReady(dataUrl);
+    };
+    reader.onerror = () => {
+        alert('This image could not be read. Please try another image.');
+        event.target.value = '';
     };
     reader.readAsDataURL(file);
 }
 
-/* Commission terms (owner only) */
+function showPreviewImage(imgId, dataUrl) {
+    const img = document.getElementById(imgId);
+    img.classList.add('has-image');
+    showImage(img, dataUrl);
+
+    const span = img.nextElementSibling;
+    if (span && span.tagName === 'SPAN') span.style.display = 'none';
+}
+
+async function compressProfileImage(file, maxDimension) {
+    const bitmap = await createImageBitmap(file);
+    try {
+        const scale = Math.min(1, maxDimension / Math.max(bitmap.width, bitmap.height));
+        let width = Math.round(bitmap.width * scale);
+        let height = Math.round(bitmap.height * scale);
+
+        for (let attempt = 0; attempt < 12; attempt++) {
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const context = canvas.getContext('2d');
+            if (!context) throw new Error('Could not create an image canvas.');
+            context.drawImage(bitmap, 0, 0, width, height);
+
+            for (const quality of [0.82, 0.7, 0.58, 0.45]) {
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', quality));
+                if (blob && blob.size <= MAX_PROFILE_IMAGE_STORAGE_BYTES) {
+                    return await new Promise((resolve, reject) => {
+                        const reader = new FileReader();
+                        reader.onload = () => resolve(reader.result);
+                        reader.onerror = () => reject(new Error('Could not read compressed image.'));
+                        reader.readAsDataURL(blob);
+                    });
+                }
+            }
+
+            width = Math.round(width * 0.75);
+            height = Math.round(height * 0.75);
+        }
+    } finally {
+        bitmap.close();
+    }
+
+    throw new Error('Image could not be compressed to fit browser storage.');
+}
+
+/* Commission terms */
 function openCommissionTermsModal(index) {
     if (!isOwner || index === null) return;
 
@@ -268,6 +364,7 @@ async function saveCommissionTerms() {
 
     toggleForm('CommissionTermsModal', false);
 }
+
 /* Galleries */
 function renderGalleries() {
     renderGalleryCards(document.getElementById('ProfilePortfolioPicnic'), withIndex(profile.artworks),
@@ -281,7 +378,7 @@ function renderGalleries() {
         }, { empty: 'ProfileCommissionEmpty', ...editOptions('commission') });
 }
 
-/* Cards carry the stored index so an edit always lands on the right entry */
+
 function withIndex(items) {
     return items.map((item, index) => ({ ...item, index }));
 }
@@ -290,7 +387,7 @@ function requestCommission() {
     window.location.href = `commissionform.html?${new URLSearchParams({ artist: profile.id })}`;
 }
 
-/* Visitors get no edit callbacks, so no edit buttons are built for them */
+
 function editOptions(type) {
     if (!isOwner) return {};
 
@@ -438,7 +535,7 @@ function setupImagePicker(imgId, inputId, property, fallback) {
         }
 
         showImage(img, profile[property], fallback);
-    }));
+    }, MAX_PROFILE_IMAGE_BYTES, property === 'backgroundpicture' ? 1920 : 768));
 }
 
 function startBioEdit() {
