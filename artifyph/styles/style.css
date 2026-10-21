@@ -1103,8 +1103,8 @@ nav ul li a {
 #Reaper,
 #Gameover {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 8px;
+    left: 8px;
     background: none;
     border: none;
     font-size: 20px;
@@ -1511,8 +1511,8 @@ nav ul li a {
 
 #TermsClose {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 8px;
+    left: 8px;
     background: none;
     border: none;
     font-size: 20px;
@@ -1652,8 +1652,8 @@ nav ul li a {
 
 .ModalClose {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 8px;
+    left: 8px;
     background: none;
     border: none;
     font-size: 20px;
