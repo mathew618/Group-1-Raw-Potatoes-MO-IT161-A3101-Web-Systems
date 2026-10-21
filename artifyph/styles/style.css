@@ -629,10 +629,8 @@ nav ul li a {
 }
 
 .ArtsyBitsy {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
+    position: relative;
+    height: 390px;
 }
 
 .IMissSHSDays {
@@ -649,31 +647,52 @@ nav ul li a {
 .AW3,
 .AW4,
 .AW5 {
-    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 330px;
+    height: 370px;
     background-color: #ffffff;
     padding: 15px;
     text-align: center;
-    transition: all 0.3s ease;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.4);
+    transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.show-side {
-    display: block;
+.ArtsyBitsy:not(.carousel-ready) > div {
+    transition: none;
 }
 
-.show-side img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-}
-
-.show-center {
-    display: block;
-}
-
-.show-center img {
+.AW1 img,
+.AW2 img,
+.AW3 img,
+.AW4 img,
+.AW5 img {
     width: 300px;
     height: 300px;
     object-fit: cover;
+}
+
+.show-left {
+    opacity: 0.7;
+    pointer-events: auto;
+    transform: translate(calc(-50% - 230px), -50%) scale(0.4);
+}
+
+.show-center {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+    z-index: 1;
+}
+
+.show-right {
+    opacity: 0.7;
+    pointer-events: auto;
+    transform: translate(calc(-50% + 230px), -50%) scale(0.4);
 }
 
 .MoveableMagicButtonYes {

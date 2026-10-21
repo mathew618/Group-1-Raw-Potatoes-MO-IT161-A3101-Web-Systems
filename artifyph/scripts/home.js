@@ -23,17 +23,14 @@ function updateSlides() {
     const nextIndex = (currentIndex + 1) % endoftheworld;
 
     gambit.forEach((card, index) => {
-        card.classList.remove('show-side', 'show-center');
+        card.classList.remove('show-left', 'show-center', 'show-right');
 
         if (index === currentIndex) {
             card.classList.add('show-center');
-            card.style.order = 1;
         } else if (index === prevIndex) {
-            card.classList.add('show-side');
-            card.style.order = 0;
+            card.classList.add('show-left');
         } else if (index === nextIndex) {
-            card.classList.add('show-side');
-            card.style.order = 2;
+            card.classList.add('show-right');
         }
     });
 
@@ -41,6 +38,11 @@ function updateSlides() {
         dot.classList.toggle('active', index === currentIndex);
     });
 }
+
+requestAnimationFrame(() => {
+    document.getElementById('SunsetParadise').classList.add('carousel-ready');
+});
+
 function changeFeatured(direction) {
     currentIndex = (currentIndex + direction + endoftheworld) % endoftheworld;
     updateSlides();
@@ -220,4 +222,3 @@ Flasher.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeFlasher();
 });
-
