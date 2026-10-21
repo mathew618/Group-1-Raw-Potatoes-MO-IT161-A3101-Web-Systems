@@ -795,17 +795,19 @@ nav ul li a {
 .WatchOut {
     display: flex;
     gap: 30px;
-    background: #f7b4b4;
-    border: 3px solid #0c0c0b;
-    border-radius: 12px;
-    padding: 20px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 24px 30px;
+    width: 700px;
     max-width: 90%;
     position: relative;
+    box-sizing: border-box;
 }
 
 .WatchOut img {
-    max-width: 60vw;
-    max-height: 80vh;
+    max-width: 280px;
+    max-height: 340px;
     object-fit: contain;
 }
 
@@ -816,13 +818,14 @@ nav ul li a {
 
 #GotSnapped {
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 8px;
+    left: 8px;
     background: none;
     border: none;
-    font-size: 28px;
+    font-size: 20px;
     cursor: pointer;
-    color: #ff0404;
+    color: #333;
+    line-height: 1;
 }
 
 #CheckView {

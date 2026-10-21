@@ -8,8 +8,7 @@ const PANELS = {
 };
 
 const BANNER_FALLBACK = Artist.ASSETS + Artist.BANNER;
-const MAX_UPLOAD_BYTES = 1024 * 1024;
-const MAX_PROFILE_IMAGE_BYTES = 100 * 1024 * 1024;
+const MAX_UPLOAD_BYTES = 100 * 1024 * 1024;
 const MAX_PROFILE_IMAGE_STORAGE_BYTES = 1.5 * 1024 * 1024;
 
 /* Global keys from the old profile page */
@@ -215,11 +214,11 @@ function toggleCommissionStatus() {
 }
 
 function previewPortfolioPhoto(event) {
-    readImageFile(event, 'PPreviewPhoto', dataUrl => pendingPortfolioImage = dataUrl);
+    readImageFile(event, 'PPreviewPhoto', dataUrl => pendingPortfolioImage = dataUrl, MAX_UPLOAD_BYTES, 1920);
 }
 
 function previewCommissionPhoto(event) {
-    readImageFile(event, 'CPreviewPhoto', dataUrl => pendingCommissionImage = dataUrl);
+    readImageFile(event, 'CPreviewPhoto', dataUrl => pendingCommissionImage = dataUrl, MAX_UPLOAD_BYTES, 1920);
 }
 
 /* Shows the picked image and resolves true (use it) or false (cancel) */
@@ -249,16 +248,14 @@ async function readImageFile(event, imgId, onReady, maxBytes = MAX_UPLOAD_BYTES,
     if (!file) return;
 
     if (file.size > maxBytes) {
-        alert(maxBytes === MAX_PROFILE_IMAGE_BYTES
-            ? 'Please pick an image up to 100 MB.'
-            : 'Please pick an image smaller than 1 MB.');
+        alert('Please pick an image up to 100 MB.');
         event.target.value = '';
         return;
     }
 
     if (maxDimension) {
         try {
-            const dataUrl = await compressProfileImage(file, maxDimension);
+            const dataUrl = await compressImageForStorage(file, maxDimension);
 
             if (!(await PickyVickyPic(dataUrl))) {
                 event.target.value = '';
@@ -302,7 +299,7 @@ function showPreviewImage(imgId, dataUrl) {
     if (span && span.tagName === 'SPAN') span.style.display = 'none';
 }
 
-async function compressProfileImage(file, maxDimension) {
+async function compressImageForStorage(file, maxDimension) {
     const bitmap = await createImageBitmap(file);
     try {
         const scale = Math.min(1, maxDimension / Math.max(bitmap.width, bitmap.height));
@@ -535,7 +532,7 @@ function setupImagePicker(imgId, inputId, property, fallback) {
         }
 
         showImage(img, profile[property], fallback);
-    }, MAX_PROFILE_IMAGE_BYTES, property === 'backgroundpicture' ? 1920 : 768));
+    }, MAX_UPLOAD_BYTES, property === 'backgroundpicture' ? 1920 : 768));
 }
 
 function startBioEdit() {
