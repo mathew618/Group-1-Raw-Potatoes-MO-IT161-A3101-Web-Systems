@@ -1,3 +1,26 @@
+/*Validation Before Paying Commission */
+
+function PaymentProcessing() {
+    const method = document.body.dataset.method;
+    const rules = method === 'card' ? [
+        { id: 'cardNumber', test: () => Validate.card(Validate.value('cardNumber')) },
+        { id: 'expiry', test: () => Validate.expiry(Validate.value('expiry')) },
+        { id: 'cvv', test: () => Validate.cvv(Validate.value('cvv'), Validate.value('cardNumber')) }
+    ] : [
+        { id: 'gcashNumber', test: () => Validate.gcash(Validate.value('gcashNumber')) }
+    ];
+
+    if (!Validate.run(rules)) return;
+}
+
+if (document.body.dataset.method === 'card') {
+    Validate.live('cardNumber', () => Validate.card(Validate.value('cardNumber')));
+    Validate.live('expiry', () => Validate.expiry(Validate.value('expiry')));
+    Validate.live('cvv', () => Validate.cvv(Validate.value('cvv'), Validate.value('cardNumber')));
+} else {
+    Validate.live('gcashNumber', () => Validate.gcash(Validate.value('gcashNumber')));
+}
+
 /* Payment system for showcase (temporary) */
 const Payment = {
     PAGES: {

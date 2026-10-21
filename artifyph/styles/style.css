@@ -1939,3 +1939,21 @@ nav ul li a {
     color: #777;
     margin-bottom: 5px;
 }
+
+/* ===================================================================
+   Error Stuff
+   =================================================================== */
+
+.FieldError {
+    display: block;
+    color: #c62828;
+    font-size: 0.85rem;
+    margin: 4px 0 10px;
+}
+
+input.InvalidField,
+select.InvalidField,
+textarea.InvalidField {
+    border: 2px solid #c62828;
+    background: #fff5f5;
+}

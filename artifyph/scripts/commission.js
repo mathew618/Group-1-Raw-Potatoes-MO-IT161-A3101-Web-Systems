@@ -106,18 +106,14 @@ const Commission = {
         return record;
     },
 
-    /* Newest request sent */
     latest() {
         const mine = Commission.all().filter(request => request.clientId === Commission.session());
         return mine.length ? mine[mine.length - 1] : null;
     },
-
-    /* The request the payment pages are paying for */
     pending() {
         const request = Commission.latest();
         return request && !request.paid ? request : null;
     },
-
     paid(id, method, reference) {
         return Commission.update(id, {
             paid: true,
@@ -135,7 +131,6 @@ const Commission = {
         return Commission.all().filter(request => clientId && request.clientId === clientId).reverse();
     },
 
-    /* Rejecting, refunds */
     setStatus(id, status) {
         return status === 'rejected'
             ? Commission.update(id, { status, paid: false, method: '', reference: '', paidAt: '' })
@@ -174,8 +169,9 @@ async function showCommissionTarget(account = null) {
 function acceptTerms(event) {
     if (event) event.preventDefault();
 
-    if (!Commission.checked('agreement')) return Commission.fail(Commission.NO_TERMS);
+    if (!Commission.checked('agreement')) return Validate.showError('agreement', Commission.NO_TERMS);
 
+    Validate.showError('agreement', '');
     Commission.clear();
     window.location.href = Commission.link(Commission.FORM, { wip: Commission.checked('wip') ? '1' : '0' });
 }
@@ -183,19 +179,19 @@ function acceptTerms(event) {
 /* commissionform2.html */
 async function createCommission(event) {
     if (event) event.preventDefault();
-
-    const missing = Commission.FIELDS.find(field => !Commission.value(field.id));
-    if (missing) return Commission.fail(`Please fill in your ${missing.label}.`);
-
-    if (!Commission.element('email').checkValidity()) {
-        return Commission.fail('Please enter a valid email address.');
+    if (!Commission.value('name') || !Commission.value('email')) {
+        return Commission.fail('Your account details did not load. Please log in again.');
     }
 
+    const valid = Validate.run([
+        { id: 'type', test: () => Validate.required(Commission.value('type'), 'Commission Type') },
+        { id: 'deadline', test: () => Validate.deadline(Commission.value('deadline')) },
+        { id: 'budget', test: () => Validate.budget(Commission.value('budget')) },
+        { id: 'agreement', test: () => Commission.checked('agreement') ? '' : Commission.NO_CONFIRM }
+    ]);
+    if (!valid) return;
+
     const budget = Number(Commission.value('budget'));
-    if (!(budget > 0)) return Commission.fail('Please enter a budget greater than zero.');
-
-    if (!Commission.checked('agreement')) return Commission.fail(Commission.NO_CONFIRM);
-
     const artist = await Account.byId(Commission.params().get('artist'));
     const details = Commission.element('details');
 
@@ -227,6 +223,32 @@ async function createCommission(event) {
 function initCommission() {
     const page = document.body.dataset.commission;
     if (!page) return;
+
+    if (page === 'terms') {
+        const box = Commission.element('agreement');
+        if (box) {
+            box.addEventListener('change', () => {
+                if (box.checked) Validate.showError('agreement', '');
+            });
+        }
+    }
+
+    if (page === 'details') {
+        const deadline = Commission.element('deadline');
+        if (deadline) deadline.min = Validate.tomorrowISO();
+        Validate.wholeNumbersOnly('budget');
+
+        Validate.live('type', () => Validate.required(Commission.value('type'), 'Commission Type'));
+        Validate.live('deadline', () => Validate.deadline(Commission.value('deadline')));
+        Validate.live('budget', () => Validate.budget(Commission.value('budget')));
+
+        const box = Commission.element('agreement');
+        if (box) {
+            box.addEventListener('change', () => {
+                if (box.checked) Validate.showError('agreement', '');
+            });
+        }
+    }
 
     Account.protectPage(showCommissionTarget);
 }
