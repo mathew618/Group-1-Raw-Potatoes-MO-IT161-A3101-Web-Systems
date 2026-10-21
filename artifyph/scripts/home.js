@@ -134,8 +134,8 @@ const artworks = {
         title: "Lucky To Be Here",
         desc: "SHS 1"
     },
-    Lakenzo: {
-        author: "Lakenzo",
+    Lazenko: {
+        author: "Lazenko",
         title: "Candy Corn Earrings",
         desc: "Random Stuff"
     },
