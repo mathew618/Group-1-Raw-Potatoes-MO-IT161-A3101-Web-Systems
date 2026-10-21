@@ -5,12 +5,12 @@ function PaymentProcessing() {
     const rules = method === 'card' ? [
         { id: 'cardNumber', test: () => Validate.card(Validate.value('cardNumber')) },
         { id: 'expiry', test: () => Validate.expiry(Validate.value('expiry')) },
-        { id: 'cvv', test: () => Validate.cvv(Validate.value('cvv'), Validate.value('cardNumber')) }
+        { id: 'cvv', test: () => Validate.cvv(Validate.value('cvv')) }
     ] : [
         { id: 'gcashNumber', test: () => Validate.gcash(Validate.value('gcashNumber')) }
     ];
 
-    if (!Validate.run(rules)) return;
+    return Validate.run(rules);
 }
 
 if (document.body.dataset.method === 'card') {
@@ -32,10 +32,6 @@ const Payment = {
         expiry: value => Payment.digits(value).slice(0, 4).replace(/^(\d{2})(\d)/, '$1/$2'),
         gcash: value => Payment.groups(Payment.digits(value).slice(0, 11), [4, 3, 4]),
         digits: value => Payment.digits(value).slice(0, 4)
-    },
-    REQUIRED: {
-        card: ['cardNumber', 'expiry', 'cvv'],
-        gcash: ['gcashNumber']
     },
     DELAY: 1200,
     DEFAULT_TOTAL: '₱500.00',
@@ -152,10 +148,7 @@ function goToPayment() {
 
 /* cardpayment.html + gcashpayment.html */
 async function processPayment() {
-    const method = document.body.dataset.method;
-    const empty = Payment.REQUIRED[method].find(id => !Payment.value(id));
-
-    if (empty) return Payment.fail('Please fill in your payment details first.');
+    if (!PaymentProcessing()) return;
 
     Payment.fail('');
     const button = document.querySelector('.PaymentButton');
