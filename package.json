@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mathew618/Group-1-Raw-Potatoes-MO-IT161-A3101-Web-Systems#readme",
   "dependencies": {
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
   }
 }
