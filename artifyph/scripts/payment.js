@@ -162,7 +162,7 @@ async function processPayment() {
 
     button.textContent = '✓ Paid';
     button.classList.add('PaymentPaid');
-    Payment.receipt(method, reference);
+    Payment.receipt(document.body.dataset.method, reference);
     Payment.settle(reference);
 
     if (done) done.style.display = '';

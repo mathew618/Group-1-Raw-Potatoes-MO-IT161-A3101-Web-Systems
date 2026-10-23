@@ -825,9 +825,12 @@ nav ul li a {
 }
 
 .WatchOut img {
-    max-width: 280px;
-    max-height: 340px;
+    flex: 0 0 280px;
+    width: 280px;
+    height: 340px;
     object-fit: contain;
+    background: #d9d9d9;
+    box-sizing: border-box;
 }
 
 .OwnerInfo {
@@ -1672,6 +1675,10 @@ nav ul li a {
     opacity: 0.85;
 }
 
+.BT890 .UploadSpecimen img {
+    object-fit: contain;
+}
+
 .ModalClose {
     position: absolute;
     top: 8px;
@@ -2051,6 +2058,17 @@ nav ul li a {
     color: #c62828;
     font-size: 0.85rem;
     margin: 4px 0 10px;
+}
+
+body[data-method="card"] .FieldError,
+body[data-method="gcash"] .FieldError {
+    margin: 4px 50px 10px;
+}
+
+.CommissionForm2 .FieldError {
+    width: 80%;
+    box-sizing: border-box;
+    margin: 4px auto 10px;
 }
 
 input.InvalidField,
