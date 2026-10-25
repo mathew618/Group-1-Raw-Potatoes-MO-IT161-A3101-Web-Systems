@@ -559,6 +559,8 @@ nav ul li a {
     text-align: center;
     color: #141313;
     margin-bottom: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .example {
@@ -614,6 +616,43 @@ nav ul li a {
 }
 
 /* ===================================================================
+   Index.html - FAQs
+   =================================================================== */
+
+.FAQs {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 1000px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+}
+
+.faqtitle {
+    font-weight: bold;
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    text-align: center;
+    color: #eda27c;
+    margin-bottom: 10px;
+}
+
+.faq-area {
+     max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #fff;
+    cursor: pointer;
+}
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+/* ===================================================================
    home.html
    =================================================================== */
 
@@ -625,7 +664,8 @@ nav ul li a {
 .JoyOfMemories h1 {
     font-weight: bold;
     font-size: 50px;
-    text-shadow: 2px 2px 1px #9e6c53;
+    font-family: lovelo, sans-serif;
+
 }
 
 .ArtsyBitsy {
@@ -662,7 +702,7 @@ nav ul li a {
     transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
-.ArtsyBitsy:not(.carousel-ready) > div {
+.ArtsyBitsy:not(.carousel-ready)>div {
     transition: none;
 }
 
@@ -705,8 +745,8 @@ nav ul li a {
 .MoveableMagicButtonYes button {
     background-color: #ffffff;
     color: #000000;
-    border: 2px solid #080808;
     padding: 8px 16px;
+    border: 2px solid #080808;
     margin: 10px;
     border-radius: 6px;
     font-size: 14px;
@@ -730,7 +770,8 @@ nav ul li a {
     color: #eda27c;
     font-weight: bold;
     font-size: 30px;
-    text-shadow: 2px 2px 1px #9e6c53;
+    font-family: lovelo, sans-serif;
+
 }
 
 .ButtonLock {
@@ -1727,6 +1768,7 @@ nav ul li a {
 #ImageLauncher {
     z-index: 2000;
 }
+
 .Ickeykey {
     display: flex;
     justify-content: flex-end;
