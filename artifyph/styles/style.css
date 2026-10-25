@@ -626,6 +626,7 @@ nav ul li a {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 50px auto;
+
 }
 
 .faqtitle {
@@ -638,10 +639,10 @@ nav ul li a {
 }
 
 .faq-area {
-     max-width: 700px;
+    max-width: 700px;
     margin-top: 2rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid #fff;
+    border-bottom: 2px solid #9b9590;
     cursor: pointer;
 }
 .question {
@@ -650,6 +651,18 @@ nav ul li a {
     align-items: center;
 }
 
+.question h3 {
+    font-size: 1.2rem;
+    font-family: Inter, sans-serif;
+
+}
+.answer p {
+    margin-top: 1rem;
+    line-height: 1.5;
+    font-size: 1rem;
+    font-family: Inter, sans-serif;
+
+}
 
 
 /* ===================================================================
