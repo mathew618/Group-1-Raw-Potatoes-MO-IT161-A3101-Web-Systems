@@ -1,4 +1,4 @@
-/* Account profile system (data/accounts.json) */
+/* Account profile system (MySQL users table) */
 const viewer = new GalleryViewer();
 
 const PANELS = {
@@ -92,6 +92,11 @@ async function savePortfolioItem() {
         pdesc: document.getElementById('PDesc').value,
         image: pendingPortfolioImage || (existing ? existing.image : '')
     };
+
+    const synced = await Artwork.sync(profile.id, item, existing ? existing.artworkId : null);
+    if (synced && synced.artwork) {
+        item.artworkId = synced.artwork.id;
+    }
 
     if (!(await storeItem(profile.portfolio, editingIndex, item))) return;
 
@@ -612,6 +617,16 @@ async function initProfile(account) {
         showMissingProfile(wanted || account.username);
         return;
     }
+
+    /* Load portfolio from artworks table */
+    const artworks = await Artwork.fetchByArtist(profile.id);
+    profile.portfolio = artworks.map(a => ({
+        partist: profile.username,
+        ptitle: a.title,
+        pdesc: a.description || '',
+        image: a.image,
+        artworkId: a.id
+    }));
 
     renderProfile();
 }

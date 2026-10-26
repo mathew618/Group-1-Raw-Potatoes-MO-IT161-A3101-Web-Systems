@@ -77,23 +77,24 @@ const Commission = {
         return localStorage.getItem(Account.SESSION) || '';
     },
 
-    create(request) {
-        const requests = Commission.all();
+    async create(request) {
         const record = {
             id: 'req_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
             ...request
         };
 
-        requests.push(record);
-        Commission.write(requests);
-
-        fetch('/api/commissions', {
+        const response = await fetch('/api/commission-requests', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(record)
-        }).catch(() => {
         });
-        return record;
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(result.error || 'Could not save commission request.');
+
+        const requests = Commission.all();
+        requests.push(result.commission || record);
+        Commission.write(requests);
+        return result.commission || record;
     },
 
     update(id, changes) {
@@ -103,6 +104,11 @@ const Commission = {
 
         Object.assign(record, changes);
         Commission.write(requests);
+        fetch(`/api/commission-requests/${encodeURIComponent(id)}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(changes)
+        }).catch(() => {});
         return record;
     },
 
@@ -196,26 +202,30 @@ async function createCommission(event) {
     const details = Commission.element('details');
 
     Commission.clear();
-    Commission.create({
-        artistId: artist ? artist.id : '',
-        artistName: artist ? artist.username : '',
-        artistEmail: artist ? artist.email : '',
-        clientId: Commission.session(),
-        clientName: Commission.value('name'),
-        clientEmail: Commission.value('email'),
-        package: Commission.params().get('package') || '',
-        type: Commission.value('type'),
-        deadline: Commission.value('deadline'),
-        budget,
-        platform: Commission.value('platform'),
-        details: details ? details.value.trim() : '',
-        wip: Commission.params().get('wip') === '1',
-        status: 'pending',
-        paid: false,
-        method: '',
-        reference: '',
-        requestedAt: new Date().toISOString()
-    });
+    try {
+        await Commission.create({
+            artistId: artist ? artist.id : '',
+            artistName: artist ? artist.username : '',
+            artistEmail: artist ? artist.email : '',
+            clientId: Commission.session(),
+            clientName: Commission.value('name'),
+            clientEmail: Commission.value('email'),
+            package: Commission.params().get('package') || '',
+            type: Commission.value('type'),
+            deadline: Commission.value('deadline'),
+            budget,
+            platform: Commission.value('platform'),
+            details: details ? details.value.trim() : '',
+            wip: Commission.params().get('wip') === '1',
+            status: 'pending',
+            paid: false,
+            method: '',
+            reference: '',
+            requestedAt: new Date().toISOString()
+        });
+    } catch (error) {
+        return Commission.fail(error.message || 'Could not save commission request.');
+    }
 
     window.location.href = Commission.PAYMENT;
 }

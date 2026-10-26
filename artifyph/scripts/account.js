@@ -1,29 +1,12 @@
-/* Account data + JSON storage */
+/* Account data + MySQL storage (MySQL users table) */
 class Account {
-    static SOURCE = 'data/accounts.json';
-    static STORE = 'ArtifyPH_Accounts';
+    static API = '/api/users';
     static SESSION = 'ArtifyPH_Current';
     static LOGIN = 'login.html';
     static HOME = 'home.html';
     static INDEX = 'index.html';
     static ROLE = 'account';
     static DEFAULT_BIO = 'Hello!';
-
-    /* local storage account fallback (we might remove this soon) */
-    static DEFAULTS = [
-        {
-            role: 'artist',
-            id: 'acc_justablub',
-            username: 'Justablub',
-            email: 'ilosthotdogs@gmail.com',
-            password: 'Beezytrave890',
-            bio: Account.DEFAULT_BIO,
-            portfolio: [],
-            commissions: []
-        }
-    ];
-
-    static #accounts = null;
 
     constructor(username, email, password, id = null) {
         this.id = id || 'acc_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
@@ -55,16 +38,22 @@ class Account {
     }
 
     async save() {
-        const accounts = await Account.all();
-        const index = accounts.findIndex(account => account.id === this.id);
+        const existing = await Account.byId(this.id);
 
-        if (index === -1) {
-            accounts.push(this);
+        if (existing) {
+            await fetch(`${Account.API}/${this.id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(this.toJSON())
+            });
         } else {
-            accounts[index] = this;
+            await fetch(Account.API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(this.toJSON())
+            });
         }
 
-        localStorage.setItem(Account.STORE, JSON.stringify(accounts.map(account => account.toJSON())));
         Account.setCurrent(this);
         return this;
     }
@@ -76,24 +65,24 @@ class Account {
     }
 
     static async all() {
-        if (!Account.#accounts) {
-            const data = await Account.read();
-            Account.#accounts = data.map(Account.fromJSON);
-        }
-        return Account.#accounts;
+        const res = await fetch(Account.API);
+        if (!res.ok) return [];
+        const data = await res.json();
+        return data.map(Account.fromJSON);
     }
 
-    static async read() {
-        const mirror = localStorage.getItem(Account.STORE);
-        if (mirror) return JSON.parse(mirror);
+    static async byId(id) {
+        const res = await fetch(`${Account.API}/${id}`);
+        if (!res.ok) return null;
+        return Account.fromJSON(await res.json());
+    }
 
-        try {
-            const response = await fetch(Account.SOURCE);
-            if (!response.ok) throw new Error('accounts.json returned ' + response.status);
-            return await response.json();
-        } catch (error) {
-            return Account.DEFAULTS;
-        }
+    static async byUsername(username) {
+        if (!username) return null;
+
+        const key = String(username).trim().toLowerCase();
+        const accounts = await Account.all();
+        return accounts.find(account => account.username.toLowerCase() === key) || null;
     }
 
     static async find(identifier, password) {
@@ -102,38 +91,35 @@ class Account {
     }
 
     static async conflict(username, email) {
-        const accounts = await Account.all();
-
-        if (accounts.some(account => account.username === username)) {
-            return 'Username is already taken.';
-        }
-        if (accounts.some(account => account.email === email)) {
-            return 'Email is already registered.';
-        }
-        return '';
+        const res = await fetch(`${Account.API}/conflict?${new URLSearchParams({ username, email })}`);
+        if (!res.ok) return '';
+        const data = await res.json();
+        return data.conflict || '';
     }
 
-    static async byId(id) {
-        if (!id) return null;
-
-        const accounts = await Account.all();
-        return accounts.find(account => account.id === id) || null;
-    }
-
-    static async byUsername(username) {
-        if (!username) return null;
-
-        const key = String(username).toLowerCase();
-        const accounts = await Account.all();
-        return accounts.find(account => account.username.toLowerCase() === key) || null;
+    static setCurrent(account) {
+        localStorage.setItem(Account.SESSION, account.id);
     }
 
     static async current() {
         return Account.byId(localStorage.getItem(Account.SESSION));
     }
 
-    static setCurrent(account) {
-        localStorage.setItem(Account.SESSION, account.id);
+    static async login(identifier, password) {
+        const res = await fetch(`${Account.API}/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ identifier, password })
+        });
+
+        if (!res.ok) {
+            const error = await res.json().catch(() => ({}));
+            throw new Error(error.error || 'Login failed');
+        }
+
+        const data = await res.json();
+        Account.setCurrent(data.account);
+        return data.account;
     }
 
     static logout() {
@@ -187,11 +173,8 @@ class Account {
         return run();
     }
 
-    /* Reset the local storage fr */
     static reset() {
-        localStorage.removeItem(Account.STORE);
         localStorage.removeItem(Account.SESSION);
-        Account.#accounts = null;
     }
 }
 
@@ -261,9 +244,7 @@ class Artist extends Account {
             folder: this.folder,
             profilepicture: this.profilepicture,
             backgroundpicture: this.backgroundpicture,
-            bio: this.bio,
-            portfolio: this.portfolio,
-            commissions: this.commissions
+            bio: this.bio
         };
     }
 
@@ -273,8 +254,8 @@ class Artist extends Account {
             data.email,
             data.password,
             data.bio || '',
-            data.portfolio || [],
-            data.commissions || [],
+            [],
+            [],
             data.id,
             data.folder || '',
             data.profilepicture || '',
