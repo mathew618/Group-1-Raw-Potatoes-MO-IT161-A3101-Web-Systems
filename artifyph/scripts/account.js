@@ -249,7 +249,7 @@ class Artist extends Account {
     }
 
     static fromJSON(data) {
-        return new Artist(
+        const artist = new Artist(
             data.username,
             data.email,
             data.password,
@@ -261,6 +261,10 @@ class Artist extends Account {
             data.profilepicture || '',
             data.backgroundpicture || ''
         );
+        if (typeof data.acceptsCommissions === 'boolean') {
+            artist.acceptsCommissions = data.acceptsCommissions;
+        }
+        return artist;
     }
 }
 
@@ -277,4 +281,3 @@ function setupShowPassword() {
         });
     });
 }
-

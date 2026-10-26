@@ -56,12 +56,31 @@ nav ul li a {
     color: #fffefe;
     font-weight: 400;
     font-size: 17px;
+    font-family: Inter, sans-serif;
 }
 
 .ArtifyPHLogo img {
     width: 180px;
 }
 
+/* ===================================================================
+   FONTS
+   =================================================================== */
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/Inter_28pt-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lovelo";
+    src: url("../assets/fonts/Lovelo-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
 /* ===================================================================
    ALL PAGES: SHARED COMPONENTS
    =================================================================== */
@@ -142,18 +161,19 @@ nav ul li a {
     margin-bottom: 30px;
     margin-left: 50px;
     margin-right: 50px;
-    background-color: #fdfdfd;
+    background-color: #FFC067;
     border-width: 0;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    color: #444;
+    color: #fff;
     font-family: Inter, sans-serif;
     font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
 }
 
 .PaymentButton:hover {
-    background-color: #d97a50;
+    background-color: #C76E00;
 }
 
 /* Small note under the payment details */
@@ -652,12 +672,14 @@ nav ul li a {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    color: #303030;
+
 }
 
 .question h3 {
     font-size: 1.1rem;
     font-family: Inter, sans-serif;
-
+    
 }
 
 .answer {
@@ -682,6 +704,7 @@ nav ul li a {
 .JoyOfMemories {
     text-align: center;
     color: #eda27c;
+    font-family: Inter, sans-serif;
 }
 
 .JoyOfMemories h1 {
@@ -742,7 +765,7 @@ nav ul li a {
 .show-left {
     opacity: 0.7;
     pointer-events: auto;
-    transform: translate(calc(-50% - 230px), -50%) scale(0.4);
+    transform: translate(calc(-50% - 260px), -50%) scale(0.4);
 }
 
 .show-center {
@@ -755,7 +778,7 @@ nav ul li a {
 .show-right {
     opacity: 0.7;
     pointer-events: auto;
-    transform: translate(calc(-50% + 230px), -50%) scale(0.4);
+    transform: translate(calc(-50% + 260px), -50%) scale(0.4);
 }
 
 .MoveableMagicButtonYes {
@@ -769,7 +792,7 @@ nav ul li a {
     background-color: #ffffff;
     color: #000000;
     padding: 8px 16px;
-    border: 2px solid #080808;
+    border: 2px solid #ffab84;
     margin: 10px;
     border-radius: 6px;
     font-size: 14px;
@@ -809,12 +832,12 @@ nav ul li a {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #000000;
+    background-color:white;
     cursor: pointer;
 }
 
 .dot.active {
-    background-color: #832a2a;
+    background-color: #eda27c;
 }
 
 .OriginalCathy,
@@ -898,8 +921,11 @@ nav ul li a {
 }
 
 .OwnerInfo {
-    min-width: 180px;
-    align-self: center;
+    flex: 1;
+    min-width: 0;
+    padding-top: 0;
+    align-self: flex-start;
+    margin-top: 0;
 }
 
 #GotSnapped {
@@ -908,7 +934,7 @@ nav ul li a {
     left: 8px;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     color: #333;
     line-height: 1;
@@ -917,11 +943,12 @@ nav ul li a {
 #CheckView {
     display: block;
     margin: 0.67em 0;
-    font-family: Georgia, serif;
-    font-size: 2em;
+    font-family: Inter, serif;
+    font-size: 24px;
     font-weight: bold;
     color: #1d1c1c;
     text-decoration: none;
+    
 }
 
 #CheckView.clickable {
@@ -939,13 +966,17 @@ nav ul li a {
 }
 
 #ATitle {
-    font-family: Georgia, serif;
+    font-family: Inter, serif;
+    font-style: Bold;
+    font-size: 20px;
     color: #000000;
 }
 
 #ADesc {
-    font-family: Arial, sans-serif;
-    color: #000000;
+    font-family: inter, sans-serif;
+    color: #5a5a5a;
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* ===================================================================
@@ -1031,6 +1062,7 @@ nav ul li a {
 .MyProfileDesc {
     padding: 0 40px;
     text-align: center;
+    font-family: Inter, sans-serif;
 }
 
 #MyDescEdit {
@@ -1045,6 +1077,7 @@ nav ul li a {
     border: 1px solid #832a2a;
     border-radius: 4px;
     margin: 0 auto;
+    font-family: Inter, sans-serif;
 }
 
 .ProfileBioActions {
@@ -1081,6 +1114,7 @@ nav ul li a {
     border-radius: 20px;
     font-size: 14px;
     cursor: pointer;
+    font-family: Inter, sans-serif;
 }
 
 .PorkNBeans button:hover {
@@ -1095,6 +1129,7 @@ nav ul li a {
 .TF2Toolbar {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 12px;
     padding: 10px 20px;
 }
@@ -1105,11 +1140,12 @@ nav ul li a {
     cursor: pointer;
     font-size: 16px;
     color: #080606;
+    font-family: Inter, sans-serif;
 }
 
 #ProfileAddButton {
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1127,6 +1163,43 @@ nav ul li a {
 
 .TF2Toolbar button:hover {
     background: #D9D9D9;
+}
+
+#Tf2Engineer {
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 35px;
+    margin: 0;
+    padding: 0 12px;
+    border: 1.5px solid #333;
+    border-radius: 20px;
+    background: #f7f7f7;
+    color: #333;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+#Tf2Engineer label {
+    font-weight: 600;
+}
+
+#Tf2Spy {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #fa987f;
+    cursor: pointer;
+}
+
+#CommissionAvailabilityStatus {
+    min-width: 28px;
+    color: #777;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .Subnautica {
@@ -1200,6 +1273,7 @@ nav ul li a {
     cursor: pointer;
     color: #333;
     line-height: 1;
+    font-family: Inter, sans-serif;
 }
 
 .UploadSpecimen,
@@ -1251,6 +1325,7 @@ nav ul li a {
     color: #333;
     margin-bottom: 6px;
     font-weight: bold;
+    font-family: Inter, sans-serif;
 }
 
 .PortfolioInfo input[type="text"],
@@ -1263,6 +1338,7 @@ nav ul li a {
     font-size: 14px;
     box-sizing: border-box;
     width: 100%;
+
 }
 
 .PortfolioInfo textarea,
@@ -1315,6 +1391,7 @@ nav ul li a {
     background-color: #e0e0e0;
     align-self: flex-start;
     margin-bottom: 16px;
+    font-family: Inter, sans-serif;
 }
 
 #CStatusButton.statusOpen {
@@ -1334,6 +1411,7 @@ nav ul li a {
     font-size: 13px;
     color: #666;
     margin-top: 8px;
+    font-family: Inter, sans-serif;
 }
 
 .MyProfileStats span b {
@@ -1357,6 +1435,7 @@ nav ul li a {
     color: #222;
     margin-bottom: 12px;
     text-align: left;
+    font-family: Inter, sans-serif;
 }
 
 .DashTableCard {
@@ -1372,6 +1451,7 @@ nav ul li a {
     border-collapse: collapse;
     text-align: center;
     font-size: 13px;
+    font-family: Inter, sans-serif;
 }
 
 .DashTable th {
@@ -1379,11 +1459,13 @@ nav ul li a {
     color: #555;
     padding-bottom: 12px;
     border-bottom: 1px solid #eeeeee;
+    font-family: Inter, sans-serif;
 }
 
 .DashTable td {
     padding: 16px 10px;
     color: #333;
+    font-family: Inter, sans-serif;
 }
 
 .status-accepted {
@@ -1485,10 +1567,11 @@ nav ul li a {
 }
 
 #ViewTitle {
-    font-size: 22px;
+    font-size: 15px;
     font-weight: bold;
     color: #222;
     margin: 0 0 12px 0;
+    font-family: Inter, sans-serif;
 }
 
 #ViewDesc {
@@ -1496,6 +1579,7 @@ nav ul li a {
     line-height: 1.5;
     color: #444;
     margin: 0 0 16px 0;
+    font-family: Inter, sans-serif;
 }
 
 #ViewStatusRow {
@@ -1529,6 +1613,69 @@ nav ul li a {
     box-sizing: border-box;
 }
 
+.Komicantcommunicate {
+    width: min(420px, calc(100% - 32px));
+    padding: 0;
+    border: 0;
+    border-radius: 20px;
+    background: transparent;
+    color: #39313a;
+    font-family: Inter, sans-serif;
+    overflow: visible;
+}
+
+.Komicantcommunicate::backdrop {
+    background: rgba(45, 31, 39, 0.48);
+    backdrop-filter: blur(4px);
+}
+
+.Tadano {
+    padding: 32px;
+    border: 1px solid rgba(250, 152, 127, 0.35);
+    border-radius: inherit;
+    background: linear-gradient(145deg, #fffaf7, #fff0eb);
+    box-shadow: 0 20px 55px rgba(59, 38, 47, 0.24);
+    text-align: center;
+}
+
+.Tadano h2 {
+    margin: 0 0 10px;
+    color: #a95647;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.Tadano p {
+    margin: 0;
+    color: #65545a;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.Osana {
+    min-width: 112px;
+    margin-top: 24px;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 999px;
+    background: #fa987f;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.Osana:hover {
+    background: #c76e50;
+    transform: translateY(-1px);
+}
+
+.Osana:focus-visible {
+    outline: 3px solid #c76e50;
+    outline-offset: 3px;
+}
+
 .TermsCard h3 {
     margin: 0 0 20px 0;
     font-size: 18px;
@@ -1555,6 +1702,7 @@ nav ul li a {
     overflow-y: auto;
     box-sizing: border-box;
     margin-bottom: 20px;
+    font-family: Inter, sans-serif;
 }
 
 #TermsTypeSelect {
@@ -1875,11 +2023,13 @@ nav ul li a {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Inter, sans-serif;
 }
 
 .SettingTools h2 {
     margin: 0 0 15px 0;
     font-size: 18px;
+    font-family: Inter, sans-serif;
 }
 
 .FieldLabel {
@@ -1900,6 +2050,7 @@ nav ul li a {
     border: none;
     border-radius: 6px;
     font-size: 14px;
+    font-family: Inter, sans-serif;
 }
 
 .SettingTools input:disabled {
@@ -1932,6 +2083,7 @@ nav ul li a {
     font-size: 14px;
     cursor: pointer;
     color: #ffffff;
+    font-family: Inter, sans-serif;
 }
 
 #EditButton {
@@ -1960,6 +2112,7 @@ nav ul li a {
     color: green;
     font-size: 13px;
     margin-top: 8px;
+    font-family: Inter, sans-serif;
 }
 
 #PasswordMismatch,
@@ -1967,6 +2120,7 @@ nav ul li a {
     color: #b83b3b;
     font-size: 12px;
     margin-top: 4px;
+    font-family: Inter, sans-serif;
 }
 
 .LETMEOUTPLSSS {
@@ -1980,11 +2134,12 @@ nav ul li a {
     border-radius: 6px;
     font-size: 14px;
     cursor: pointer;
-    color: #772f2f;
+    color: #9e552a;
+    font-family: Inter, sans-serif;
 }
 
 .LETMEOUTPLSSS button:hover {
-    background-color: #e60303;
+    background-color: #ffc08c;
 }
 
 /* ===================================================================
@@ -2010,6 +2165,10 @@ nav ul li a {
     margin-bottom: 10px;
     margin-left: 30px;
     font-family: Inter, sans-serif;
+}
+
+.CommissionForm .FieldError {
+    margin-left: 47px;
 }
 
 .CommissionForm p.CommissionTarget,

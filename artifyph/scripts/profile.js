@@ -27,6 +27,9 @@ function showSection(section) {
         document.getElementById(panel).style.display = name === section ? 'block' : 'none';
         document.getElementById(tab).classList.toggle('active', name === section);
     });
+
+    const availability = document.getElementById('Tf2Engineer');
+    if (availability) availability.style.display = isOwner && section === 'commission' ? 'flex' : 'none';
 }
 
 /* Owner only: edit mode, add form and saving */
@@ -218,6 +221,23 @@ function toggleCommissionStatus() {
     setStatusButton(isOpen ? 'closed' : 'open');
 }
 
+async function toggleCommissionAvailability() {
+    if (!isOwner) return;
+
+    const toggle = document.getElementById('Tf2Spy');
+    const status = document.getElementById('CommissionAvailabilityStatus');
+    const previous = profile.acceptsCommissions;
+    profile.acceptsCommissions = toggle.checked;
+
+    if (!(await persistProfile())) {
+        if (previous === undefined) delete profile.acceptsCommissions;
+        else profile.acceptsCommissions = previous;
+        toggle.checked = Commission.acceptsRequests(profile);
+    }
+
+    status.textContent = Commission.acceptsRequests(profile) ? 'ON' : 'OFF';
+}
+
 function previewPortfolioPhoto(event) {
     readImageFile(event, 'PPreviewPhoto', dataUrl => pendingPortfolioImage = dataUrl, MAX_UPLOAD_BYTES, 1920);
 }
@@ -386,6 +406,11 @@ function withIndex(items) {
 }
 
 function requestCommission() {
+    if (!Commission.acceptsRequests(profile)) {
+        Commission.showUnavailableNotice();
+        return;
+    }
+
     window.location.href = `commissionform.html?${new URLSearchParams({ artist: profile.id })}`;
 }
 
@@ -513,6 +538,11 @@ function setupOwner() {
     document.getElementById('button4Dashboard').style.display = '';
     document.getElementById('ProfileBio').style.cursor = 'pointer';
     document.getElementById('ProfileBio').addEventListener('click', startBioEdit);
+
+    const availabilityToggle = document.getElementById('Tf2Spy');
+    availabilityToggle.checked = Commission.acceptsRequests(profile);
+    document.getElementById('CommissionAvailabilityStatus').textContent =
+        availabilityToggle.checked ? 'ON' : 'OFF';
 
     renderDashboard();
 

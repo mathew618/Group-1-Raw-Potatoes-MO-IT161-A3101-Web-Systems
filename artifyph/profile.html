@@ -60,6 +60,11 @@
             <div class="TF2Toolbar" id="ProfileToolbar" style="display:none;">
                 <button id="ProfileAddButton" onclick="openAddForm()">+</button>
                 <button id="ButtonWobblyGoopler" onclick="toggleEditMode()">Edit</button>
+                <div class="CommissionAvailabilityControl" id="Tf2Engineer" style="display:none;">
+                    <label for="Tf2Spy">Accept commission requests</label>
+                    <input type="checkbox" id="Tf2Spy" onchange="toggleCommissionAvailability()">
+                    <span id="CommissionAvailabilityStatus"></span>
+                </div>
             </div>
 
             <!-- Request button (visitors only) -->
