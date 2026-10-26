@@ -155,7 +155,7 @@ async function persistProfile() {
         await profile.save();
         return true;
     } catch (error) {
-        alert('Could not save your changes - browser storage is full.');
+        alert(`Could not save your changes: ${error.message}`);
         return false;
     }
 }

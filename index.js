@@ -48,12 +48,22 @@ async function initDb() {
             email VARCHAR(255) NOT NULL UNIQUE,
             password VARCHAR(255) NOT NULL,
             bio TEXT,
+            accepts_commissions BOOLEAN NULL DEFAULT NULL,
             folder VARCHAR(100),
             profilepicture VARCHAR(255),
             backgroundpicture VARCHAR(255),
             created_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
     `);
+
+    const [commissionAvailabilityColumn] = await pool.query(
+        "SHOW COLUMNS FROM users LIKE 'accepts_commissions'"
+    );
+    if (!commissionAvailabilityColumn.length) {
+        await pool.query(
+            'ALTER TABLE users ADD COLUMN accepts_commissions BOOLEAN NULL DEFAULT NULL'
+        );
+    }
 
     // Each commission and artwork belongs to a user. deleting that user removes their records.
     await pool.query(`
@@ -304,7 +314,9 @@ app.delete('/api/artworks/:id', async (req, res) => {
 
 app.get('/api/users', async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM users ORDER BY username');
+        const [rows] = await pool.query(
+            'SELECT *, accepts_commissions AS acceptsCommissions FROM users ORDER BY username'
+        );
         res.json(rows);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -313,7 +325,10 @@ app.get('/api/users', async (req, res) => {
 
 app.get('/api/users/:id', async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM users WHERE id = ?', [req.params.id]);
+        const [rows] = await pool.query(
+            'SELECT *, accepts_commissions AS acceptsCommissions FROM users WHERE id = ?',
+            [req.params.id]
+        );
         if (!rows.length) return res.status(404).json({ error: "User not found" });
         res.json(rows[0]);
     } catch (err) {
@@ -331,13 +346,18 @@ app.post('/api/users', async (req, res) => {
 
         const newId = id || ('acc_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6));
 
+        const { acceptsCommissions } = req.body;
         await pool.query(
-            `INSERT INTO users (id, role, username, email, password, bio)
-             VALUES (?, ?, ?, ?, ?, ?)`,
-            [newId, role, username, email, password, bio]
+            `INSERT INTO users (id, role, username, email, password, bio, accepts_commissions)
+             VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            [newId, role, username, email, password, bio,
+                typeof acceptsCommissions === 'boolean' ? acceptsCommissions : null]
         );
 
-        const [rows] = await pool.query('SELECT * FROM users WHERE id = ?', [newId]);
+        const [rows] = await pool.query(
+            'SELECT *, accepts_commissions AS acceptsCommissions FROM users WHERE id = ?',
+            [newId]
+        );
         res.status(201).json(rows[0]);
     } catch (err) {
         if (err.code === 'ER_DUP_ENTRY') {
@@ -350,9 +370,15 @@ app.post('/api/users', async (req, res) => {
 app.put('/api/users/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const { username, email, password, bio, profilepicture, backgroundpicture, folder } = req.body;
+        const {
+            username, email, password, bio, profilepicture, backgroundpicture,
+            folder, acceptsCommissions
+        } = req.body;
 
-        const [existing] = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
+        const [existing] = await pool.query(
+            'SELECT *, accepts_commissions AS acceptsCommissions FROM users WHERE id = ?',
+            [id]
+        );
         if (!existing.length) return res.status(404).json({ error: "User not found" });
 
         const updates = [];
@@ -365,13 +391,20 @@ app.put('/api/users/:id', async (req, res) => {
         if (profilepicture !== undefined) { updates.push('profilepicture = ?'); params.push(profilepicture); }
         if (backgroundpicture !== undefined) { updates.push('backgroundpicture = ?'); params.push(backgroundpicture); }
         if (folder !== undefined) { updates.push('folder = ?'); params.push(folder); }
+        if (typeof acceptsCommissions === 'boolean') {
+            updates.push('accepts_commissions = ?');
+            params.push(acceptsCommissions);
+        }
 
         if (updates.length) {
             params.push(id);
             await pool.query(`UPDATE users SET ${updates.join(', ')} WHERE id = ?`, params);
         }
 
-        const [rows] = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
+        const [rows] = await pool.query(
+            'SELECT *, accepts_commissions AS acceptsCommissions FROM users WHERE id = ?',
+            [id]
+        );
         res.json(rows[0]);
     } catch (err) {
         if (err.code === 'ER_DUP_ENTRY') {
@@ -390,7 +423,7 @@ app.post('/api/users/login', async (req, res) => {
         }
 
         const [rows] = await pool.query(
-            'SELECT * FROM users WHERE username = ? OR email = ?',
+            'SELECT *, accepts_commissions AS acceptsCommissions FROM users WHERE username = ? OR email = ?',
             [identifier, identifier]
         );
 

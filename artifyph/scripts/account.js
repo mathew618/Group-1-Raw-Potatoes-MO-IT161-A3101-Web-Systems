@@ -33,25 +33,34 @@ class Account {
             id: this.id,
             username: this.username,
             email: this.email,
-            password: this.password
+            password: this.password,
+            ...(this instanceof Artist && typeof this.acceptsCommissions === 'boolean'
+                ? { acceptsCommissions: this.acceptsCommissions }
+                : {})
         };
     }
 
     async save() {
         const existing = await Account.byId(this.id);
+        let response;
 
         if (existing) {
-            await fetch(`${Account.API}/${this.id}`, {
+            response = await fetch(`${Account.API}/${this.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(this.toJSON())
             });
         } else {
-            await fetch(Account.API, {
+            response = await fetch(Account.API, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(this.toJSON())
             });
+        }
+
+        if (!response.ok) {
+            const error = await response.json().catch(() => ({}));
+            throw new Error(error.error || 'Could not save account.');
         }
 
         Account.setCurrent(this);
@@ -261,8 +270,11 @@ class Artist extends Account {
             data.profilepicture || '',
             data.backgroundpicture || ''
         );
-        if (typeof data.acceptsCommissions === 'boolean') {
-            artist.acceptsCommissions = data.acceptsCommissions;
+        const availability = data.acceptsCommissions ?? data.accepts_commissions;
+        if (availability === true || availability === 1) {
+            artist.acceptsCommissions = true;
+        } else if (availability === false || availability === 0) {
+            artist.acceptsCommissions = false;
         }
         return artist;
     }
