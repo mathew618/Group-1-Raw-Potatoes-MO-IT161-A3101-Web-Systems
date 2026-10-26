@@ -30,7 +30,15 @@
                 "image": "A1A1SSPortfolio.png"
             }
         ],
-        "commissions": []
+        "commissions": [
+            {
+                "cartist": "_BELPHIE",
+                "ctitle": "Happiest Birthday Beetrix112",
+                "cdesc": "Open for commissions. Contact the artist to discuss your request.",
+                "status": "open",
+                "image": "A1A1SSPortfolio.png"
+            }
+        ]
     },
     {
         "role": "artist",
@@ -50,7 +58,15 @@
                 "image": "A2A1SSPortfolio.png"
             }
         ],
-        "commissions": []
+        "commissions": [
+            {
+                "cartist": "Blubytrave890",
+                "ctitle": "Cheap Motivation Drawing",
+                "cdesc": "Open for commissions. Contact the artist to discuss your request.",
+                "status": "open",
+                "image": "A2A1SSPortfolio.png"
+            }
+        ]
     },
     {
         "role": "artist",
@@ -203,7 +219,15 @@
                 "image": "A2A3Portfolio.png"
             }
         ],
-        "commissions": []
+        "commissions": [
+            {
+                "cartist": "Maboroshiiiro",
+                "ctitle": "Matchlight 🖌🌙",
+                "cdesc": "Open for commissions. Contact the artist to discuss your request.",
+                "status": "open",
+                "image": "A2A1Portfolio.png"
+            }
+        ]
     },
     {
         "role": "artist",
@@ -253,7 +277,7 @@
                 "cartist": "Fanfive",
                 "ctitle": "Pixel Hamburger",
                 "cdesc": "Is this a sandwich? Commission Us Now!",
-                "status": "closed",
+                "status": "open",
                 "image": "A4A1Commission.png"
             }
         ]
@@ -639,7 +663,15 @@
                 "image": "A16A1Portfolio.png"
             }
         ],
-        "commissions": []
+        "commissions": [
+            {
+                "cartist": "Bee_Bianca",
+                "ctitle": "Ponyo",
+                "cdesc": "Open for commissions. Contact the artist to discuss your request.",
+                "status": "open",
+                "image": "A16A1Portfolio.png"
+            }
+        ]
     },
     {
         "role": "artist",
@@ -729,7 +761,15 @@
                 "image": "A19A3Portfolio.png"
             }
         ],
-        "commissions": []
+        "commissions": [
+            {
+                "cartist": "edgichel",
+                "ctitle": "BABYYY IM BORRED",
+                "cdesc": "Open for commissions. Contact the artist to discuss your request.",
+                "status": "open",
+                "image": "A19A1Portfolio.png"
+            }
+        ]
     },
     {
         "role": "artist",

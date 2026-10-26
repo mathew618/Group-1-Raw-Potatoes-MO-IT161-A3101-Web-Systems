@@ -2,6 +2,19 @@
 class Account {
     static SOURCE = 'data/accounts.json';
     static STORE = 'ArtifyPH_Accounts';
+    static COMMISSION_AVAILABILITY_MIGRATION = 'ArtifyPH_CommissionAvailabilityMigration';
+    static COMMISSION_OPEN_ARTISTS = [
+        '_BELPHIE',
+        'Blubytrave890',
+        'HeartFeltCraftsByAngie',
+        'TylorHepnerArt',
+        'Bee_Bianca',
+        'edgichel',
+        'Maboroshiiiro',
+        'Crocheana',
+        'Camryngamesyt',
+        'Fanfive'
+    ];
     static SESSION = 'ArtifyPH_Current';
     static LOGIN = 'login.html';
     static HOME = 'home.html';
@@ -85,15 +98,48 @@ class Account {
 
     static async read() {
         const mirror = localStorage.getItem(Account.STORE);
-        if (mirror) return JSON.parse(mirror);
+        const localAccounts = mirror ? JSON.parse(mirror) : null;
+        let sourceAccounts;
 
         try {
             const response = await fetch(Account.SOURCE);
             if (!response.ok) throw new Error('accounts.json returned ' + response.status);
-            return await response.json();
+            sourceAccounts = await response.json();
         } catch (error) {
-            return Account.DEFAULTS;
+            return localAccounts || Account.DEFAULTS;
         }
+
+        if (!localAccounts) return sourceAccounts;
+
+        if (localStorage.getItem(Account.COMMISSION_AVAILABILITY_MIGRATION) !== '1') {
+            const sourceByUsername = new Map(sourceAccounts.map(account => [account.username, account]));
+
+            localAccounts.forEach(account => {
+                if (!Account.COMMISSION_OPEN_ARTISTS.includes(account.username)) return;
+
+                const source = sourceByUsername.get(account.username);
+                if (!source) return;
+
+                const commissions = Array.isArray(account.commissions) ? account.commissions : [];
+                (source.commissions || [])
+                    .filter(item => String(item.status || '').toLowerCase() === 'open')
+                    .forEach(sourceItem => {
+                        const existing = commissions.find(item => item.ctitle === sourceItem.ctitle);
+                        if (existing) {
+                            existing.status = 'open';
+                        } else {
+                            commissions.push(sourceItem);
+                        }
+                    });
+
+                account.commissions = commissions;
+            });
+
+            localStorage.setItem(Account.STORE, JSON.stringify(localAccounts));
+            localStorage.setItem(Account.COMMISSION_AVAILABILITY_MIGRATION, '1');
+        }
+
+        return localAccounts;
     }
 
     static async find(identifier, password) {
@@ -263,12 +309,13 @@ class Artist extends Account {
             backgroundpicture: this.backgroundpicture,
             bio: this.bio,
             portfolio: this.portfolio,
-            commissions: this.commissions
+            commissions: this.commissions,
+            acceptsCommissions: this.acceptsCommissions
         };
     }
 
     static fromJSON(data) {
-        return new Artist(
+        const artist = new Artist(
             data.username,
             data.email,
             data.password,
@@ -280,6 +327,10 @@ class Artist extends Account {
             data.profilepicture || '',
             data.backgroundpicture || ''
         );
+        if (typeof data.acceptsCommissions === 'boolean') {
+            artist.acceptsCommissions = data.acceptsCommissions;
+        }
+        return artist;
     }
 }
 
@@ -296,4 +347,3 @@ function setupShowPassword() {
         });
     });
 }
-

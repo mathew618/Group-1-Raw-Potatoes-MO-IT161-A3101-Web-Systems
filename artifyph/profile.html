@@ -62,6 +62,12 @@
                 <button id="ButtonWobblyGoopler" onclick="toggleEditMode()">Edit</button>
             </div>
 
+            <div class="CommissionAvailabilityControl" id="Tf2Engineer" style="display:none;">
+                <label for="Tf2Spy">Accept commission requests</label>
+                <input type="checkbox" id="Tf2Spy" onchange="toggleCommissionAvailability()">
+                <span id="CommissionAvailabilityStatus"></span>
+            </div>
+
             <!-- Request button (visitors only) -->
             <div class="TF2Toolbar" id="ProfileRequestBar" style="display:none;">
                 <button id="ProfileRequestBtn" onclick="requestCommission()">Request Commission</button>

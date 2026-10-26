@@ -143,18 +143,19 @@ nav ul li a {
     margin-bottom: 30px;
     margin-left: 50px;
     margin-right: 50px;
-    background-color: #fdfdfd;
+    background-color: #FFC067;
     border-width: 0;
     border-radius: 8px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    color: #444;
+    color: #fff;
     font-family: Inter, sans-serif;
     font-size: 16px;
+    font-weight: 700;
     cursor: pointer;
 }
 
 .PaymentButton:hover {
-    background-color: #d97a50;
+    background-color: #C76E00;
 }
 
 /* Small note under the payment details */
@@ -746,7 +747,7 @@ nav ul li a {
 .show-left {
     opacity: 0.7;
     pointer-events: auto;
-    transform: translate(calc(-50% - 230px), -50%) scale(0.4);
+    transform: translate(calc(-50% - 260px), -50%) scale(0.4);
 }
 
 .show-center {
@@ -759,7 +760,7 @@ nav ul li a {
 .show-right {
     opacity: 0.7;
     pointer-events: auto;
-    transform: translate(calc(-50% + 230px), -50%) scale(0.4);
+    transform: translate(calc(-50% + 260px), -50%) scale(0.4);
 }
 
 .MoveableMagicButtonYes {
@@ -1143,6 +1144,34 @@ nav ul li a {
 
 .TF2Toolbar button:hover {
     background: #D9D9D9;
+}
+
+#Tf2Engineer {
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px 12px;
+    color: #333;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+}
+
+#Tf2Engineer label {
+    font-weight: 600;
+}
+
+#Tf2Spy {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #fa987f;
+    cursor: pointer;
+}
+
+#CommissionAvailabilityStatus {
+    min-width: 28px;
+    color: #777;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .Subnautica {
@@ -1554,6 +1583,69 @@ nav ul li a {
     width: 500px;
     max-width: 90%;
     box-sizing: border-box;
+}
+
+.Komicantcommunicate {
+    width: min(420px, calc(100% - 32px));
+    padding: 0;
+    border: 0;
+    border-radius: 20px;
+    background: transparent;
+    color: #39313a;
+    font-family: Inter, sans-serif;
+    overflow: visible;
+}
+
+.Komicantcommunicate::backdrop {
+    background: rgba(45, 31, 39, 0.48);
+    backdrop-filter: blur(4px);
+}
+
+.Tadano {
+    padding: 32px;
+    border: 1px solid rgba(250, 152, 127, 0.35);
+    border-radius: inherit;
+    background: linear-gradient(145deg, #fffaf7, #fff0eb);
+    box-shadow: 0 20px 55px rgba(59, 38, 47, 0.24);
+    text-align: center;
+}
+
+.Tadano h2 {
+    margin: 0 0 10px;
+    color: #a95647;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.Tadano p {
+    margin: 0;
+    color: #65545a;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.Osana {
+    min-width: 112px;
+    margin-top: 24px;
+    padding: 11px 20px;
+    border: 0;
+    border-radius: 999px;
+    background: #fa987f;
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.Osana:hover {
+    background: #c76e50;
+    transform: translateY(-1px);
+}
+
+.Osana:focus-visible {
+    outline: 3px solid #c76e50;
+    outline-offset: 3px;
 }
 
 .TermsCard h3 {

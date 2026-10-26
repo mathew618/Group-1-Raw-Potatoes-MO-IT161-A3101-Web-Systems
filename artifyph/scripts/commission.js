@@ -19,6 +19,9 @@ const Commission = {
     },
     NO_TERMS: 'Please accept the Terms of Service before continuing.',
     NO_CONFIRM: 'Please confirm you understand the request may not be accepted.',
+    REFERENCE_TYPES: ['jpeg', 'jpg', 'png', 'avif', 'svg'],
+    REFERENCE_MAX_SIZE: 100 * 1024 * 1024,
+    UNAVAILABLE_MESSAGE: 'The artist does not accept any commission right now.',
 
     element(id) {
         return document.getElementById(id);
@@ -37,6 +40,85 @@ const Commission = {
     checked(id) {
         const field = Commission.element(id);
         return Boolean(field) && field.checked;
+    },
+
+    acceptsRequests(artist, packageTitle = '') {
+        if (typeof artist?.acceptsCommissions === 'boolean') {
+            return artist.acceptsCommissions;
+        }
+
+        const packages = artist?.commissions || [];
+        const selectedPackage = packageTitle
+            ? packages.find(item => item.ctitle === packageTitle)
+            : null;
+
+        if (packageTitle) {
+            return Boolean(selectedPackage)
+                && String(selectedPackage.status || '').toLowerCase() === 'open';
+        }
+
+        return packages.some(item => String(item.status || '').toLowerCase() === 'open');
+    },
+
+    showUnavailableNotice() {
+        let dialog = Commission.element('Komicantcommunicate');
+        if (!dialog) {
+            dialog = document.createElement('dialog');
+            dialog.id = 'Komicantcommunicate';
+            dialog.className = 'Komicantcommunicate';
+            dialog.setAttribute('aria-labelledby', 'CommissionUnavailableTitle');
+            dialog.setAttribute('aria-describedby', 'CommissionUnavailableMessage');
+
+            const card = document.createElement('div');
+            card.className = 'Tadano';
+
+            const title = document.createElement('h2');
+            title.id = 'CommissionUnavailableTitle';
+            title.textContent = 'OOPS SORRY!';
+
+            const message = document.createElement('p');
+            message.id = 'CommissionUnavailableMessage';
+            message.textContent = Commission.UNAVAILABLE_MESSAGE;
+
+            const closeButton = document.createElement('button');
+            closeButton.className = 'Osana';
+            closeButton.type = 'button';
+            closeButton.textContent = 'Got it';
+            closeButton.addEventListener('click', () => dialog.close());
+
+            card.append(title, message, closeButton);
+            dialog.appendChild(card);
+            dialog.addEventListener('click', event => {
+                if (event.target === dialog) dialog.close();
+            });
+            document.body.appendChild(dialog);
+        }
+
+        dialog.showModal();
+        dialog.querySelector('button').focus();
+    },
+
+    async requestableArtist() {
+        const artist = await Account.byId(Commission.params().get('artist'));
+        if (!Commission.acceptsRequests(artist, Commission.params().get('package') || '')) {
+            Commission.showUnavailableNotice();
+            return null;
+        }
+        return artist;
+    },
+
+    referenceError() {
+        const file = Commission.element('reference')?.files?.[0];
+        if (!file) return '';
+
+        const extension = file.name.split('.').pop().toLowerCase();
+        if (!Commission.REFERENCE_TYPES.includes(extension)) {
+            return 'Reference files must be JPEG, JPG, PNG, AVIF, or SVG.';
+        }
+        if (file.size > Commission.REFERENCE_MAX_SIZE) {
+            return 'Reference files must be 100 MB or smaller.';
+        }
+        return '';
     },
 
     fail(message) {
@@ -166,9 +248,10 @@ async function showCommissionTarget(account = null) {
 }
 
 /* commissionform.html */
-function acceptTerms(event) {
+async function acceptTerms(event) {
     if (event) event.preventDefault();
 
+    if (!(await Commission.requestableArtist())) return;
     if (!Commission.checked('agreement')) return Validate.showError('agreement', Commission.NO_TERMS);
 
     Validate.showError('agreement', '');
@@ -179,6 +262,9 @@ function acceptTerms(event) {
 /* commissionform2.html */
 async function createCommission(event) {
     if (event) event.preventDefault();
+    const artist = await Commission.requestableArtist();
+    if (!artist) return;
+
     if (!Commission.value('name') || !Commission.value('email')) {
         return Commission.fail('Your account details did not load. Please log in again.');
     }
@@ -187,12 +273,12 @@ async function createCommission(event) {
         { id: 'type', test: () => Validate.required(Commission.value('type'), 'Commission Type') },
         { id: 'deadline', test: () => Validate.deadline(Commission.value('deadline')) },
         { id: 'budget', test: () => Validate.budget(Commission.value('budget')) },
+        { id: 'reference', test: () => Commission.referenceError() },
         { id: 'agreement', test: () => Commission.checked('agreement') ? '' : Commission.NO_CONFIRM }
     ]);
     if (!valid) return;
 
     const budget = Number(Commission.value('budget'));
-    const artist = await Account.byId(Commission.params().get('artist'));
     const details = Commission.element('details');
 
     Commission.clear();
@@ -241,6 +327,13 @@ function initCommission() {
         Validate.live('type', () => Validate.required(Commission.value('type'), 'Commission Type'));
         Validate.live('deadline', () => Validate.deadline(Commission.value('deadline')));
         Validate.live('budget', () => Validate.budget(Commission.value('budget')));
+
+        const reference = Commission.element('reference');
+        if (reference) {
+            reference.addEventListener('change', () => {
+                Validate.showError('reference', Commission.referenceError());
+            });
+        }
 
         const box = Commission.element('agreement');
         if (box) {

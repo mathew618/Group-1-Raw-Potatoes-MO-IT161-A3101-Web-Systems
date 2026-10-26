@@ -2,6 +2,11 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import mysqldatabase from './mysqldatabase.js';
+
+mysqldatabase.query('select 1')
+  .then(() => console.log('MySQL connected'))
+  .catch(err => console.error('MySQL connection failed:', err.message));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,6 +14,20 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get('/api/db-test', async (req, res) => {
+  try {
+    const [[users]] = await mysqldatabase.query('select count(*) as total from users');
+    const [[artworks]] = await mysqldatabase.query('select count(*) as total from artworks');
+    const [[commissions]] = await mysqldatabase.query('select count(*) as total from commissions');
+    res.json({
+      users: users.total,
+      artworks: artworks.total,
+      commissions: commissions.total
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 app.use(express.json());
 app.use(express.static(__dirname));
 
