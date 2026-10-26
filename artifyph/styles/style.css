@@ -56,6 +56,7 @@ nav ul li a {
     color: #fffefe;
     font-weight: 400;
     font-size: 17px;
+    font-family: Inter, sans-serif;
 }
 
 .ArtifyPHLogo img {
@@ -652,12 +653,14 @@ nav ul li a {
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    color: #303030;
+
 }
 
 .question h3 {
     font-size: 1.1rem;
     font-family: Inter, sans-serif;
-
+    
 }
 
 .answer {
@@ -682,6 +685,7 @@ nav ul li a {
 .JoyOfMemories {
     text-align: center;
     color: #eda27c;
+    font-family: Inter, sans-serif;
 }
 
 .JoyOfMemories h1 {
@@ -769,7 +773,7 @@ nav ul li a {
     background-color: #ffffff;
     color: #000000;
     padding: 8px 16px;
-    border: 2px solid #080808;
+    border: 2px solid #ffab84;
     margin: 10px;
     border-radius: 6px;
     font-size: 14px;
@@ -809,12 +813,12 @@ nav ul li a {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #000000;
+    background-color:white;
     cursor: pointer;
 }
 
 .dot.active {
-    background-color: #832a2a;
+    background-color: #eda27c;
 }
 
 .OriginalCathy,
@@ -898,8 +902,11 @@ nav ul li a {
 }
 
 .OwnerInfo {
-    min-width: 180px;
-    align-self: center;
+    flex: 1;
+    min-width: 0;
+    padding-top: 0;
+    align-self: flex-start;
+    margin-top: 0;
 }
 
 #GotSnapped {
@@ -908,7 +915,7 @@ nav ul li a {
     left: 8px;
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     color: #333;
     line-height: 1;
@@ -917,11 +924,12 @@ nav ul li a {
 #CheckView {
     display: block;
     margin: 0.67em 0;
-    font-family: Georgia, serif;
+    font-family: Inter, serif;
     font-size: 2em;
     font-weight: bold;
     color: #1d1c1c;
     text-decoration: none;
+    
 }
 
 #CheckView.clickable {
@@ -939,13 +947,17 @@ nav ul li a {
 }
 
 #ATitle {
-    font-family: Georgia, serif;
+    font-family: Inter, serif;
+    font-style: Bold;
+    font-size: 20px;
     color: #000000;
 }
 
 #ADesc {
-    font-family: Arial, sans-serif;
-    color: #000000;
+    font-family: inter, sans-serif;
+    color: #5a5a5a;
+    margin: 0;
+    line-height: 1.5;
 }
 
 /* ===================================================================
@@ -1031,6 +1043,7 @@ nav ul li a {
 .MyProfileDesc {
     padding: 0 40px;
     text-align: center;
+    font-family: Inter, sans-serif;
 }
 
 #MyDescEdit {
@@ -1045,6 +1058,7 @@ nav ul li a {
     border: 1px solid #832a2a;
     border-radius: 4px;
     margin: 0 auto;
+    font-family: Inter, sans-serif;
 }
 
 .ProfileBioActions {
@@ -1081,6 +1095,7 @@ nav ul li a {
     border-radius: 20px;
     font-size: 14px;
     cursor: pointer;
+    font-family: Inter, sans-serif;
 }
 
 .PorkNBeans button:hover {
@@ -1105,11 +1120,12 @@ nav ul li a {
     cursor: pointer;
     font-size: 16px;
     color: #080606;
+    font-family: Inter, sans-serif;
 }
 
 #ProfileAddButton {
-    width: 20px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -1200,6 +1216,7 @@ nav ul li a {
     cursor: pointer;
     color: #333;
     line-height: 1;
+    font-family: Inter, sans-serif;
 }
 
 .UploadSpecimen,
@@ -1251,6 +1268,7 @@ nav ul li a {
     color: #333;
     margin-bottom: 6px;
     font-weight: bold;
+    font-family: Inter, sans-serif;
 }
 
 .PortfolioInfo input[type="text"],
@@ -1263,6 +1281,7 @@ nav ul li a {
     font-size: 14px;
     box-sizing: border-box;
     width: 100%;
+
 }
 
 .PortfolioInfo textarea,
@@ -1315,6 +1334,7 @@ nav ul li a {
     background-color: #e0e0e0;
     align-self: flex-start;
     margin-bottom: 16px;
+    font-family: Inter, sans-serif;
 }
 
 #CStatusButton.statusOpen {
@@ -1334,6 +1354,7 @@ nav ul li a {
     font-size: 13px;
     color: #666;
     margin-top: 8px;
+    font-family: Inter, sans-serif;
 }
 
 .MyProfileStats span b {
@@ -1357,6 +1378,7 @@ nav ul li a {
     color: #222;
     margin-bottom: 12px;
     text-align: left;
+    font-family: Inter, sans-serif;
 }
 
 .DashTableCard {
@@ -1372,6 +1394,7 @@ nav ul li a {
     border-collapse: collapse;
     text-align: center;
     font-size: 13px;
+    font-family: Inter, sans-serif;
 }
 
 .DashTable th {
@@ -1379,11 +1402,13 @@ nav ul li a {
     color: #555;
     padding-bottom: 12px;
     border-bottom: 1px solid #eeeeee;
+    font-family: Inter, sans-serif;
 }
 
 .DashTable td {
     padding: 16px 10px;
     color: #333;
+    font-family: Inter, sans-serif;
 }
 
 .status-accepted {
@@ -1489,6 +1514,7 @@ nav ul li a {
     font-weight: bold;
     color: #222;
     margin: 0 0 12px 0;
+    font-family: Inter, sans-serif;
 }
 
 #ViewDesc {
@@ -1496,6 +1522,7 @@ nav ul li a {
     line-height: 1.5;
     color: #444;
     margin: 0 0 16px 0;
+    font-family: Inter, sans-serif;
 }
 
 #ViewStatusRow {
@@ -1555,6 +1582,7 @@ nav ul li a {
     overflow-y: auto;
     box-sizing: border-box;
     margin-bottom: 20px;
+    font-family: Inter, sans-serif;
 }
 
 #TermsTypeSelect {
@@ -1875,11 +1903,13 @@ nav ul li a {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Inter, sans-serif;
 }
 
 .SettingTools h2 {
     margin: 0 0 15px 0;
     font-size: 18px;
+    font-family: Inter, sans-serif;
 }
 
 .FieldLabel {
@@ -1900,6 +1930,7 @@ nav ul li a {
     border: none;
     border-radius: 6px;
     font-size: 14px;
+    font-family: Inter, sans-serif;
 }
 
 .SettingTools input:disabled {
@@ -1932,6 +1963,7 @@ nav ul li a {
     font-size: 14px;
     cursor: pointer;
     color: #ffffff;
+    font-family: Inter, sans-serif;
 }
 
 #EditButton {
@@ -1960,6 +1992,7 @@ nav ul li a {
     color: green;
     font-size: 13px;
     margin-top: 8px;
+    font-family: Inter, sans-serif;
 }
 
 #PasswordMismatch,
@@ -1967,6 +2000,7 @@ nav ul li a {
     color: #b83b3b;
     font-size: 12px;
     margin-top: 4px;
+    font-family: Inter, sans-serif;
 }
 
 .LETMEOUTPLSSS {
@@ -1980,11 +2014,12 @@ nav ul li a {
     border-radius: 6px;
     font-size: 14px;
     cursor: pointer;
-    color: #772f2f;
+    color: #9e552a;
+    font-family: Inter, sans-serif;
 }
 
 .LETMEOUTPLSSS button:hover {
-    background-color: #e60303;
+    background-color: #ffc08c;
 }
 
 /* ===================================================================
