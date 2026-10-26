@@ -64,6 +64,24 @@ nav ul li a {
 }
 
 /* ===================================================================
+   FONTS
+   =================================================================== */
+@font-face {
+    font-family: "Inter";
+    src: url("../assets/fonts/Inter_28pt-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Lovelo";
+    src: url("../assets/fonts/Lovelo-Black.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+/* ===================================================================
    ALL PAGES: SHARED COMPONENTS
    =================================================================== */
 
@@ -926,7 +944,7 @@ nav ul li a {
     display: block;
     margin: 0.67em 0;
     font-family: Inter, serif;
-    font-size: 2em;
+    font-size: 24px;
     font-weight: bold;
     color: #1d1c1c;
     text-decoration: none;
@@ -1111,6 +1129,7 @@ nav ul li a {
 .TF2Toolbar {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 12px;
     padding: 10px 20px;
 }
@@ -1149,10 +1168,19 @@ nav ul li a {
 #Tf2Engineer {
     align-items: center;
     gap: 10px;
-    padding: 0 20px 12px;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 35px;
+    margin: 0;
+    padding: 0 12px;
+    border: 1.5px solid #333;
+    border-radius: 20px;
+    background: #f7f7f7;
     color: #333;
     font-family: Inter, sans-serif;
     font-size: 14px;
+    white-space: nowrap;
+    box-sizing: border-box;
 }
 
 #Tf2Engineer label {
@@ -1539,7 +1567,7 @@ nav ul li a {
 }
 
 #ViewTitle {
-    font-size: 22px;
+    font-size: 15px;
     font-weight: bold;
     color: #222;
     margin: 0 0 12px 0;
