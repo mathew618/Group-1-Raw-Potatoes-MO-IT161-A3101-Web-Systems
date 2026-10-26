@@ -2167,6 +2167,10 @@ nav ul li a {
     font-family: Inter, sans-serif;
 }
 
+.CommissionForm .FieldError {
+    margin-left: 47px;
+}
+
 .CommissionForm p.CommissionTarget,
 .CommissionForm2 p.CommissionTarget {
     margin: 0 30px 10px;

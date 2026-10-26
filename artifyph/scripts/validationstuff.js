@@ -26,6 +26,7 @@ const Validate = {
         if (!text) return 'Please enter your budget.';
         if (!/^\d+$/.test(text)) return 'Budget must be a whole number (digits only).';
         if (Number(text) < 100) return 'Minimum budget is ₱100.';
+        if (Number(text) > 100000) return 'Maximum budget is ₱100,000.';
         return '';
     },
 
@@ -37,28 +38,11 @@ const Validate = {
 
     /* ---------- Payment fields ---------- */
 
-    /* This checks mismatch card numbers */
-    luhn(number) {
-        let sum = 0;
-
-        number.split('').reverse().forEach((char, i) => {
-            let n = Number(char);
-            if (i % 2 === 1) {
-                n *= 2;
-                if (n > 9) n -= 9;
-            }
-            sum += n;
-        });
-
-        return sum % 10 === 0;
-    },
-
     card(text) {
         if (!text) return 'Please enter your card number.';
 
         const number = Validate.digits(text);
         if (number.length < 13 || number.length > 19) return 'Card number must be 13 to 19 digits.';
-        if (!Validate.luhn(number)) return 'This card number is not valid. Please check for typos.';
         return '';
     },
 
