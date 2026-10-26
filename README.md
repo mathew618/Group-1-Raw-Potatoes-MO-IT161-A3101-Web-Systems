@@ -1,7 +1,7 @@
 <h1>Project Name: ArtifyPH</h1>
 ____________________________________________
 
-<h2>**Group 1 Members:**</h2>
+<h2>Group 1 Members:</h2>
 
 Bianca Colleen E. Herrero
 
@@ -11,7 +11,7 @@ Kim Charlotte V. Anicete
 
 Mathew Wilson B. Vercida 
 ___________________________________________
-<h2>**Links**</h2>
+<h2>Links</h2>
 
 **Deployment**
 https://mathew618.github.io/Group-1-Raw-Potatoes-MO-IT161-A3101-Web-Systems/
@@ -26,7 +26,7 @@ https://docs.google.com/document/d/1QqlfAzCXUcBCAZfoDukS6ST4UMezzPnV4VBU3c7yOvQ/
 https://drive.google.com/drive/folders/1X4m6BL0Vvm84KRfOrNFSAWhuCdbU2n7V?usp=sharing
 ___________________________________________
 
-</h2>**Test Account**</h2>
+<h2>Test Account</h2>
 
 Username: Justablub
 
