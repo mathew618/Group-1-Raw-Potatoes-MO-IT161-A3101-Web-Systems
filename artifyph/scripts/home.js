@@ -128,8 +128,8 @@ const artworks = {
     },
     Bee_Bianca: {
         author: "Bee_Bianca",
-        title: "Ponyo",
-        desc: "Ponyo Ponyo Ponyo"
+        title: "Sketch",
+        desc: "Random Sketch"
     },
     Synesthria: {
         author: "Synesthria",
@@ -155,11 +155,13 @@ const artworks = {
 
 const Flasher = document.getElementById('TheFlasher');
 const Stalker = document.getElementById('Stalker');
+const DetailAvatar = document.getElementById('DetailAvatar');
 const CheckView = document.getElementById('CheckView');
 const ATitle = document.getElementById('ATitle');
 const ADesc = document.getElementById('ADesc');
 const Owner = document.getElementById('Owner');
 const PROFILE_PAGE = 'profile.html';
+DetailAvatar.src = Artist.ASSETS + Artist.AVATAR;
 
 /* Usernames load once so the popup link never waits on a fetch */
 const profileNames = new Map();
@@ -203,8 +205,13 @@ document.querySelectorAll('.Cathy img, .Mark img, .Ridel img, .Rubio img').forEa
         CheckView.textContent = info.author;
         ATitle.textContent = info.title;
         ADesc.textContent = info.desc;
-        linkProfile(img.dataset.id);
 
+        Account.byUsername(img.dataset.id).then(account => {
+            const avatar = (account && account instanceof Artist) ? account.avatar : Artist.ASSETS + Artist.AVATAR;
+            DetailAvatar.src = avatar || (Artist.ASSETS + Artist.AVATAR);
+        });
+
+        linkProfile(img.dataset.id);
         Flasher.classList.add('open');
     });
 });
