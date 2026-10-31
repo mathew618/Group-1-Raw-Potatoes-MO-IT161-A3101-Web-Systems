@@ -1,0 +1,131 @@
+/*!
+* Bootstrap drawer.js v6.0.0-alpha.1 (https://getbootstrap.com/)
+* Copyright 2011-2026 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+*/
+import DialogBase from "./dialog-base.js";
+import EventHandler from "./dom/event-handler.js";
+import SelectorEngine from "./dom/selector-engine.js";
+import Swipe from "./util/swipe.js";
+import { enableDismissTrigger } from "./util/component-functions.js";
+import { isDisabled, isRTL, isVisible } from "./util/index.js";
+//#region js/src/drawer.ts
+/**
+* --------------------------------------------------------------------------
+* Bootstrap drawer.ts
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+* --------------------------------------------------------------------------
+*/
+/**
+* Constants
+*/
+const NAME = "drawer";
+const EVENT_KEY = `.bs.drawer`;
+const DATA_API_KEY = ".data-api";
+const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`;
+const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
+const EVENT_RESIZE = `resize${EVENT_KEY}`;
+const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
+const SELECTOR_DATA_TOGGLE = "[data-bs-toggle=\"drawer\"]";
+const SELECTOR_OPEN = "dialog.drawer[open], dialog[open][class*=\"\\:drawer\"]";
+const Default = {
+	backdrop: true,
+	keyboard: true,
+	scroll: false
+};
+const DefaultType = {
+	backdrop: "(boolean|string)",
+	keyboard: "boolean",
+	scroll: "boolean"
+};
+/**
+* Class definition
+*/
+var Drawer = class extends DialogBase {
+	constructor(element, config) {
+		super(element, config);
+		this._swipeHelper = null;
+		this._resizeObserver = null;
+		this._resizeFrame = null;
+		this._initResizeObserver();
+	}
+	static get Default() {
+		return Default;
+	}
+	static get DefaultType() {
+		return DefaultType;
+	}
+	static get NAME() {
+		return NAME;
+	}
+	dispose() {
+		if (this._swipeHelper) this._swipeHelper.dispose();
+		if (this._resizeObserver) this._resizeObserver.disconnect();
+		if (this._resizeFrame !== null) cancelAnimationFrame(this._resizeFrame);
+		super.dispose();
+	}
+	_getShowOptions() {
+		return {
+			modal: Boolean(this._config.backdrop) || !this._config.scroll,
+			preventBodyScroll: !this._config.scroll
+		};
+	}
+	_onBeforeShow() {
+		this._initSwipe();
+	}
+	_getInstantClassName() {
+		return "drawer-instant";
+	}
+	_getStaticClassName() {
+		return "drawer-static";
+	}
+	_initResizeObserver() {
+		const navbar = this._element.closest(".navbar");
+		if (!navbar || typeof ResizeObserver === "undefined") return;
+		this._resizeObserver = new ResizeObserver(() => {
+			if (this._resizeFrame !== null) cancelAnimationFrame(this._resizeFrame);
+			this._resizeFrame = requestAnimationFrame(() => {
+				this._resizeFrame = null;
+				if (this._element.open && getComputedStyle(this._element).position !== "fixed") this.hide();
+			});
+		});
+		this._resizeObserver.observe(navbar);
+	}
+	_initSwipe() {
+		if (this._swipeHelper || !Swipe.isSupported()) return;
+		const swipeConfig = {};
+		const element = this._element;
+		if (element.classList.contains("drawer-bottom")) swipeConfig.downCallback = () => this.hide();
+		else if (element.classList.contains("drawer-top")) swipeConfig.upCallback = () => this.hide();
+		else if (element.classList.contains("drawer-end")) if (isRTL()) swipeConfig.leftCallback = () => this.hide();
+		else swipeConfig.rightCallback = () => this.hide();
+		else if (isRTL()) swipeConfig.rightCallback = () => this.hide();
+		else swipeConfig.leftCallback = () => this.hide();
+		this._swipeHelper = new Swipe(element, swipeConfig);
+	}
+};
+/**
+* Data API implementation
+*/
+EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function(event) {
+	const target = SelectorEngine.getElementFromSelector(this);
+	if (["A", "AREA"].includes(this.tagName)) event.preventDefault();
+	if (isDisabled(this)) return;
+	EventHandler.one(target, EVENT_HIDDEN, () => {
+		if (isVisible(this)) this.focus({ preventScroll: true });
+	});
+	const alreadyOpen = SelectorEngine.findOne("dialog.drawer[open]");
+	if (alreadyOpen && alreadyOpen !== target) Drawer.getInstance(alreadyOpen).hide();
+	Drawer.getOrCreateInstance(target).toggle(this);
+});
+EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+	for (const selector of SelectorEngine.find("dialog.drawer[open]")) Drawer.getOrCreateInstance(selector).show();
+});
+EventHandler.on(window, EVENT_RESIZE, () => {
+	for (const element of SelectorEngine.find(SELECTOR_OPEN)) if (getComputedStyle(element).position !== "fixed") Drawer.getOrCreateInstance(element).hide();
+});
+enableDismissTrigger(Drawer);
+//#endregion
+export { Drawer as default };
+
+//# sourceMappingURL=drawer.js.map

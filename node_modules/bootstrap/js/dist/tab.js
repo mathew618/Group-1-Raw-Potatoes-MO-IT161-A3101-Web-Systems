@@ -1,0 +1,196 @@
+/*!
+* Bootstrap tab.js v6.0.0-alpha.1 (https://getbootstrap.com/)
+* Copyright 2011-2026 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+*/
+import BaseComponent from "./base-component.js";
+import EventHandler from "./dom/event-handler.js";
+import SelectorEngine from "./dom/selector-engine.js";
+import { getNextActiveElement, getTransitionDurationFromElement, isDisabled, setAriaAttribute } from "./util/index.js";
+//#region js/src/tab.ts
+/**
+* --------------------------------------------------------------------------
+* Bootstrap tab.ts
+* Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+* --------------------------------------------------------------------------
+*/
+/**
+* Constants
+*/
+const NAME = "tab";
+const EVENT_KEY = `.bs.tab`;
+const EVENT_HIDE = `hide${EVENT_KEY}`;
+const EVENT_HIDDEN = `hidden${EVENT_KEY}`;
+const EVENT_SHOW = `show${EVENT_KEY}`;
+const EVENT_SHOWN = `shown${EVENT_KEY}`;
+const EVENT_CLICK_DATA_API = `click${EVENT_KEY}`;
+const EVENT_KEYDOWN = `keydown${EVENT_KEY}`;
+const EVENT_LOAD_DATA_API = `load${EVENT_KEY}`;
+const ARROW_LEFT_KEY = "ArrowLeft";
+const ARROW_RIGHT_KEY = "ArrowRight";
+const ARROW_UP_KEY = "ArrowUp";
+const ARROW_DOWN_KEY = "ArrowDown";
+const HOME_KEY = "Home";
+const END_KEY = "End";
+const CLASS_NAME_ACTIVE = "active";
+const CLASS_NAME_SHOW = "show";
+const SELECTOR_MENU_TOGGLE = "[data-bs-toggle=\"menu\"]";
+const SELECTOR_MENU = ".menu";
+const NOT_SELECTOR_MENU_TOGGLE = `:not(${SELECTOR_MENU_TOGGLE})`;
+const SELECTOR_TAB_PANEL = ".list-group, .nav, [role=\"tablist\"]";
+const SELECTOR_OUTER = ".nav-item, .list-group-item";
+const SELECTOR_INNER = `.nav-link${NOT_SELECTOR_MENU_TOGGLE}, .list-group-item${NOT_SELECTOR_MENU_TOGGLE}, [role="tab"]${NOT_SELECTOR_MENU_TOGGLE}`;
+const SELECTOR_DATA_TOGGLE = "[data-bs-toggle=\"tab\"]";
+const SELECTOR_INNER_ELEM = `${SELECTOR_INNER}, ${SELECTOR_DATA_TOGGLE}`;
+const SELECTOR_DATA_TOGGLE_ACTIVE = `.${CLASS_NAME_ACTIVE}[data-bs-toggle="tab"]`;
+const activationIds = /* @__PURE__ */ new WeakMap();
+/**
+* Class definition
+*/
+var Tab = class Tab extends BaseComponent {
+	constructor(element) {
+		super(element);
+		this._parent = this._element.closest(SELECTOR_TAB_PANEL);
+		if (!this._parent) throw new TypeError(`${this._element.outerHTML} has no valid parent ${SELECTOR_TAB_PANEL}`);
+		this._setInitialAttributes(this._parent, this._getChildren());
+		EventHandler.on(this._element, EVENT_KEYDOWN, (event) => this._keydown(event));
+	}
+	static get NAME() {
+		return NAME;
+	}
+	async show() {
+		const innerElem = this._element;
+		if (this._elemIsActive(innerElem)) return;
+		const active = this._getActiveElem();
+		const hideEvent = active ? EventHandler.trigger(active, EVENT_HIDE, { relatedTarget: innerElem }) : null;
+		if (EventHandler.trigger(innerElem, EVENT_SHOW, { relatedTarget: active }).defaultPrevented || hideEvent && hideEvent.defaultPrevented) return;
+		const activationId = (activationIds.get(this._parent) || 0) + 1;
+		activationIds.set(this._parent, activationId);
+		this._deactivate(active, innerElem);
+		await this._activate(innerElem, active, activationId);
+	}
+	async _activate(element, relatedElem, activationId) {
+		if (!element) return;
+		element.classList.add(CLASS_NAME_ACTIVE);
+		if (element.getAttribute("role") !== "tab") {
+			element.classList.add(CLASS_NAME_SHOW);
+			return;
+		}
+		const pane = SelectorEngine.getElementFromSelector(element);
+		this._activate(pane);
+		const complete = () => {
+			if (activationId !== activationIds.get(this._parent) || !this._elemIsActive(element)) return;
+			element.removeAttribute("tabindex");
+			setAriaAttribute(element, "aria-selected", true);
+			this._toggleMenu(element, true);
+			EventHandler.trigger(element, EVENT_SHOWN, { relatedTarget: relatedElem });
+		};
+		await this._queueCallback(complete, pane ?? element, getTransitionDurationFromElement(pane) > 0);
+	}
+	async _deactivate(element, relatedElem) {
+		if (!element) return;
+		element.classList.remove(CLASS_NAME_ACTIVE);
+		element.blur();
+		if (element.getAttribute("role") !== "tab") {
+			element.classList.remove(CLASS_NAME_SHOW);
+			return;
+		}
+		this._deactivate(SelectorEngine.getElementFromSelector(element));
+		const complete = () => {
+			setAriaAttribute(element, "aria-selected", false);
+			element.setAttribute("tabindex", "-1");
+			this._toggleMenu(element, false);
+			EventHandler.trigger(element, EVENT_HIDDEN, { relatedTarget: relatedElem });
+		};
+		await this._queueCallback(complete, element, false);
+	}
+	_keydown(event) {
+		if (![
+			ARROW_LEFT_KEY,
+			ARROW_RIGHT_KEY,
+			ARROW_UP_KEY,
+			ARROW_DOWN_KEY,
+			HOME_KEY,
+			END_KEY
+		].includes(event.key)) return;
+		if (event.altKey || event.ctrlKey || event.metaKey) return;
+		event.stopPropagation();
+		event.preventDefault();
+		const children = this._getChildren().filter((element) => !isDisabled(element));
+		let nextActiveElement;
+		if ([HOME_KEY, END_KEY].includes(event.key)) nextActiveElement = event.key === HOME_KEY ? children[0] : children.at(-1);
+		else {
+			const isNext = [ARROW_RIGHT_KEY, ARROW_DOWN_KEY].includes(event.key);
+			nextActiveElement = getNextActiveElement(children, event.target, isNext, true);
+		}
+		if (nextActiveElement) {
+			nextActiveElement.focus({ preventScroll: true });
+			Tab.getOrCreateInstance(nextActiveElement).show();
+		}
+	}
+	_getChildren() {
+		return SelectorEngine.find(SELECTOR_INNER_ELEM, this._parent);
+	}
+	_getActiveElem() {
+		return this._getChildren().find((child) => this._elemIsActive(child)) || null;
+	}
+	_setInitialAttributes(parent, children) {
+		this._setAttributeIfNotExists(parent, "role", "tablist");
+		for (const child of children) this._setInitialAttributesOnChild(child);
+	}
+	_setInitialAttributesOnChild(child) {
+		child = this._getInnerElement(child);
+		const isActive = this._elemIsActive(child);
+		const outerElem = this._getOuterElement(child);
+		setAriaAttribute(child, "aria-selected", isActive);
+		if (outerElem !== child) this._setAttributeIfNotExists(outerElem, "role", "presentation");
+		if (!isActive) child.setAttribute("tabindex", "-1");
+		this._setAttributeIfNotExists(child, "role", "tab");
+		this._setInitialAttributesOnTargetPanel(child);
+	}
+	_setInitialAttributesOnTargetPanel(child) {
+		const target = SelectorEngine.getElementFromSelector(child);
+		if (!target) return;
+		this._setAttributeIfNotExists(target, "role", "tabpanel");
+		if (child.id) this._setAttributeIfNotExists(target, "aria-labelledby", `${child.id}`);
+	}
+	_toggleMenu(element, open) {
+		const outerElem = this._getOuterElement(element);
+		const menuToggle = SelectorEngine.findOne(SELECTOR_MENU_TOGGLE, outerElem);
+		if (!menuToggle) return;
+		const menu = SelectorEngine.findOne(SELECTOR_MENU, outerElem);
+		menuToggle.classList.toggle(CLASS_NAME_ACTIVE, open);
+		if (menu) menu.classList.toggle(CLASS_NAME_SHOW, open);
+		setAriaAttribute(menuToggle, "aria-expanded", open);
+	}
+	_setAttributeIfNotExists(element, attribute, value) {
+		if (!element.hasAttribute(attribute)) element.setAttribute(attribute, value);
+	}
+	_elemIsActive(elem) {
+		return elem.classList.contains(CLASS_NAME_ACTIVE);
+	}
+	_getInnerElement(elem) {
+		return elem.matches(SELECTOR_INNER_ELEM) ? elem : SelectorEngine.findOne(SELECTOR_INNER_ELEM, elem);
+	}
+	_getOuterElement(elem) {
+		return elem.closest(SELECTOR_OUTER) || elem;
+	}
+};
+/**
+* Data API implementation
+*/
+EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function(event) {
+	if (["A", "AREA"].includes(this.tagName)) event.preventDefault();
+	if (isDisabled(this)) return;
+	Tab.getOrCreateInstance(this).show();
+});
+/**
+* Initialize on focus
+*/
+EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+	for (const element of SelectorEngine.find(SELECTOR_DATA_TOGGLE_ACTIVE)) Tab.getOrCreateInstance(element);
+});
+//#endregion
+export { Tab as default };
+
+//# sourceMappingURL=tab.js.map
