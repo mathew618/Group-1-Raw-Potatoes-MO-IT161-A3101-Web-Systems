@@ -2,7 +2,7 @@
 const Commission = {
     FORM: 'commissionform2.html',
     PAYMENT: 'paymentmethod.html',
-    STORE: 'ArtifyPH_Requests',
+
     FIELDS: [
         { id: 'name', label: 'Name / Username' },
         { id: 'email', label: 'Email' },
@@ -143,66 +143,47 @@ const Commission = {
         return query ? `${page}?${query}` : page;
     },
 
-    all() {
-        try {
-            return JSON.parse(localStorage.getItem(Commission.STORE)) || [];
-        } catch (error) {
-            return [];
-        }
-    },
-
-    write(requests) {
-        localStorage.setItem(Commission.STORE, JSON.stringify(requests));
-    },
-
     session() {
         return localStorage.getItem(Account.SESSION) || '';
     },
 
-    async create(request) {
-        const record = {
-            id: 'req_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
-            ...request
-        };
+    async all() {
+        const res = await fetch('/api/commission-requests');
+        if (!res.ok) return [];
+        return await res.json();
+    },
 
+    async create(request) {
         const response = await fetch('/api/commission-requests', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(record)
+            body: JSON.stringify(request)
         });
         const result = await response.json().catch(() => ({}));
         if (!response.ok) throw new Error(result.error || 'Could not save commission request.');
-
-        const requests = Commission.all();
-        requests.push(result.commission || record);
-        Commission.write(requests);
-        return result.commission || record;
+        return result.commission;
     },
 
-    update(id, changes) {
-        const requests = Commission.all();
-        const record = requests.find(request => request.id === id);
-        if (!record) return null;
-
-        Object.assign(record, changes);
-        Commission.write(requests);
-        fetch(`/api/commission-requests/${encodeURIComponent(id)}`, {
+    async update(id, changes) {
+        const response = await fetch(`/api/commission-requests/${encodeURIComponent(id)}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(changes)
-        }).catch(() => {});
-        return record;
+        });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) return null;
+        return result.commission;
     },
 
-    latest() {
-        const mine = Commission.all().filter(request => request.clientId === Commission.session());
+    async latest() {
+        const mine = await Commission.byClient(Commission.session());
         return mine.length ? mine[mine.length - 1] : null;
     },
-    pending() {
-        const request = Commission.latest();
+    async pending() {
+        const request = await Commission.latest();
         return request && !request.paid ? request : null;
     },
-    paid(id, method, reference) {
+    async paid(id, method, reference) {
         return Commission.update(id, {
             paid: true,
             method,
@@ -211,15 +192,21 @@ const Commission = {
         });
     },
 
-    byArtist(artistId) {
-        return Commission.all().filter(request => artistId && request.artistId === artistId).reverse();
+    async byArtist(artistId) {
+        if (!artistId) return [];
+        const res = await fetch(`/api/commission-requests?artistId=${encodeURIComponent(artistId)}`);
+        if (!res.ok) return [];
+        return (await res.json()).reverse();
     },
 
-    byClient(clientId) {
-        return Commission.all().filter(request => clientId && request.clientId === clientId).reverse();
+    async byClient(clientId) {
+        if (!clientId) return [];
+        const res = await fetch(`/api/commission-requests?clientId=${encodeURIComponent(clientId)}`);
+        if (!res.ok) return [];
+        return (await res.json()).reverse();
     },
 
-    setStatus(id, status) {
+    async setStatus(id, status) {
         return status === 'rejected'
             ? Commission.update(id, { status, paid: false, method: '', reference: '', paidAt: '' })
             : Commission.update(id, { status });

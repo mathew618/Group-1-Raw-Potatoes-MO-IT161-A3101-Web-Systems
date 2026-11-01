@@ -1,4 +1,4 @@
-/* Sign in and sign up (data/accounts.json) */
+/* Sign in and sign up (MySQL users table) */
 Account.protectGuestPage();
 setupShowPassword();
 

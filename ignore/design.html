@@ -1,0 +1,112 @@
+<!-- This is just for designing. Put the codes in `main.js` for it to work. -->
+<link rel="stylesheet" href="../styles/style.css">
+
+<nav class="navbar navbar-expand-sm bg-artify navbar-dark fixed-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="./index.html">
+            <img class="ArtifyPHLogo" src="./assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+        <!-- Links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="./home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./profile.html">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./settings.html">Settings</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-md bg-artify navbar-dark fixed-top">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="./index.html">
+            <img class="ArtifyPHLogo" src="./assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navigation Links + Mobile -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Search Bar -->
+            <form class="d-flex navbar-search ms-auto" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Search</button>
+            </form>
+
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">FAQs</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Account
+                    </a>
+                    
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+                        <li><a class="dropdown-item" href="./settings.html">Settings</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<!-- Guest -->
+<li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#FAQs">FAQs</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="./login.html">Sign in</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="./signup.html">Sign up</a>
+</li>
+
+<!-- Logged -->
+ <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#FAQs">FAQs</a>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Account
+    </a>
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+        <li><a class="dropdown-item" href="./settings.html">Settings</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#" onclick="window.logoutUser()">Logout</a></li>
+    </ul>
+</li>
+
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footercontent">
+        <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPH Logo" class="artlogo">
+        <p class="slogan">Art by Hand</p>
+        <p class="contact">ArtifyPH@gmail.com</p>
+        <p class="legal">© 2026 ArtifyPH | For School Education Purposes Only</p>
+    </div>
+</footer>

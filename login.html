@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>ArtifyPH - Log In</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifyPH | Log-In</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="styles/style.css">
+
+    <!-- JavaScript -->
+    <script type="module" src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="scripts/main.js" defer></script>
+    <script src="scripts/account.js" defer></script>
+    <script src="scripts/auth.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <!-- Logo -->
-        <a href="index.html" class="ArtifyPHLogo">
-            <img src="assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
-        </a>
-    </header>
+    <header id="header"></header>
 
     <main>
         <section class="AuthCard">
@@ -35,7 +40,7 @@
             </div>
 
             <div class="AuthButton">
-                <button onclick="checkLogin()">Sign In</button>
+                <button onclick="checkLogin()">Log In</button>
             </div>
 
             <p id="Invalid_Credentials" class="AuthError"></p>
@@ -46,9 +51,8 @@
             </p>
         </section>
     </main>
-
-    <script src="scripts/account.js"></script>
-    <script src="scripts/auth.js"></script>
+    
+    <footer id="footer"></footer>
 </body>
 
 </html>

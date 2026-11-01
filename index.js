@@ -10,8 +10,16 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const DATA_DIR = path.join(__dirname, 'data');
-const COMMISSION_REQUESTS_FILE = path.join(DATA_DIR, 'commissions.json');
+
+function toCamelCase(obj) {
+    if (!obj || typeof obj !== 'object') return obj;
+    const result = {};
+    for (const [key, value] of Object.entries(obj)) {
+        const camelKey = key.replace(/_([a-z])/g, (_, char) => char.toUpperCase());
+        result[camelKey] = value;
+    }
+    return result;
+}
 
 app.use(express.json());
 app.use(express.static(__dirname));
@@ -20,25 +28,7 @@ if (fs.existsSync(path.join(__dirname, 'artifyph'))) {
     app.use(express.static(path.join(__dirname, 'artifyph')));
 }
 
-// Commission listings in MySQL, client requests are stored in JSON file.
-if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
-if (!fs.existsSync(COMMISSION_REQUESTS_FILE)) {
-    fs.writeFileSync(COMMISSION_REQUESTS_FILE, JSON.stringify([], null, 4));
-}
-
-function readCommissionRequests() {
-    try {
-        return JSON.parse(fs.readFileSync(COMMISSION_REQUESTS_FILE, 'utf8') || '[]');
-    } catch {
-        return [];
-    }
-}
-
-function writeCommissionRequests(requests) {
-    fs.writeFileSync(COMMISSION_REQUESTS_FILE, JSON.stringify(requests, null, 4));
-}
-
- // Create the tables the API needs if they are not already in the database.
+// Create the tables the API needs if they are not already in the database.
 async function initDb() {
     await pool.query(`
         CREATE TABLE IF NOT EXISTS users (
@@ -90,6 +80,32 @@ async function initDb() {
             PRIMARY KEY (id),
             UNIQUE KEY artist_id (artist_id, image),
             CONSTRAINT artworks_ibfk_1 FOREIGN KEY (artist_id) REFERENCES users (id) ON DELETE CASCADE
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+    `);
+
+    await pool.query(`
+        CREATE TABLE IF NOT EXISTS commission_requests (
+            id INT NOT NULL AUTO_INCREMENT,
+            artist_id VARCHAR(100) NOT NULL,
+            artist_name VARCHAR(100),
+            artist_email VARCHAR(255),
+            client_id VARCHAR(100) NOT NULL,
+            client_name VARCHAR(100) NOT NULL,
+            client_email VARCHAR(255) NOT NULL,
+            package VARCHAR(100),
+            type VARCHAR(100) NOT NULL,
+            deadline DATE NOT NULL,
+            budget DECIMAL(10,2) NOT NULL,
+            platform VARCHAR(100),
+            details TEXT,
+            wip TINYINT(1) DEFAULT 0,
+            status ENUM('pending','accepted','rejected','in-progress','received') DEFAULT 'pending',
+            paid TINYINT(1) DEFAULT 0,
+            method VARCHAR(100),
+            reference VARCHAR(255),
+            requested_at DATETIME,
+            server_saved_at TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (id)
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
     `);
 }
@@ -165,64 +181,106 @@ app.patch('/api/commissions/:id/status', async (req, res) => {
     }
 });
 
-/* ---------- Commission Requests JSON API ---------- */
 
-app.get('/api/commission-requests', (req, res) => {
-    const requests = readCommissionRequests();
-    const { artistId, clientId } = req.query;
+/* ---------- Commission Requests API ---------- */
 
-    if (artistId) return res.json(requests.filter(request => request.artistId === artistId).reverse());
-    if (clientId) return res.json(requests.filter(request => request.clientId === clientId).reverse());
-    res.json(requests);
-});
-
-app.post('/api/commission-requests', (req, res) => {
-    const data = req.body;
-    if (!data.clientName || !data.clientEmail || !data.type || !data.deadline) {
-        return res.status(400).json({ error: 'Please fill out all required fields.' });
-    }
-
-    const budget = Number(data.budget);
-    if (!Number.isFinite(budget) || budget <= 0) {
-        return res.status(400).json({ error: 'Budget must be a positive numeric value.' });
-    }
-
-    const record = {
-        id: data.id || `req_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`,
-        ...data,
-        budget,
-        serverSavedAt: new Date().toISOString()
-    };
-
+app.get('/api/commission-requests', async (req, res) => {
     try {
-        const requests = readCommissionRequests();
-        requests.push(record);
-        writeCommissionRequests(requests);
-        res.status(201).json({ message: 'Commission request saved to JSON', commission: record });
+        const { artistId, clientId } = req.query;
+        let sql = 'SELECT * FROM commission_requests';
+        const params = [];
+        const conditions = [];
+
+        if (artistId) {
+            conditions.push('artist_id = ?');
+            params.push(artistId);
+        }
+        if (clientId) {
+            conditions.push('client_id = ?');
+            params.push(clientId);
+        }
+
+        if (conditions.length) {
+            sql += ' WHERE ' + conditions.join(' AND ');
+        }
+
+        sql += ' ORDER BY id DESC';
+
+        const [rows] = await pool.query(sql, params);
+        res.json(rows.map(toCamelCase));
     } catch (err) {
-        res.status(500).json({ error: 'Could not save commission request.' });
+        res.status(500).json({ error: err.message });
     }
 });
 
-app.patch('/api/commission-requests/:id', (req, res) => {
-    const requests = readCommissionRequests();
-    const record = requests.find(request => request.id === req.params.id);
-    if (!record) return res.status(404).json({ error: 'Record not found' });
-
-    const { status, paid, method, reference, paidAt } = req.body;
-    if (status !== undefined) record.status = status;
-    if (paid !== undefined) record.paid = paid;
-    if (method !== undefined) record.method = method;
-    if (reference !== undefined) record.reference = reference;
-    if (paidAt !== undefined) record.paidAt = paidAt;
-
+app.post('/api/commission-requests', async (req, res) => {
     try {
-        writeCommissionRequests(requests);
-        res.json({ message: 'Commission request updated', commission: record });
-    } catch {
-        res.status(500).json({ error: 'Could not update commission request.' });
+        const {
+            artistId, artistName, artistEmail,
+            clientId, clientName, clientEmail,
+            package: pkg, type, deadline, budget,
+            platform, details, wip, status = 'pending',
+            paid = false, method, reference, requestedAt
+        } = req.body;
+
+        if (!clientName || !clientEmail || !type || !deadline) {
+            return res.status(400).json({ error: 'Please fill out all required fields.' });
+        }
+
+        const budgetNum = Number(budget);
+        if (!Number.isFinite(budgetNum) || budgetNum <= 0) {
+            return res.status(400).json({ error: 'Budget must be a positive numeric value.' });
+        }
+
+        // Convert ISO string (e.g. 2026-10-31T23:01:49.206Z) to MySQL DATETIME (YYYY-MM-DD HH:MM:SS)
+        const requestedAtDb = requestedAt
+            ? new Date(requestedAt).toISOString().replace(/T/, ' ').replace(/\..+Z$/, '')
+            : null;
+
+        const [result] = await pool.query(
+            `INSERT INTO commission_requests
+             (artist_id, artist_name, artist_email, client_id, client_name, client_email,
+              package, type, deadline, budget, platform, details, wip, status, paid, method, reference, requested_at)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [artistId, artistName, artistEmail, clientId, clientName, clientEmail,
+             pkg, type, deadline, budgetNum, platform, details, wip ? 1 : 0, status, paid ? 1 : 0, method, reference, requestedAtDb]
+        );
+
+        const [rows] = await pool.query('SELECT * FROM commission_requests WHERE id = ?', [result.insertId]);
+        res.status(201).json({ message: 'Commission request saved on server', commission: toCamelCase(rows[0]) });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
     }
 });
+
+app.patch('/api/commission-requests/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { status, paid, method, reference, paidAt } = req.body;
+
+        const [existing] = await pool.query('SELECT * FROM commission_requests WHERE id = ?', [id]);
+        if (!existing.length) return res.status(404).json({ error: 'Record not found' });
+
+        const updates = [];
+        const params = [];
+        if (status !== undefined) { updates.push('status = ?'); params.push(status); }
+        if (paid !== undefined) { updates.push('paid = ?'); params.push(paid ? 1 : 0); }
+        if (method !== undefined) { updates.push('method = ?'); params.push(method); }
+        if (reference !== undefined) { updates.push('reference = ?'); params.push(reference); }
+        if (paidAt !== undefined) { updates.push('paid_at = ?'); params.push(paidAt); }
+
+        if (updates.length) {
+            params.push(id);
+            await pool.query(`UPDATE commission_requests SET ${updates.join(', ')} WHERE id = ?`, params);
+        }
+
+        const [rows] = await pool.query('SELECT * FROM commission_requests WHERE id = ?', [id]);
+        res.json({ message: 'Commission request updated', commission: toCamelCase(rows[0]) });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
 
 /* ---------- Artworks API ---------- */
 
@@ -465,5 +523,6 @@ app.listen(PORT, () => {
     console.log(`Users API: http://localhost:${PORT}/api/users`);
     console.log(`Commissions API: http://localhost:${PORT}/api/commissions`);
     console.log(`Artworks API: http://localhost:${PORT}/api/artworks`);
+    console.log(`Commission Requests API: http://localhost:${PORT}/api/commission-requests`);
     console.log(`===============================================`);
 });

@@ -93,8 +93,8 @@ const Payment = {
     },
 
     /* The order cost thingy */
-    loadOrder() {
-        const request = Payment.request();
+    async loadOrder() {
+        const request = await Payment.request();
         if (!request) return;
 
         Payment.setText('CostAmount', Payment.cash(request.budget));
@@ -117,13 +117,13 @@ const Payment = {
     },
 
     /* Records the payment on the dashboard */
-    settle(reference) {
-        const request = Payment.request();
-        if (request) Commission.paid(request.id, document.body.dataset.name, reference);
+    async settle(reference) {
+        const request = await Payment.request();
+        if (request) await Commission.paid(request.id, document.body.dataset.name, reference);
     },
 
     init() {
-        Payment.loadOrder();
+        void Payment.loadOrder();
 
         document.querySelectorAll('input[data-mask]').forEach(input => {
             const mask = Payment.MASKS[input.dataset.mask];
@@ -163,7 +163,7 @@ async function processPayment() {
     button.textContent = '✓ Paid';
     button.classList.add('PaymentPaid');
     Payment.receipt(document.body.dataset.method, reference);
-    Payment.settle(reference);
+    await Payment.settle(reference);
 
     if (done) done.style.display = '';
 }

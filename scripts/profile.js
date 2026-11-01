@@ -431,9 +431,9 @@ function editOptions(type) {
 }
 
 /* Dashboard (owner only) */
-function renderDashboard() {
-    renderClientRequests(Commission.byArtist(profile.id));
-    renderOwnRequests(Commission.byClient(profile.id));
+async function renderDashboard() {
+    renderClientRequests(await Commission.byArtist(profile.id));
+    renderOwnRequests(await Commission.byClient(profile.id));
 }
 
 function renderClientRequests(requests) {
@@ -527,7 +527,7 @@ function dashButton(label, className, action) {
 
     button.addEventListener('click', () => {
         action();
-        renderDashboard();
+        void renderDashboard();
     });
     return button;
 }
@@ -544,7 +544,7 @@ function setupOwner() {
     document.getElementById('CommissionAvailabilityStatus').textContent =
         availabilityToggle.checked ? 'ON' : 'OFF';
 
-    renderDashboard();
+    void renderDashboard();
 
     setupImagePicker('ProfileBanner', 'bannerInput', 'backgroundpicture', BANNER_FALLBACK);
     setupImagePicker('ProfileAvatar', 'avatarInput', 'profilepicture');
