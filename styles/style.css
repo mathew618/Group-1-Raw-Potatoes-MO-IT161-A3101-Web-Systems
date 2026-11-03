@@ -45,12 +45,38 @@ html {
 /* ===================================================================
    ALL PAGES: SHARED COMPONENTS
    =================================================================== */
-.card-artify {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    font-family: Inter, sans-serif;
-    border: none;
+.Introduction {
+    width: 100%;
+    max-width: none;
+    min-height: calc(100vh - 82px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 60px 20px;
+
+    background-image:
+        linear-gradient(
+            rgba(255, 231, 211, 0.20),
+            rgba(255, 231, 211, 0.20)
+        ),
+        url("../assets/images/Index_Photo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Intro-content {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 .card-artify .card-header {
@@ -164,24 +190,26 @@ html {
 .Intro h1 {
     font-weight: bold;
     font-family: lovelo, sans-serif;
-    font-size: 50px;
-    text-shadow: 2px 2px 1px #9e6c53;
-    color: #eda27c;
-    margin-bottom: 10px;
+    font-size: 75px;
+    text-shadow: 2px 2px 1px #aa8a79;
+    color: #ffffff;
+    margin-bottom: 15px;
 }
 
 .Intro h3 {
     font-weight: bold;
     font-family: lovelo, sans-serif;
-    font-size: 24px;
-    color: #9e6c53;
+    font-size: 40px;
+    color: #eda27c;
     margin-top: 5px;
+    text-shadow: 2px 2px 1px #8a4e2e;
+    
 }
 
 .WelcomeMessage p {
     font-family: Inter, sans-serif;
-    font-size: 20px;
-    color: #141313;
+    font-size: 25px;
+    color: #614f4f;
 }
 
 .CreateAccButton button,
@@ -202,10 +230,12 @@ html {
 }
 
 .LoginButton button {
-    color: #eda27c;
-    background-color: #ffffff;
+    color: #ffffff;
     padding: 1px 1px;
     margin-bottom: 8px;
+    font-size: 18px;
+    background-color: transparent;
+    text-shadow: 2px 2px 1px #94847d;
 }
 
 .CreateAccButton button:hover {
@@ -215,7 +245,7 @@ html {
 .LoginButton p {
     font-weight: 400;
     font-family: Inter, sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     text-align: center;
     color: #614f4f;
     margin-top: 50px;
@@ -224,14 +254,14 @@ html {
 .AboutUs {
     font-weight: bold;
     font-family: Inter, sans-serif;
-    font-size: 24px;
+    font-size: 30px;
     color: #eda27c;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .goal {
     font-family: Inter, sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     color: #141313;
 }
 
@@ -276,10 +306,11 @@ html {
 .faqtitle {
     font-weight: bold;
     font-family: Inter, sans-serif;
-    font-size: 24px;
+    font-size: 30px;
     text-align: center;
     color: #eda27c;
     margin-bottom: 10px;
+    margin-top: 30px;
 }
 
 .faq-area {
@@ -1948,6 +1979,7 @@ html {
 
 .search-list-item {
     display: flex;
+    font-family: Inter, sans-serif;
     align-items: center;
     gap: 12px;
     padding: 0.75rem 1rem;
