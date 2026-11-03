@@ -1,4 +1,4 @@
-@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import url("../node_modules/bootstrap/dist/css/bootstrap.css");
 
 /* ===================================================================
    ALL PAGES: BASE, HEADER, NAV
@@ -45,6 +45,77 @@ html {
 /* ===================================================================
    ALL PAGES: SHARED COMPONENTS
    =================================================================== */
+.card-artify {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: Inter, sans-serif;
+    border: none;
+}
+
+.card-artify .card-header {
+    background-color: #FA987F;
+    color: #ffffff;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Buttons*/
+
+.btn-artify {
+    background-color: #FA987F;
+    color: #ffffff;
+    transition: background-color 0.2s ease;
+}
+
+.btn-artify:hover {
+    background-color: #B04825;
+    color: #ffffff;
+}
+
+/* Input Stuff */
+
+.input-artify {
+    background-color: #f6f6f6;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.input-artify:focus {
+    border-color: #FA987F;
+    background-color: #ffffff;
+}
+
+.input-artify:disabled {
+    color: #999;
+    background-color: #ececec;
+}
+
+.form-control:focus {
+    border-color: #ec9e7e;
+    box-shadow: 0 0 0 0.2rem rgba(236, 158, 126, 0.25);
+    outline: 0;
+}
+
+/* Show Password */
+
+.showPassword-artify .form-check-input,
+.showPassword-artify .form-check-label {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.showPassword-artify .form-check-input:checked {
+    background-color: #FA987F;
+    border-color: #FA987F;
+}
+
+.showPassword-artify .form-check-input:focus {
+    border-color: #FA987F;
+    box-shadow: 0 0 0 0.25rem rgba(250, 152, 127, 0.25);
+}
+
+/* OLD STUFF*/
+
 
 /* White content card of the payment and commission pages */
 .PageCard {
@@ -470,121 +541,17 @@ html {
    login.html + signup.html
    =================================================================== */
 
-.AuthCard {
-    background-color: #ffffff;
-    max-width: 500px;
-    margin: 60px auto;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.AuthCard h1 {
+.authLabel {
     font-weight: bold;
     font-family: Inter, sans-serif;
-    font-size: 30px;
     color: #eda27c;
     margin: 0 0 25px;
 }
 
-.AuthField {
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.AuthField label {
-    display: block;
-    font-weight: 400;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #474444;
-    margin-bottom: 5px;
-}
-
-.AuthField input[type="text"],
-.AuthField input[type="email"],
-.AuthField input[type="password"] {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: #e2e2e2;
-    border: 1px solid transparent;
-    border-radius: 6px;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    color: #2e2c2c;
-    outline: none;
-    transition: border-color 0.2s ease, background-color 0.2s ease;
-}
-
-.AuthField input[type="text"]:focus,
-.AuthField input[type="email"]:focus,
-.AuthField input[type="password"]:focus {
-    border-color: #FA987F;
-    background-color: #ffffff;
-}
-
-.ShowPasswordContainer {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.ShowPasswordContainer input[type="checkbox"] {
-    width: auto;
-    margin: 0;
-    accent-color: #FA987F;
-    cursor: pointer;
-}
-
-.ShowPasswordContainer label {
-    margin-bottom: 0;
-    cursor: pointer;
-}
-
-.AuthButton {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.AuthButton button {
-    width: 75%;
-    background-color: #FA987F;
-    color: #ffffff;
-    border: none;
-    padding: 12px 20px;
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.AuthButton button:hover {
-    background-color: #B04825;
-}
-
-/* Error message filled by scripts/auth.js */
-.AuthError {
-    color: #d10000;
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    margin: 15px 0 0;
-}
-
-.AuthError:empty {
-    display: none;
-}
-
 /* Footer hint under the card */
 .AuthHint {
-    font-weight: 400;
     font-family: Arial, sans-serif;
     font-size: 14px;
-    line-height: 1.6;
-    color: #474444;
     text-align: center;
     margin-top: 25px;
 }
@@ -1972,6 +1939,47 @@ html {
     text-shadow: 2px 2px 1px #9e6c53;
 }
 
+/* ===================================================================
+   search.html: user search result list
+   =================================================================== */
+.search-section {
+    min-height: 60vh;
+}
+
+.search-list-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.75rem 1rem;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.search-list-item:hover {
+    background-color: #f8f9fa;
+    border-color: #adb5bd;
+    cursor: pointer;
+}
+
+.search-list-avatar {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #eef0f2;
+}
+
+.search-list-username {
+    font-size: 1rem;
+    font-weight: 600;
+    overflow-wrap: break-word;
+}
+
 .ProfileMissing p {
     font-size: 15px;
     color: #555;
@@ -1992,102 +2000,64 @@ html {
     background-color: #832a2a;
 }
 
+
 /* ===================================================================
    settings.html
    =================================================================== */
 
-.SettingTools {
+.settings-new-card {
     background-color: #ffffff;
-    max-width: 450px;
-    margin: 40px auto;
-    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     font-family: Inter, sans-serif;
-}
-
-.SettingTools h2 {
-    margin: 0 0 15px 0;
-    font-size: 18px;
-    font-family: Inter, sans-serif;
-}
-
-.FieldLabel {
-    display: block;
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 5px;
-    margin-top: 15px;
-}
-
-.SettingTools input[type="text"],
-.SettingTools input[type="password"],
-.SettingTools input[type="file"] {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: #e2e2e2;
     border: none;
-    border-radius: 6px;
-    font-size: 14px;
-    font-family: Inter, sans-serif;
 }
 
-.SettingTools input:disabled {
-    background-color: #ececec;
-    color: #999;
-    cursor: not-allowed;
-}
-
-.HiddenMountains {
-    display: none;
-}
-
-.SectionDivider {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 25px 0;
-}
-
-.SaveRow {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 25px;
-}
-
-.SaveRow button {
-    border: none;
-    padding: 10px 28px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
+.settings-new-card .card-header {
+    background-color: #FA987F;
     color: #ffffff;
-    font-family: Inter, sans-serif;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
 }
 
-#EditButton {
+.btn-settings-edit {
     background-color: #d16767;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
 }
 
-#EditButton:hover {
+.btn-settings-edit:hover {
     background-color: #832a2a;
+    color: #ffffff;
 }
 
-#SaveButton {
-    background-color: #ec9e7e;
-}
-
-#SaveButton:hover {
-    background-color: #d16767;
-}
-
-#SaveButton:disabled {
+.btn-settings-edit:disabled {
     background-color: #f3c9b6;
     cursor: not-allowed;
 }
 
-#SaveStatus {
+.btn-settings-save {
+    background-color: #ec9e7e;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+}
+
+.btn-settings-save:hover {
+    background-color: #d16767;
+}
+
+.btn-settings-save:disabled {
+    background-color: #f3c9b6;
+    cursor: not-allowed;
+}
+
+.settings-hidden {
+    display: none;
+}
+
+.settings-save-status {
     text-align: right;
     color: green;
     font-size: 13px;
@@ -2095,45 +2065,11 @@ html {
     font-family: Inter, sans-serif;
 }
 
-#PasswordMismatch,
-#EmailMismatch {
-    color: #b83b3b;
-    font-size: 12px;
-    margin-top: 4px;
-    font-family: Inter, sans-serif;
-}
-
-.LETMEOUTPLSSS {
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.LETMEOUTPLSSS button {
-    border: none;
-    padding: 10px 204px;
-    border-radius: 6px;
-    font-size: 14px;
-    cursor: pointer;
-    color: #9e552a;
-    font-family: Inter, sans-serif;
-}
-
-.LETMEOUTPLSSS button:hover {
-    background-color: #ffc08c;
-}
-
 /* ===================================================================
    commissionform.html
    =================================================================== */
 
-.CommissionForm h1 {
-    color: #33322f;
-    text-align: center;
-    font-family: Inter, sans-serif;
-}
-
 .CommissionForm h2 {
-    margin-top: 20px;
     margin-left: 30px;
     color: #444;
     font-family: Inter, sans-serif;
@@ -2281,3 +2217,4 @@ textarea.InvalidField {
     border: 2px solid #c62828;
     background: #fff5f5;
 }
+

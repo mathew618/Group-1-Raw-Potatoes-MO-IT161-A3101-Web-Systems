@@ -6,19 +6,26 @@ function fail(element, message) {
     element.textContent = message;
 }
 
-async function checkLogin() {
+async function checkLogin(event) {
+    event.preventDefault();
     const identifier = document.getElementById('email').value.trim();
     const password = document.getElementById('UserPassword').value;
     const error = document.getElementById('Invalid_Credentials');
+    error.textContent = '';
+    error.style.display = 'none';
     const account = await Account.find(identifier, password);
 
-    if (!account) return fail(error, 'Incorrect Credentials');
+    if (!account) {
+        error.style.display = 'block';
+        return fail(error, 'Incorrect Credentials');
+    }
 
     Account.setCurrent(account);
     window.location.href = Account.HOME;
 }
 
-async function createAccount() {
+async function createAccount(event) {
+    event.preventDefault();
     const username = document.getElementById('username').value.trim();
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value;

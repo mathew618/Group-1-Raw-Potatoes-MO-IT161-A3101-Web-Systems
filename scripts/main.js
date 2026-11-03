@@ -53,7 +53,7 @@ const buildHeader = () => {
     <a class="nav-link" aria-current="page" href="./home.html">Home</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#FAQs">FAQs</a>
+    <a class="nav-link" href="./index.html#FAQs">FAQs</a>
 </li>
 <li class="nav-item">
     <a class="nav-link" href="./login.html">Log in</a>
@@ -70,7 +70,7 @@ const buildHeader = () => {
     <a class="nav-link active" aria-current="page" href="./home.html">Home</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" href="#FAQs">FAQs</a>
+    <a class="nav-link" href="./index.html#FAQs">FAQs</a>
 </li>
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -80,7 +80,7 @@ const buildHeader = () => {
         <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
         <li><a class="dropdown-item" href="./settings.html">Settings</a></li>
         <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#" onclick="window.logoutUser()">Logout</a></li>
+        <li><a class="dropdown-item text-danger" href="#" onclick="window.logoutUser()">Logout</a></li>
     </ul>
 </li>
 `, true);
@@ -107,6 +107,28 @@ document.addEventListener("DOMContentLoaded", () => {
     if (footer) {
         footer.innerHTML = FOOTER_HTML;
     }
+
+    /* Retain the searched term in the header search bar on search results page. */
+    const params = new URLSearchParams(window.location.search);
+    const searchTerm = params.get('q');
+    if (searchTerm) {
+        const searchInput = document.querySelector('.navbar-search input[type="search"]');
+        if (searchInput) {
+            searchInput.value = decodeURIComponent(searchTerm);
+        }
+    }
+
+    /* Navbar search: navigate to search page with the entered term. */
+    document.addEventListener('submit', (event) => {
+        if (event.target.classList.contains('navbar-search')) {
+            event.preventDefault();
+            const input = event.target.querySelector('input[type="search"]');
+            const term = input ? input.value.trim() : '';
+            if (term) {
+                window.location.href = `./search.html?q=${encodeURIComponent(term)}`;
+            }
+        }
+    });
 });
 
 /* Logout */

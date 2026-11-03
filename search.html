@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifyPH | Search</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!-- JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/account.js" defer></script>
+    <script src="./scripts/search.js" defer></script>
+</head>
+
+<body>
+    <header id="header"></header>
+
+    <main>
+
+        <section class="search-section py-4">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div id="searchLabel" class="fs-6 fw-bold text-muted mb-2" style="display:none;"></div>
+                        <div id="searchResults" class="list-group"></div>
+                        <div id="searchEmpty" class="text-center mt-4" style="display:none;">No users found.</div>
+                        <div id="searchHint" class="text-muted small text-center mt-4">Search for users from the header.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+</body>
+
+</html>

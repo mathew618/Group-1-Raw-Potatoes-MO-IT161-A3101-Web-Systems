@@ -1,64 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>ArtifyPH - Settings</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifyPH | Settings</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!-- JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/account.js" defer></script>
+    <script src="./scripts/settings.js" defer></script>
 </head>
 
 <body>
     <header id="header"></header>
 
     <main>
-        <div class="SettingTools">
-            <h2>Account</h2>
 
-            <label class="FieldLabel" for="email">Email</label>
-            <input type="text" id="email" placeholder="Enter Email" disabled>
+        <section class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card card-artify shadow-sm">
+                        <div class="card-header bg-artify text-white d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Account Settings</h5>
+                        </div>
+                        <div class="card-body">
 
-            <div class="HiddenMountains" id="vemail">
-                <label class="FieldLabel" for="ConEmail">Confirm Email</label>
-                <input type="text" id="ConEmail" placeholder="Confirm Email">
+                            <!-- Account Section -->
+                            <div class="mb-4">
+                                <h6 class="text-muted fw-bold text-uppercase small mb-3">Account</h6>
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="text" id="email" class="form-control input-artify" placeholder="Enter email" disabled>
+                                    <div id="vemail" class="settings-hidden mt-2">
+                                        <label for="ConEmail" class="form-label">Confirm Email</label>
+                                        <input type="text" id="ConEmail" class="form-control input-artify" placeholder="Confirm email">
+                                        <p id="EmailMismatch" class="form-text text-danger small mb-0"></p>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="UserPassword" class="form-label">Password</label>
+                                    <input type="password" id="UserPassword" class="form-control input-artify" placeholder="Enter Password" disabled>
+                                    <div id="vpassword" class="settings-hidden mt-2">
+                                        <label for="ConPassword" class="form-label">Confirm Password</label>
+                                        <input type="password" id="ConPassword" class="form-control input-artify" placeholder="Confirm password">
+                                        <p id="PasswordMismatch" class="form-text text-danger small mb-0"></p>
+                                    </div>
+                                    <div id="Showstopper" class="settings-hidden form-check mt-2 showPassword-artify">
+                                        <input class="form-check-input" type="checkbox" id="ShowPassword" data-targets="UserPassword ConPassword">
+                                        <label class="form-check-label" for="ShowPassword">Show password</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr class="SectionDivider mb-4">
+
+                            <!-- Profile Section -->
+                            <div class="mb-4">
+                                <h6 class="text-muted fw-bold text-uppercase small mb-3">Profile</h6>
+
+                                <div class="mb-3">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" id="username" class="form-control input-artify" placeholder="Enter username" disabled>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="biodesc" class="form-label">Bio</label>
+                                    <textarea id="biodesc" class="form-control input-artify" rows="3" placeholder="Tell people about yourself..." maxlength="200" disabled style="resize: none; overflow-wrap: break-word;" wrap="hard"></textarea>
+                                    <div class="form-text">Max 200 characters</div>
+                                </div>
+                            </div>
+
+                            <!-- Actions -->
+                            <div class="d-flex gap-2 justify-content-end">
+                                <button id="EditButton" class="btn btn-settings-edit" type="button" onclick="toggleEdit()">Edit</button>
+                                <button id="SaveButton" class="btn btn-settings-save" type="button" onclick="saveSettings()" disabled>Save changes</button>
+                            </div>
+
+                            <p id="SaveStatus" class="settings-save-status"></p>
+
+                        </div>
+                    </div>
+
+                    <!-- Logout -->
+                    <div class="text-center mt-4">
+                        <button type="button" class="btn btn-outline-danger" onclick="logout()">Log out</button>
+                    </div>
+                </div>
             </div>
-            <p id="EmailMismatch"></p>
-
-            <label class="FieldLabel" for="UserPassword">Password</label>
-            <input type="password" id="UserPassword" placeholder="Enter Password" disabled>
-
-            <div class="HiddenMountains" id="vpassword">
-                <label class="FieldLabel" for="ConPassword">Confirm Password</label>
-                <input type="password" id="ConPassword" placeholder="Confirm Password">
-            </div>
-            <p id="PasswordMismatch"></p>
-
-            <div class="HiddenMountains" id="Showstopper">
-                <input type="checkbox" id="ShowPassword" data-targets="UserPassword ConPassword"> <span>Show Password</span>
-            </div>
-
-            <hr class="SectionDivider">
-
-            <h2>Profile</h2>
-
-            <label class="FieldLabel" for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter Username" disabled>
-
-            <label class="FieldLabel" for="biodesc">Bio</label>
-            <input type="text" id="biodesc" maxlength="50" placeholder="Tell people about yourself" disabled>
-
-            <div class="SaveRow">
-                <button id="EditButton" onclick="toggleEdit()">Edit</button>
-                <button id="SaveButton" onclick="saveSettings()" disabled>Save</button>
-            </div>
-            <p id="SaveStatus"></p>
-        </div>
-        <div class="LETMEOUTPLSSS">
-            <button onclick="logout()">LOG OUT </button>
-        </div>
+        </section>
+        
     </main>
 
-    <script type="module" src="scripts/main.js" defer></script>
-    <script src="scripts/account.js"></script>
-    <script src="scripts/settings.js"></script>
+    <footer id="footer"></footer>
 </body>
 
 </html>
