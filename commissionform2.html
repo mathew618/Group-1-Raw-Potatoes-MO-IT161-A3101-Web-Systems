@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>ArtifyPH - Commission Form2</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifyPH | Commission Form2</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!-- JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/account.js" defer></script>
+    <script src="./scripts/commission.js" defer></script>
+    <script src="./scripts/validationstuff.js" defer></script>
 </head>
 
 <body data-commission="details">
+
     <header id="header"></header>
 
     <main>
+        
         <section class="PageCard CommissionForm2">
             <p class="CommissionRequiredNote"><span class="RequiredStar">*</span> Required Fields</p>
             <p class="CommissionTarget" id="TargetArtist"></p><br>
@@ -64,18 +77,9 @@
             <div class="buttonBox">
                 <a href="paymentmethod.html" class="ActionButton" onclick="createCommission(event)">Next</a>
             </div>
-
-
         </section>
 
-
     </main>
-
-    <script type="module" src="scripts/main.js" defer></script>
-    <script src="scripts/account.js"></script>
-    <script src="scripts/validationstuff.js"></script>
-    <script src="scripts/commission.js"></script>
-
 </body>
 
 </html>

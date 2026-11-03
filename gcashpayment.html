@@ -1,14 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>ArtifyPH - Gcash Payment</title>
-    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtifyPH | GCash Payment</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+
+    <!-- JavaScript -->
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="./scripts/main.js" defer></script>
+    <script src="./scripts/account.js" defer></script>
+    <script src="./scripts/commission.js" defer></script>
+    <script src="./scripts/validationstuff.js" defer></script>
+    <script src="./scripts/payment.js" defer></script>
 </head>
 
 <body data-method="gcash" data-name="GCash">
-    <header id="header"></header>
 
+    <header id="header"></header>
 
     <main>
         <!-- Someone help please -->
@@ -61,13 +73,8 @@
                 </div>
             </div>
         </div>
-    </main>
 
-    <script type="module" src="scripts/main.js" defer></script>
-    <script src="scripts/account.js"></script>
-    <script src="scripts/commission.js"></script>
-    <script src="scripts/validationstuff.js"></script>
-    <script src="scripts/payment.js"></script>
+    </main>
 </body>
 
 </html>
