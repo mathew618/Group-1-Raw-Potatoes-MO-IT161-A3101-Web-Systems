@@ -6,10 +6,10 @@
 body {
     margin: 0;
     padding: 0;
-    padding-top: 80px;
+    padding-top: 74px;
 
     background-color: #FEE8D3;
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
 }
 
 html {
@@ -296,11 +296,13 @@ html {
     padding: 10px;
     text-align: center;
     margin-top: 50px;
+    font-family: Inter, sans-serif;
 }
 
 .footercontent {
     max-width: 1000px;
     margin: 0 auto;
+    font-family: Inter, sans-serif;
 }
 
 .artlogo {
@@ -313,13 +315,13 @@ html {
 
 .footer p {
     margin: 5px 0;
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 14px;
 }
 
 .slogan {
     margin: 5px 0;
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 20px;
     font-weight: 700;
 }
@@ -608,7 +610,7 @@ html {
 
 /* Footer hint under the card */
 .AuthHint {
-    font-family: Arial, sans-serif;
+    font-family: Inter, sans-serif;
     font-size: 14px;
     text-align: center;
     margin-top: 25px;
@@ -617,6 +619,7 @@ html {
 .AuthHint a {
     color: #FA987F;
     text-decoration: none;
+    font-family: Inter, sans-serif;
 }
 
 .AuthHint a:hover {

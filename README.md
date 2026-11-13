@@ -1,4 +1,5 @@
 <h1>Project Name: ArtifyPH</h1>
+
 ____________________________________________
 
 <h2>Group 1 Members:</h2>
@@ -12,6 +13,8 @@ Kim Charlotte V. Anicete
 Mathew Wilson B. Vercida 
 ___________________________________________
 <h2>Links</h2>
+**Group Internal Testing**
+https://docs.google.com/spreadsheets/d/1jtBfv9hAJ_vftJoGw5capaL8Xm6AEA01UKWGFxIscsQ/edit?usp=sharing
 
 **Deployment**
 https://mathew618.github.io/Group-1-Raw-Potatoes-MO-IT161-A3101-Web-Systems/

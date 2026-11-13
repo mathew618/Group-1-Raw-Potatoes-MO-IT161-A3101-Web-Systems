@@ -20,7 +20,7 @@ const buildHeader = () => {
     }
 
     const navbar = (links, loggedIn) => `
-<nav class="navbar navbar-expand-md bg-artify navbar-dark fixed-top sticky-header">
+<nav class="navbar navbar-expand-md bg-artify navbar-dark fixed-top sticky-header font-inter">
     <div class="container-fluid">
         <a class="navbar-brand" href="./index.html">
             <img class="ArtifyPHLogo" src="./assets/images/ArtifyPH_Logo.png" alt="ArtifyPHLogo">
