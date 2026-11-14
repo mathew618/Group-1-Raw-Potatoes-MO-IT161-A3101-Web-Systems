@@ -1,7 +1,7 @@
 @import url("../node_modules/bootstrap/dist/css/bootstrap.css");
 
 /* ===================================================================
-   ALL PAGES: BASE, HEADER, NAV
+   ALL PAGES: BASE
    =================================================================== */
 :root {
     --artify-color-1: #FA987F;
@@ -20,14 +20,6 @@ body {
 
 html {
     scroll-behavior: smooth;
-}
-
-.bg-artify {
-    background-color: var(--artify-color-1);
-}
-
-.ArtifyPHLogo {
-    width: 180px;
 }
 
 /* ===================================================================
@@ -51,6 +43,14 @@ html {
 /* ===================================================================
    ARTIFY: THEME
    =================================================================== */
+.bg-artify {
+    background-color: var(--artify-color-1);
+}
+
+.ArtifyPHLogo {
+    width: 180px;
+}
+
 .card-artify .card-header {
     background-color: var(--artify-color-1);
     color: white;
@@ -103,13 +103,18 @@ html {
     background-color: #ececec;
 }
 
+.input-artify[readonly] {
+    background-color: #f2f2f2;
+    color: #666;
+}
+
 .form-control:focus {
     border-color: #ec9e7e;
     box-shadow: 0 0 0 0.2rem rgba(236, 158, 126, 0.25);
     outline: 0;
 }
 
-/* Show Password */
+/* Form Check */
 
 .form-check-artify .form-check-input,
 .form-check-artify .form-check-label {
@@ -126,7 +131,6 @@ html {
     border-color: var(--artify-color-1);
     box-shadow: 0 0 0 0.25rem rgba(250, 152, 127, 0.25);
 }
-
 
 /* ===================================================================
    ALL PAGES: SHARED COMPONENTS
@@ -2050,33 +2054,6 @@ html {
    commissionform.html
    =================================================================== */
 
-.CommissionForm h2 {
-    margin-left: 30px;
-    color: #444;
-    font-family: Inter, sans-serif;
-}
-
-.CommissionForm label {
-    font-size: 14px;
-    display: block;
-    margin-bottom: 10px;
-    margin-left: 30px;
-    font-family: Inter, sans-serif;
-}
-
-.CommissionForm .FieldError {
-    margin-left: 47px;
-}
-
-.CommissionForm p.CommissionTarget,
-.CommissionForm2 p.CommissionTarget {
-    margin: 0 30px 10px;
-    color: #444;
-    font-weight: bold;
-    font-size: 14px;
-    font-family: Inter, sans-serif;
-}
-
 .CommissionForm p.CommissionError,
 .CommissionForm2 p.CommissionError {
     margin: 0 30px 10px;
@@ -2113,11 +2090,6 @@ html {
 /* ===================================================================
    commissionform2.html
    =================================================================== */
-.CommissionForm2 input[readonly] {
-    background-color: #f2f2f2;
-    color: #666;
-    border-color: #ddd;
-}
 
 .CommissionForm2 .RequiredStar {
     color: #d10000;
