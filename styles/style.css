@@ -3,6 +3,12 @@
 /* ===================================================================
    ALL PAGES: BASE, HEADER, NAV
    =================================================================== */
+:root {
+    --artify-color-1: #FA987F;
+    --artify-color-2: #B04825;
+    --artify-color-3: #832a2a;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -17,7 +23,7 @@ html {
 }
 
 .bg-artify {
-    background-color: #FA987F;
+    background-color: var(--artify-color-1);
 }
 
 .ArtifyPHLogo {
@@ -42,6 +48,85 @@ html {
     font-style: normal;
     font-display: swap;
 }
+/* ===================================================================
+   ARTIFY: THEME
+   =================================================================== */
+.card-artify .card-header {
+    background-color: var(--artify-color-1);
+    color: white;
+    border-bottom: none;
+}
+
+/* Buttons*/
+
+.btn-artify {
+    --bs-btn-color: white;
+    --bs-btn-bg: var(--artify-color-1);
+    --bs-btn-border-color: var(--artify-color-1);
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: var(--artify-color-2);
+    --bs-btn-hover-border-color: var(--artify-color-2);
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: var(--artify-color-3);
+    --bs-btn-active-border-color: var(--artify-color-3);
+    --bs-btn-focus-shadow-rgb: 250, 152, 127;
+    transition: background-color 0.2s ease;
+}
+
+.btn-outline-artify {
+    --bs-btn-color: var(--artify-color-2);
+    --bs-btn-border-color: var(--artify-color-1);
+    --bs-btn-hover-color: white;
+    --bs-btn-hover-bg: var(--artify-color-2);
+    --bs-btn-hover-border-color: var(--artify-color-1);
+    --bs-btn-active-color: white;
+    --bs-btn-active-bg: var(--artify-color-3);
+    --bs-btn-active-border-color: var(--artify-color-3);
+    --bs-btn-focus-shadow-rgb: 250, 152, 127;
+    transition: background-color 0.2s ease;
+}
+
+/* Input Stuff */
+
+.input-artify {
+    background-color: #f6f6f6;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.input-artify:focus {
+    border-color: var(--artify-color-1);
+    background-color: white;
+}
+
+.input-artify:disabled {
+    color: #999;
+    background-color: #ececec;
+}
+
+.form-control:focus {
+    border-color: #ec9e7e;
+    box-shadow: 0 0 0 0.2rem rgba(236, 158, 126, 0.25);
+    outline: 0;
+}
+
+/* Show Password */
+
+.form-check-artify .form-check-input,
+.form-check-artify .form-check-label {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.form-check-artify .form-check-input:checked {
+    background-color: var(--artify-color-1);
+    border-color: var(--artify-color-1);
+}
+
+.form-check-artify .form-check-input:focus {
+    border-color: var(--artify-color-1);
+    box-shadow: 0 0 0 0.25rem rgba(250, 152, 127, 0.25);
+}
+
 
 /* ===================================================================
    ALL PAGES: SHARED COMPONENTS
@@ -78,42 +163,6 @@ html {
     box-sizing: border-box;
 }
 
-.card-artify .card-header {
-    background-color: #FA987F;
-    color: #ffffff;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-}
-
-/* Buttons*/
-
-.btn-artify {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #FA987F;
-    --bs-btn-border-color: #FA987F;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #B04825;
-    --bs-btn-hover-border-color: #B04825;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #832a2a;
-    --bs-btn-active-border-color: #832a2a;
-    --bs-btn-focus-shadow-rgb: 250, 152, 127;
-    transition: background-color 0.2s ease;
-}
-
-.btn-outline-artify {
-    --bs-btn-color: #B04825;
-    --bs-btn-border-color: #FA987F;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #B04825;
-    --bs-btn-hover-border-color: #FA987F;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #832a2a;
-    --bs-btn-active-border-color: #832a2a;
-    --bs-btn-focus-shadow-rgb: 250, 152, 127;
-    transition: background-color 0.2s ease;
-}
-
 /* Fonts */
 
 .font-inter {
@@ -122,47 +171,6 @@ html {
 
 .font-lovelo {
     font-family: Lovelo, sans-serif;
-}
-
-/* Input Stuff */
-
-.input-artify {
-    background-color: #f6f6f6;
-    transition: box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
-}
-
-.input-artify:focus {
-    border-color: #FA987F;
-    background-color: #ffffff;
-}
-
-.input-artify:disabled {
-    color: #999;
-    background-color: #ececec;
-}
-
-.form-control:focus {
-    border-color: #ec9e7e;
-    box-shadow: 0 0 0 0.2rem rgba(236, 158, 126, 0.25);
-    outline: 0;
-}
-
-/* Show Password */
-
-.showPassword-artify .form-check-input,
-.showPassword-artify .form-check-label {
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.showPassword-artify .form-check-input:checked {
-    background-color: #FA987F;
-    border-color: #FA987F;
-}
-
-.showPassword-artify .form-check-input:focus {
-    border-color: #FA987F;
-    box-shadow: 0 0 0 0.25rem rgba(250, 152, 127, 0.25);
 }
 
 /* OLD STUFF*/
@@ -2069,10 +2077,6 @@ html {
     font-family: Inter, sans-serif;
 }
 
-.CommissionForm2 p.CommissionTarget {
-    margin-left: 70px;
-}
-
 .CommissionForm p.CommissionError,
 .CommissionForm2 p.CommissionError {
     margin: 0 30px 10px;
@@ -2109,45 +2113,10 @@ html {
 /* ===================================================================
    commissionform2.html
    =================================================================== */
-
-.CommissionForm2 p {
-    color: #969696;
-    text-align: left;
-    margin-left: 65px;
-    margin-bottom: 10px;
-    font-family: Inter, sans-serif;
-}
-
-.CommissionForm2 label {
-    font-size: 14px;
-    font-weight: 400;
-    display: block;
-    margin-left: 70px;
-    font-family: Inter, sans-serif;
-}
-
-.CommissionForm2 input[type="text"],
-.CommissionForm2 input[type="email"],
-.CommissionForm2 input[type="date"],
-.CommissionForm2 input[type="number"],
-.CommissionForm2 input[type="file"],
-.CommissionForm2 select,
-.CommissionForm2 textarea {
-    width: 80%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 14px;
-    box-sizing: border-box;
-    display: block;
-    margin: 0 auto;
-}
-
 .CommissionForm2 input[readonly] {
     background-color: #f2f2f2;
     color: #666;
     border-color: #ddd;
-    cursor: not-allowed;
 }
 
 .CommissionForm2 .RequiredStar {
@@ -2176,12 +2145,6 @@ html {
 body[data-method="card"] .FieldError,
 body[data-method="gcash"] .FieldError {
     margin: 4px 50px 10px;
-}
-
-.CommissionForm2 .FieldError {
-    width: 80%;
-    box-sizing: border-box;
-    margin: 4px auto 10px;
 }
 
 input.InvalidField,
